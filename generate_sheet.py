@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GGWP — Glyph Generator Workflow Protocol
+GGWP — GlyphSheet Generation Workflow Protocol
 Generate blank glyph sheet SVGs from a config file.
 
 Usage:

@@ -20,6 +20,18 @@ Desktop.ini
 *.swo
 *~
 
+# Python
+__pycache__/
+*.pyc
+
+# Test artifacts
+test-output/
+test_*.py
+
+# Generated
+sheets/
+fonts/
+
 # Build artifacts (common)
 *.o
 *.a

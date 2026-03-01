@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GGWP — Glyph Generator Workflow Protocol
+GGWP — GlyphSheet Generation Workflow Protocol
 Default configuration for glyph sheet generation and font building.
 
 This is the default config. Copy and modify for your own font project.
@@ -47,6 +47,12 @@ CONFIG = {
             "ps_suffix": "Book",  # PostScript name suffix
             "weight_class": 350,  # usWeightClass
             "filename": "GlyphSheet-Book.svg",  # output SVG filename
+            # "metrics_override": {    # optional — bypass auto-derivation
+            #     "asc": 881,          # ascender (font units, positive)
+            #     "desc": -122,        # descender (font units, negative)
+            #     "capH": 739,         # cap height (font units)
+            #     "xH": 552,           # x-height (font units)
+            # },
         },
         {
             "name": "Medium",

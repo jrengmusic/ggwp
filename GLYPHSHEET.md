@@ -1,4 +1,4 @@
-# GGWP — Glyph Generator Workflow Protocol
+# GGWP — GlyphSheet Generation Workflow Protocol
 
 **Version:** 1.0
 **Purpose:** A formalized pipeline for creating fonts from SVG glyph sheets.
@@ -84,10 +84,11 @@ Reference lines define the font's vertical metrics. They are horizontal colored 
 **These are initial positions.** The designer can adjust them in the SVG editor. The build script reads the actual positions from the SVG, not from the config.
 
 **How the build script uses them:**
-- `scale = capH / (baseline_y - capline_y)` where `capH` is the target cap height in font units
-- `ascender = (baseline_y - cell_top) * scale` (derived from reference line positions)
-- `descender = (baseline_y - descender_y) * scale` (negative value)
-- `UPM = ascender - descender`
+- `scale = capH / (baseline_y - capline_y)` where `capH` is the target cap height in font units (739)
+- `ascender = (baseline_y - cell_top) * scale` (cell_top = margin_top + label_height)
+- `descender = -(descender_y - baseline_y) * scale` (negative value)
+- `UPM = ascender + abs(descender)`
+- Or use `metrics_override` per weight to bypass auto-derivation entirely
 
 ### Step 4: Write the Config
 
@@ -136,9 +137,7 @@ CONFIG = {
         "rsb_color": "#FF00FF",
     },
 
-    "codepoints": [
-        "A", "B", "C", ...  # your character set
-    ],
+    "codepoints": [chr(c) for c in range(0x21, 0x7F)],  # ASCII printable
 
     "output": {
         "sheets_dir": "sheets",
@@ -150,8 +149,11 @@ CONFIG = {
 ### Step 5: Generate Blank Sheets
 
 ```bash
-python3 ggwp/generate_sheet.py my_config.py
+python3 generate_sheet.py my_config.py          # all weights
+python3 generate_sheet.py my_config.py Regular   # single weight only
 ```
+
+Run from the directory where your config and the ggwp scripts live.
 
 This creates one SVG per weight in the `sheets_dir` directory. Each SVG contains:
 - Dark grey background
@@ -181,7 +183,8 @@ Open each SVG in your editor (Affinity Designer recommended). For each cell:
 ### Step 7: Build Fonts
 
 ```bash
-python3 ggwp/build_fonts.py my_config.py
+python3 build_fonts.py my_config.py          # all weights
+python3 build_fonts.py my_config.py Bold     # single weight only
 ```
 
 This reads each filled SVG sheet and produces a TTF in `fonts_dir`. The build script:
@@ -301,7 +304,9 @@ The build script relies on a specific element ordering within the SVG. This is t
 
 ## Metrics Derivation
 
-All metrics are derived from the SVG reference lines. Nothing is hardcoded.
+The build script supports two modes: **auto-derivation** from SVG geometry (default), or **explicit override** via `metrics_override` in the weight config.
+
+### Auto-derivation (default)
 
 ```
 Given (from SVG, row 0):
@@ -309,19 +314,37 @@ Given (from SVG, row 0):
     xheight_y   = Y position of green line
     baseline_y  = Y position of yellow line
     descender_y = Y position of red line
+    cell_top_y  = margin_top + label_height (from grid config)
 
 Derived:
-    capH  = target cap height in font units (e.g., 739)
+    capH  = target cap height in font units (739)
     scale = capH / (baseline_y - capline_y)
 
-    ascender  = round((baseline_y - capline_y) * scale)    = capH
-    descender = -round((descender_y - baseline_y) * scale) = negative
+    ascender  = round((baseline_y - cell_top_y) * scale)   includes space above capline
+    descender = -round((descender_y - baseline_y) * scale) negative
     xHeight   = round((baseline_y - xheight_y) * scale)
-    UPM       = ascender - descender
+    UPM       = ascender + abs(descender)
 
     advance_w (mono) = round(cell_width * scale)
     advance_w (prop) = round((RSB_x - LSB_x) * scale)  per glyph
 ```
+
+### Explicit override (per-weight)
+
+When `metrics_override` is present in the weight dict, the build script uses those values directly:
+
+```python
+"metrics_override": {
+    "asc": 881,      # ascender (font units, positive)
+    "desc": -122,    # descender (font units, negative)
+    "capH": 739,     # cap height — also determines scale
+    "xH": 552,       # x-height (optional, derived if omitted)
+}
+```
+
+Scale is derived from `capH / (baseline_y - capline_y)`. UPM = `asc + abs(desc)`.
+
+Use overrides when auto-derived values don't match your intended metrics (e.g., hand-tuned ascender that includes extra headroom above the capline).
 
 **Note:** The build script reads reference line positions from the SVG by matching line colors. The designer can adjust these lines in the editor to fine-tune metrics. The config values are only used for initial sheet generation.
 
@@ -355,6 +378,20 @@ Derived:
 | `ps_suffix` | str | PostScript name suffix |
 | `weight_class` | int | usWeightClass (100-900) |
 | `filename` | str | Output SVG filename |
+| `metrics_override` | dict | Optional. Bypass auto-derivation (see below) |
+
+### Metrics Override Dict (optional, per-weight)
+
+When present, the build script uses these values directly instead of deriving from cell geometry. The scale factor is derived from `capH / (baseline_y - capline_y)`.
+
+| Field | Type | Description |
+|---|---|---|
+| `asc` | int | Ascender in font units (positive) |
+| `desc` | int | Descender in font units (negative) |
+| `capH` | int | Cap height in font units |
+| `xH` | int | x-height in font units (optional, derived if omitted) |
+
+Use this when you have hand-tuned metrics that don't match the auto-derivation (which computes ascender from cell-top to baseline).
 
 ### Grid Dict
 
@@ -380,6 +417,29 @@ Each key (capline, xheight, baseline, descender) maps to:
 | `y` | int | Initial Y position from cell top (px) |
 | `color` | str | Hex color for the line |
 | `label` | str | Human-readable label |
+
+### Appearance Dict (optional)
+
+Controls visual styling of the generated SVG sheet. All fields have sensible defaults.
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `background` | str | `"#1A1A1A"` | Background fill color |
+| `cell_border_color` | str | `"#333333"` | Cell rectangle stroke color |
+| `cell_border_width` | float | `0.5` | Cell rectangle stroke width |
+| `label_color` | str | `"#666666"` | Codepoint label text color |
+| `label_font_size` | int | `7` | Label font size (px) |
+| `ref_line_width` | float | `0.5` | Reference line stroke width |
+| `ref_line_opacity` | float | `0.6` | Reference line opacity |
+| `marker_line_width` | float | `0.5` | LSB/RSB marker stroke width |
+| `marker_opacity` | float | `0.6` | LSB/RSB marker opacity |
+
+### Output Dict (optional)
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `sheets_dir` | str | `"sheets"` | Directory for generated blank SVGs |
+| `fonts_dir` | str | `"fonts"` | Directory for built TTF files |
 
 ---
 

@@ -1,4 +1,4 @@
-# GGWP — Glyph Generator Workflow Protocol
+# GGWP — GlyphSheet Generation Workflow Protocol
 
 **Build fonts from SVG glyph sheets. No GUI font editor required.**
 
@@ -88,10 +88,10 @@ CONFIG = {
         ...
     },
     "reference_lines": {
-        "capline":   {"y": 0,   "color": "#800080"},
-        "xheight":   {"y": 40,  "color": "#008000"},
-        "baseline":  {"y": 145, "color": "#808000"},
-        "descender": {"y": 223, "color": "#FF0000"},
+        "capline":   {"y": 0,   "color": "#800080", "label": "Cap Height"},
+        "xheight":   {"y": 40,  "color": "#008000", "label": "x-Height"},
+        "baseline":  {"y": 145, "color": "#808000", "label": "Baseline"},
+        "descender": {"y": 223, "color": "#FF0000", "label": "Descender"},
     },
     "codepoints": [chr(c) for c in range(0x21, 0x7F)],
 }
@@ -109,6 +109,8 @@ The build script expects this element order per cell:
 <line ... stroke="#008000"/>    <!-- x-height -->
 <line ... stroke="#808000"/>    <!-- baseline -->
 <line ... stroke="#FF0000"/>    <!-- descender -->
+<line ... stroke="#00FFFF"/>    <!-- LSB marker (proportional only) -->
+<line ... stroke="#FF00FF"/>    <!-- RSB marker (proportional only) -->
 <g id="glyph-U+0041">          <!-- glyph paths (draw here) -->
   <path d="..." fill="white"/>
 </g>
@@ -129,6 +131,30 @@ See [`GLYPHSHEET.md`](GLYPHSHEET.md) for comprehensive documentation including:
 - Monospace vs proportional details
 - Troubleshooting guide
 - Agent validation checklists
+
+---
+
+## Why This Exists
+
+Font creation has been gatekept by tooling for decades.
+
+The professional options — Glyphs ($300), RoboFont ($490), FontLab ($500) — are expensive, platform-locked, and ship with drawing tools worse than the vector editor you already own. The free option, FontForge, has a UI from 2003 and crashes regularly. The affordable option, Birdfont, is clunky and sells expiring licenses.
+
+These tools fuse two completely separate concerns: **drawing glyphs** and **compiling font tables**. Drawing is a creative act. Compiling is engineering. There is no reason they need to live in the same application.
+
+Meanwhile, the vector editor landscape has changed:
+
+- **Affinity Designer** — now free (acquired by Canva), full-featured, sub-pixel precision
+- **Inkscape** — always free, always capable
+- **Figma** — free tier, browser-based, collaborative
+
+The creative half of font making is now zero cost. GGWP is the other half. Also zero cost.
+
+A font is just a collection of lookup tables — outlines, metrics, naming, encoding. Once you have vector paths in an SVG, building those tables is a deterministic, automatable process. No proprietary format. No magic. Just math and spec compliance.
+
+You don't need to understand typography jargon to make a font. You don't need to know what "UPM" or "fsSelection bit 7" means. You need to draw letters that look right, place reference lines where they feel right, and run a script. The eyes work. The vocabulary is just labels.
+
+Total cost of a professional font pipeline: `pip install fonttools`.
 
 ---
 
