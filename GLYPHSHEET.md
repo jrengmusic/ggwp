@@ -15,7 +15,22 @@ GGWP is a method for building TrueType fonts (.ttf) without a GUI font editor. T
 
 ## The Chain
 
-<img src="diagrams/chain.svg" alt="The Chain">
+```
+1. CONFIG         Define font metadata, grid, codepoints, weights
+                  (Python dict in a .py file)
+                       |
+                       v
+2. GENERATE       Run generate_sheet.py to emit blank SVG sheets
+                  (one sheet per weight)
+                       |
+                       v
+3. DRAW           Designer fills glyphs into cells using any SVG editor
+                  (Affinity Designer, Inkscape, etc.)
+                       |
+                       v
+4. BUILD          Run build_fonts.py to parse filled sheets into TTFs
+                  (reads everything from the SVG — no manual metric entry)
+```
 
 Each step is independent. You can regenerate sheets without losing drawn glyphs (just don't overwrite). You can rebuild fonts any time the SVG changes.
 
@@ -184,11 +199,37 @@ This reads each filled SVG sheet and produces a TTF in `fonts_dir`. The build sc
 
 ## SVG Sheet Anatomy
 
-<img src="diagrams/sheet-anatomy.svg" alt="SVG Sheet Anatomy">
+```
++------------------------------------------------------------------+
+|  Title: "My Sans Regular"                     Legend: -- -- -- -- |
+|                                                                   |
+|  +--- label ---+    +--- label ---+                               |
+|  |  A          |    |  B          |    ...                        |
+|  |  ========== | <- capline (purple)                              |
+|  |             |                                                  |
+|  |  ---------- | <- x-height (green)                              |
+|  |             |                                                  |
+|  |  ========== | <- baseline (yellow)                             |
+|  |             |                                                  |
+|  |  ---------- | <- descender (red)                               |
+|  +-------------+    +-------------+                               |
+|                                                                   |
+|  +--- label ---+    +--- label ---+                               |
+|  |  K          |    |  L          |    ...                        |
+|  |  ...        |    |  ...        |                               |
++------------------------------------------------------------------+
+```
 
 For proportional fonts, each cell also has:
-
-<img src="diagrams/sidebearing.svg" alt="Sidebearing Markers">
+```
+|  |  |                          |  |  |
+|  |  |        glyph             |  |  |
+|  |  |                          |  |  |
+   ^                                ^
+   LSB (cyan)                       RSB (magenta)
+   
+   advance_width = RSB_x - LSB_x (in SVG px, scaled to font units)
+```
 
 ---
 
@@ -267,7 +308,26 @@ The build script supports two modes: **auto-derivation** from SVG geometry (defa
 
 ### Auto-derivation (default)
 
-<img src="diagrams/metrics.svg" alt="Metrics Derivation">
+```
+Given (from SVG, row 0):
+    capline_y   = Y position of purple line
+    xheight_y   = Y position of green line
+    baseline_y  = Y position of yellow line
+    descender_y = Y position of red line
+    cell_top_y  = margin_top + label_height (from grid config)
+
+Derived:
+    capH  = target cap height in font units (739)
+    scale = capH / (baseline_y - capline_y)
+
+    ascender  = round((baseline_y - cell_top_y) * scale)   includes space above capline
+    descender = -round((descender_y - baseline_y) * scale) negative
+    xHeight   = round((baseline_y - xheight_y) * scale)
+    UPM       = ascender + abs(descender)
+
+    advance_w (mono) = round(cell_width * scale)
+    advance_w (prop) = round((RSB_x - LSB_x) * scale)  per glyph
+```
 
 ### Explicit override (per-weight)
 
@@ -463,7 +523,21 @@ Standard usWeightClass values:
 
 ## File Structure
 
-<img src="diagrams/file-structure.svg" alt="File Structure">
+```
+your-font-project/
+|-- my_config.py              <-- your config (copy from sheet_config.py)
+|-- sheets/                   <-- generated blank SVGs
+|   |-- MyFont-Regular.svg
+|   |-- MyFont-Bold.svg
+|-- fonts/                    <-- built TTFs
+|   |-- MyFont-Regular.ttf
+|   |-- MyFont-Bold.ttf
+|-- ggwp/                     <-- the toolkit (don't modify)
+    |-- sheet_config.py       <-- default/example config
+    |-- generate_sheet.py     <-- blank sheet generator
+    |-- build_fonts.py        <-- SVG-to-TTF builder
+    |-- GLYPHSHEET.md         <-- this document
+```
 
 ---
 

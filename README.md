@@ -10,7 +10,13 @@ The glyph sheet is the single source of truth. The designer controls everything 
 
 ## The Chain
 
-<img src="diagrams/readme-chain.svg" alt="The Chain">
+```
+Config (.py)  -->  generate_sheet.py  -->  Blank SVG
+                                              |
+                                         Designer draws
+                                              |
+Filled SVG    -->  build_fonts.py     -->  .ttf
+```
 
 1. **Define** font metadata, grid layout, and character set in a Python config
 2. **Generate** blank SVG glyph sheets with reference lines and cell grid
