@@ -1,245 +1,162 @@
 #!/usr/bin/env python3
 """
 GGWP — GlyphSheet Generation Workflow Protocol
-Default configuration for glyph sheet generation and font building.
+Single source of truth for grid, metrics, and font metadata.
+All scripts import from here. No hardcoded derived values elsewhere.
 
-This is the default config. Copy and modify for your own font project.
-Pass your custom config to generate_sheet.py:
-    python3 generate_sheet.py my_font_config.py
-
-Every field is documented. Required fields are marked [REQUIRED].
-Optional fields have sensible defaults.
+Copy and modify for your own font project.
 """
 
-CONFIG = {
-    # ------------------------------------------------------------------
-    # Font Metadata [REQUIRED]
-    # ------------------------------------------------------------------
-    "family_name": "Display Mono",
-    "version": "1.0",
-    "copyright": (
-        "MMXXVI \u00a9 JUBILANT RESEARCH OF ECLECTIC NOVELTY "
-        "IN GENERATING MUSIC. ALL RIGHTS RESERVED."
-    ),
-    "trademark": (
-        "Display is a registered trademark of \u00a9 JRENG! ALL RIGHTS RESERVED."
-    ),
-    "vendor": "JRNG",  # 4-char vendor ID (achVendID)
-    "designer": "JRENG!",
-    "description": "Designed for Ephemeral Nexus Display.",
-    "url": "https://jrengmusic.com",
-    # ------------------------------------------------------------------
-    # Font Type [REQUIRED]
-    # ------------------------------------------------------------------
-    # "monospace" — all glyphs share cell_width as advance width.
-    #               No LSB/RSB markers needed.
-    # "proportional" — each glyph has its own advance width defined
-    #                  by LSB (cyan) and RSB (magenta) markers in the cell.
-    "font_type": "monospace",
-    # ------------------------------------------------------------------
-    # Weights [REQUIRED]
-    # Each weight produces one SVG sheet and one TTF.
-    # ------------------------------------------------------------------
-    "weights": [
-        {
-            "name": "Book",  # human-readable weight name
-            "style": "Book",  # OS/2 subfamily
-            "ps_suffix": "Book",  # PostScript name suffix
-            "weight_class": 350,  # usWeightClass
-            "filename": "GlyphSheet-Book.svg",  # output SVG filename
-            # "metrics_override": {    # optional — bypass auto-derivation
-            #     "asc": 881,          # ascender (font units, positive)
-            #     "desc": -122,        # descender (font units, negative)
-            #     "capH": 739,         # cap height (font units)
-            #     "xH": 552,           # x-height (font units)
-            # },
-        },
-        {
-            "name": "Medium",
-            "style": "Medium",
-            "ps_suffix": "Medium",
-            "weight_class": 500,
-            "filename": "GlyphSheet-Medium.svg",
-        },
-        {
-            "name": "Bold",
-            "style": "Bold",
-            "ps_suffix": "Bold",
-            "weight_class": 700,
-            "filename": "GlyphSheet-Bold.svg",
-        },
-    ],
-    # ------------------------------------------------------------------
-    # Grid Layout [REQUIRED]
-    # ------------------------------------------------------------------
-    # columns: glyphs per row
-    # cell_width: width of the drawing area inside each cell (px)
-    # cell_height: height of the drawing area inside each cell (px)
-    # col_gap: horizontal gap between cells (px)
-    # row_gap: vertical gap between cells (px), includes label row
-    # label_height: height reserved for the codepoint label above each cell (px)
-    #
-    # Total col_step = cell_width + col_gap
-    # Total row_step = cell_height + row_gap
-    # SVG width  = margin_left + columns * col_step - col_gap + margin_right
-    # SVG height = margin_top + rows * row_step - row_gap + margin_bottom
-    "grid": {
-        "columns": 10,
-        "cell_width": 120,
-        "cell_height": 223,
-        "col_gap": 20,
-        "row_gap": 20,
-        "label_height": 15,
-        "margin_left": 40,
-        "margin_top": 60,
-        "margin_right": 20,
-        "margin_bottom": 40,
+COLS = 10
+MARGIN_TOP = 70
+MARGIN_LEFT = 40
+CELL_W = 120
+CELL_H = 243
+GUTTER = 10
+
+COL_STEP = CELL_W + GUTTER
+ROW_STEP = CELL_H + GUTTER
+
+REFLINES = [
+    (31, "rgb(167,139,250)"),
+    (71, "rgb(52,211,153)"),
+    (176, "rgb(250,204,21)"),
+    (217, "rgb(248,113,113)"),
+]
+
+CAPLINE_Y = MARGIN_TOP + 31
+BASELINE_Y = MARGIN_TOP + 176
+
+CAP_H = 739
+X_H = 552
+ASC = 881
+DESC = -122
+LINE_GAP = 0
+ADVANCE_W_FACTOR = 5.125
+
+FAMILY = "My Font"
+VERSION = "1.0"
+COPYRIGHT = "Copyright 2026 Your Name"
+TRADEMARK = ""
+VENDOR = "NONE"
+DESIGNER = "Your Name"
+DESCRIPTION = ""
+URL = ""
+
+CHARS = [
+    "!",
+    '"',
+    "#",
+    "$",
+    "%",
+    "&",
+    "'",
+    "(",
+    ")",
+    "*",
+    "+",
+    ",",
+    "-",
+    ".",
+    "/",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ":",
+    ";",
+    "<",
+    "=",
+    ">",
+    "?",
+    "@",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "[",
+    "\\",
+    "]",
+    "^",
+    "_",
+    "`",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    "{",
+    "|",
+    "}",
+    "~",
+]
+
+LIGATURES_2 = []
+LIGATURES_3 = []
+
+WEIGHTS = [
+    {
+        "svg": "GlyphSheet-Regular.svg",
+        "style": "Regular",
+        "full": "My Font Regular",
+        "ps": "MyFont-Regular",
+        "weight_class": 400,
     },
-    # ------------------------------------------------------------------
-    # Reference Lines [REQUIRED]
-    # Vertical positions relative to cell top (0 = top of cell_height).
-    # These define font metrics. The designer can adjust them in the SVG
-    # editor; build_fonts.py reads the actual positions from the SVG.
-    #
-    # For sheet generation, these are the INITIAL positions.
-    # Values are in px from the top of each cell's drawing area.
-    # ------------------------------------------------------------------
-    "reference_lines": {
-        "capline": {"y": 0, "color": "#800080", "label": "Cap Height"},
-        "xheight": {"y": 40, "color": "#008000", "label": "x-Height"},
-        "baseline": {"y": 145, "color": "#808000", "label": "Baseline"},
-        "descender": {"y": 223, "color": "#FF0000", "label": "Descender"},
-    },
-    # ------------------------------------------------------------------
-    # Sidebearing Markers (proportional fonts only)
-    # Vertical lines within each cell marking left and right boundaries.
-    # Ignored for monospace fonts.
-    # ------------------------------------------------------------------
-    "sidebearing_markers": {
-        "lsb_color": "#00FFFF",  # cyan — left sidebearing
-        "rsb_color": "#FF00FF",  # magenta — right sidebearing
-    },
-    # ------------------------------------------------------------------
-    # Sheet Appearance
-    # ------------------------------------------------------------------
-    "appearance": {
-        "background": "#1A1A1A",  # dark grey background
-        "cell_border_color": "#333333",  # cell rectangle stroke
-        "cell_border_width": 0.5,
-        "label_color": "#666666",  # codepoint label text color
-        "label_font_size": 7,  # px
-        "ref_line_width": 0.5,  # reference line stroke width
-        "ref_line_opacity": 0.6,
-        "marker_line_width": 0.5,  # LSB/RSB marker stroke width
-        "marker_opacity": 0.6,
-    },
-    # ------------------------------------------------------------------
-    # Codepoints [REQUIRED]
-    # Flat list of characters to include. Auto-fills left-to-right,
-    # top-to-bottom into the grid.
-    # ------------------------------------------------------------------
-    "codepoints": [
-        # ASCII printable (0x21-0x7E) — 94 characters
-        "!",
-        '"',
-        "#",
-        "$",
-        "%",
-        "&",
-        "'",
-        "(",
-        ")",
-        "*",
-        "+",
-        ",",
-        "-",
-        ".",
-        "/",
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        ":",
-        ";",
-        "<",
-        "=",
-        ">",
-        "?",
-        "@",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
-        "[",
-        "\\",
-        "]",
-        "^",
-        "_",
-        "`",
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-        "{",
-        "|",
-        "}",
-        "~",
-    ],
-    # ------------------------------------------------------------------
-    # Output Directories
-    # ------------------------------------------------------------------
-    "output": {
-        "sheets_dir": "sheets",  # where blank SVGs go
-        "fonts_dir": "fonts",  # where built TTFs go
-    },
-}
+]
+
+BG_COLOR = "rgb(20,20,20)"
+CELL_STROKE = "rgb(50,50,50)"
+LABEL_COLOR = "rgb(100,100,100)"
+LABEL_FONT_SIZE = 7
+GLYPH_FILL = "rgb(224,224,224)"
+
+REFLINE_COLORS = {color for _, color in REFLINES}
