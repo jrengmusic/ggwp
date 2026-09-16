@@ -1,0 +1,94 @@
+return {
+  compile = {
+  },
+  configurations = {
+    debug = {
+      argument = "debug",
+      buildDir = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug",
+      buildType = "Debug",
+    },
+    default = {
+      argument = "",
+      buildDir = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release",
+      buildType = "Release",
+    },
+    ["no-sign"] = {
+      argument = "no-sign",
+      buildDir = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release",
+      buildType = "Release",
+    },
+  },
+  dependencies = {
+    juce = {
+      modules = {
+        "juce_core",
+        "juce_gui_basics",
+      },
+      root = "/Users/jreng/Documents/Poems/JUCE",
+    },
+    user = {
+      modules = {
+        {
+          name = "jam_core",
+          root = "/Users/jreng/Documents/Poems/dev/jam/jam_core",
+        },
+        {
+          name = "jam_freetype",
+          root = "/Users/jreng/Documents/Poems/dev/jam/jam_freetype",
+        },
+        {
+          name = "jam_graphics",
+          root = "/Users/jreng/Documents/Poems/dev/jam/jam_graphics",
+        },
+        {
+          name = "jam_markdown",
+          root = "/Users/jreng/Documents/Poems/dev/jam/jam_markdown",
+        },
+        {
+          name = "jam_opentype",
+          root = "/Users/jreng/Documents/Poems/dev/jam/jam_opentype",
+        },
+      },
+      root = "/Users/jreng/Documents/Poems/dev/jam",
+    },
+  },
+  launch = {
+    ggwp = {
+      adapter = "whatdbg",
+      request = "launch",
+    },
+  },
+  manifest = {
+    id = "com.jrengmusic.ggwp",
+    name = "ggwp",
+    root = "/Users/jreng/Documents/Poems/dev/ggwp",
+    version = "1.0",
+  },
+  selection = {
+    configuration = "debug",
+    host = "",
+    target = "ggwp",
+  },
+  sources = {
+    "/Users/jreng/Documents/Poems/dev/ggwp/project-info.md",
+  },
+  targets = {
+    {
+      capabilities = {
+        debug = true,
+        run = true,
+      },
+      kind = "executable",
+      name = "ggwp",
+      product = {
+        debug = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug/ggwp_artefacts/Debug/ggwp",
+        default = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release/ggwp_artefacts/Release/ggwp",
+        ["no-sign"] = "/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release/ggwp_artefacts/Release/ggwp",
+      },
+    },
+  },
+  toolchain = {
+    manifest = "cast/spell.md",
+    name = "cast",
+  },
+}

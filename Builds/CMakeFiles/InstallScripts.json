@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/jreng/Documents/Poems/dev/ggwp/Builds/cmake_install.cmake",
+		"/Users/jreng/Documents/Poems/dev/ggwp/Builds/JUCE/cmake_install.cmake",
+		"/Users/jreng/Documents/Poems/dev/ggwp/Builds/JUCE/modules/cmake_install.cmake",
+		"/Users/jreng/Documents/Poems/dev/ggwp/Builds/JUCE/extras/Build/cmake_install.cmake",
+		"/Users/jreng/Documents/Poems/dev/ggwp/Builds/JUCE/extras/Build/juceaide/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

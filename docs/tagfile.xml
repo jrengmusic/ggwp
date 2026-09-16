@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile doxygen_version="1.18.0">
+  <compound kind="file">
+    <name>ProjectInfo.h</name>
+    <path>generated/</path>
+    <filename>_project_info_8h.html</filename>
+    <namespace>ProjectInfo</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Help.h</name>
+    <path></path>
+    <filename>_help_8h.html</filename>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>printHelp</name>
+      <anchorfile>_help_8h.html</anchorfile>
+      <anchor>aa64fced00ebfc0c2b6c4f0eb3ec0690a</anchor>
+      <arglist>(const juce::String &amp;helpText)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Init.cpp</name>
+    <path></path>
+    <filename>_init_8cpp.html</filename>
+    <includes id="_init_8h" name="Init.h" local="yes" import="no" module="no" objc="no">Init.h</includes>
+    <member kind="typedef">
+      <type>jam::Document::Element</type>
+      <name>Element</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a092db571134501c2b1f06e2d822eaed0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getManifestFileName</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a892a072494f1174a756b6ad68b4a5f22</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getPostScriptBase</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a4c0b5f9ff6edbb69761e80f3e30fa836</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isBacktickCell</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a23468ca633dfde4f4a474b5e28342d2e</anchor>
+      <arglist>(const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addHeading</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a966220d30329998bd6f8ae1297403bf6</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, int level, const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addCell</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a9abe6b1a2de2c97497068409ff649fe5</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;row, const juce::Identifier &amp;columnId, const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addTableRow</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>aed6918eb7b10a3d4b69827f150ca2a54</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;rowId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addTableBorder</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>aa7130b2d1498ab7a72f2e06d99d7161b</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>ac43a40722dc758f40e4c9542e6303a22</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addKeyTypeValueTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a8909b7a4ffee3f3d25b1f3552fc9a9c8</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addKeyTypeValueRow</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a00daa78c24ad587b76474ff2ad10d3c7</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;key, const juce::Identifier &amp;type, const juce::String &amp;value)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addMetricsTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a8f683173ea55595927649a2b24310763</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addFontTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a9cde8387533c2ee3be2790f161403f4a</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addRegularTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>acde2cb14e5ab4dfb543e97b65413975f</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName, const juce::String &amp;postScriptBase)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addGlyphsTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a7d097342d91dfcbba776f52c4f8227c2</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static jam::ConfigDocument</type>
+      <name>getManifestDocument</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>ad942c149575abbe9c7fc39da1ece36aa</anchor>
+      <arglist>(const juce::String &amp;familyName, const juce::String &amp;postScriptBase)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getGroupId</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>ae96bfe4d6b4e97a961dbd9ebe3ba0299</anchor>
+      <arglist>(const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getGlyphGroupSvg</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a5db5568c7811262eb5ef20cf9a38f3ea</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document, Element &amp;row, int rowIndex)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getSheetSvg</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a3c3f0a487d9d2102030beb26312f161a</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>writeManifestFile</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a14f936eb60e768b98f59c090ae580ea5</anchor>
+      <arglist>(const juce::File &amp;manifestFile, const jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>writeSheetFile</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a6e28e1eaf83290f7a3565ae97294b189</anchor>
+      <arglist>(const juce::File &amp;sheetFile, const jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>runInitCommand</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a0a1d5482f23087d80058fe184475c707</anchor>
+      <arglist>(const juce::ArgumentList &amp;args)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetColumns</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a43e933a958448f3e5e17ed58f764387f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetMarginTop</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a97c89fa90a5914b82931a3d3dfe0219e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetMarginLeft</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a803087b2bceb5d9c341aff92e57e4884</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetCellWidth</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a5eee2998e6156b07b5a8e902a15e28ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetCellHeight</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>afe20910f444d3c629b8b69e723aee220</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetGutter</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a993c6e234be9905efc6fee99101c6b52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>columnStep</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a962b05672e8201bfe4a55d0eba9103e3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>rowStep</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>aeab50829c094f48dc266bc637b66940d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>regularSheetPath</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a0639b8991bb6348ae2a0905cc0248d5f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Init.h</name>
+    <path></path>
+    <filename>_init_8h.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>runInitCommand</name>
+      <anchorfile>_init_8h.html</anchorfile>
+      <anchor>a0a1d5482f23087d80058fe184475c707</anchor>
+      <arglist>(const juce::ArgumentList &amp;args)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const juce::String</type>
+      <name>initOption</name>
+      <anchorfile>_init_8h.html</anchorfile>
+      <anchor>a953d36e7a8730fcc73e05921ffafeee5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Main.cpp</name>
+    <path></path>
+    <filename>_main_8cpp.html</filename>
+    <includes id="_help_8h" name="Help.h" local="yes" import="no" module="no" objc="no">Help.h</includes>
+    <includes id="_init_8h" name="Init.h" local="yes" import="no" module="no" objc="no">Init.h</includes>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getSheetFileName</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>acae09ad678b08326ea70061f86b3ed0c</anchor>
+      <arglist>(const juce::ValueTree &amp;values, const juce::Identifier &amp;weightId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getSheetText</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a1925c3901f40a83ede144babdd77d353</anchor>
+      <arglist>(const juce::File &amp;manifestFile, const juce::String &amp;sheetFileName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::unique_ptr&lt; FT_LibraryRec_, decltype(&amp;FT_Done_FreeType)&gt;</type>
+      <name>getFreeTypeLibrary</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>af7df1c9d60aeec14653923611f14a0d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::unique_ptr&lt; FT_FaceRec_, decltype(&amp;FT_Done_Face)&gt;</type>
+      <name>getValidatedFace</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a77f04d706bf42e713bffc26f3bc7b0f6</anchor>
+      <arglist>(FT_Library library, const juce::MemoryBlock &amp;fontBytes)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>validateGlyphAdvance</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>aa4179572f00cd5248cb160bef36c70de</anchor>
+      <arglist>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>validateGlyphCodepoint</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a8df53085917e251b3ebd0faed96c7137</anchor>
+      <arglist>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>validateGlyphOutline</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>aa9c266ca3cd99c1b8e250838f977a5fe</anchor>
+      <arglist>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>validateGlyph</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a5f79f6776f2a944dcc48fb058c91cd62</anchor>
+      <arglist>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>validateFont</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>af781781d93ea8cf9272fc905581be1a6</anchor>
+      <arglist>(const jam::OpenTypeDocument &amp;document, const juce::MemoryBlock &amp;fontBytes)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>runBuildCommand</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>af11f7f241d12aa4623372cd83072906f</anchor>
+      <arglist>(const juce::ArgumentList &amp;args)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>main</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a0ddf1224851353fc92bfbff6f499fa97</anchor>
+      <arglist>(int argc, char *argv[])</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>roundTripFailure</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a283cbb1ba98117f5ba997afd8e9df3d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>buildOption</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>ac95de14c2f5e0f4d84dc40db5b4528c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>weightOption</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a3655a04c7f1377df2cff5e37b68d30a6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>outOption</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a6546b992492905725d67d772c0fc0b5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>helpOption</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>acc114b3bfdbb26f7d7e3c94138bf1ee3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const juce::String</type>
+      <name>versionOption</name>
+      <anchorfile>_main_8cpp.html</anchorfile>
+      <anchor>a1ce060d0fb7908e13c67812b9eb4cd3a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>ProjectInfo</name>
+    <filename>namespace_project_info.html</filename>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>projectName</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a50f49d766351ea9313f67b3f30aa014d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>companyName</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a9b435df60395ecec1378ecbaba7ccb75</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>legalCompanyName</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a75557edf46fa8becc81d2bff04c4c24b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>versionString</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a7e092322572cc0554d2ee7e6963b22fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>versionNumber</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a3dfad1d1308874f47f13297fa6e93c49</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>productWebsite</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a53f184d022499b38a6958b0ea2e88ab9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *const</type>
+      <name>companyEmail</name>
+      <anchorfile>namespace_project_info.html</anchorfile>
+      <anchor>a9f61dfba4aab183c0a33c730776e3227</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>std</name>
+    <filename>namespacestd.html</filename>
+  </compound>
+  <compound kind="dir">
+    <name>generated</name>
+    <path>generated/</path>
+    <filename>dir_84fc5dba3506812825191c0c043e3c97.html</filename>
+    <file>ProjectInfo.h</file>
+  </compound>
+</tagfile>

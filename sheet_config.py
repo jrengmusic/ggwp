@@ -143,6 +143,8 @@ CHARS = [
 LIGATURES_2 = []
 LIGATURES_3 = []
 
+ARROWS = []
+
 WEIGHTS = [
     {
         "svg": "GlyphSheet-Regular.svg",

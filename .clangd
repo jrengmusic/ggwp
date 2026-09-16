@@ -1,0 +1,47 @@
+CompileFlags:
+  CompilationDatabase: /Users/jreng/Documents/Poems/dev/ggwp
+  Remove: [--target=*]
+  Add:
+    - -DCAST_COMMIT=\"0f2f26b\"
+    - -DDEBUG=1
+    - -DDONT_SET_USING_JUCE_NAMESPACE=1
+    - -DJUCE_DONT_DECLARE_PROJECTINFO=1
+    - -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1
+    - -DJUCE_IN_APP_PURCHASES=0
+    - -DJUCE_MODULE_AVAILABLE_jam_core=1
+    - -DJUCE_MODULE_AVAILABLE_jam_freetype=1
+    - -DJUCE_MODULE_AVAILABLE_jam_graphics=1
+    - -DJUCE_MODULE_AVAILABLE_jam_markdown=1
+    - -DJUCE_MODULE_AVAILABLE_jam_opentype=1
+    - -DJUCE_MODULE_AVAILABLE_juce_core=1
+    - -DJUCE_MODULE_AVAILABLE_juce_data_structures=1
+    - -DJUCE_MODULE_AVAILABLE_juce_events=1
+    - -DJUCE_MODULE_AVAILABLE_juce_graphics=1
+    - -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1
+    - -DJUCE_STANDALONE_APPLICATION=1
+    - -DJUCE_TARGET_HAS_BINARY_DATA=1
+    - -D_DEBUG=1
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug/ggwp_artefacts/JuceLibraryCode
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/../jam
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/Source/generated
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/../../JUCE/modules/juce_graphics/fonts/harfbuzz
+    - -I/Users/jreng/Documents/Poems/JUCE/modules
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/../jam/jam_freetype/freetype/include
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug/juce_binarydata_ggwp_BinaryData/JuceLibraryCode
+    - -g
+    - -std=c++17
+    - -arch
+    - x86_64
+    - -arch
+    - arm64
+    - -mmacosx-version-min=11.0
+    - -Wno-shadow
+    - -Wno-unused-parameter
+    - -Wno-float-equal
+    - -Wno-sign-conversion
+    - -Wno-switch-enum
+    - -Wno-implicit-float-conversion
+    - -O0
+Diagnostics:
+  MissingIncludes: None
+  UnusedIncludes: None

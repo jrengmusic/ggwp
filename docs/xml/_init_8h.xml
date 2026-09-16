@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_init_8h" kind="file" language="C++">
+    <compoundname>Init.h</compoundname>
+    <includes local="no">JuceHeader.h</includes>
+    <includedby refid="_init_8cpp" local="yes">Init.cpp</includedby>
+    <includedby refid="_main_8cpp" local="yes">Main.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Init.h</label>
+        <link refid="_init_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Init.cpp</label>
+        <link refid="_init_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Init.h</label>
+        <link refid="_init_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Main.cpp</label>
+        <link refid="_main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>const juce::String initOption</definition>
+        <argsstring></argsstring>
+        <name>initOption</name>
+        <initializer>{ &quot;--init&quot; }</initializer>
+        <briefdescription>
+<para>The command line option that selects the init command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Init.h" line="11" column="27" bodyfile="Init.h" bodystart="11" bodyend="11"/>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="145" endline="177">main</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="274" endline="291">runInitCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_init_8h_1a0a1d5482f23087d80058fe184475c707" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void runInitCommand</definition>
+        <argsstring>(const juce::ArgumentList &amp;args)</argsstring>
+        <name>runInitCommand</name>
+        <param>
+          <type>const <ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Handles the --init command line option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the family name from --init, builds a manifest document, then writes the manifest file and its glyph sheet into the current working directory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parsed command line arguments; must carry --init. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Init.h" line="22" column="6" bodyfile="Init.cpp" bodystart="274" bodyend="291" declfile="Init.h" declline="22" declcolumn="6"/>
+        <references refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d">juce::ArgumentList::failIfOptionIsMissing</references>
+        <references refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31">juce::File::getChildFile</references>
+        <references refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279">juce::File::getCurrentWorkingDirectory</references>
+        <references refid="_init_8cpp_1ad942c149575abbe9c7fc39da1ece36aa" compoundref="_init_8cpp" startline="186" endline="205">getManifestDocument</references>
+        <references refid="_init_8cpp_1a892a072494f1174a756b6ad68b4a5f22" compoundref="_init_8cpp" startline="16" endline="19">getManifestFileName</references>
+        <references refid="_init_8cpp_1a4c0b5f9ff6edbb69761e80f3e30fa836" compoundref="_init_8cpp" startline="21" endline="24">getPostScriptBase</references>
+        <references refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453">juce::ArgumentList::getValueForOption</references>
+        <references refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" compoundref="_init_8h" startline="11" endline="11">initOption</references>
+        <references refid="_init_8cpp_1a0639b8991bb6348ae2a0905cc0248d5f" compoundref="_init_8cpp" startline="14" endline="14">regularSheetPath</references>
+        <references refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="274" endline="291">runInitCommand</references>
+        <references refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="253" endline="260">writeManifestFile</references>
+        <references refid="_init_8cpp_1a6e28e1eaf83290f7a3565ae97294b189" compoundref="_init_8cpp" startline="262" endline="272">writeSheetFile</references>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="145" endline="177">main</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="274" endline="291">runInitCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Entry point for the --init command line option — writes a new font family&apos;s manifest and glyph sheet. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;JuceHeader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" kindref="member">initOption</ref><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;--init&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" kindref="member">runInitCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args);</highlight></codeline>
+    </programlisting>
+    <location file="Init.h"/>
+  </compounddef>
+</doxygen>
