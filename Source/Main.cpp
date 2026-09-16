@@ -2,15 +2,11 @@
 #include FT_FREETYPE_H
 #include "Help.h"
 #include "Init.h"
+#include "Manifest.h"
 
-static juce::String getSheetFileName (const juce::ValueTree& values, const juce::Identifier& weightId)
+static juce::String getSheetText (const juce::File& manifestFile, const juce::ValueTree& weight)
 {
-    return values.getChildWithName (Id::toType (weightId)).getProperty (Id::svg).toString();
-}
-
-static juce::String getSheetText (const juce::File& manifestFile, const juce::String& sheetFileName)
-{
-    const auto sheetFile { manifestFile.getParentDirectory().getChildFile (sheetFileName) };
+    const auto sheetFile { getWeightSheetFile (manifestFile, weight) };
 
     if (not sheetFile.existsAsFile())
         juce::ConsoleApplication::fail ("glyph sheet not found: " + sheetFile.getFullPathName());
@@ -20,10 +16,6 @@ static juce::String getSheetText (const juce::File& manifestFile, const juce::St
 
 static const juce::String roundTripFailure { "round trip validation failed: " };
 static const juce::String buildOption { "--build" };
-static const juce::String weightOption { "--weight" };
-static const juce::String outOption { "--out" };
-static const juce::String helpOption { "--help|-h" };
-static const juce::String versionOption { "--version|-v" };
 
 static std::unique_ptr<FT_LibraryRec_, decltype (&FT_Done_FreeType)> getFreeTypeLibrary()
 {
@@ -112,6 +104,9 @@ static void validateFont (const jam::OpenTypeDocument& document, const juce::Mem
 
 static void runBuildCommand (const juce::ArgumentList& args)
 {
+    static const juce::String weightOption { "--weight" };
+    static const juce::String outOption { "--out" };
+
     const auto manifestFile { args.getExistingFileForOption (buildOption) };
 
     args.failIfOptionIsMissing (weightOption);
@@ -120,13 +115,24 @@ static void runBuildCommand (const juce::ArgumentList& args)
     const auto weightValue { args.getValueForOption (weightOption) };
     const auto outValue { args.getValueForOption (outOption) };
 
-    const juce::Identifier weightId { weightValue };
-    const auto outputFile { juce::File::getCurrentWorkingDirectory().getChildFile (outValue) };
-
     const auto manifest { jam::ConfigDocument::parse (manifestFile.loadFileAsString(), manifestFile.getFullPathName()) };
     const auto values { manifest.getValueTree (Id::font) };
-    const auto sheetFileName { getSheetFileName (values, weightId) };
-    const auto sheetText { getSheetText (manifestFile, sheetFileName) };
+
+    const auto isKnownWeight { [&]
+    {
+        for (auto weight : values)
+            if (weight.getType().toString().compare (weightValue.toUpperCase()) == 0)
+                return true;
+
+        return false;
+    } () };
+
+    if (not isKnownWeight)
+        juce::ConsoleApplication::fail ("unknown weight \"" + weightValue + "\" in manifest: " + manifestFile.getFullPathName());
+
+    const juce::Identifier weightId { weightValue };
+    const auto outputFile { juce::File::getCurrentWorkingDirectory().getChildFile (outValue) };
+    const auto sheetText { getSheetText (manifestFile, values.getChildWithName (Id::toType (weightId))) };
 
     const jam::OpenTypeDocument document { manifest, weightId, sheetText };
     const jam::OpenTypeWriter writer;
@@ -148,6 +154,8 @@ int main (int argc, char* argv[])
 
     juce::ConsoleApplication app;
 
+    static const juce::String helpOption { "--help|-h" };
+    static const juce::String versionOption { "--version|-v" };
     static const juce::String helpFileName { "HELP.md" };
     app.addDefaultCommand ({ helpOption,
                              helpOption,
@@ -167,10 +175,13 @@ int main (int argc, char* argv[])
 
     app.addCommand ({ initOption,
                       "--init=<font-name>",
-                      "Writes a default manifest and a blank glyph sheet",
-                      "Writes a manifest with default metrics and font tables, a glyph table "
-                      "spanning U+0021 through U+007E, and a regular weight table, plus a "
-                      "matching blank glyph sheet that --build consumes unchanged.",
+                      "Creates a missing manifest or glyph sheet, or reconciles the two",
+                      "Creates whatever is missing: a default manifest, or a matching glyph "
+                      "sheet. An existing manifest gains a missing glyphs table, read from its "
+                      "glyph sheet. GGWP then reconciles every weight's glyph sheet against the "
+                      "manifest's glyph table. It adds and removes cells, and re-lays out the "
+                      "canvas. Artwork moves with its own cell, keeping its position relative "
+                      "to that cell.",
                       runInitCommand });
 
     return app.findAndRunCommand (argc, argv);

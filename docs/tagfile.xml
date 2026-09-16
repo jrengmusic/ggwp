@@ -23,139 +23,8 @@
     <path></path>
     <filename>_init_8cpp.html</filename>
     <includes id="_init_8h" name="Init.h" local="yes" import="no" module="no" objc="no">Init.h</includes>
-    <member kind="typedef">
-      <type>jam::Document::Element</type>
-      <name>Element</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a092db571134501c2b1f06e2d822eaed0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getManifestFileName</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a892a072494f1174a756b6ad68b4a5f22</anchor>
-      <arglist>(const juce::String &amp;familyName)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getPostScriptBase</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a4c0b5f9ff6edbb69761e80f3e30fa836</anchor>
-      <arglist>(const juce::String &amp;familyName)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static bool</type>
-      <name>isBacktickCell</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a23468ca633dfde4f4a474b5e28342d2e</anchor>
-      <arglist>(const juce::String &amp;text)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addHeading</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a966220d30329998bd6f8ae1297403bf6</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, int level, const juce::String &amp;text)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addCell</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a9abe6b1a2de2c97497068409ff649fe5</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, Element &amp;row, const juce::Identifier &amp;columnId, const juce::String &amp;text)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static Element &amp;</type>
-      <name>addTableRow</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>aed6918eb7b10a3d4b69827f150ca2a54</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;rowId)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addTableBorder</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>aa7130b2d1498ab7a72f2e06d99d7161b</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static Element &amp;</type>
-      <name>addTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>ac43a40722dc758f40e4c9542e6303a22</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static Element &amp;</type>
-      <name>addKeyTypeValueTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a8909b7a4ffee3f3d25b1f3552fc9a9c8</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addKeyTypeValueRow</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a00daa78c24ad587b76474ff2ad10d3c7</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;key, const juce::Identifier &amp;type, const juce::String &amp;value)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addMetricsTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a8f683173ea55595927649a2b24310763</anchor>
-      <arglist>(jam::ConfigDocument &amp;document)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addFontTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a9cde8387533c2ee3be2790f161403f4a</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addRegularTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>acde2cb14e5ab4dfb543e97b65413975f</anchor>
-      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName, const juce::String &amp;postScriptBase)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>addGlyphsTable</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a7d097342d91dfcbba776f52c4f8227c2</anchor>
-      <arglist>(jam::ConfigDocument &amp;document)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static jam::ConfigDocument</type>
-      <name>getManifestDocument</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>ad942c149575abbe9c7fc39da1ece36aa</anchor>
-      <arglist>(const juce::String &amp;familyName, const juce::String &amp;postScriptBase)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getGroupId</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>ae96bfe4d6b4e97a961dbd9ebe3ba0299</anchor>
-      <arglist>(const juce::String &amp;text)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getGlyphGroupSvg</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a5db5568c7811262eb5ef20cf9a38f3ea</anchor>
-      <arglist>(const jam::ConfigDocument &amp;document, Element &amp;row, int rowIndex)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static juce::String</type>
-      <name>getSheetSvg</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a3c3f0a487d9d2102030beb26312f161a</anchor>
-      <arglist>(const jam::ConfigDocument &amp;document)</arglist>
-    </member>
+    <includes id="_manifest_8h" name="Manifest.h" local="yes" import="no" module="no" objc="no">Manifest.h</includes>
+    <includes id="_sheet_8h" name="Sheet.h" local="yes" import="no" module="no" objc="no">Sheet.h</includes>
     <member kind="function" static="yes">
       <type>static void</type>
       <name>writeManifestFile</name>
@@ -167,8 +36,50 @@
       <type>static void</type>
       <name>writeSheetFile</name>
       <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a6e28e1eaf83290f7a3565ae97294b189</anchor>
-      <arglist>(const juce::File &amp;sheetFile, const jam::ConfigDocument &amp;document)</arglist>
+      <anchor>a898383812485ab04889f1a2f1ca6107c</anchor>
+      <arglist>(const juce::File &amp;sheetFile, const juce::String &amp;sheetText)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static jam::XmlDocument</type>
+      <name>getSheetDocument</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a605831bc49c7ab712c363121c67eba6a</anchor>
+      <arglist>(const juce::File &amp;sheetFile)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>runManifestTypeCheck</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>ab7e65b78ead04f7009192f9ed7a50426</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addMissingGlyphsTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a47120cd41dbe79dc687df4d82c17247e</anchor>
+      <arglist>(jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addMissingGuidesTable</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>aef11a5e52a46fb0bf58e81df60918c4d</anchor>
+      <arglist>(jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addMissingTables</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>af0987a53cf91e55c3becb5bc0edd74fd</anchor>
+      <arglist>(jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>writeWeightSheets</name>
+      <anchorfile>_init_8cpp.html</anchorfile>
+      <anchor>a5624b08c3efb331b77bd70645f80fcdb</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -176,69 +87,6 @@
       <anchorfile>_init_8cpp.html</anchorfile>
       <anchor>a0a1d5482f23087d80058fe184475c707</anchor>
       <arglist>(const juce::ArgumentList &amp;args)</arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetColumns</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a43e933a958448f3e5e17ed58f764387f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetMarginTop</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a97c89fa90a5914b82931a3d3dfe0219e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetMarginLeft</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a803087b2bceb5d9c341aff92e57e4884</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetCellWidth</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a5eee2998e6156b07b5a8e902a15e28ba</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetCellHeight</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>afe20910f444d3c629b8b69e723aee220</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>sheetGutter</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a993c6e234be9905efc6fee99101c6b52</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>columnStep</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a962b05672e8201bfe4a55d0eba9103e3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>rowStep</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>aeab50829c094f48dc266bc637b66940d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const juce::String</type>
-      <name>regularSheetPath</name>
-      <anchorfile>_init_8cpp.html</anchorfile>
-      <anchor>a0639b8991bb6348ae2a0905cc0248d5f</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -357,33 +205,497 @@
       <anchor>ac95de14c2f5e0f4d84dc40db5b4528c0</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>Manifest.cpp</name>
+    <path></path>
+    <filename>_manifest_8cpp.html</filename>
+    <includes id="_manifest_8h" name="Manifest.h" local="yes" import="no" module="no" objc="no">Manifest.h</includes>
+    <member kind="typedef">
+      <type>jam::Document::Element</type>
+      <name>Element</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a092db571134501c2b1f06e2d822eaed0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>isBacktickCell</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a23468ca633dfde4f4a474b5e28342d2e</anchor>
+      <arglist>(const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getManifestFileName</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a76d1ede32463551ada15df143f283daa</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getPostScriptBase</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>aadf003f9b6711a6148f571de386b4e52</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addHeading</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a966220d30329998bd6f8ae1297403bf6</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, int level, const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addCell</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a9abe6b1a2de2c97497068409ff649fe5</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;row, const juce::Identifier &amp;columnId, const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addTableRow</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>aed6918eb7b10a3d4b69827f150ca2a54</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;rowId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addTableBorder</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>aa7130b2d1498ab7a72f2e06d99d7161b</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>ac43a40722dc758f40e4c9542e6303a22</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Element &amp;</type>
+      <name>addKeyTypeValueTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a8909b7a4ffee3f3d25b1f3552fc9a9c8</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::Identifier &amp;tableId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addKeyTypeValueRow</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a00daa78c24ad587b76474ff2ad10d3c7</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;key, const juce::Identifier &amp;type, const juce::String &amp;value)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addGlyphRow</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>ab4012642fc2386fb1accd29e994f3b77</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::String &amp;glyphText)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addMetricsTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a8f683173ea55595927649a2b24310763</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addFontTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a9cde8387533c2ee3be2790f161403f4a</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addRegularTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>acde2cb14e5ab4dfb543e97b65413975f</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const juce::String &amp;familyName, const juce::String &amp;postScriptBase)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addGlyphsTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a1c8685d1dc645f4430c3f3099ba31f5e</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const Element *sheetRoot)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addGuideRow</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a1c53c8cbaa8c2ee74a989ba3024c447e</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, Element &amp;table, const juce::Identifier &amp;key, int offset, const juce::String &amp;colour)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>addGuidesTable</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a5d203628aef1523fb19740428e26d92d</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addGuides</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a7af7e37fd1f2e9db1f5dd3430a0ab0ab</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addGlyphs</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a287ecdeefd789ae3574477289a568b92</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const Element *sheetRoot)</arglist>
+    </member>
+    <member kind="function">
+      <type>jam::ConfigDocument</type>
+      <name>getManifestDocument</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a0eef0d43202a195516fa146e72476c04</anchor>
+      <arglist>(const juce::String &amp;familyName, const juce::String &amp;postScriptBase, const Element *sheetRoot)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getCellText</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>aa749ba22ebc5b9aa73d601b5de87b9e8</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document, Element &amp;row, const juce::Identifier &amp;columnId)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getGlyphText</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>af9f11a3db384c76e425dfcc769c62300</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document, Element &amp;row)</arglist>
+    </member>
     <member kind="variable" static="yes">
-      <type>static const juce::String</type>
-      <name>weightOption</name>
-      <anchorfile>_main_8cpp.html</anchorfile>
-      <anchor>a3655a04c7f1377df2cff5e37b68d30a6</anchor>
+      <type>static constexpr int</type>
+      <name>sectionHeadingLevel</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>aca27536dab17d983bd111a2eaa628297</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>capHeightOffset</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a533d2147a1a8f651b8fcecca8108541a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>baselineOffset</name>
+      <anchorfile>_manifest_8cpp.html</anchorfile>
+      <anchor>a0a8017ec2a62c3a22ef875a03d9449f5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Manifest.h</name>
+    <path></path>
+    <filename>_manifest_8h.html</filename>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getManifestFileName</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a76d1ede32463551ada15df143f283daa</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getPostScriptBase</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>aadf003f9b6711a6148f571de386b4e52</anchor>
+      <arglist>(const juce::String &amp;familyName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addGuides</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a7af7e37fd1f2e9db1f5dd3430a0ab0ab</anchor>
+      <arglist>(jam::ConfigDocument &amp;document)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addGlyphs</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>ae7d65828d073eb697231b6b198744183</anchor>
+      <arglist>(jam::ConfigDocument &amp;document, const jam::Document::Element *sheetRoot)</arglist>
+    </member>
+    <member kind="function">
+      <type>jam::ConfigDocument</type>
+      <name>getManifestDocument</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a3263a7a4a317a78dd25589ab27a56416</anchor>
+      <arglist>(const juce::String &amp;familyName, const juce::String &amp;postScriptBase, const jam::Document::Element *sheetRoot)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getCellText</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a5f8654eacc989ab678148692e6136def</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document, jam::Document::Element &amp;row, const juce::Identifier &amp;columnId)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getGlyphText</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a89c3700dd469f7f2f0cbc6f2a47074e9</anchor>
+      <arglist>(const jam::ConfigDocument &amp;document, jam::Document::Element &amp;row)</arglist>
+    </member>
+    <member kind="variable">
+      <type>const juce::String</type>
+      <name>regularSheetPath</name>
+      <anchorfile>_manifest_8h.html</anchorfile>
+      <anchor>a0639b8991bb6348ae2a0905cc0248d5f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Sheet.cpp</name>
+    <path></path>
+    <filename>_sheet_8cpp.html</filename>
+    <includes id="_sheet_8h" name="Sheet.h" local="yes" import="no" module="no" objc="no">Sheet.h</includes>
+    <includes id="_manifest_8h" name="Manifest.h" local="yes" import="no" module="no" objc="no">Manifest.h</includes>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getIndent</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a6fd0bab3f082ddbd48579f88d119aadd</anchor>
+      <arglist>(int depth)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getGroupId</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>ae96bfe4d6b4e97a961dbd9ebe3ba0299</anchor>
+      <arglist>(const juce::String &amp;text)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getRowCount</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>ae440c0c009b03304cc2416b6a29406c5</anchor>
+      <arglist>(int itemCount, int columnsPerRow)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getLigatureColumns</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>adbd4728c99601432444f3f81c05b938d</anchor>
+      <arglist>(int codepointCount)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getManifestCellWidth</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>ad67c3c4549d1aed513718c12c4723f1b</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getLigatureCellWidth</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>aac8c4afab2acb74c89ef63af852be013</anchor>
+      <arglist>(int codepointCount, int cellWidth)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getCanvasHeight</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>ae90e7748b3cfce91ccc84f7a0dc840cd</anchor>
+      <arglist>(int totalRows)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static const Element *</type>
+      <name>getCellGroup</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a8d131cf8f6b993aeec79dfdc4d516d5d</anchor>
+      <arglist>(const Element &amp;root, const juce::String &amp;groupId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static std::array&lt; int, tripleCodepointCount &gt;</type>
+      <name>getGlyphRowCounts</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a2221cdea404b1fc1269e25c1ec671e0f</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static const Element &amp;</type>
+      <name>getCellRect</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>aed372493ac1a17511db4fe064290aa76</anchor>
+      <arglist>(const Element &amp;group)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static int</type>
+      <name>getCellWidth</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>aa55fadb4c9548423a426ce32a02bb58d</anchor>
+      <arglist>(const Element *oldRect, int codepointCount, int cellWidth)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static const auto &amp;</type>
+      <name>getShiftedAttributes</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a3cc39eec062fa2845df5af8275c4ecd2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getArtworkSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a1dacad7d3bfa955d15784e8de64c9464</anchor>
+      <arglist>(const Element &amp;artwork, int deltaX, int deltaY, const juce::String &amp;groupId)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getCellSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>ae3b227b7abea561c9a11944b27c461bb</anchor>
+      <arglist>(const Element *oldGroup, const Element *oldRect, const juce::String &amp;groupId, juce::Rectangle&lt; int &gt; cellBounds)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getCellGuidesSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a510298432b840c3b8a5ff0fad08d9771</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest, const juce::String &amp;glyphText, juce::Rectangle&lt; int &gt; cellBounds)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static const Element *</type>
+      <name>getBackgroundRect</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>aa88cbeeb08c9c99eea590047bbe7f1b1</anchor>
+      <arglist>(const Element &amp;root)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getBackgroundRectSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a271724a1894650a3418624f33e3a954c</anchor>
+      <arglist>(const Element &amp;backgroundRect, int canvasWidth, int canvasHeight)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getDocumentSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a0b02ac1e1dd8d1193197bc3cb84cd90d</anchor>
+      <arglist>(const Element *backgroundRect, int canvasWidth, int canvasHeight, const juce::String &amp;guidesSvg, const juce::String &amp;cellsSvg, const juce::String &amp;passthroughSvg)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static juce::String</type>
+      <name>getPassthroughSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a48e1df05cf05249690e5ce45a8b5d83c</anchor>
+      <arglist>(const Element &amp;root, const Element *backgroundRect)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getSheetSvg</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a7436c0a0ad7fe5df8e351577743aad99</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest, const juce::String &amp;sheetText)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetColumns</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a43e933a958448f3e5e17ed58f764387f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetMarginTop</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a97c89fa90a5914b82931a3d3dfe0219e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetMarginLeft</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a803087b2bceb5d9c341aff92e57e4884</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetCellHeight</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>afe20910f444d3c629b8b69e723aee220</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>sheetGutter</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a993c6e234be9905efc6fee99101c6b52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>rowStep</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>aeab50829c094f48dc266bc637b66940d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>singleCodepointCount</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a4bb1d598ad506ff2e0272b06a65dd046</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>doubleCodepointCount</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a135bf237c4956fd999dcca0de4ccc568</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr int</type>
+      <name>tripleCodepointCount</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a154c8687310b8db484fefe3a0fd840b6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const juce::String</type>
-      <name>outOption</name>
-      <anchorfile>_main_8cpp.html</anchorfile>
-      <anchor>a6546b992492905725d67d772c0fc0b5c</anchor>
+      <name>groupIndent</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a10c351d0036e77e40ab71d7a7f13f8ab</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const juce::String</type>
-      <name>helpOption</name>
-      <anchorfile>_main_8cpp.html</anchorfile>
-      <anchor>acc114b3bfdbb26f7d7e3c94138bf1ee3</anchor>
+      <name>childIndent</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a74cdd7985793dc48c3b85ea51569c213</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const juce::String</type>
-      <name>versionOption</name>
-      <anchorfile>_main_8cpp.html</anchorfile>
-      <anchor>a1ce060d0fb7908e13c67812b9eb4cd3a</anchor>
+      <name>hairlineStrokeWidth</name>
+      <anchorfile>_sheet_8cpp.html</anchorfile>
+      <anchor>a71b638580235429ac41f751b995c046d</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Sheet.h</name>
+    <path></path>
+    <filename>_sheet_8h.html</filename>
+    <member kind="function">
+      <type>juce::String</type>
+      <name>getSheetSvg</name>
+      <anchorfile>_sheet_8h.html</anchorfile>
+      <anchor>a7436c0a0ad7fe5df8e351577743aad99</anchor>
+      <arglist>(const jam::ConfigDocument &amp;manifest, const juce::String &amp;sheetText)</arglist>
     </member>
   </compound>
   <compound kind="namespace">

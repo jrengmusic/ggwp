@@ -112,6 +112,260 @@
 
 ## SPRINT HISTORY
 
+## Sprint 5: Const-Only Reader Law, Forward-Decl Purge, Full Audit Sweep ✅
+
+**Date:** 2026-09-17
+**Duration:** ~08:00 (session spanned two calendar days)
+
+### Agents Participated
+- COUNSELOR (fable-5) — planning, per-step validation, audit triage, trivial fixes (Document begin/end dual, CODING.md rule), sprint log
+- Pathfinder — sprint-state discovery, on-disk const-refactor inventory, byte-identity/idempotence verification (×2, pre-const-law)
+- Engineer (×7 waves) — forward-decl purge + svg split, jam_core const surface, jam_markdown const-only family, mermaid parent-const threading, cast const rewrite (×2), consumer sweep, audit fixes (×2)
+- Auditor (×2) — mid-session comprehensive audit (~70 findings), final const-law audit (32 findings)
+
+### Files Modified (~90 total; representative)
+**jam — const-only reader law (this sprint's core):**
+- `jam_core/document/jam_Document.h` — Element::Iterator templated on ElementType (const range-for yields `const Element*`); `Element::get<T>`/`getChildByID`/`Token::get` collapsed to single static deduced-constness template bodies (zero const_cast); `Element::parent` → `const Element*`; `root` protected behind dual `getRoot()`; new `Document::getChildByID (const Element&, Identifier)` O(1) keyed-probe SSOT; Index ctors retyped `Document&` (live-registry lane is mutable by ruling)
+- `jam_markdown/document/jam_MarkdownDocument.{h,cpp}` — all 16 non-const reader overloads DELETED; const overloads are the single bodies (16 const_casts died); `isTable` predicate (sibling of isTableBorder); provenance stamping rewritten as structural creation walk; 7 duplicated probe bodies → one `getChildByID` call each; law doxygen updated
+- `jam_markdown/document/jam_MarkdownWriter.{h,cpp}` — const element arrays; String `==` → `compare() == 0`
+- `jam_mermaid_diagram/diagram/*` — upward parent-climb results retyped const identities; downward enumerations take mutable level; 3-arg `getLevelVertex` overload (mutable-twin resolution by address-descent); null guards; enumeration hoisted out of edge loop
+- `jam_opentype/document/*` — getGlyphGroups/getLigatureGroup/getOrderedLigatureGroup/getTable retyped const
+- 54 files across jam modules — `.root`/`->root` → `getRoot()` (237 call sites), const threaded per holder
+**cast:**
+- `Source/{Model,Validator,Writer,Shapes,Items,TemplateDocument}.h` — 14 const_casts removed (13 inventoried + 1 found in Items.h); creation lane navigates structurally (`*document.root` walks, `row.getChildByID`); read-only surface const end-to-end; Writer/TemplateDocument root access via getRoot()
+**ggwp:**
+- `Source/{Manifest.cpp,Init.cpp,Sheet.cpp}` — getRoot() migration (8 sites); Sheet.cpp:207 move-only const-local fix
+**Contract:**
+- `~/.carol/CODING.md` — "Readers return const" tightened: reader API const-only; creation/state-update code reaches elements through creation API + structural navigation, never by re-finding through readers
+- `PLAN-const-only-readers.md` — locked plan (kept until ARCHITECT builds green)
+
+**Earlier this session (pre-const-law, same sprint):** jam_graphics svg 7-file split (all <300 lines), forward declarations eliminated framework-wide, jam_ConfigDocument/ConfigValidator empty-value contract (value lane declares, empty non-string rejected via text::English::failEmptyValue), row-keying unified, informative getValueTree throw, jam_XML getIndent public, END cast-data convergence (source glob, @source alias, cellWidth from jam), END/eve/ggwp built clean at that checkpoint, byte-identity + --init idempotence verified twice (DisplaySerif-{Book,Medium,Bold}.ttf = 34128/34160/32596, hashes identical).
+
+### Alignment Check
+- [x] BLESSED principles followed
+- [x] NAMES.md adhered — new names this sprint: `isTable`, `getRoot`, `TokenType`, `ElementType` usage, `getChildByID`/`getLevelVertex` overloads (family reuse)
+- [x] MANIFESTO.md principles applied — creation-window mutation via mutable chains only; two-tree copy rejected on span-source evidence (jam_Document.h:816-820, :870-887)
+
+### Problems Solved
+- **Option B ruled and landed:** reader API is const-only, absolute; a `const` document yields no mutable interior access via readers, iteration, or `root`. Zero const_cast across jam_core/document, jam_markdown, jam_mermaid_diagram, jam_opentype, cast/Source, ggwp/Source (30 casts removed sprint-wide).
+- Mermaid upward-climb vs creation-mutation conflict solved lawfully: const identities for reads; 3-arg getLevelVertex resolves the mutable twin by exact parent-chain address descent (flat enumeration proven unsound at nesting ≥2 and rejected).
+- cast's enrichment stays multi-pass creation (MANIFESTO E) but never re-finds through readers; Items.h's stale mutable typing (root cause of 5 residual casts) retyped const.
+- Audit (32 findings): 7 compile breaks fixed, law leaks closed (Model getNextLine/getNextShapeLine, OpenType getTable, MarkdownWriter, MermaidGit), SSOT probe collapse ×7, null-deref guards, brace-init/string-compare style, doxygen truth pass (new members documented, 5 stale root references corrected).
+- Rejected with citations: deduced-constness remedy for getLevelVertex (refuted by `parent` constness, jam_Document.h:208); duplicate ancestor-walk (SSOT threshold is >2, found 2); assert-then-deref (assert-at-boundary per MANIFESTO D).
+
+### State for Continuation
+- **ARCHITECT builds next:** cast, ggwp, END, eve, whatdbg — compiler is the final verifier of the sweep; `Index (Document&)` retype enumerates END terminal callers at build. Then: cast regen byte-check, ggwp byte-identity + idempotence re-verify against refs above, jam → KANJUT `cast --sync` + jfs rebuild, doxygen regen zero-warning check.
+- **Design residuals (Auditor, verbatim — ARCHITECT dispositions):**
+  - `Element::firstChild/lastChild/nextSibling` remain public mutable (jam_Document.h:209-211) — a `const Element&` still yields mutable children by field access; the law holds by API discipline there, not compiler.
+  - `Element*`/`Elements` inside `Document::Value` (jam_Document.h:181-182) — property-stored pointers bypass constness (live in mermaid model).
+  - Model.h:27 `using jam::MarkdownDocument::getTableHeaderRow` republishes a protected base reader for Items.h:857 (friend-equivalent bypass).
+  - Validator.h:469 `isPlaceholderScope` returns `std::pair<Result, const Element*>` — `is` verb contract violation (pre-existing shape).
+  - Mermaid `addLayerOrder`/`addClusterEdgeEndpoints` exceed 30-line/branch thresholds (pre-existing base + sprint additions).
+  - Reader family returns freshly built `jam::Array<const Element*>` per call (pre-existing API shape, preserved).
+  - Container-internal const_casts outside named scope: jam_Owner.h:70,:251 (plan-listed), jam_HashMap.h:2069/2094/3120, jam_SharedResources.h:64, jam_Buffer.h:462, jam_Block.h:65/83, jam_ColourScheme.h, jam_TerminalTTY_posix.cpp, jam_MenuWindows.cpp.
+- Delete `PLAN-const-only-readers.md` once ARCHITECT confirms green builds.
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
+---
+
+## Sprint 4: Idempotent Table-Driven `--init` ✅
+
+**Date:** 2026-09-16
+
+### Objective
+
+ARCHITECT's specification, verbatim:
+
+```
+how about 2 step check.
+- table and glyphsheet
+- table always SSOT, unidirectional to glyphsheet. with the exception of generation.
+- table and glyphsheet doesnt exists? generate both. table default, glyphsheet empty.
+- table exists? no glyphshet? create empty glyphsheet
+- glyphsheet exists but no table? generate table from existing glyphsheet.
+- when both exists, table is the SSOT. addition or deletion to table always affect glyphsheet.
+```
+
+Four constraints: no new arguments, destroy no glyph that exists on the table, re-layout
+the canvas in both directions, and make the design universal.
+
+### Agents Participated
+
+- **COUNSELOR:** fable-5 — Directed the sprint. Validated every landing by direct read.
+- **ENGINEER** (invoked by COUNSELOR) — All implementation, thirteen delegations
+- **PATHFINDER** (invoked by COUNSELOR) — Reproduction runs, byte measurement, crash capture
+- **LIBRARIAN** (invoked by COUNSELOR) — Two library-mode passes over the JUCE and jam path surfaces
+- **AUDITOR** (invoked by COUNSELOR) — Two sweeps, the second over all fifteen sprint artifacts
+
+### Result
+
+All four states work, verified against the real `display-serif` dataset rather than
+against the case where nothing moves.
+
+```
+Book   34128 bytes  100 glyphs
+Medium 34160 bytes  100 glyphs
+Bold   32596 bytes  100 glyphs
+```
+
+Re-measured after every batch. Second and third `--init` byte-identical across all three
+sheets. Blank project writes 851 lines and 94 glyph groups.
+
+Removing a glyph row repacks the sheet: `$` moved from `x="310"` to `x="186"`, and its
+artwork offset from its own cell stayed `(91.63, 138.92)`. Adding a row creates an empty
+cell at the manifest's `cellWidth`, and the font is byte-identical because an empty cell
+carries no outline.
+
+### Files Modified
+
+**ggwp**
+- `Source/Init.h` / `Source/Init.cpp` — four-state dispatch, `getSheetDocument`,
+  `addMissingGlyphsTable`, `addMissingGuidesTable`, `writeWeightSheets`
+- `Source/Manifest.h` / `Source/Manifest.cpp` — new unit; manifest construction moved out
+  of `Init.cpp`; `## guides` table; sheet-seeded `## glyphs` table; `getCellText`,
+  `getGlyphText`
+- `Source/Sheet.h` / `Source/Sheet.cpp` — new unit; one-pass reconcile and emitter
+- `Source/Main.cpp` — `--init` description strings, option constants scoped to their users
+- `Source/HELP.md` — six factual errors corrected, `## glyphs` and `## guides` documented,
+  the `--init` contract, the id grammar, the reserved-glyph rule
+
+**jam**
+- `jam_core/xml/jam_XML.h` — XML emitter, `toDocument (const juce::ValueTree&)`
+- `jam_core/text/jam_Format.h` — `escape` made reachable
+- `jam_graphics/svg/jam_SVG.cpp` — bail-out guards removed, brace initialisation, dead
+  replaces removed, single `path.toString()` evaluation
+- `jam_graphics/svg/jam_Svg.h` — `pathData` declaration removed
+- `jam_opentype/document/jam_OpenTypeDocument.h` / `.cpp` — `getGlyphGroups`;
+  `getCodepoints` now requires the leading underscore `getGlyphId` writes
+- `jam_opentype/document/jam_OpenTypeDocumentGlyph.cpp` — filter and sort extracted
+- `cast/identifiers.md` — `guides`, `xmlns`
+
+### Problems Solved
+
+**`--init` segfaulted whenever a cell moved.** `EXC_BAD_ACCESS` at `0x20` inside
+`getSheetSvg`. Root cause was a `jam::Function::Map` deduction mismatch: the registration
+declared `add<const Element&, int, int>` while the call site passed `deltaX` and `deltaY`
+as named lvalues, which deduce `int&`. `jam_Function.h:44-45` states the rule, and
+`:58-61` states that a mismatch cannot be caught by the compiler and crashes at the call
+site in a release build. Fixed by passing both as prvalues. The arm had never executed
+before, because until this sprint no test moved a cell.
+
+**The background rectangle painted over the whole sheet from the second run onward.**
+The parsed background rect fell through to passthrough, which was emitted after the cells.
+Invisible to every test: font bytes do not depend on paint order, and idempotence held
+because the order was consistently wrong.
+
+**Artwork was destroyed by a case-variant id.** Cell matching compared id text, while
+`getGlyphId` always writes uppercase padded hex and `getCodepoints` accepted any case.
+A lowercase id decoded as a glyph, so it was excluded from passthrough, but never matched,
+so an empty cell replaced the drawing. Matching now compares decoded codepoints.
+
+**A designer's own `<g id="cafe">` was deleted.** `getCodepoints` accepted ids the encoder
+can never produce. It now requires the leading underscore.
+
+**A computed shift was silently discarded.** The attribute override map could replace a
+key but never add one, so an element without an explicit `x` kept its position while its
+cell moved. The emitter now emits an override key the element lacks.
+
+**`pathData` duplicated `pathToString`.** COUNSELOR added a 66-line mirror of
+`juce::Path::toString` without reading the five call sites of the jam function that
+already produced SVG path data. Deleted; `Sheet.cpp` calls `pathToString`.
+
+**Cell width had two sources of truth.** `Manifest.h` held the constant, the manifest held
+the row, and the sheet writer read the constant — so editing the table changed the font
+but not the cells. The writer now reads the table.
+
+**`Svg::getSVGSize` was dead code.** Declared and defined, called nowhere in jam or ggwp.
+Deleted. `jam_SVG.cpp` was also the only header/source pair in `jam_graphics` whose case
+did not match its header; renamed to `jam_Svg.cpp`, with the include at
+`jam_graphics.cpp:5` updated.
+
+**A manifest with no `## glyphs` table and no sheet on disk produced empty sheets.**
+`addMissingGlyphsTable` looked for a sheet to seed from and had no `else`, so the table
+stayed missing and `writeWeightSheets` emitted zero cells. The specification covers this
+case — table absent and glyphsheet absent is "generate both, table default, glyphsheet
+empty". `addGlyphs` now takes a pointer, and a null sheet root yields the default
+94-row table.
+
+### Audit
+
+Two sweeps. The first returned roughly sixty findings; the second, over all fifteen sprint
+artifacts, returned a further set graded by confidence with a citation each.
+
+Resolved: the background layer order, the resized user rect, id-text matching, the dropped
+override, unshifted tags now failing loudly, cell width, the zero-byte sheet that silently
+emptied the glyph table, the triple parse-and-validate block, the duplicated error
+subexpression, two guide offsets restating metric values, three `getManifestDocument`
+entry points collapsed to one, `sectionHeadingLevel` and `sheetCellWidth` scoped to their
+users, `addMissingTables` split, four near-identical shift registrations collapsed, the
+dead array slot, the unnamed `1`, the `px` suffix, values recomputed per iteration,
+single-use constants, `sheetMarginBottom` renamed into its family, `Main.cpp` option
+constants, `isGlyphGroup` replaced by the framework filter, the space-glyph temporary,
+three bail-out guards in the SVG writers, thirteen copy-initialised locals, and the
+pessimistic `rawText` re-check.
+
+`getArtworkSvg` went from 79 lines to 17 by extracting `getShiftedAttributes`.
+`getSheetSvg` shed its document assembly into `getDocumentSvg`.
+
+### Doxygen
+
+Five headers verified line by line against their implementations. Two needed no change.
+Four blocks corrected: `getCellText`'s rationale, which was factually wrong;
+`getManifestDocument`'s missing null case; `getCodepoints`, which did not state the
+leading-underscore gate; `getGlyphId`, cross-referenced to its inverse. One unescaped
+`\<juce::XmlElement\>` fixed in `jam_XML.h`.
+
+### Reported, Not Resolved
+
+- **No `Doxyfile` in either project.** Only `docs/xml/Doxyfile.xml`, doxygen's own dump
+  from a prior run. The zero-warning policy cannot be verified by running doxygen.
+- **`jam::Xml` exposes no indent accessor**, so `Sheet.cpp`'s `getIndent` duplicates the
+  rule at `jam_XML.h`.
+- **`Sheet.cpp` is 393 lines.** A file-level split needs a new file.
+- **`getGlyphGroups` decodes each id and discards the result**, and both callers decode it
+  again. Removing the second decode needs a public signature change with two external
+  callers.
+- **`Svg` and `AttributedGraphics` are mutually dependent.** `jam_AttributedGraphics.h`
+  defines `struct Svg::Flex`, so it must follow `jam_Svg.h`; `jam_Svg.h` names
+  `AttributedGraphics`, defined in that later file. No include order resolves the cycle,
+  which is what the forward declarations at `jam_Svg.h:13` and `:16` express.
+- **`jam_Svg.h` has no `#pragma once`**, while `jam_XML.h:1` has one. Both are submodule
+  headers included once by their module's topmost header.
+- **`Svg::Format::stroke` can emit an SVG arc command.** `juce::Path::toString` writes a
+  leading `'a'` for even-odd winding, `pathToString` uppercases it to `A`.
+  `jam_MermaidGraphics.cpp:361` sets even-odd on a path that reaches that writer.
+- **A manifest `type` token outside the known set aborts.** `jam_ConfigDocument.cpp:80`
+  passes it into a lookup that throws `std::out_of_range`, uncaught. Reproduced at exit 134.
+
+### Alignment Check
+
+- **B** — Every document is stack-owned in `runInitCommand` and dies with it.
+- **L** — `Init.cpp` split into three units with real responsibility boundaries.
+  `Sheet.cpp` and `getSheetSvg` still cross; both crossings are recorded above.
+- **E (Explicit)** — Failures go through `ConsoleApplication::fail` naming the artifact.
+  An artwork tag with no shift rule now fails instead of emitting unshifted markup.
+- **S (SSOT)** — The `## glyphs` table is the one inventory, and the sheet writer now reads
+  `cellWidth` from the table.
+- **S (Stateless)** — The reconcile is a pure function of the two parsed documents.
+- **E (Encapsulation)** — The sheet is emitted in one pass. The parsed sheet is read-only;
+  nothing mutates a complete document.
+- **D** — Idempotence is the test, and it holds across three consecutive runs.
+
+### Debts Paid
+
+None entering this sprint.
+
+### Debts Deferred
+
+None. Every item under *Reported, Not Resolved* awaits ARCHITECT's disposition.
+
+---
+
 ## Sprint 3: Model Owns Content, Writer Encodes Only, Decomposition ✅
 
 **Date:** 2026-09-16

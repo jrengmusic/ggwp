@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_manifest_8h" kind="file" language="C++">
+    <compoundname>Manifest.h</compoundname>
+    <includes local="no">JuceHeader.h</includes>
+    <includedby refid="_init_8cpp" local="yes">Init.cpp</includedby>
+    <includedby refid="_manifest_8cpp" local="yes">Manifest.cpp</includedby>
+    <includedby refid="_sheet_8cpp" local="yes">Sheet.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Manifest.h</label>
+        <link refid="_manifest_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Init.cpp</label>
+        <link refid="_init_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Manifest.cpp</label>
+        <link refid="_manifest_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Manifest.h</label>
+        <link refid="_manifest_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Sheet.cpp</label>
+        <link refid="_sheet_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>const juce::String regularSheetPath</definition>
+        <argsstring></argsstring>
+        <name>regularSheetPath</name>
+        <initializer>{ &quot;sheets/GlyphSheet-Regular.svg&quot; }</initializer>
+        <briefdescription>
+<para>Path, relative to the manifest file, to the regular weight&apos;s glyph sheet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="12" column="27" bodyfile="Manifest.h" bodystart="12" bodyend="12"/>
+        <referencedby refid="_manifest_8cpp_1acde2cb14e5ab4dfb543e97b65413975f" compoundref="_manifest_8cpp" startline="146" endline="161">addRegularTable</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_manifest_8h_1a76d1ede32463551ada15df143f283daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getManifestFileName</definition>
+        <argsstring>(const juce::String &amp;familyName)</argsstring>
+        <name>getManifestFileName</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>familyName</declname>
+        </param>
+        <briefdescription>
+<para>Derives the manifest file name from a font family name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>familyName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font family name. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The family name, lowercased with spaces replaced by hyphens, and a &quot;.md&quot; extension. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="20" column="14" bodyfile="Manifest.cpp" bodystart="12" bodyend="15" declfile="Manifest.h" declline="20" declcolumn="14"/>
+        <references refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" compoundref="_manifest_8cpp" startline="12" endline="15">getManifestFileName</references>
+        <references refid="classjuce_1_1String_1abccd0ddff45ba4de5da3a51614831bd3">juce::String::replaceCharacter</references>
+        <references refid="classjuce_1_1String_1a89d35dea75203136decf770a8aed2993">juce::String::toLowerCase</references>
+        <referencedby refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" compoundref="_manifest_8cpp" startline="12" endline="15">getManifestFileName</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1aadf003f9b6711a6148f571de386b4e52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getPostScriptBase</definition>
+        <argsstring>(const juce::String &amp;familyName)</argsstring>
+        <name>getPostScriptBase</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>familyName</declname>
+        </param>
+        <briefdescription>
+<para>Derives the PostScript name base from a font family name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>familyName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font family name. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The family name with all spaces removed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="28" column="14" bodyfile="Manifest.cpp" bodystart="17" bodyend="20" declfile="Manifest.h" declline="28" declcolumn="14"/>
+        <references refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" compoundref="_manifest_8cpp" startline="17" endline="20">getPostScriptBase</references>
+        <references refid="classjuce_1_1String_1a4b9212ae91111c0520451c186bb5b70f">juce::String::removeCharacters</references>
+        <referencedby refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" compoundref="_manifest_8cpp" startline="17" endline="20">getPostScriptBase</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addGuides</definition>
+        <argsstring>(jam::ConfigDocument &amp;document)</argsstring>
+        <name>addGuides</name>
+        <param>
+          <type><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <briefdescription>
+<para>Adds the guides heading and table to the manifest document. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The manifest document to add the section to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="35" column="6" bodyfile="Manifest.cpp" bodystart="227" bodyend="231" declfile="Manifest.h" declline="35" declcolumn="6"/>
+        <references refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" compoundref="_manifest_8cpp" startline="227" endline="231">addGuides</references>
+        <references refid="_manifest_8cpp_1a5d203628aef1523fb19740428e26d92d" compoundref="_manifest_8cpp" startline="203" endline="225">addGuidesTable</references>
+        <references refid="_manifest_8cpp_1a966220d30329998bd6f8ae1297403bf6" compoundref="_manifest_8cpp" startline="22" endline="30">addHeading</references>
+        <references refid="namespaceId_1aa76b563a7eec7eb2e0a51946a5b915b4">Id::guides</references>
+        <references refid="_manifest_8cpp_1aca27536dab17d983bd111a2eaa628297" compoundref="_manifest_8cpp" startline="5" endline="5">sectionHeadingLevel</references>
+        <referencedby refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" compoundref="_manifest_8cpp" startline="227" endline="231">addGuides</referencedby>
+        <referencedby refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" compoundref="_init_8cpp" startline="85" endline="93">addMissingGuidesTable</referencedby>
+        <referencedby refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" compoundref="_manifest_8cpp" startline="239" endline="259">getManifestDocument</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1ae7d65828d073eb697231b6b198744183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addGlyphs</definition>
+        <argsstring>(jam::ConfigDocument &amp;document, const jam::Document::Element *sheetRoot)</argsstring>
+        <name>addGlyphs</name>
+        <param>
+          <type><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> *</type>
+          <declname>sheetRoot</declname>
+        </param>
+        <briefdescription>
+<para>Adds the glyphs heading and table to the manifest document. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The glyphs table is read from <computeroutput>sheetRoot</computeroutput> when given, or built from the default printable ASCII range when <computeroutput>sheetRoot</computeroutput> is nullptr.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The manifest document to add the section to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sheetRoot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The root element of an existing glyph sheet, or nullptr to build the default glyphs table. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="47" column="6" bodyfile="Manifest.cpp" bodystart="233" bodyend="237" declfile="Manifest.h" declline="47" declcolumn="6"/>
+        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="233" endline="237">addGlyphs</references>
+        <references refid="_manifest_8cpp_1a1c8685d1dc645f4430c3f3099ba31f5e" compoundref="_manifest_8cpp" startline="163" endline="192">addGlyphsTable</references>
+        <references refid="_manifest_8cpp_1a966220d30329998bd6f8ae1297403bf6" compoundref="_manifest_8cpp" startline="22" endline="30">addHeading</references>
+        <references refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5">Id::glyphs</references>
+        <references refid="_manifest_8cpp_1aca27536dab17d983bd111a2eaa628297" compoundref="_manifest_8cpp" startline="5" endline="5">sectionHeadingLevel</references>
+        <referencedby refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="233" endline="237">addGlyphs</referencedby>
+        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</referencedby>
+        <referencedby refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" compoundref="_manifest_8cpp" startline="239" endline="259">getManifestDocument</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1a3263a7a4a317a78dd25589ab27a56416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref></type>
+        <definition>jam::ConfigDocument getManifestDocument</definition>
+        <argsstring>(const juce::String &amp;familyName, const juce::String &amp;postScriptBase, const jam::Document::Element *sheetRoot)</argsstring>
+        <name>getManifestDocument</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>familyName</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>postScriptBase</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> *</type>
+          <declname>sheetRoot</declname>
+        </param>
+        <briefdescription>
+<para>Builds a new manifest document with default metrics and font tables, and a glyphs table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The glyphs table is read from <computeroutput>sheetRoot</computeroutput> when given, or built from the default printable ASCII range when <computeroutput>sheetRoot</computeroutput> is nullptr.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>familyName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font family name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>postScriptBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PostScript name base. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sheetRoot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The root element of an existing glyph sheet, or nullptr to build the default glyphs table. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The built manifest document. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="62" column="21" bodyfile="Manifest.cpp" bodystart="239" bodyend="259" declfile="Manifest.h" declline="62" declcolumn="21"/>
+        <references refid="_manifest_8cpp_1a9cde8387533c2ee3be2790f161403f4a" compoundref="_manifest_8cpp" startline="126" endline="144">addFontTable</references>
+        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="233" endline="237">addGlyphs</references>
+        <references refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" compoundref="_manifest_8cpp" startline="227" endline="231">addGuides</references>
+        <references refid="_manifest_8cpp_1a966220d30329998bd6f8ae1297403bf6" compoundref="_manifest_8cpp" startline="22" endline="30">addHeading</references>
+        <references refid="_manifest_8cpp_1a8f683173ea55595927649a2b24310763" compoundref="_manifest_8cpp" startline="101" endline="124">addMetricsTable</references>
+        <references refid="_manifest_8cpp_1acde2cb14e5ab4dfb543e97b65413975f" compoundref="_manifest_8cpp" startline="146" endline="161">addRegularTable</references>
+        <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
+        <references refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" compoundref="_manifest_8cpp" startline="239" endline="259">getManifestDocument</references>
+        <references refid="namespaceId_1ab9801ae0c1b9367d7d33c2c93253868a">Id::metrics</references>
+        <references refid="namespaceId_1a67e3ec2cb46c25711304766ced975812">Id::regular</references>
+        <references refid="_manifest_8cpp_1aca27536dab17d983bd111a2eaa628297" compoundref="_manifest_8cpp" startline="5" endline="5">sectionHeadingLevel</references>
+        <referencedby refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" compoundref="_manifest_8cpp" startline="239" endline="259">getManifestDocument</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1a5f8654eacc989ab678148692e6136def" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getCellText</definition>
+        <argsstring>(const jam::ConfigDocument &amp;document, jam::Document::Element &amp;row, const juce::Identifier &amp;columnId)</argsstring>
+        <name>getCellText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1Identifier" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Identifier</ref> &amp;</type>
+          <declname>columnId</declname>
+        </param>
+        <briefdescription>
+<para>Reads a table cell&apos;s raw text. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads <ref refid="namespaceId_1a3a978104a430eb23b80d82d88cd87664" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::rawText</ref> directly, instead of through <ref refid="structjam_1_1MarkdownDocument_1a8ec1ddbed0a40a277e9201266a7a8a14" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument::getTableValue()</ref>, which resolves through getAllSubText(). Both cell-construction paths <ndash/> the markdown parser&apos;s addTableCell() and the in-memory addCell() <ndash/> write <ref refid="namespaceId_1a3a978104a430eb23b80d82d88cd87664" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::rawText</ref> unconditionally, so every cell carries it as its exact source text. getAllSubText() instead walks a cell&apos;s rendered child elements, which addCell() never adds; reading <ref refid="namespaceId_1a3a978104a430eb23b80d82d88cd87664" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::rawText</ref> gives one reading that works for every manifest cell.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The manifest document the row belongs to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table row holding the cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>columnId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The identifier of the column to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The cell&apos;s raw text. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="82" column="14" bodyfile="Manifest.cpp" bodystart="261" bodyend="270" declfile="Manifest.h" declline="82" declcolumn="14"/>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="_manifest_8cpp_1aa749ba22ebc5b9aa73d601b5de87b9e8" compoundref="_manifest_8cpp" startline="261" endline="270">getCellText</references>
+        <references refid="namespaceId_1a3a978104a430eb23b80d82d88cd87664">Id::rawText</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <referencedby refid="_sheet_8cpp_1a510298432b840c3b8a5ff0fad08d9771" compoundref="_sheet_8cpp" startline="247" endline="286">getCellGuidesSvg</referencedby>
+        <referencedby refid="_manifest_8cpp_1aa749ba22ebc5b9aa73d601b5de87b9e8" compoundref="_manifest_8cpp" startline="261" endline="270">getCellText</referencedby>
+        <referencedby refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" compoundref="_manifest_8cpp" startline="272" endline="285">getGlyphText</referencedby>
+        <referencedby refid="_sheet_8cpp_1ad67c3c4549d1aed513718c12c4723f1b" compoundref="_sheet_8cpp" startline="47" endline="54">getManifestCellWidth</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_manifest_8h_1a89c3700dd469f7f2f0cbc6f2a47074e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getGlyphText</definition>
+        <argsstring>(const jam::ConfigDocument &amp;document, jam::Document::Element &amp;row)</argsstring>
+        <name>getGlyphText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+<para>Reads a glyphs-table row&apos;s codepoints, stripped of their backtick enclosure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A cell holding a single backtick is stored bare, since a backtick cannot enclose itself.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The manifest document the row belongs to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The glyphs-table row to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The row&apos;s glyph text, without its enclosing backticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Manifest.h" line="95" column="14" bodyfile="Manifest.cpp" bodystart="272" bodyend="285" declfile="Manifest.h" declline="95" declcolumn="14"/>
+        <references refid="structChars_1a4a3f4b872152babe1590d69a00035da8">Chars::backtick</references>
+        <references refid="namespaceId_1a2122219423ed0cbdee95653349e176ca">Id::codepoints</references>
+        <references refid="_manifest_8cpp_1aa749ba22ebc5b9aa73d601b5de87b9e8" compoundref="_manifest_8cpp" startline="261" endline="270">getCellText</references>
+        <references refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" compoundref="_manifest_8cpp" startline="272" endline="285">getGlyphText</references>
+        <references refid="structjam_1_1Format_1aaccf9a6c7ce015bd916fa9141290ecaf">jam::Format::withoutEnclosure</references>
+        <referencedby refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" compoundref="_sheet_8cpp" startline="85" endline="120">getGlyphRowCounts</referencedby>
+        <referencedby refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" compoundref="_manifest_8cpp" startline="272" endline="285">getGlyphText</referencedby>
+        <referencedby refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="346" endline="407">getSheetSvg</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Builds and reads a font family&apos;s manifest document <ndash/> the markdown tables that declare metrics, font metadata, glyphs, guides, and each weight&apos;s own table. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;JuceHeader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" kindref="member">regularSheetPath</ref><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;sheets/GlyphSheet-Regular.svg&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" kindref="member">getManifestFileName</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>familyName);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" kindref="member">getPostScriptBase</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>familyName);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" kindref="member">addGuides</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>document);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kindref="member">addGlyphs</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>document,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>*<sp/>sheetRoot);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref><sp/><ref refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" kindref="member">getManifestDocument</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>familyName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>postScriptBase,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>*<sp/>sheetRoot);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_manifest_8cpp_1aa749ba22ebc5b9aa73d601b5de87b9e8" kindref="member">getCellText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>document,<sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>row,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Identifier" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Identifier</ref>&amp;<sp/>columnId);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" kindref="member">getGlyphText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>document,<sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>row);</highlight></codeline>
+    </programlisting>
+    <location file="Manifest.h"/>
+  </compounddef>
+</doxygen>

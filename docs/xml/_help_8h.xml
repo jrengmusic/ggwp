@@ -57,7 +57,7 @@
         <location file="Help.h" line="15" column="20" bodyfile="Help.h" bodystart="15" bodyend="18"/>
         <references refid="_help_8h_1aa64fced00ebfc0c2b6c4f0eb3ec0690a" compoundref="_help_8h" startline="15" endline="18">printHelp</references>
         <references refid="classjuce_1_1String_1a276c7c57f1d1a2fc76a8b47aed0823e7">juce::String::toRawUTF8</references>
-        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="145" endline="177">main</referencedby>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="144" endline="181">main</referencedby>
         <referencedby refid="_help_8h_1aa64fced00ebfc0c2b6c4f0eb3ec0690a" compoundref="_help_8h" startline="15" endline="18">printHelp</referencedby>
       </memberdef>
     </sectiondef>

@@ -2,8 +2,7 @@ CompileFlags:
   CompilationDatabase: /Users/jreng/Documents/Poems/dev/ggwp
   Remove: [--target=*]
   Add:
-    - -DCAST_COMMIT=\"0f2f26b\"
-    - -DDEBUG=1
+    - -DCAST_COMMIT=\"67a3f88\"
     - -DDONT_SET_USING_JUCE_NAMESPACE=1
     - -DJUCE_DONT_DECLARE_PROJECTINFO=1
     - -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1
@@ -20,16 +19,19 @@ CompileFlags:
     - -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1
     - -DJUCE_STANDALONE_APPLICATION=1
     - -DJUCE_TARGET_HAS_BINARY_DATA=1
-    - -D_DEBUG=1
-    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug/ggwp_artefacts/JuceLibraryCode
+    - -DNDEBUG=1
+    - -D_NDEBUG=1
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release/ggwp_artefacts/JuceLibraryCode
     - -I/Users/jreng/Documents/Poems/dev/ggwp/../jam
     - -I/Users/jreng/Documents/Poems/dev/ggwp/Source/generated
     - -I/Users/jreng/Documents/Poems/dev/ggwp/../../JUCE/modules/juce_graphics/fonts/harfbuzz
     - -I/Users/jreng/Documents/Poems/JUCE/modules
     - -I/Users/jreng/Documents/Poems/dev/ggwp/../jam/jam_freetype/freetype/include
-    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Debug/juce_binarydata_ggwp_BinaryData/JuceLibraryCode
-    - -g
+    - -I/Users/jreng/Documents/Poems/dev/ggwp/Builds/Release/juce_binarydata_ggwp_BinaryData/JuceLibraryCode
+    - -O3
+    - -DNDEBUG
     - -std=c++17
+    - -flto=thin
     - -arch
     - x86_64
     - -arch
@@ -41,7 +43,6 @@ CompileFlags:
     - -Wno-sign-conversion
     - -Wno-switch-enum
     - -Wno-implicit-float-conversion
-    - -O0
 Diagnostics:
   MissingIncludes: None
   UnusedIncludes: None
