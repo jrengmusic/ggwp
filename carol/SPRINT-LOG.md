@@ -112,6 +112,34 @@
 
 ## SPRINT HISTORY
 
+## Sprint 6: `[description]` Migration; `cast/signing.md`; Generated `entitlements.plist` ✅
+
+**Date:** 2026-10-04
+**Duration:** part of one session (jam Sprint 150 is the primary record)
+**Plan:** `dev/jam/PLAN-signing.md` (locked)
+
+### Decisions (ARCHITECT)
+1. *"now let's fix the entitlements generation for ALL project"*; *"ensure everything is table driven"*.
+2. **"Migrate in this sprint"**; lane switch **"Own file per chain (Recommended)"**; keys **"Rows in ## signing"**, **"type column"**.
+
+### Files Modified
+- Migration `[comment]` → `[description]`: `cast/cmake.cast:199`, `cast/spell.md` (1 binding), `project-info.md` (9 header cells).
+- `cast/signing.md` — NEW. `## signing` moved from `project-info.md`; no entitlement rows.
+- `cast/spell.md` — index `@signing`, `@Entitlements`; `- [list]: @signing:signing`; output group `@code:[xml]entitlements` → `@Entitlements`.
+- `entitlements.plist` — now generated (banner; `<dict>` and `</dict>`).
+
+### Problems Solved
+- Oracle (scratch mirror, `## toolchain` removed): `entitlements.plist` = the previous file plus the banner; `CMakeLists.txt` and `ProjectInfo.h` byte-identical.
+
+### State for Continuation
+- Not built. 16 tracked `Builds/Release/*` files show as modified from before this sprint (Auditor); not touched.
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
 ## Sprint 5: Const-Only Reader Law, Forward-Decl Purge, Full Audit Sweep ✅
 
 **Date:** 2026-09-17
