@@ -146,12 +146,13 @@ static void addFontTable (jam::ConfigDocument& document, const juce::String& fam
 static void addRegularTable (jam::ConfigDocument& document, const juce::String& familyName,
                              const juce::String& postScriptBase)
 {
+    static const juce::Identifier svg { Extensions::svg };
     static const juce::String defaultWeightClass { "400" };
 
     auto& table { addKeyTypeValueTable (document, Id::regular) };
     const auto regularStyle { map::RibbiStyle::getInstance()->get (map::RibbiStyle::regular) };
 
-    addKeyTypeValueRow (document, table, Id::svg, Id::string, regularSheetPath);
+    addKeyTypeValueRow (document, table, svg, Id::string, regularSheetPath);
     addKeyTypeValueRow (document, table, Id::style, Id::string, regularStyle);
     addKeyTypeValueRow (document, table, Id::fullName, Id::string, familyName + " " + regularStyle);
     addKeyTypeValueRow (document, table, Id::postScriptName, Id::string, postScriptBase + "-" + regularStyle);
@@ -274,7 +275,9 @@ juce::String getCellText (const jam::ConfigDocument& document, const Element& ro
 
 juce::File getWeightSheetFile (const juce::File& manifestFile, const juce::ValueTree& weight)
 {
-    return manifestFile.getParentDirectory().getChildFile (weight.getProperty (Id::svg).toString());
+    static const juce::Identifier svg { Extensions::svg };
+
+    return manifestFile.getParentDirectory().getChildFile (weight.getProperty (svg).toString());
 }
 
 juce::String getGlyphText (const jam::ConfigDocument& document, const Element& row)

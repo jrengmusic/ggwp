@@ -11,6 +11,11 @@
 | @signing      | signing.md                        |
 | @Entitlements | ../entitlements.plist             |
 | @semicolon    | ;                                 |
+| @installer    | installer.cast                    |
+| @Distribution | installer/mac/distribution.xml    |
+| @Installer    | installer/win/installer.nsi       |
+| @Gh           | ../gh.cmake                       |
+| @Release      | ../RELEASE.md                     |
 +---------------+-----------------------------------+
 
 ## output
@@ -34,6 +39,7 @@
 | - [list]: @project-info:include               |                      | - [list]: @cmake:value                        |               |
 | - [list]: @project-info:juce module           |                      | - [list]: @cmake:value                        |               |
 | - [list]: @project-info:user module           |                      | - [list]: @cmake:link                         |               |
+| - [list]: @project-info:pack                  |                      | - [list]: @cmake:pack-value                   |               |
 |                                               |                      | - strip: @cmake:strip                         |               |
 |                                               |                      | - codesign: @cmake:codesign                   |               |
 |                                               |                      | - notarize: @cmake:notarize                   |               |
@@ -45,7 +51,9 @@
 |                                               |                      | - verify: @cmake:verify                       |               |
 |                                               |                      | - pkg-staging: @cmake:pkg-staging             |               |
 |                                               |                      | - pkgbuild: @cmake:pkgbuild                   |               |
+|                                               |                      | - productbuild: @cmake:productbuild           |               |
 |                                               |                      | - productsign: @cmake:productsign             |               |
+|                                               |                      | - makensis: @cmake:makensis                   |               |
 |                                               |                      | - staple: @cmake:staple                       |               |
 |                                               |                      | - qa-directory: @cmake:qa-directory           |               |
 |                                               |                      | - qa-copy: @cmake:qa-copy                     |               |
@@ -59,6 +67,20 @@
 |                                               |                      | - name: ProjectInfo                           |               |
 |                                               |                      | - [description]: @headers:brief               |               |
 |                                               |                      | > - [list]: @code:constant                    |               |
++-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
+| - [list]: @project-info:cmake                 |                      | @installer:distribution                       | @Distribution |
+| - [list]: @project-info:project info          |                      |                                               |               |
++-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
+| - [list]: @project-info:project info          |                      | @installer:installer                          | @Installer    |
+| - [list]: @project-info:cmake                 |                      |                                               |               |
+| - [list]: @signing:signing                    |                      |                                               |               |
++-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
+| - [list]: @project-info:cmake                 |                      | @cmake:gh                                     | @Gh           |
+| - [list]: @project-info:project info          |                      | - [list]: @cmake:pack-value                   |               |
+| - [list]: @project-info:pack                  |                      |                                               |               |
++-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
+| - [list]: @project-info:cmake                 |                      | @installer:[no-banner]release                 | @Release      |
+| - [list]: @project-info:release notes         |                      | - [list]: @installer:note                     |               |
 +-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
 
 ## headers

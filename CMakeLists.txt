@@ -176,6 +176,29 @@ include(CheckIPOSupported)
 add_custom_target(post-build ALL)
 add_dependencies(post-build ${PROJECT_NAME})
 
+if(APPLE)
+    set(CAST_PACK_folder "../Release")
+elseif(WIN32)
+    set(CAST_PACK_folder "../Release")
+endif()
+if(APPLE)
+    set(CAST_PACK_format "pkg")
+elseif(WIN32)
+    set(CAST_PACK_format "exe")
+endif()
+if(APPLE)
+    set(CAST_PACK_platform "macOS")
+elseif(WIN32)
+    set(CAST_PACK_platform "Windows")
+endif()
+
+if(WIN32)
+    string(TOLOWER "${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}" CAST_PACK_architecture)
+    set(CAST_PACK_platform "${CAST_PACK_platform} ${CAST_PACK_architecture}")
+endif()
+
+set(CAST_PACK_ARCHIVE "${CMAKE_SOURCE_DIR}/${CAST_PACK_folder}/ggwp v${PROJECT_VERSION} ${CAST_PACK_platform}.${CAST_PACK_format}")
+
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     check_ipo_supported(RESULT CAST_IPO_SUPPORTED OUTPUT CAST_IPO_ERROR)
 
@@ -189,7 +212,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
     if(CAST_SIGN AND APPLE)
         string(TIMESTAMP CAST_BUILD_DATE "%Y-%m-%d" UTC)
         set(CAST_QA_PATH "$ENV{HOME}/Documents/Poems/dev/___builds___")
-        set(CAST_QA_DIRECTORY "${CAST_QA_PATH}/${CAST_BUILD_DATE} ${PROJECT_NAME} v${PROJECT_VERSION} macOS")
+        set(CAST_QA_DIRECTORY "${CAST_QA_PATH}/${CAST_BUILD_DATE} ${PROJECT_NAME} v${PROJECT_VERSION} ${CAST_PACK_platform}")
         set(CAST_INSTALL_ROOT /opt)
         file(WRITE "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_scripts/postinstall"
 "#!/bin/bash
@@ -199,6 +222,8 @@ mkdir -p \"$REAL_HOME/.local/bin\"
 ln -sf \"${CAST_INSTALL_ROOT}/${PROJECT_NAME}/${PROJECT_NAME}\" \"$REAL_HOME/.local/bin/${PROJECT_NAME}\"
 ")
         file(CHMOD "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_scripts/postinstall" PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+        string(REPLACE ";" "," CAST_HOST_ARCHITECTURES "${CMAKE_OSX_ARCHITECTURES}")
+        configure_file("${CMAKE_SOURCE_DIR}/cast/installer/mac/distribution.xml" "${CMAKE_BINARY_DIR}/installer/distribution.xml" @ONLY)
         add_custom_command(TARGET post-build POST_BUILD
 COMMAND ${CMAKE_STRIP} $<TARGET_FILE:${PROJECT_NAME}>
 COMMAND xattr -cr $<TARGET_FILE:${PROJECT_NAME}>
@@ -207,13 +232,27 @@ COMMAND codesign --verify --verbose $<TARGET_FILE:${PROJECT_NAME}>
 COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_root${CAST_INSTALL_ROOT}/${PROJECT_NAME}"
 COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_root${CAST_INSTALL_ROOT}/${PROJECT_NAME}/"
 COMMAND pkgbuild --root "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_root${CAST_INSTALL_ROOT}" --install-location "${CAST_INSTALL_ROOT}" --scripts "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_pkg_scripts" --identifier "com.jrengmusic.ggwp" --version "${PROJECT_VERSION}" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg"
-COMMAND productsign --sign "Developer ID Installer: Bayu Ardianto \\(9BDSN9TDX3\\)" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg.signed"
-COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg.signed" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg"
-COMMAND xcrun notarytool submit "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg" --keychain-profile "notary" --wait
-COMMAND xcrun stapler staple "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg"
+COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/installer/resources" "${CMAKE_SOURCE_DIR}/${CAST_PACK_folder}"
+COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/cast/installer/resources/background.png" "${CMAKE_SOURCE_DIR}/cast/installer/resources/background-dark.png" "${CMAKE_SOURCE_DIR}/LICENSE" "${CMAKE_BINARY_DIR}/installer/resources/"
+COMMAND productbuild --distribution "${CMAKE_BINARY_DIR}/installer/distribution.xml" --package-path "${CMAKE_BINARY_DIR}" --resources "${CMAKE_BINARY_DIR}/installer/resources" "${CMAKE_BINARY_DIR}/unsigned.pkg"
+COMMAND productsign --sign "Developer ID Installer: Bayu Ardianto \\(9BDSN9TDX3\\)" "${CMAKE_BINARY_DIR}/unsigned.pkg" "${CAST_PACK_ARCHIVE}"
+COMMAND xcrun notarytool submit "${CAST_PACK_ARCHIVE}" --keychain-profile "notary" --wait
+COMMAND xcrun stapler staple "${CAST_PACK_ARCHIVE}"
 COMMAND ${CMAKE_COMMAND} -E make_directory "${CAST_QA_DIRECTORY}"
-COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pkg" "${CAST_QA_DIRECTORY}/${PROJECT_NAME}.pkg"
+COMMAND ${CMAKE_COMMAND} -E copy "${CAST_PACK_ARCHIVE}" "${CAST_QA_DIRECTORY}/"
             COMMENT "CAST: sign"
+        )
+    elseif(CAST_SIGN AND WIN32)
+        cmake_host_system_information(RESULT CAST_INSTALLER_KITS_ROOT QUERY WINDOWS_REGISTRY "HKLM/SOFTWARE/Microsoft/Windows Kits/Installed Roots" VALUE KitsRoot10 VIEW 64_32)
+        file(GLOB CAST_INSTALLER_KITS_VERSIONS LIST_DIRECTORIES true "${CAST_INSTALLER_KITS_ROOT}bin/10.*")
+        list(SORT CAST_INSTALLER_KITS_VERSIONS COMPARE NATURAL ORDER DESCENDING)
+        find_program(CAST_INSTALLER_SIGNTOOL signtool PATHS ${CAST_INSTALLER_KITS_VERSIONS} PATH_SUFFIXES x64 NO_DEFAULT_PATH NO_CACHE REQUIRED)
+        file(TO_NATIVE_PATH "${CMAKE_SOURCE_DIR}/cast/installer/resources" CAST_INSTALLER_RESOURCES)
+        add_custom_command(TARGET post-build POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_SOURCE_DIR}/${CAST_PACK_folder}"
+COMMAND makensis "/DARTEFACT=$<SHELL_PATH:$<TARGET_FILE:${PROJECT_NAME}>>" "/DOUTFILE=$<SHELL_PATH:${CAST_PACK_ARCHIVE}>" "/DRESOURCES=${CAST_INSTALLER_RESOURCES}" "/DLICENSE=$<SHELL_PATH:${CMAKE_SOURCE_DIR}/LICENSE>" "/DSIGNTOOL=$<SHELL_PATH:${CAST_INSTALLER_SIGNTOOL}>" "$<SHELL_PATH:${CMAKE_SOURCE_DIR}/cast/installer/win/installer.nsi>"
+            COMMENT "CAST: installer"
+            VERBATIM
         )
     endif()
 endif()

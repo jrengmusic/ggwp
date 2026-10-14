@@ -112,6 +112,25 @@
 
 ## SPRINT HISTORY
 
+## Sprint 7: Release Lane — macOS pkg, Windows NSIS (x64, arm64), gh Upload ✅
+
+**Date:** 2026-10-05
+**Duration:** part of one session (cast sprint `release-lane` is the primary record)
+**Plan:** `dev/cast/PLAN-release-lane.md` (locked)
+
+### Files Modified
+- `project-info.md` — `## pack`, `## release notes`, `## cmake` `repository`, `installerResourceDirectory`, `installDirectoryWindows`; `## toolchain` `cmake -P gh.cmake`.
+- `cast/cmake.cast`, `cast/installer.cast` (new), `cast/spell.md`, `cast/signing.md`, `cast/installer/resources/` (placeholders); generated `CMakeLists.txt`, `gh.cmake`, `RELEASE.md`, `cast/installer/{mac,win}/*`.
+
+### State for Continuation
+- Generation is a fixpoint. The Debug build fails to compile, before this sprint's lane: `Id::guides`, `Id::heading`, `Id::regular`, `Id::xmlns` and `jam::Format::escape` are missing (Init.cpp, Manifest.cpp, Sheet.cpp, Guides.cpp).
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
 ## Sprint 6: `[description]` Migration; `cast/signing.md`; Generated `entitlements.plist` ✅
 
 **Date:** 2026-10-04

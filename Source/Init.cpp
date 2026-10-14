@@ -25,12 +25,14 @@ static void writeSheetFile (const juce::File& sheetFile, const juce::String& she
 
 static void addMissingGlyphsTable (jam::ConfigDocument& manifest, const juce::File& manifestFile)
 {
+    static const juce::Identifier svg { Extensions::svg };
+
     if (manifest.getTables (Id::glyphs).isEmpty())
     {
         const auto weightSheetFile { [&] () -> juce::File
         {
             for (auto weight : manifest.getValueTree (Id::font))
-                if (weight.getProperty (Id::svg).toString().isNotEmpty())
+                if (weight.getProperty (svg).toString().isNotEmpty())
                 {
                     const auto candidateSheetFile { getWeightSheetFile (manifestFile, weight) };
 
@@ -75,9 +77,11 @@ static void addMissingTables (jam::ConfigDocument& manifest, const juce::File& m
 
 static void writeWeightSheets (const jam::ConfigDocument& manifest, const juce::File& manifestFile)
 {
+    static const juce::Identifier svg { Extensions::svg };
+
     for (auto weight : manifest.getValueTree (Id::font))
     {
-        if (weight.getProperty (Id::svg).toString().isNotEmpty())
+        if (weight.getProperty (svg).toString().isNotEmpty())
         {
             const auto weightSheetFile { getWeightSheetFile (manifestFile, weight) };
             const auto sheetText { weightSheetFile.loadFileAsString() };
@@ -120,7 +124,7 @@ void runInitCommand (const juce::ArgumentList& args)
 
     auto builtManifest { jam::ConfigDocument::parse (manifestFile.loadFileAsString(), manifestFile.getFullPathName()) };
 
-    if (const auto result { jam::ConfigValidator::isValid (builtManifest) }; result.failed())
+    if (const auto result { jam::ConfigValidator {}.isValid (builtManifest) }; result.failed())
         juce::ConsoleApplication::fail (result.getErrorMessage() + ": " + manifestFile.getFullPathName());
 
     addMissingTables (builtManifest, manifestFile);

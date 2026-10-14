@@ -89,6 +89,12 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 +-----------------------------+----------------------------------------------------------+-------------------------------------------+
 | qaDirectory                 | `$ENV{HOME}/Documents/Poems/dev/___builds___`            | QA build archive root                     |
 +-----------------------------+----------------------------------------------------------+-------------------------------------------+
+| repository                  | jrengmusic/ggwp                                          | GitHub repository of the release          |
++-----------------------------+----------------------------------------------------------+-------------------------------------------+
+| installerResourceDirectory  | ${CMAKE_SOURCE_DIR}/cast/installer/resources             | Installer artwork directory               |
++-----------------------------+----------------------------------------------------------+-------------------------------------------+
+| installDirectoryWindows     | $PROFILE\\.local\\bin                                    | Windows installer default directory       |
++-----------------------------+----------------------------------------------------------+-------------------------------------------+
 
 ## architecture
 
@@ -162,6 +168,8 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 +----------+---------+----------------------------------------------------------------------------+
 |          | ninja   | -C Builds/Release                                                          |
 +----------+---------+----------------------------------------------------------------------------+
+|          | cmake   | -P gh.cmake                                                                |
++----------+---------+----------------------------------------------------------------------------+
 | debug    | cmake   | -S . -B Builds/Debug -G Ninja -DCMAKE_BUILD_TYPE=Debug                     |
 +----------+---------+----------------------------------------------------------------------------+
 | debug    | ninja   | -C Builds/Debug                                                            |
@@ -170,6 +178,27 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 +----------+---------+----------------------------------------------------------------------------+
 | no-sign  | ninja   | -C Builds/Release                                                          |
 +----------+---------+----------------------------------------------------------------------------+
+
+## pack
+
++----------+------------+------------+-----------------------------------+
+| name     | mac        | win        | description                       |
++==========+============+============+===================================+
+| folder   | ../Release | ../Release | Archive folder                    |
+| format   | pkg        | exe        | Archive format                    |
+| platform | macOS      | Windows    | Platform word in the archive name |
++----------+------------+------------+-----------------------------------+
+
+## release notes
+
++--------------------------------------------------------------------------------------------------------+
+| note                                                                                                   |
++========================================================================================================+
+| Release lane: a signed macOS pkg and Windows x64 and arm64 installers, uploaded to the GitHub release. |
+| Signing data lives in cast/signing.md, and entitlements.plist is generated from it.                    |
+| Readers are const end to end; the ggwp sources carry no const_cast.                                    |
+| --init is idempotent and table-driven.                                                                 |
++--------------------------------------------------------------------------------------------------------+
 
 ## release
 

@@ -16,7 +16,7 @@ extern const juce::String regularSheetPath;
  *
  * @param manifestFile The manifest file; its parent directory is the one
  *                     path rule this function applies.
- * @param weight       The weight's ValueTree, holding its Id::svg property.
+ * @param weight       The weight's ValueTree, holding its property keyed by Extensions::svg.
  * @return The manifest's parent directory joined with the weight's svg path.
  */
 juce::File getWeightSheetFile (const juce::File& manifestFile, const juce::ValueTree& weight);
