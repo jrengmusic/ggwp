@@ -5,6 +5,8 @@
 +===============+===================================+
 | @code         | ../../jam/cast/code.cast          |
 | @project-info | ../project-info.md                |
+| @modules      | ../../jam/user-modules-info.md    |
+| @juce         | ../../jam/cast/juce.cast          |
 | @ProjectInfo  | ../Source/generated/ProjectInfo.h |
 | @cmake        | cmake.cast                        |
 | @CMakeLists   | ../CMakeLists.txt                 |
@@ -58,6 +60,8 @@
 |                                               |                      | - qa-directory: @cmake:qa-directory           |               |
 |                                               |                      | - qa-copy: @cmake:qa-copy                     |               |
 |                                               |                      | - binary-data: @cmake:binary-data             |               |
+|                                               |                      | - patched-juce: @juce:patched-juce            |               |
+| - [list]: @modules:submodule:module=patch     |                      | - [list]: @juce:patch                         |               |
 +-----------------------------------------------+----------------------+-----------------------------------------------+---------------+
 | > - [list]: @signing:signing:type=entitlement |                      | @code:[xml]entitlements                       | @Entitlements |
 |                                               |                      | > - [list]: @code:entitlement                 |               |
