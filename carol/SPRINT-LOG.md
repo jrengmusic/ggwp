@@ -112,6 +112,86 @@
 
 ## SPRINT HISTORY
 
+## Sprint 8: Display Font Family on the ggwp Contract — `--extract`, UPM 1024, Colour Table, Audit Sweep ✅
+
+**Date:** 2026-10-31
+**Duration:** one session, 2026-10-30 to 2026-10-31, across two context compactions
+**Plan:** `PLAN-display-fonts.md` (locked; rulings R1–R24). ARCHITECT: *"ggwp cli is now the CANON protocol to create fonts"*; *"NO python at all"*; *"make 1024 the ggwp contract"*.
+
+### Agents Participated
+- COUNSELOR: the plan, every validation (file reads, rendered PNG proofs), the rulings record, the audit filter, this log.
+- Pathfinder (haiku): the ggwp/jam/scout inventories; the sheet producer and jam theming read.
+- Librarian (haiku): HarfBuzz/FreeType research for `--extract`.
+- Engineer (sonnet): Step 0 code, extraction and verification runs, sheet edits, the serif attempts, the audit fixes, the doxygen pass.
+- Auditor (opus): one sweep, 51 findings and 6 bugs.
+
+### Decisions (ARCHITECT, verbatim)
+1. *"make it consistent. all with 1024, update the HELP"*; *"there should not be any runtime usage visual changes"*; Bold metrics: *"Weight table override"*.
+2. *"glyphsheets should be PURE, base font + ligatures + custom PUA"*; *"no patch then."*
+3. *"ParameterManager SHOULD NOT be included when plugin_bootstrap not being used"* → `#if JUCE_MODULE_AVAILABLE …` → *"go"*.
+4. *"glyphs colour shouldnt be black … fix the producer"*; *"just add to its md manifest. dedicated table ## colour"*.
+5. Serifs: *"still ugly and this not working. i will find another way to design the serifs. just copy the Display/Display Mono glyphsheet as starting point."*
+6. *"[] no need build. i will build all when serief ready"*; *"[] /audit - doxygen - until /log (for ggwp and jam)"*.
+
+### Files Modified
+**ggwp:**
+- `Source/Extract.h/.cpp` (new): `--extract=<font.ttf> --manifest= --weight=`. It walks the cmap (skips every codepoint ≤ U+0020), scales by 1024/UPM, maps through the inverse of `getGlyphTransform`, writes fractional cells, finds ligatures by shaping pairs and triples, and fails fast on blank glyphs and on unmapped GSUB outputs.
+- `Source/Build.h/.cpp` (new): the build command moved out of `Main.cpp`. It validates the manifest, takes its face through `jam::Typeface` (`getFontEntry`), and runs the round-trip validation.
+- `Source/Main.cpp`: dispatch, banner and help only; the command texts come from `text::Commands`; `SetConsoleOutputCP` on Windows (scout sibling).
+- `Source/Manifest.h/.cpp`: the default manifest is the BinaryData template `Source/manifest.md` (`getDefaultManifest`, `addDefaultTable`). `getValidatedWeight` returns an Identifier matched through `Id::toType`. `getColourText` reads `## colour`.
+- `Source/Init.cpp`: a one-pass table repair with one manifest write.
+- `Source/Sheet.h/.cpp`, `Guides.h/.cpp`, `Artwork.h/.cpp`:
+  - fractional cells;
+  - layout (`getCellLayout`) separated from the writers (`getCellsSvg`, `getGuidesSvg`);
+  - every colour read from `## colour`, with the glyph fill on the cell group;
+  - cell guides at the unit-cell edges and the true advance (`getGlyphAdvance`, sheet scale) in place of the dashed centreline;
+  - guide lines written with `jam::Svg::Format::stroke`;
+  - artwork shift rules in one Identifier-keyed table.
+- `Source/Help.h/.cpp` (new), `Source/markdown.css`: the help page rendered through `MarkdownComponent`, ported from scout.
+- `Source/HELP.md`: UPM 1024, weight overrides, the `--extract` contract, fractional cells, fixed pitch in whole cells, `## colour`, cell guides, weight matching.
+- `cast/spell.md` (scout shape, archetype `cmake.cast`/`installer.cast`; the `@text:commands` row), `identifiers.md` (`build weight init extract regular guides xmlns background cell glyph`), `text.md` (diagnostics, `## commands`), `banner.md` (the GGWP art), `files.md`, `source.cast`; the local `cmake.cast` and `installer.cast` are deleted.
+- `project-info.md`: scout-isomorphic modules, binary rows and toolchain; the banner row `ggwp`; release notes rewritten.
+- `PLAN-display-fonts.md` (new).
+
+**jam (logged in jam Sprint 181):** `jam_opentype` (UPM constant, weight metrics, fixed pitch in cells, `getGlyphAdvance`, the Document and Writer each merged into one `.cpp`), and the `jam_plugin_bootstrap` guards in `jam_data_structures` and `jam_gui`.
+
+**Font data (`dev/fonts/`, not a repository):** `display`, `display-mono`, `display-serif`, `display-serif-mono`, each with a manifest (`## metrics`, `## font`, `## glyphs`, `## guides`, `## colour`, `## book`, `## medium`, `## bold`) and three sheets.
+- Display and Display Mono are extracted from `jam/resources/fonts/Display*.ttf` and `end/design/fonts/Display Mono/*.ttf`.
+- Display Mono gains `-->`, and Display gains the 11 Mono ligatures.
+- The serif families are exact copies of Display and Display Mono (R23).
+
+### Alignment Check
+- [x] BLESSED principles followed: one UPM constant; the manifest is the contract and extraction reads it only; one advance formula (`getGlyphAdvance`); colours in one table.
+- [x] NAMES.md adhered: `extract` (the `--build` sibling); `get…Svg`, `add…`, `getOrCreate` families; `text::Commands` from JUCE `ConsoleApplication::Command`.
+- [x] MANIFESTO.md principles applied: every audit finding validated by a read, then resolved or rejected with a citation.
+- [ ] Nothing is compiled after the audit fixes; ARCHITECT builds.
+
+### Problems Solved
+- **Extraction round trip:** the jam Display fonts rebuild byte-for-byte in hhea and extents; Display Mono rebuilds within 1 unit after the ×1024/1003 scale. The first Display run failed because the source maps U+000D: the CR split the manifest row, so control codepoints are now skipped.
+- **Fixed pitch:** the same-advance rule called Mono proportional (E000/E001 are 2 cells), so it now counts whole multiples of the plain advance. post.isFixedPitch is 1 for the six Mono fonts and 0 for the six proportional fonts.
+- **Colour and cell guides:** the guides showed the rect centre while the advance follows `advanceWidthFactor` (5.233) and the artwork follows the sheet scale (5.103 for Display). The guides now draw the true unit-cell edges and the advance. All 12 fonts were byte-identical before and after the regeneration.
+- **Build blockers:** `map::Generated`, the pruned identifiers, `Format::escape` and `ProjectInfo::presetExtension` were all resolved.
+
+### Failures and Violations (reported)
+- I accepted serif proofs whose flat bars on G, K, X and Y ARCHITECT then rejected. Three serif attempts (rect slabs, then bracketed accents) were rejected, and the serifs are now ARCHITECT's own work.
+- Engineer slips: a `git --version` call (denied by the hook), and `cp` outside an allowed-program list (scratch only).
+- I misread the K bracket side in a prototype (it was already correct).
+- I wrote an `existing-ink` test wording that would have restored the stepped `I` bars, and corrected it before any sheet changed.
+
+### State for Continuation
+1. **ARCHITECT runs cast in ggwp, then builds ggwp and jam.** The audit fixes are not compiled. Watch the new `text::Commands` row (`cast/spell.md:183-191`), the `wroteFile` trailing space, the template `manifest.md` with `jam::Format::replaceholder`, `Artwork.cpp`'s `HashMap` table, Extract's `getUnmappedSubstitution`, and the `std::array`/`jam::Array` returns in `Sheet.cpp`.
+2. **After the build:** run `--init` in the four `dev/fonts/*` projects and confirm all 12 fonts still build byte-identical (the pre-builds are in the session scratchpad only).
+3. **ARCHITECT regenerates the docs** (`ninja doxygen`, `<leader>bd` for jam) and confirms zero warnings.
+4. **Serifs** are ARCHITECT's; the serif sheets are plain copies. Plan Step 7 (build 12 fonts, copy the six Display and Display Mono fonts over `jam/resources/fonts`) is ARCHITECT's (R24).
+5. **Audit F20, a scope question for ARCHITECT:** `printHelp` and `markdown.css` now exist in scout, cast and ggwp (MANIFESTO S, "more than twice"). Folding them into jam touches scout and cast.
+6. `git init` of `dev/fonts` is ARCHITECT's.
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
 ## Sprint 7: Release Lane — macOS pkg, Windows NSIS (x64, arm64), gh Upload ✅
 
 **Date:** 2026-10-05

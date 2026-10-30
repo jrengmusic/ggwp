@@ -1,61 +1,52 @@
 #include "Artwork.h"
+#include "generated/Generated.h"
 
 using Element = jam::Document::Element;
+
+juce::String getCoordinateText (float coordinate)
+{
+    static constexpr int decimalPlaces { 3 };
+
+    return juce::String (coordinate, decimalPlaces).trimCharactersAtEnd ("0").trimCharactersAtEnd (".");
+}
 
 static const auto& getShiftedAttributes()
 {
     static const auto shiftedAttributes { [] {
-        static constexpr int decimalPlaces { 3 };
+        jam::HashMap<juce::Identifier, std::vector<std::pair<juce::Identifier, juce::Identifier>>> coordinateKeys;
 
-        auto formatCoordinate = [] (float value)
-        {
-            return juce::String (value, decimalPlaces).trimCharactersAtEnd ("0").trimCharactersAtEnd (".");
-        };
+        coordinateKeys.insert ({ Id::rect, { { Id::x, Id::y } } });
+        coordinateKeys.insert ({ Id::ellipse, { { Id::cx, Id::cy } } });
+        coordinateKeys.insert ({ Id::circle, { { Id::cx, Id::cy } } });
+        coordinateKeys.insert ({ Id::line, { { Id::x1, Id::y1 }, { Id::x2, Id::y2 } } });
 
-        auto shiftCoordinates = [formatCoordinate] (const Element& element, int moveX, int moveY,
-                                                     const std::vector<juce::Identifier>& xKeys,
-                                                     const std::vector<juce::Identifier>& yKeys)
-        {
-            jam::HashMap<juce::Identifier, juce::String> shifted;
+        jam::Function::Map<juce::Identifier, jam::HashMap<juce::Identifier, juce::String>> shiftedAttributes;
 
-            for (auto& key : xKeys)
-                shifted.insert ({ key, formatCoordinate (element.get<juce::String> (key, {}).getFloatValue() + static_cast<float> (moveX)) });
-
-            for (auto& key : yKeys)
-                shifted.insert ({ key, formatCoordinate (element.get<juce::String> (key, {}).getFloatValue() + static_cast<float> (moveY)) });
-
-            return shifted;
-        };
-
-        jam::Function::Map<juce::String, jam::HashMap<juce::Identifier, juce::String>> shiftedAttributes;
-
-        shiftedAttributes.add<const Element&, int, int> (Id::path.toString(),
-            [] (const Element& element, int moveX, int moveY)
+        shiftedAttributes.add<const Element&, float, float> (Id::path,
+            [] (const Element& element, float moveX, float moveY)
             {
                 auto path { jam::Svg::getElementPath (element) };
-                path.applyTransform (juce::AffineTransform::translation (
-                    static_cast<float> (moveX), static_cast<float> (moveY)));
+                path.applyTransform (juce::AffineTransform::translation (moveX, moveY));
 
                 jam::HashMap<juce::Identifier, juce::String> shifted;
                 shifted.insert ({ Id::d, jam::Svg::Format::pathToString (path) });
                 return shifted;
             });
 
-        shiftedAttributes.add<const Element&, int, int> (Id::rect.toString(),
-            [shiftCoordinates] (const Element& element, int moveX, int moveY)
-            { return shiftCoordinates (element, moveX, moveY, { Id::x }, { Id::y }); });
+        for (const auto& [tag, keyPairs] : coordinateKeys)
+            shiftedAttributes.add<const Element&, float, float> (tag,
+                [coordinatePairs = keyPairs] (const Element& element, float moveX, float moveY)
+                {
+                    jam::HashMap<juce::Identifier, juce::String> shifted;
 
-        shiftedAttributes.add<const Element&, int, int> (Id::ellipse.toString(),
-            [shiftCoordinates] (const Element& element, int moveX, int moveY)
-            { return shiftCoordinates (element, moveX, moveY, { Id::cx }, { Id::cy }); });
+                    for (const auto& [xKey, yKey] : coordinatePairs)
+                    {
+                        shifted.insert ({ xKey, getCoordinateText (element.get<juce::String> (xKey, {}).getFloatValue() + moveX) });
+                        shifted.insert ({ yKey, getCoordinateText (element.get<juce::String> (yKey, {}).getFloatValue() + moveY) });
+                    }
 
-        shiftedAttributes.add<const Element&, int, int> (Id::circle.toString(),
-            [shiftCoordinates] (const Element& element, int moveX, int moveY)
-            { return shiftCoordinates (element, moveX, moveY, { Id::cx }, { Id::cy }); });
-
-        shiftedAttributes.add<const Element&, int, int> (Id::line.toString(),
-            [shiftCoordinates] (const Element& element, int moveX, int moveY)
-            { return shiftCoordinates (element, moveX, moveY, { Id::x1, Id::x2 }, { Id::y1, Id::y2 }); });
+                    return shifted;
+                });
 
         return shiftedAttributes;
     } () };
@@ -63,20 +54,20 @@ static const auto& getShiftedAttributes()
     return shiftedAttributes;
 }
 
-juce::String getArtworkSvg (const Element& artwork, int deltaX, int deltaY, const juce::String& groupId)
+juce::String getArtworkSvg (const Element& artwork, float deltaX, float deltaY, const juce::String& groupId)
 {
     static constexpr int artworkDepth { 2 };
 
-    if (deltaX == 0 and deltaY == 0)
+    if (deltaX == 0.0f and deltaY == 0.0f)
         return jam::Xml::getText (artwork, artworkDepth);
 
     const auto& shiftedAttributes { getShiftedAttributes() };
-    const juce::String tag { artwork.id.toString() };
 
-    if (shiftedAttributes.contains (tag))
+    if (shiftedAttributes.contains (artwork.id))
         return jam::Xml::getText (artwork,
-            shiftedAttributes.get (tag, artwork, deltaX, deltaY),
+            shiftedAttributes.get (artwork.id, artwork, deltaX, deltaY),
             artworkDepth);
 
-    juce::ConsoleApplication::fail ("glyph group " + groupId + " artwork tag " + tag + " has no shift rule");
+    juce::ConsoleApplication::fail (text::Diagnostics::failArtworkShift + Id::diagnosticSeparator + groupId
+                                    + Id::diagnosticSeparator + artwork.id.toString());
 }

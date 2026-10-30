@@ -1,18 +1,23 @@
 #pragma once
 #include <JuceHeader.h>
+#include "generated/Generated.h"
 
 /**
  * @file Help.h
- * @brief Entry point for the \--help command line option — prints the GGWP guide.
+ * @brief Renders the bundled HELP.md guide to the terminal.
  */
 
 /**
- * @brief Prints the HELP.md text to stdout.
+ * @brief Renders the guide text to stdout as styled terminal output.
  *
- * @param helpText The HELP.md text, printed verbatim on `--help` and when
- *                 no manifest is found.
+ * The text is parsed as markdown and laid out once, at the column width of the
+ * markdown style, so the guide wraps to the style's own measure rather than to the
+ * terminal's. The viewed component is painted through a terminal graphics context
+ * into a terminal buffer sized to that width and to the component's height. The
+ * buffer then writes the frame as VT bytes to stdout.
+ *
+ * @pre The JUCE GUI initialiser scope is open.
+ *
+ * @param helpText The HELP.md text, parsed as markdown.
  */
-inline void printHelp (const juce::String& helpText)
-{
-    std::cout << helpText;
-}
+void printHelp (const juce::String& helpText);

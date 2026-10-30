@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structtext_1_1_diagnostics" kind="struct" language="C++" prot="public">
+    <compoundname>text::Diagnostics</compoundname>
+    <includes refid="_text_8h" local="no">Text.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a348b78937a8882f64beb8e73b30e33fd" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failSheetNotFound</definition>
+        <argsstring></argsstring>
+        <name>failSheetNotFound</name>
+        <qualifiedname>text::Diagnostics::failSheetNotFound</qualifiedname>
+        <initializer>{ &quot;glyph sheet not found&quot;             }</initializer>
+        <briefdescription>
+<para>A weight&apos;s glyph sheet file does not exist. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="31" column="39" bodyfile="generated/Text.h" bodystart="31" bodyend="31"/>
+        <referencedby refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" compoundref="_build_8cpp" startline="12" endline="20">getSheetText</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failRoundTrip</definition>
+        <argsstring></argsstring>
+        <name>failRoundTrip</name>
+        <qualifiedname>text::Diagnostics::failRoundTrip</qualifiedname>
+        <initializer>{ &quot;round trip validation failed&quot;      }</initializer>
+        <briefdescription>
+<para>Prefix of every failure of the load-back check. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="32" column="39" bodyfile="generated/Text.h" bodystart="32" bodyend="32"/>
+        <referencedby refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</referencedby>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+        <referencedby refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" compoundref="_build_8cpp" startline="22" endline="31">validateGlyphAdvance</referencedby>
+        <referencedby refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" compoundref="_build_8cpp" startline="33" endline="47">validateGlyphCodepoint</referencedby>
+        <referencedby refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" compoundref="_build_8cpp" startline="49" endline="57">validateGlyphOutline</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a0ac4bb50d79924aaabb0a4f5f61bcd9f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failFreeTypeInit</definition>
+        <argsstring></argsstring>
+        <name>failFreeTypeInit</name>
+        <qualifiedname>text::Diagnostics::failFreeTypeInit</qualifiedname>
+        <initializer>{ &quot;FT_Init_FreeType failed&quot;           }</initializer>
+        <briefdescription>
+<para>FreeType could not initialise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="33" column="39" bodyfile="generated/Text.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a6d6db9c70abdec4d7c3b1d725c21e0ac" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failFreeTypeFace</definition>
+        <argsstring></argsstring>
+        <name>failFreeTypeFace</name>
+        <qualifiedname>text::Diagnostics::failFreeTypeFace</qualifiedname>
+        <initializer>{ &quot;FT_New_Memory_Face failed&quot;         }</initializer>
+        <briefdescription>
+<para>FreeType could not load the written font. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="34" column="39" bodyfile="generated/Text.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failLoadGlyph</definition>
+        <argsstring></argsstring>
+        <name>failLoadGlyph</name>
+        <qualifiedname>text::Diagnostics::failLoadGlyph</qualifiedname>
+        <initializer>{ &quot;FT_Load_Glyph failed&quot;              }</initializer>
+        <briefdescription>
+<para>FreeType could not load a glyph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="35" column="39" bodyfile="generated/Text.h" bodystart="35" bodyend="35"/>
+        <referencedby refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</referencedby>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a861e983aa0e5bd40fd8bfa81c2db8f7b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphAdvance</definition>
+        <argsstring></argsstring>
+        <name>failGlyphAdvance</name>
+        <qualifiedname>text::Diagnostics::failGlyphAdvance</qualifiedname>
+        <initializer>{ &quot;glyph advance differs&quot;             }</initializer>
+        <briefdescription>
+<para>The loaded glyph&apos;s advance differs from the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="36" column="39" bodyfile="generated/Text.h" bodystart="36" bodyend="36"/>
+        <referencedby refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" compoundref="_build_8cpp" startline="22" endline="31">validateGlyphAdvance</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a4fa95c581415bdd4b57344971a2dd939" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failCharIndex</definition>
+        <argsstring></argsstring>
+        <name>failCharIndex</name>
+        <qualifiedname>text::Diagnostics::failCharIndex</qualifiedname>
+        <initializer>{ &quot;character <ref refid="namespacemap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">map</ref> entry differs&quot;       }</initializer>
+        <briefdescription>
+<para>A codepoint maps to another glyph than the model&apos;s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="37" column="39" bodyfile="generated/Text.h" bodystart="37" bodyend="37"/>
+        <referencedby refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" compoundref="_build_8cpp" startline="33" endline="47">validateGlyphCodepoint</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a76b529378f57344b468f1f63a5319540" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphOutline</definition>
+        <argsstring></argsstring>
+        <name>failGlyphOutline</name>
+        <qualifiedname>text::Diagnostics::failGlyphOutline</qualifiedname>
+        <initializer>{ &quot;glyph has no outline contours&quot;     }</initializer>
+        <briefdescription>
+<para>A glyph that the model draws has no contour in the font. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="38" column="39" bodyfile="generated/Text.h" bodystart="38" bodyend="38"/>
+        <referencedby refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" compoundref="_build_8cpp" startline="49" endline="57">validateGlyphOutline</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a0163809f6cbe7a8fcd676f290340e1aa" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphCount</definition>
+        <argsstring></argsstring>
+        <name>failGlyphCount</name>
+        <qualifiedname>text::Diagnostics::failGlyphCount</qualifiedname>
+        <initializer>{ &quot;glyph count differs&quot;               }</initializer>
+        <briefdescription>
+<para>The font&apos;s glyph count differs from the model&apos;s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="39" column="39" bodyfile="generated/Text.h" bodystart="39" bodyend="39"/>
+        <referencedby refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1ad90e62fd6493adf1d90b05331ebd6a48" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failWeightUnknown</definition>
+        <argsstring></argsstring>
+        <name>failWeightUnknown</name>
+        <qualifiedname>text::Diagnostics::failWeightUnknown</qualifiedname>
+        <initializer>{ &quot;unknown weight&quot;                    }</initializer>
+        <briefdescription>
+<para>The weight is not a table of the manifest. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="40" column="39" bodyfile="generated/Text.h" bodystart="40" bodyend="40"/>
+        <referencedby refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" compoundref="_manifest_8cpp" startline="183" endline="201">getValidatedWeight</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a2d21a94d01d254bc361fd8d9d1f9b8d7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failFontWrite</definition>
+        <argsstring></argsstring>
+        <name>failFontWrite</name>
+        <qualifiedname>text::Diagnostics::failFontWrite</qualifiedname>
+        <initializer>{ &quot;failed to write font file&quot;         }</initializer>
+        <briefdescription>
+<para>The font file could not be written. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="41" column="39" bodyfile="generated/Text.h" bodystart="41" bodyend="41"/>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a9fceb77ee6c9442a89429754114abe39" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failManifestWrite</definition>
+        <argsstring></argsstring>
+        <name>failManifestWrite</name>
+        <qualifiedname>text::Diagnostics::failManifestWrite</qualifiedname>
+        <initializer>{ &quot;failed to write manifest file&quot;     }</initializer>
+        <briefdescription>
+<para>The manifest file could not be written. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="42" column="39" bodyfile="generated/Text.h" bodystart="42" bodyend="42"/>
+        <referencedby refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" compoundref="_manifest_8cpp" startline="174" endline="181">writeManifestFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a128d701b3db32061fe1b43d538eb609d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failSheetsDirectory</definition>
+        <argsstring></argsstring>
+        <name>failSheetsDirectory</name>
+        <qualifiedname>text::Diagnostics::failSheetsDirectory</qualifiedname>
+        <initializer>{ &quot;failed to create sheets directory&quot; }</initializer>
+        <briefdescription>
+<para>The sheets directory could not be created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="43" column="39" bodyfile="generated/Text.h" bodystart="43" bodyend="43"/>
+        <referencedby refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a86ec55c3b4275b0f4726e648a99c6f17" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failSheetWrite</definition>
+        <argsstring></argsstring>
+        <name>failSheetWrite</name>
+        <qualifiedname>text::Diagnostics::failSheetWrite</qualifiedname>
+        <initializer>{ &quot;failed to write glyph sheet&quot;       }</initializer>
+        <briefdescription>
+<para>A glyph sheet file could not be written. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="44" column="39" bodyfile="generated/Text.h" bodystart="44" bodyend="44"/>
+        <referencedby refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a818e8daba3b0ab915ef4c074d4d99ef9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failManifestCell</definition>
+        <argsstring></argsstring>
+        <name>failManifestCell</name>
+        <qualifiedname>text::Diagnostics::failManifestCell</qualifiedname>
+        <initializer>{ &quot;manifest table <ref refid="jam__Cell_8h_1adb968df47f8b9dd5aa6a35499c35c9f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">cell</ref> missing&quot;       }</initializer>
+        <briefdescription>
+<para>A manifest table row has no cell for a column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="45" column="39" bodyfile="generated/Text.h" bodystart="45" bodyend="45"/>
+        <referencedby refid="_manifest_8cpp_1afd397c2a2946cb76e65ded5ca178aa23" compoundref="_manifest_8cpp" startline="138" endline="151">getCellText</referencedby>
+        <referencedby refid="_manifest_8cpp_1a631abdef65336973054c081527edc649" compoundref="_manifest_8cpp" startline="153" endline="162">getColourText</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1afec6252d5e3a7dad823dd4da440856ad" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failMetricsRow</definition>
+        <argsstring></argsstring>
+        <name>failMetricsRow</name>
+        <qualifiedname>text::Diagnostics::failMetricsRow</qualifiedname>
+        <initializer>{ &quot;manifest metrics row missing&quot;      }</initializer>
+        <briefdescription>
+<para>The metrics table has no cellWidth row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="46" column="39" bodyfile="generated/Text.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1ae09ef73a6992e23f51c57a7ef41399f3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphRowReserved</definition>
+        <argsstring></argsstring>
+        <name>failGlyphRowReserved</name>
+        <qualifiedname>text::Diagnostics::failGlyphRowReserved</qualifiedname>
+        <initializer>{ &quot;reserved glyph row&quot;                }</initializer>
+        <briefdescription>
+<para>A glyphs row holds the notdef or the space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="47" column="39" bodyfile="generated/Text.h" bodystart="47" bodyend="47"/>
+        <referencedby refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" compoundref="_sheet_8cpp" startline="84" endline="112">getGlyphRowCounts</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a1df9b44e152ef06f57e3a8bcacd17be3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphRowUnsupported</definition>
+        <argsstring></argsstring>
+        <name>failGlyphRowUnsupported</name>
+        <qualifiedname>text::Diagnostics::failGlyphRowUnsupported</qualifiedname>
+        <initializer>{ &quot;unsupported glyph row&quot;             }</initializer>
+        <briefdescription>
+<para>A glyphs row has an unsupported shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="48" column="39" bodyfile="generated/Text.h" bodystart="48" bodyend="48"/>
+        <referencedby refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" compoundref="_sheet_8cpp" startline="84" endline="112">getGlyphRowCounts</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1ad20f2ff398673948a2701d71068c0360" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failGlyphGroupRect</definition>
+        <argsstring></argsstring>
+        <name>failGlyphGroupRect</name>
+        <qualifiedname>text::Diagnostics::failGlyphGroupRect</qualifiedname>
+        <initializer>{ &quot;glyph group has no rect cell&quot;      }</initializer>
+        <briefdescription>
+<para>A glyph group of a sheet has no rect cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="49" column="39" bodyfile="generated/Text.h" bodystart="49" bodyend="49"/>
+        <referencedby refid="_sheet_8cpp_1aed372493ac1a17511db4fe064290aa76" compoundref="_sheet_8cpp" startline="128" endline="137">getCellRect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a8f8ccf2d82e8710dd086f6c16f83cb6e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failArtworkShift</definition>
+        <argsstring></argsstring>
+        <name>failArtworkShift</name>
+        <qualifiedname>text::Diagnostics::failArtworkShift</qualifiedname>
+        <initializer>{ &quot;artwork tag has no <ref refid="juce__UnityPluginInterface_8h_1a485dc2a0e5ed7da3d9f826367b36ee55aa844ac0d299bd083b2938e6cbf34743a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">shift</ref> rule&quot;     }</initializer>
+        <briefdescription>
+<para>An artwork element has a tag that the sheet cannot shift. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="50" column="39" bodyfile="generated/Text.h" bodystart="50" bodyend="50"/>
+        <referencedby refid="_artwork_8cpp_1a759bdec551b43254e335540e941c759a" compoundref="_artwork_8cpp" startline="57" endline="73">getArtworkSvg</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1ac1bdc8751df44e39ecf8f861cb1563c7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failSheetXml</definition>
+        <argsstring></argsstring>
+        <name>failSheetXml</name>
+        <qualifiedname>text::Diagnostics::failSheetXml</qualifiedname>
+        <initializer>{ &quot;glyph sheet is not valid XML&quot;      }</initializer>
+        <briefdescription>
+<para>A glyph sheet does not parse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="51" column="39" bodyfile="generated/Text.h" bodystart="51" bodyend="51"/>
+        <referencedby refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const text::Diagnostics::failFontFace</definition>
+        <argsstring></argsstring>
+        <name>failFontFace</name>
+        <qualifiedname>text::Diagnostics::failFontFace</qualifiedname>
+        <initializer>{ &quot;font cannot be opened&quot;             }</initializer>
+        <briefdescription>
+<para>The font file given to the extract command cannot be opened. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="generated/Text.h" line="52" column="39" bodyfile="generated/Text.h" bodystart="52" bodyend="52"/>
+        <referencedby refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>ggwp message texts, emitted verbatim when a run fails. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="generated/Text.h" line="29" column="1" bodyfile="generated/Text.h" bodystart="30" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structtext_1_1_diagnostics_1a8f8ccf2d82e8710dd086f6c16f83cb6e" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failArtworkShift</name></member>
+      <member refid="structtext_1_1_diagnostics_1a4fa95c581415bdd4b57344971a2dd939" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failCharIndex</name></member>
+      <member refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failFontFace</name></member>
+      <member refid="structtext_1_1_diagnostics_1a2d21a94d01d254bc361fd8d9d1f9b8d7" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failFontWrite</name></member>
+      <member refid="structtext_1_1_diagnostics_1a6d6db9c70abdec4d7c3b1d725c21e0ac" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failFreeTypeFace</name></member>
+      <member refid="structtext_1_1_diagnostics_1a0ac4bb50d79924aaabb0a4f5f61bcd9f" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failFreeTypeInit</name></member>
+      <member refid="structtext_1_1_diagnostics_1a861e983aa0e5bd40fd8bfa81c2db8f7b" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphAdvance</name></member>
+      <member refid="structtext_1_1_diagnostics_1a0163809f6cbe7a8fcd676f290340e1aa" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphCount</name></member>
+      <member refid="structtext_1_1_diagnostics_1ad20f2ff398673948a2701d71068c0360" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphGroupRect</name></member>
+      <member refid="structtext_1_1_diagnostics_1a76b529378f57344b468f1f63a5319540" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphOutline</name></member>
+      <member refid="structtext_1_1_diagnostics_1ae09ef73a6992e23f51c57a7ef41399f3" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphRowReserved</name></member>
+      <member refid="structtext_1_1_diagnostics_1a1df9b44e152ef06f57e3a8bcacd17be3" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failGlyphRowUnsupported</name></member>
+      <member refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failLoadGlyph</name></member>
+      <member refid="structtext_1_1_diagnostics_1a818e8daba3b0ab915ef4c074d4d99ef9" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failManifestCell</name></member>
+      <member refid="structtext_1_1_diagnostics_1a9fceb77ee6c9442a89429754114abe39" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failManifestWrite</name></member>
+      <member refid="structtext_1_1_diagnostics_1afec6252d5e3a7dad823dd4da440856ad" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failMetricsRow</name></member>
+      <member refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failRoundTrip</name></member>
+      <member refid="structtext_1_1_diagnostics_1a348b78937a8882f64beb8e73b30e33fd" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failSheetNotFound</name></member>
+      <member refid="structtext_1_1_diagnostics_1a128d701b3db32061fe1b43d538eb609d" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failSheetsDirectory</name></member>
+      <member refid="structtext_1_1_diagnostics_1a86ec55c3b4275b0f4726e648a99c6f17" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failSheetWrite</name></member>
+      <member refid="structtext_1_1_diagnostics_1ac1bdc8751df44e39ecf8f861cb1563c7" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failSheetXml</name></member>
+      <member refid="structtext_1_1_diagnostics_1ad90e62fd6493adf1d90b05331ebd6a48" prot="public" virt="non-virtual"><scope>text::Diagnostics</scope><name>failWeightUnknown</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

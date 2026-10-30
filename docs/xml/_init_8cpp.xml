@@ -3,6 +3,7 @@
   <compounddef id="_init_8cpp" kind="file" language="C++">
     <compoundname>Init.cpp</compoundname>
     <includes refid="_init_8h" local="yes">Init.h</includes>
+    <includes refid="_generated_8h" local="yes">generated/Generated.h</includes>
     <includes refid="_manifest_8h" local="yes">Manifest.h</includes>
     <includes refid="_sheet_8h" local="yes">Sheet.h</includes>
     <incdepgraph>
@@ -13,7 +14,9 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -22,142 +25,77 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="10">
         <label>Manifest.h</label>
         <link refid="_manifest_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="11">
         <label>Sheet.h</label>
         <link refid="_sheet_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="8">
+        <label>Files.h</label>
+        <link refid="_files_8h"/>
+      </node>
+      <node id="4">
+        <label>generated/Generated.h</label>
+        <link refid="_generated_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>HashMaps.h</label>
+        <link refid="_hash_maps_8h"/>
+      </node>
+      <node id="6">
+        <label>Identifiers.h</label>
+        <link refid="_identifiers_8h"/>
+      </node>
+      <node id="5">
+        <label>ProjectInfo.h</label>
+        <link refid="_project_info_8h"/>
+      </node>
+      <node id="7">
+        <label>Text.h</label>
+        <link refid="_text_8h"/>
       </node>
       <node id="3">
         <label>JuceHeader.h</label>
       </node>
     </incdepgraph>
     <sectiondef kind="func">
-      <memberdef kind="function" id="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>static void writeManifestFile</definition>
-        <argsstring>(const juce::File &amp;manifestFile, const jam::ConfigDocument &amp;document)</argsstring>
-        <name>writeManifestFile</name>
-        <param>
-          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
-          <declname>manifestFile</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
-          <declname>document</declname>
-        </param>
+      <memberdef kind="function" id="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+        <definition>const juce::String &amp; getInitOption</definition>
+        <argsstring>()</argsstring>
+        <name>getInitOption</name>
         <briefdescription>
+<para>Returns the command line option that selects the init command. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Init.cpp" line="5" column="13" bodyfile="Init.cpp" bodystart="5" bodyend="12"/>
-        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="structjam_1_1MarkdownWriter_1afa15e9b166d3a7830a48c90ef8924f8e">jam::MarkdownWriter::getText</references>
-        <references refid="classjuce_1_1File_1a01aa22f7ebb9b06840c2118a5e99964a">juce::File::replaceWithText</references>
-        <references refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="5" endline="12">writeManifestFile</references>
-        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</referencedby>
-        <referencedby refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" compoundref="_init_8cpp" startline="85" endline="93">addMissingGuidesTable</referencedby>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
-        <referencedby refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="5" endline="12">writeManifestFile</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>static void writeSheetFile</definition>
-        <argsstring>(const juce::File &amp;sheetFile, const juce::String &amp;sheetText)</argsstring>
-        <name>writeSheetFile</name>
-        <param>
-          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
-          <declname>sheetFile</declname>
-        </param>
-        <param>
-          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
-          <declname>sheetText</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Init.cpp" line="14" column="13" bodyfile="Init.cpp" bodystart="14" bodyend="22"/>
-        <references refid="classjuce_1_1File_1af540d2875c87e47836e7deef02537ea4">juce::File::createDirectory</references>
-        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d">juce::File::getParentDirectory</references>
-        <references refid="classjuce_1_1File_1a01aa22f7ebb9b06840c2118a5e99964a">juce::File::replaceWithText</references>
-        <references refid="classjuce_1_1Result_1a204ba5a9124544a89a5b0565672ef5f3">juce::Result::wasOk</references>
-        <references refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" compoundref="_init_8cpp" startline="14" endline="22">writeSheetFile</references>
-        <referencedby refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" compoundref="_init_8cpp" startline="14" endline="22">writeSheetFile</referencedby>
-        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="101" endline="116">writeWeightSheets</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structjam_1_1XmlDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::XmlDocument</ref></type>
-        <definition>static jam::XmlDocument getSheetDocument</definition>
-        <argsstring>(const juce::File &amp;sheetFile)</argsstring>
-        <name>getSheetDocument</name>
-        <param>
-          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
-          <declname>sheetFile</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Init.cpp" line="24" column="25" bodyfile="Init.cpp" bodystart="24" bodyend="33"/>
-        <references refid="classjuce_1_1File_1a37e88fbc390d78f3d79675974f53fa78">juce::File::existsAsFile</references>
-        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" compoundref="_init_8cpp" startline="24" endline="33">getSheetDocument</references>
-        <references refid="classjuce_1_1File_1aa65d2fa50370357bf93658d6447c296d">juce::File::loadFileAsString</references>
-        <references refid="structjam_1_1XmlDocument_1af16167af9b7fc9142ec9324174df74bc">jam::XmlDocument::parse</references>
-        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</referencedby>
-        <referencedby refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" compoundref="_init_8cpp" startline="24" endline="33">getSheetDocument</referencedby>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>static void runManifestTypeCheck</definition>
-        <argsstring>(const jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</argsstring>
-        <name>runManifestTypeCheck</name>
-        <param>
-          <type>const <ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
-          <declname>manifest</declname>
-        </param>
-        <param>
-          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
-          <declname>manifestFile</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Init.cpp" line="35" column="13" bodyfile="Init.cpp" bodystart="35" bodyend="54"/>
-        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="structjam_1_1MarkdownDocument_1a004d8a13df60ecc435c10b0c38751541">jam::MarkdownDocument::getTableHeaders</references>
-        <references refid="structjam_1_1MarkdownDocument_1ac90706c21043931bf12e7bf4072e72d0">jam::MarkdownDocument::getTableRows</references>
-        <references refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605">jam::MarkdownDocument::getTables</references>
-        <references refid="structjam_1_1MarkdownDocument_1a8ec1ddbed0a40a277e9201266a7a8a14">jam::MarkdownDocument::getTableValue</references>
-        <references refid="structjam_1_1ConfigDocument_1a6d58039bf24b93d8fbcdf01a60950011">jam::ConfigDocument::getValueTypes</references>
-        <references refid="namespaceId_1a15adf267e880f83a4a1792e71907c3e7">Id::key</references>
-        <references refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" compoundref="_init_8cpp" startline="35" endline="54">runManifestTypeCheck</references>
+        <location file="Init.cpp" line="6" column="20" bodyfile="Init.cpp" bodystart="6" bodyend="10"/>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" compoundref="_init_8cpp" startline="6" endline="10">getInitOption</references>
+        <references refid="namespaceId_1ab7a5a143054114be1a030cd777e6f99c" compoundref="_generated_8cpp" startline="28" endline="28">Id::init</references>
         <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
-        <references refid="namespaceId_1ab4956db6d5e735af8b4e202830ac73f7">Id::type</references>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
-        <referencedby refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" compoundref="_init_8cpp" startline="35" endline="54">runManifestTypeCheck</referencedby>
+        <referencedby refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" compoundref="_init_8cpp" startline="6" endline="10">getInitOption</referencedby>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="78" endline="92">runInitCommand</referencedby>
       </memberdef>
       <memberdef kind="function" id="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -178,54 +116,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Init.cpp" line="56" column="13" bodyfile="Init.cpp" bodystart="56" bodyend="83"/>
-        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="233" endline="237">addGlyphs</references>
-        <references refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</references>
-        <references refid="classjuce_1_1File_1a37e88fbc390d78f3d79675974f53fa78">juce::File::existsAsFile</references>
+        <location file="Init.cpp" line="12" column="13" bodyfile="Init.cpp" bodystart="12" bodyend="41"/>
+        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="92" endline="96">addGlyphs</references>
+        <references refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="12" endline="41">addMissingGlyphsTable</references>
         <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
-        <references refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31">juce::File::getChildFile</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d">juce::File::getParentDirectory</references>
-        <references refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" compoundref="_init_8cpp" startline="24" endline="33">getSheetDocument</references>
-        <references refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605">jam::MarkdownDocument::getTables</references>
-        <references refid="structjam_1_1ConfigDocument_1adec16ec1ad68995d0addd3b78a442b34">jam::ConfigDocument::getValueTree</references>
+        <references refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</references>
+        <references refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" compoundref="_manifest_8cpp" startline="203" endline="208">getWeightSheetFile</references>
         <references refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5">Id::glyphs</references>
-        <references refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1">jam::Array&lt; typename ElementType, typename TypeOfCriticalSectionToUse &gt;::isEmpty</references>
-        <references refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05">Id::svg</references>
+        <references refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a">juce::String::isNotEmpty</references>
+        <references refid="structExtensions_1a50b7c136649b2c84b8bae73ac5f2e0f1">Extensions::svg</references>
         <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
-        <references refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="5" endline="12">writeManifestFile</references>
-        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</referencedby>
-        <referencedby refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="95" endline="99">addMissingTables</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>static void addMissingGuidesTable</definition>
-        <argsstring>(jam::ConfigDocument &amp;manifest, const juce::File &amp;manifestFile)</argsstring>
-        <name>addMissingGuidesTable</name>
-        <param>
-          <type><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
-          <declname>manifest</declname>
-        </param>
-        <param>
-          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
-          <declname>manifestFile</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Init.cpp" line="85" column="13" bodyfile="Init.cpp" bodystart="85" bodyend="93"/>
-        <references refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" compoundref="_manifest_8cpp" startline="227" endline="231">addGuides</references>
-        <references refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" compoundref="_init_8cpp" startline="85" endline="93">addMissingGuidesTable</references>
-        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
-        <references refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605">jam::MarkdownDocument::getTables</references>
-        <references refid="namespaceId_1aa76b563a7eec7eb2e0a51946a5b915b4">Id::guides</references>
-        <references refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1">jam::Array&lt; typename ElementType, typename TypeOfCriticalSectionToUse &gt;::isEmpty</references>
-        <references refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="5" endline="12">writeManifestFile</references>
-        <referencedby refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" compoundref="_init_8cpp" startline="85" endline="93">addMissingGuidesTable</referencedby>
-        <referencedby refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="95" endline="99">addMissingTables</referencedby>
+        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="12" endline="41">addMissingGlyphsTable</referencedby>
+        <referencedby refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="43" endline="59">addMissingTables</referencedby>
       </memberdef>
       <memberdef kind="function" id="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -246,12 +148,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Init.cpp" line="95" column="13" bodyfile="Init.cpp" bodystart="95" bodyend="99"/>
-        <references refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="56" endline="83">addMissingGlyphsTable</references>
-        <references refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" compoundref="_init_8cpp" startline="85" endline="93">addMissingGuidesTable</references>
-        <references refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="95" endline="99">addMissingTables</references>
-        <referencedby refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="95" endline="99">addMissingTables</referencedby>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+        <location file="Init.cpp" line="43" column="13" bodyfile="Init.cpp" bodystart="43" bodyend="59"/>
+        <references refid="_manifest_8cpp_1a391242974c86e4a86bbfd3f58f513071" compoundref="_manifest_8cpp" startline="107" endline="136">addDefaultTable</references>
+        <references refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="12" endline="41">addMissingGlyphsTable</references>
+        <references refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="43" endline="59">addMissingTables</references>
+        <references refid="namespaceId_1a4bd0df4be8afa67aa63bb534607d2f38">Id::colour</references>
+        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
+        <references refid="namespaceId_1aa76b563a7eec7eb2e0a51946a5b915b4" compoundref="_generated_8cpp" startline="31" endline="31">Id::guides</references>
+        <references refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" compoundref="_manifest_8cpp" startline="174" endline="181">writeManifestFile</references>
+        <referencedby refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="43" endline="59">addMissingTables</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="78" endline="92">runInitCommand</referencedby>
       </memberdef>
       <memberdef kind="function" id="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -272,18 +178,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Init.cpp" line="101" column="13" bodyfile="Init.cpp" bodystart="101" bodyend="116"/>
+        <location file="Init.cpp" line="61" column="13" bodyfile="Init.cpp" bodystart="61" bodyend="76"/>
         <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
-        <references refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31">juce::File::getChildFile</references>
-        <references refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d">juce::File::getParentDirectory</references>
-        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="346" endline="407">getSheetSvg</references>
-        <references refid="structjam_1_1ConfigDocument_1adec16ec1ad68995d0addd3b78a442b34">jam::ConfigDocument::getValueTree</references>
-        <references refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05">Id::svg</references>
+        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</references>
+        <references refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" compoundref="_manifest_8cpp" startline="203" endline="208">getWeightSheetFile</references>
+        <references refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a">juce::String::isNotEmpty</references>
+        <references refid="structExtensions_1a50b7c136649b2c84b8bae73ac5f2e0f1">Extensions::svg</references>
         <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
-        <references refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" compoundref="_init_8cpp" startline="14" endline="22">writeSheetFile</references>
-        <references refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="101" endline="116">writeWeightSheets</references>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
-        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="101" endline="116">writeWeightSheets</referencedby>
+        <references refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</references>
+        <references refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="61" endline="76">writeWeightSheets</references>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="78" endline="92">runInitCommand</referencedby>
+        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="61" endline="76">writeWeightSheets</referencedby>
       </memberdef>
       <memberdef kind="function" id="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -298,7 +203,9 @@
 <para>Handles the --init command line option. </para>
         </briefdescription>
         <detaileddescription>
-<para>Reads the family name from --init. Creates the manifest file when it is missing, seeded from the regular weight&apos;s glyph sheet when that sheet already exists on disk. Adds a missing glyphs table from the first declared weight whose glyph sheet exists on disk, and a missing guides table with default values. Then, for every weight declared in the manifest&apos;s font table, writes that weight&apos;s glyph sheet, reconciled against the manifest&apos;s <computeroutput>##</computeroutput> glyphs table <ndash/> existing cells keep their own width and artwork, missing cells are added, and the sheet is repacked.</para>
+<para>Reads the family name from --init. The manifest file name derives from the family name and lands in the current directory. When the file exists, it is read and validated; otherwise the default manifest for the family is the starting document.</para>
+<para>Three tables are added when missing. The glyphs table is built from the first declared weight whose glyph sheet exists on disk, or from the default printable ASCII range when no sheet exists. The guides table and the colour table take their default rows. The manifest is written only when it gained a table.</para>
+<para>Then, for every weight declared in the manifest&apos;s font table that has a glyph sheet path, the weight&apos;s glyph sheet is written, reconciled against the glyphs table. A weight without a sheet on disk gets one.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>args</parametername>
@@ -312,25 +219,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Init.cpp" line="118" column="6" bodyfile="Init.cpp" bodystart="118" bodyend="147"/>
-        <references refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="95" endline="99">addMissingTables</references>
+        <location file="Init.cpp" line="78" column="6" bodyfile="Init.cpp" bodystart="78" bodyend="92"/>
+        <references refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" compoundref="_init_8cpp" startline="43" endline="59">addMissingTables</references>
         <references refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d">juce::ArgumentList::failIfOptionIsMissing</references>
         <references refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31">juce::File::getChildFile</references>
         <references refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279">juce::File::getCurrentWorkingDirectory</references>
-        <references refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" compoundref="_manifest_8cpp" startline="239" endline="259">getManifestDocument</references>
-        <references refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" compoundref="_manifest_8cpp" startline="12" endline="15">getManifestFileName</references>
-        <references refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" compoundref="_manifest_8cpp" startline="17" endline="20">getPostScriptBase</references>
-        <references refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" compoundref="_init_8cpp" startline="24" endline="33">getSheetDocument</references>
+        <references refid="_manifest_8cpp_1a00336e6c9f80478df7c6a93cc4352b44" compoundref="_manifest_8cpp" startline="98" endline="105">getDefaultManifest</references>
+        <references refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" compoundref="_init_8cpp" startline="6" endline="10">getInitOption</references>
+        <references refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" compoundref="_manifest_8cpp" startline="11" endline="14">getManifestFileName</references>
+        <references refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" compoundref="_manifest_8cpp" startline="16" endline="19">getPostScriptBase</references>
+        <references refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" compoundref="_manifest_8cpp" startline="164" endline="172">getValidatedManifest</references>
         <references refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453">juce::ArgumentList::getValueForOption</references>
-        <references refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" compoundref="_init_8h" startline="12" endline="12">initOption</references>
-        <references refid="structjam_1_1ConfigDocument_1ae65b35112a2edfbbb9f73a0f3efbf733">jam::ConfigDocument::parse</references>
-        <references refid="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" compoundref="_manifest_8h" startline="12" endline="12">regularSheetPath</references>
-        <references refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</references>
-        <references refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" compoundref="_init_8cpp" startline="35" endline="54">runManifestTypeCheck</references>
-        <references refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" compoundref="_init_8cpp" startline="5" endline="12">writeManifestFile</references>
-        <references refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="101" endline="116">writeWeightSheets</references>
-        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="144" endline="181">main</referencedby>
-        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="118" endline="147">runInitCommand</referencedby>
+        <references refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="78" endline="92">runInitCommand</references>
+        <references refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="61" endline="76">writeWeightSheets</references>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" compoundref="_init_8cpp" startline="78" endline="92">runInitCommand</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -339,152 +242,97 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_init_8h" kindref="compound">Init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_manifest_8h" kindref="compound">Manifest.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sheet_8h" kindref="compound">Sheet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5" refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" kindref="member">writeManifestFile</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>document)</highlight></codeline>
-<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1MarkdownWriter" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::MarkdownWriter</ref><sp/>writer;</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifestText<sp/>{<sp/>writer.<ref refid="structjam_1_1MarkdownWriter_1afa15e9b166d3a7830a48c90ef8924f8e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getText</ref><sp/>(document)<sp/>};</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>manifestFile.<ref refid="classjuce_1_1File_1a01aa22f7ebb9b06840c2118a5e99964a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">replaceWithText</ref><sp/>(manifestText))</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(</highlight><highlight class="stringliteral">&quot;failed<sp/>to<sp/>write<sp/>manifest<sp/>file:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>manifestFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" kindref="member">writeSheetFile</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>sheetFile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>sheetText)</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>sheetFile.<ref refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getParentDirectory</ref>().<ref refid="classjuce_1_1File_1af540d2875c87e47836e7deef02537ea4" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">createDirectory</ref>().<ref refid="classjuce_1_1Result_1a204ba5a9124544a89a5b0565672ef5f3" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">wasOk</ref>())</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(</highlight><highlight class="stringliteral">&quot;failed<sp/>to<sp/>create<sp/>sheets<sp/>directory:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>sheetFile.<ref refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getParentDirectory</ref>().<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>sheetFile.<ref refid="classjuce_1_1File_1a01aa22f7ebb9b06840c2118a5e99964a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">replaceWithText</ref><sp/>(sheetText))</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(</highlight><highlight class="stringliteral">&quot;failed<sp/>to<sp/>write<sp/>glyph<sp/>sheet:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sheetFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
-<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24" refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1XmlDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::XmlDocument</ref><sp/><ref refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" kindref="member">getSheetDocument</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>sheetFile)</highlight></codeline>
-<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetText<sp/>{<sp/>sheetFile.<ref refid="classjuce_1_1File_1a37e88fbc390d78f3d79675974f53fa78" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">existsAsFile</ref>()<sp/>?<sp/>sheetFile.<ref refid="classjuce_1_1File_1aa65d2fa50370357bf93658d6447c296d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">loadFileAsString</ref>()<sp/>:<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>()<sp/>};</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheet<sp/>{<sp/><ref refid="structjam_1_1XmlDocument_1af16167af9b7fc9142ec9324174df74bc" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Xml::parse</ref><sp/>(sheetText)<sp/>};</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_generated_8h" kindref="compound">generated/Generated.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_manifest_8h" kindref="compound">Manifest.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sheet_8h" kindref="compound">Sheet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/><ref refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" kindref="member">getInitOption</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>initOption<sp/>{<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(<ref refid="structChars_1a375464038832537822fff69be3285e32" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Chars::doubleDash</ref>)<sp/>+<sp/><ref refid="namespaceId_1ab7a5a143054114be1a030cd777e6f99c" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::init</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>initOption;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" kindref="member">addMissingGlyphsTable</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Identifier" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Identifier</ref><sp/>svg<sp/>{<sp/><ref refid="structExtensions_1a50b7c136649b2c84b8bae73ac5f2e0f1" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Extensions::svg</ref><sp/>};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.getTables<sp/>(<ref refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::glyphs</ref>).isEmpty())</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weightSheetFile<sp/>{<sp/>[&amp;manifest,<sp/>&amp;manifestFile]<sp/>()<sp/>-&gt;<sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weight<sp/>:<sp/>manifest.getValueTree<sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>))</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weight.getProperty<sp/>(svg).<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>().<ref refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">isNotEmpty</ref>())</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>candidateSheetFile<sp/>{<sp/><ref refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" kindref="member">getWeightSheetFile</ref><sp/>(manifestFile,<sp/>weight)<sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(candidateSheetFile.existsAsFile())</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>candidateSheetFile;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sheetFile.<ref refid="classjuce_1_1File_1a37e88fbc390d78f3d79675974f53fa78" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">existsAsFile</ref>()<sp/>and<sp/>sheet.root-&gt;id.isNull())</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(</highlight><highlight class="stringliteral">&quot;glyph<sp/>sheet<sp/>is<sp/>not<sp/>valid<sp/>XML:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sheetFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>()<sp/>};</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sheet;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" kindref="member">runManifestTypeCheck</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>table<sp/>:<sp/>manifest.<ref refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTables</ref>())</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tableHeaders<sp/>{<sp/>manifest.<ref refid="structjam_1_1MarkdownDocument_1a004d8a13df60ecc435c10b0c38751541" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTableHeaders</ref><sp/>(*table)<sp/>};</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tableHeaders.contains<sp/>(<ref refid="namespaceId_1a15adf267e880f83a4a1792e71907c3e7" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::key</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>())<sp/>and<sp/>tableHeaders.contains<sp/>(<ref refid="namespaceId_1ab4956db6d5e735af8b4e202830ac73f7" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::type</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()))</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>row<sp/>:<sp/>manifest.<ref refid="structjam_1_1MarkdownDocument_1ac90706c21043931bf12e7bf4072e72d0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTableRows</ref><sp/>(*table))</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>type<sp/>{<sp/><ref refid="classjuce_1_1Identifier" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Identifier</ref><sp/>{<sp/>manifest.<ref refid="structjam_1_1MarkdownDocument_1a8ec1ddbed0a40a277e9201266a7a8a14" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTableValue</ref><sp/>(*row,<sp/><ref refid="namespaceId_1ab4956db6d5e735af8b4e202830ac73f7" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::type</ref>)<sp/>}<sp/>};</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/><ref refid="structjam_1_1ConfigDocument_1a6d58039bf24b93d8fbcdf01a60950011" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument::getValueTypes</ref>().contains<sp/>(type))</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(</highlight><highlight class="stringliteral">&quot;unknown<sp/>type<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>type.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>in<sp/>table<sp/>\&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>table-&gt;id.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>of<sp/>manifest:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>manifestFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" kindref="member">addMissingGlyphsTable</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
-<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.<ref refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTables</ref><sp/>(<ref refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::glyphs</ref>).<ref refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">isEmpty</ref>())</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref><sp/>weightSheetFile;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weight<sp/>:<sp/>manifest.<ref refid="structjam_1_1ConfigDocument_1adec16ec1ad68995d0addd3b78a442b34" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getValueTree</ref><sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>))</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weight.hasProperty<sp/>(<ref refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::svg</ref>))</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>candidateSheetFile<sp/>{<sp/>manifestFile.<ref refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getParentDirectory</ref>().<ref refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getChildFile</ref><sp/>(</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight.getProperty<sp/>(<ref refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::svg</ref>).<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>())<sp/>};</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(candidateSheetFile.existsAsFile())</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weightSheetFile<sp/>=<sp/>candidateSheetFile;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheet<sp/>{<sp/><ref refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" kindref="member">getSheetDocument</ref><sp/>(weightSheetFile)<sp/>};</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kindref="member">addGlyphs</ref><sp/>(manifest,<sp/>weightSheetFile.<ref refid="classjuce_1_1File_1a37e88fbc390d78f3d79675974f53fa78" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">existsAsFile</ref>()<sp/>?<sp/>sheet.root<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" kindref="member">writeManifestFile</ref><sp/>(manifestFile,<sp/>manifest);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;added<sp/>glyphs<sp/>table<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>manifestFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85" refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" kindref="member">addMissingGuidesTable</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
-<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.<ref refid="structjam_1_1MarkdownDocument_1a3579dcce934844a8ee0deb927f9d2605" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTables</ref><sp/>(<ref refid="namespaceId_1aa76b563a7eec7eb2e0a51946a5b915b4" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::guides</ref>).<ref refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">isEmpty</ref>())</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" kindref="member">addGuides</ref><sp/>(manifest);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" kindref="member">writeManifestFile</ref><sp/>(manifestFile,<sp/>manifest);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;added<sp/>guides<sp/>table<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>manifestFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95" refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" kindref="member">addMissingTables</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
-<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" kindref="member">addMissingGlyphsTable</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" kindref="member">addMissingGuidesTable</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101" refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" kindref="member">writeWeightSheets</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weight<sp/>:<sp/>manifest.<ref refid="structjam_1_1ConfigDocument_1adec16ec1ad68995d0addd3b78a442b34" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getValueTree</ref><sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>))</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weight.hasProperty<sp/>(<ref refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::svg</ref>))</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weightSheetFile<sp/>{<sp/>manifestFile.<ref refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getParentDirectory</ref>().<ref refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getChildFile</ref><sp/>(</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight.getProperty<sp/>(<ref refid="namespaceId_1aa9842e6b95ff5d4f1c1c9730f77cdd05" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::svg</ref>).<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>())<sp/>};</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetText<sp/>{<sp/>weightSheetFile.existsAsFile()<sp/>?<sp/>weightSheetFile.loadFileAsString()</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>()<sp/>};</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" kindref="member">writeSheetFile</ref><sp/>(weightSheetFile,<sp/><ref refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kindref="member">getSheetSvg</ref><sp/>(manifest,<sp/>sheetText));</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;wrote<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>weightSheetFile.getFullPathName()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118" refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" kindref="member">runInitCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args)</highlight></codeline>
-<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>args.<ref refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">failIfOptionIsMissing</ref><sp/>(<ref refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" kindref="member">initOption</ref>);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>familyName<sp/>{<sp/>args.<ref refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getValueForOption</ref><sp/>(<ref refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" kindref="member">initOption</ref>)<sp/>};</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>postScriptBase<sp/>{<sp/><ref refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" kindref="member">getPostScriptBase</ref><sp/>(familyName)<sp/>};</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifestFile<sp/>{<sp/><ref refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File::getCurrentWorkingDirectory</ref>().<ref refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getChildFile</ref><sp/>(</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" kindref="member">getManifestFileName</ref><sp/>(familyName))<sp/>};</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetFile<sp/>{<sp/>manifestFile.getParentDirectory().getChildFile<sp/>(<ref refid="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" kindref="member">regularSheetPath</ref>)<sp/>};</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>manifestFile.existsAsFile())</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheet<sp/>{<sp/><ref refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" kindref="member">getSheetDocument</ref><sp/>(sheetFile)<sp/>};</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>document<sp/>{<sp/><ref refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" kindref="member">getManifestDocument</ref><sp/>(familyName,<sp/>postScriptBase,</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sheetFile.existsAsFile()<sp/>?<sp/>sheet.root<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>};</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" kindref="member">writeManifestFile</ref><sp/>(manifestFile,<sp/>document);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;wrote<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>manifestFile.getFullPathName()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>builtManifest<sp/>{<sp/><ref refid="structjam_1_1ConfigDocument_1ae65b35112a2edfbbb9f73a0f3efbf733" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument::parse</ref><sp/>(manifestFile.loadFileAsString(),<sp/>manifestFile.getFullPathName())<sp/>};</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" kindref="member">runManifestTypeCheck</ref><sp/>(builtManifest,<sp/>manifestFile);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" kindref="member">addMissingTables</ref><sp/>(builtManifest,<sp/>manifestFile);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifest<sp/>{<sp/><ref refid="structjam_1_1ConfigDocument_1ae65b35112a2edfbbb9f73a0f3efbf733" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument::parse</ref><sp/>(manifestFile.loadFileAsString(),<sp/>manifestFile.getFullPathName())<sp/>};</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" kindref="member">writeWeightSheets</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weightSheetFile.existsAsFile())</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheet<sp/>{<sp/><ref refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" kindref="member">getSheetDocument</ref><sp/>(weightSheetFile.loadFileAsString(),<sp/>weightSheetFile.getFullPathName())<sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kindref="member">addGlyphs</ref><sp/>(manifest,<sp/>sheet.getRoot());</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kindref="member">addGlyphs</ref><sp/>(manifest,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" kindref="member">addMissingTables</ref><sp/>(<ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;juce::Identifier&gt;<sp/>defaultTables<sp/>{<sp/><ref refid="namespaceId_1aa76b563a7eec7eb2e0a51946a5b915b4" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::guides</ref>,<sp/><ref refid="namespaceId_1a4bd0df4be8afa67aa63bb534607d2f38" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::colour</ref><sp/>};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tableCount<sp/>{<sp/>manifest.getTables().size()<sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" kindref="member">addMissingGlyphsTable</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>tableId<sp/>:<sp/>defaultTables)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.getTables<sp/>(tableId).isEmpty())</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a391242974c86e4a86bbfd3f58f513071" kindref="member">addDefaultTable</ref><sp/>(manifest,<sp/>tableId);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.getTables().size()<sp/>!=<sp/>tableCount)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" kindref="member">writeManifestFile</ref><sp/>(manifestFile,<sp/>manifest);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>text::Commands::wroteFile<sp/>&lt;&lt;<sp/>manifestFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" kindref="member">writeWeightSheets</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Identifier" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Identifier</ref><sp/>svg<sp/>{<sp/><ref refid="structExtensions_1a50b7c136649b2c84b8bae73ac5f2e0f1" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Extensions::svg</ref><sp/>};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weight<sp/>:<sp/>manifest.getValueTree<sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>))</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weight.getProperty<sp/>(svg).<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>().<ref refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">isNotEmpty</ref>())</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weightSheetFile<sp/>{<sp/><ref refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" kindref="member">getWeightSheetFile</ref><sp/>(manifestFile,<sp/>weight)<sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetText<sp/>{<sp/>weightSheetFile.loadFileAsString()<sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" kindref="member">writeSheetFile</ref><sp/>(weightSheetFile,<sp/><ref refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kindref="member">getSheetSvg</ref><sp/>(manifest,<sp/>sheetText));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>text::Commands::wroteFile<sp/>&lt;&lt;<sp/>weightSheetFile.getFullPathName()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" kindref="member">runInitCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>args.<ref refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">failIfOptionIsMissing</ref><sp/>(<ref refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" kindref="member">getInitOption</ref>());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>familyName<sp/>{<sp/>args.<ref refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getValueForOption</ref><sp/>(<ref refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" kindref="member">getInitOption</ref>())<sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifestFile<sp/>{<sp/><ref refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File::getCurrentWorkingDirectory</ref>().<ref refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getChildFile</ref><sp/>(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" kindref="member">getManifestFileName</ref><sp/>(familyName))<sp/>};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifest<sp/>{<sp/>manifestFile.existsAsFile()<sp/>?<sp/><ref refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" kindref="member">getValidatedManifest</ref><sp/>(manifestFile)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="_manifest_8cpp_1a00336e6c9f80478df7c6a93cc4352b44" kindref="member">getDefaultManifest</ref><sp/>(familyName,<sp/><ref refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" kindref="member">getPostScriptBase</ref><sp/>(familyName))<sp/>};</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" kindref="member">addMissingTables</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" kindref="member">writeWeightSheets</ref><sp/>(manifest,<sp/>manifestFile);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="Init.cpp"/>
   </compounddef>

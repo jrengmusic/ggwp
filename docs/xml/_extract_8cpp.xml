@@ -1,0 +1,924 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_extract_8cpp" kind="file" language="C++">
+    <compoundname>Extract.cpp</compoundname>
+    <includes refid="_extract_8h" local="yes">Extract.h</includes>
+    <includes refid="_generated_8h" local="yes">generated/Generated.h</includes>
+    <includes refid="_artwork_8h" local="yes">Artwork.h</includes>
+    <includes refid="_manifest_8h" local="yes">Manifest.h</includes>
+    <includes refid="_sheet_8h" local="yes">Sheet.h</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>Artwork.h</label>
+        <link refid="_artwork_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Extract.cpp</label>
+        <link refid="_extract_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Extract.h</label>
+        <link refid="_extract_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Manifest.h</label>
+        <link refid="_manifest_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Sheet.h</label>
+        <link refid="_sheet_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Files.h</label>
+        <link refid="_files_8h"/>
+      </node>
+      <node id="4">
+        <label>generated/Generated.h</label>
+        <link refid="_generated_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>HashMaps.h</label>
+        <link refid="_hash_maps_8h"/>
+      </node>
+      <node id="6">
+        <label>Identifiers.h</label>
+        <link refid="_identifiers_8h"/>
+      </node>
+      <node id="5">
+        <label>ProjectInfo.h</label>
+        <link refid="_project_info_8h"/>
+      </node>
+      <node id="7">
+        <label>Text.h</label>
+        <link refid="_text_8h"/>
+      </node>
+      <node id="3">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+        <definition>const juce::String &amp; getExtractOption</definition>
+        <argsstring>()</argsstring>
+        <name>getExtractOption</name>
+        <briefdescription>
+<para>Returns the command line option that selects the extract command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="7" column="20" bodyfile="Extract.cpp" bodystart="7" bodyend="11"/>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="namespaceId_1aac3b032846b9e459a1c27575bc9152ea" compoundref="_generated_8cpp" startline="29" endline="29">Id::extract</references>
+        <references refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <referencedby refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</referencedby>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1Point" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Point</ref>&lt; float &gt;</type>
+        <definition>static juce::Point&lt; float &gt; getOutlinePoint</definition>
+        <argsstring>(const FT_Vector *vector)</argsstring>
+        <name>getOutlinePoint</name>
+        <param>
+          <type>const FT_Vector *</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="13" column="20" bodyfile="Extract.cpp" bodystart="13" bodyend="16"/>
+        <references refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" compoundref="_extract_8cpp" startline="13" endline="16">getOutlinePoint</references>
+        <referencedby refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" compoundref="_extract_8cpp" startline="18" endline="46">getOutlineFunctions</referencedby>
+        <referencedby refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" compoundref="_extract_8cpp" startline="13" endline="16">getOutlinePoint</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const FT_Outline_Funcs &amp;</type>
+        <definition>static const FT_Outline_Funcs &amp; getOutlineFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>getOutlineFunctions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="18" column="31" bodyfile="Extract.cpp" bodystart="18" bodyend="46"/>
+        <references refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" compoundref="_extract_8cpp" startline="18" endline="46">getOutlineFunctions</references>
+        <references refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" compoundref="_extract_8cpp" startline="13" endline="16">getOutlinePoint</references>
+        <referencedby refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</referencedby>
+        <referencedby refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" compoundref="_extract_8cpp" startline="18" endline="46">getOutlineFunctions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref></type>
+        <definition>static juce::Path getGlyphPath</definition>
+        <argsstring>(FT_Face face, FT_UInt glyphIndex, const juce::AffineTransform &amp;unitsToSheet)</argsstring>
+        <name>getGlyphPath</name>
+        <param>
+          <type>FT_Face</type>
+          <declname>face</declname>
+        </param>
+        <param>
+          <type>FT_UInt</type>
+          <declname>glyphIndex</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref> &amp;</type>
+          <declname>unitsToSheet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="48" column="19" bodyfile="Extract.cpp" bodystart="48" bodyend="62"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" compoundref="_text_8h" startline="35" endline="35">text::Diagnostics::failLoadGlyph</references>
+        <references refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</references>
+        <references refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" compoundref="_extract_8cpp" startline="18" endline="46">getOutlineFunctions</references>
+        <referencedby refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</referencedby>
+        <referencedby refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</referencedby>
+        <referencedby refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getGlyphGroupText</definition>
+        <argsstring>(const jam::Document::Numbers &amp;codepoints, float cellWidth, const juce::Path &amp;path)</argsstring>
+        <name>getGlyphGroupText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref> &amp;</type>
+          <declname>codepoints</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cellWidth</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="64" column="21" bodyfile="Extract.cpp" bodystart="64" bodyend="77"/>
+        <references refid="namespaceId_1a53deab2f0d4c5c7389fb74c993027c54">Id::d</references>
+        <references refid="namespaceId_1a4e09b956d81c3ef5934eb03fc6255507">Id::g</references>
+        <references refid="_artwork_8cpp_1ad9847018189eb26f922a26ebe846e786" compoundref="_artwork_8cpp" startline="6" endline="11">getCoordinateText</references>
+        <references refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" compoundref="_extract_8cpp" startline="64" endline="77">getGlyphGroupText</references>
+        <references refid="structjam_1_1OpenTypeDocument_1a6523fdb4b690e8ba951beae2184afb38">jam::OpenTypeDocument::getGlyphId</references>
+        <references refid="structjam_1_1XmlDocument_1a67e65a29647faa906d56a87d691e8bcb">jam::XmlDocument::getText</references>
+        <references refid="namespaceId_1a3f6204ca8d39b2591e10dc6cf112e0fc">Id::id</references>
+        <references refid="namespaceId_1ac0d6bb21fb6eb483624e52f9002294ab">Id::path</references>
+        <references refid="structjam_1_1Svg_1_1Format_1a23446a5f9165f8da22f47fe2ea4591eb">jam::Svg::Format::pathToString</references>
+        <references refid="namespaceId_1a60a56f29597f7589e7f0fe3532248866">Id::rect</references>
+        <references refid="structjam_1_1XmlDocument_1a84dc5d07041fbb846cb2d29ecaf11c92">jam::XmlDocument::toDocument</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <references refid="namespaceId_1ad07ca1e95e00fb5b519009d424bf0077">Id::width</references>
+        <references refid="namespaceId_1a603c1a5995adddc8321e419c73fa49b9">Id::x</references>
+        <references refid="namespaceId_1ab9619644df21af1b0cc68f0999abc687">Id::y</references>
+        <referencedby refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</referencedby>
+        <referencedby refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" compoundref="_extract_8cpp" startline="64" endline="77">getGlyphGroupText</referencedby>
+        <referencedby refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjam_1_1HashMap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::HashMap</ref>&lt; hb_codepoint_t, <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &gt;</type>
+        <definition>static jam::HashMap&lt; hb_codepoint_t, juce::String &gt; getLigatureCodepoints</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, const jam::Array&lt; hb_codepoint_t &gt; &amp;inputCodepoints)</argsstring>
+        <name>getLigatureCodepoints</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjam_1_1Array" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Array</ref>&lt; hb_codepoint_t &gt; &amp;</type>
+          <declname>inputCodepoints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="79" column="21" bodyfile="Extract.cpp" bodystart="79" bodyend="109"/>
+        <references refid="classjuce_1_1String_1a128e862810bc5e3f16cb70c3c9751867">juce::String::charToString</references>
+        <references refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" compoundref="_extract_8cpp" startline="79" endline="109">getLigatureCodepoints</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545">jam::Typeface::Entry::hbFont</references>
+        <references refid="classjam_1_1HashMap_1a652692e674a0b76b04df95b4a64394d8">jam::HashMap&lt; typename Key, typename Mapped, typename HashFn, typename KeyEqual, typename AllocatorOrContainer, typename Bucket, typename BucketContainer, bool IsSegmented &gt;::insert</references>
+        <referencedby refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" compoundref="_extract_8cpp" startline="79" endline="109">getLigatureCodepoints</referencedby>
+        <referencedby refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hb_codepoint_t</type>
+        <definition>static hb_codepoint_t getUnmappedSubstitution</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, const jam::HashMap&lt; hb_codepoint_t, juce::String &gt; &amp;ligatures)</argsstring>
+        <name>getUnmappedSubstitution</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjam_1_1HashMap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::HashMap</ref>&lt; hb_codepoint_t, <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &gt; &amp;</type>
+          <declname>ligatures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="111" column="23" bodyfile="Extract.cpp" bodystart="111" bodyend="130"/>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de">jam::Typeface::Entry::face</references>
+        <references refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" compoundref="_extract_8cpp" startline="111" endline="130">getUnmappedSubstitution</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545">jam::Typeface::Entry::hbFont</references>
+        <referencedby refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</referencedby>
+        <referencedby refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" compoundref="_extract_8cpp" startline="111" endline="130">getUnmappedSubstitution</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getLigatureGroupText</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, hb_codepoint_t ligatureGlyph, const juce::String &amp;codepointText, const juce::AffineTransform &amp;unitsToSheet, double cellWidth)</argsstring>
+        <name>getLigatureGroupText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>hb_codepoint_t</type>
+          <declname>ligatureGlyph</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>codepointText</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref> &amp;</type>
+          <declname>unitsToSheet</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cellWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="132" column="21" bodyfile="Extract.cpp" bodystart="132" bodyend="143"/>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de">jam::Typeface::Entry::face</references>
+        <references refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" compoundref="_extract_8cpp" startline="64" endline="77">getGlyphGroupText</references>
+        <references refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</references>
+        <references refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" compoundref="_sheet_8cpp" startline="45" endline="48">getLigatureCellWidth</references>
+        <references refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</references>
+        <references refid="classjuce_1_1String_1a163b79b6dce5dc959a80faa9851c7de2">juce::String::length</references>
+        <referencedby refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</referencedby>
+        <referencedby refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getLigatures</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, const juce::AffineTransform &amp;unitsToSheet, double cellWidth)</argsstring>
+        <name>getLigatures</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref> &amp;</type>
+          <declname>unitsToSheet</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cellWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="145" column="21" bodyfile="Extract.cpp" bodystart="145" bodyend="172"/>
+        <references refid="classjam_1_1Array_1a11f82d383b72419d9e9624cbe63f7767">jam::Array&lt; typename ElementType, typename TypeOfCriticalSectionToUse &gt;::add</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de">jam::Typeface::Entry::face</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" compoundref="_extract_8cpp" startline="79" endline="109">getLigatureCodepoints</references>
+        <references refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</references>
+        <references refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</references>
+        <references refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" compoundref="_extract_8cpp" startline="111" endline="130">getUnmappedSubstitution</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545">jam::Typeface::Entry::hbFont</references>
+        <referencedby refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</referencedby>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double getNormalisation</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry)</argsstring>
+        <name>getNormalisation</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="174" column="15" bodyfile="Extract.cpp" bodystart="174" bodyend="177"/>
+        <references refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" compoundref="_extract_8cpp" startline="174" endline="177">getNormalisation</references>
+        <references refid="structjam_1_1OpenTypeDocument_1ae97b167ae80f9dc6f5e1139bbf256413">jam::OpenTypeDocument::unitsPerEm</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a8ae207157b2179887f5deb7589cf33dc">jam::Typeface::Entry::upem</references>
+        <referencedby refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" compoundref="_extract_8cpp" startline="174" endline="177">getNormalisation</referencedby>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref></type>
+        <definition>static juce::AffineTransform getUnitsToSheet</definition>
+        <argsstring>(double normalisation, const juce::ValueTree &amp;metrics)</argsstring>
+        <name>getUnitsToSheet</name>
+        <param>
+          <type>double</type>
+          <declname>normalisation</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref> &amp;</type>
+          <declname>metrics</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="179" column="30" bodyfile="Extract.cpp" bodystart="179" bodyend="185"/>
+        <references refid="namespaceId_1a6f000170fabbf731e725a54a1682b99e">Id::baseline</references>
+        <references refid="classjuce_1_1AffineTransform_1a79bf52285e4135483cd6373c8ebd76b5">juce::AffineTransform::followedBy</references>
+        <references refid="structjam_1_1OpenTypeDocument_1a457ee0239be6573912c9bc7abefcc182">jam::OpenTypeDocument::getGlyphTransform</references>
+        <references refid="structjam_1_1OpenTypeDocument_1ac2a23b4bc5e623878944f26198f05b82">jam::OpenTypeDocument::getSheetScale</references>
+        <references refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" compoundref="_extract_8cpp" startline="179" endline="185">getUnitsToSheet</references>
+        <references refid="classjuce_1_1AffineTransform_1ae192ba106d656d5a48a7de7ee510d67d">juce::AffineTransform::inverted</references>
+        <references refid="classjuce_1_1AffineTransform_1aca62d1ccb33af792b2b1defbcf171704">juce::AffineTransform::scale</references>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+        <referencedby refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" compoundref="_extract_8cpp" startline="179" endline="185">getUnitsToSheet</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>static float getGlyphCellWidth</definition>
+        <argsstring>(FT_Pos horizontalAdvance, double normalisation, int plainAdvance, double cellWidth)</argsstring>
+        <name>getGlyphCellWidth</name>
+        <param>
+          <type>FT_Pos</type>
+          <declname>horizontalAdvance</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>normalisation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>plainAdvance</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cellWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="187" column="14" bodyfile="Extract.cpp" bodystart="187" bodyend="190"/>
+        <references refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" compoundref="_extract_8cpp" startline="187" endline="190">getGlyphCellWidth</references>
+        <referencedby refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</referencedby>
+        <referencedby refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" compoundref="_extract_8cpp" startline="187" endline="190">getGlyphCellWidth</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getCharacterGroupsText</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, const juce::AffineTransform &amp;unitsToSheet, double normalisation, int plainAdvance, double cellWidth)</argsstring>
+        <name>getCharacterGroupsText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref> &amp;</type>
+          <declname>unitsToSheet</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>normalisation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>plainAdvance</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cellWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="192" column="21" bodyfile="Extract.cpp" bodystart="192" bodyend="220"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de">jam::Typeface::Entry::face</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</references>
+        <references refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" compoundref="_extract_8cpp" startline="187" endline="190">getGlyphCellWidth</references>
+        <references refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" compoundref="_extract_8cpp" startline="64" endline="77">getGlyphGroupText</references>
+        <references refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" compoundref="_extract_8cpp" startline="48" endline="62">getGlyphPath</references>
+        <references refid="structjam_1_1OpenTypeDocument_1a2a476e69f712c454c69cd920351c94a0">jam::OpenTypeDocument::spaceCodepoint</references>
+        <references refid="classjuce_1_1String_1a949625c3152cfe177035772a5ff08559">juce::String::toHexString</references>
+        <referencedby refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</referencedby>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getRawSheetText</definition>
+        <argsstring>(const jam::Typeface::Entry &amp;entry, const juce::ValueTree &amp;metrics)</argsstring>
+        <name>getRawSheetText</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref> &amp;</type>
+          <declname>metrics</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="222" column="21" bodyfile="Extract.cpp" bodystart="222" bodyend="235"/>
+        <references refid="namespaceId_1ac4552e665ad833a65ee7310f03b70615">Id::cellWidth</references>
+        <references refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" compoundref="_extract_8cpp" startline="192" endline="220">getCharacterGroupsText</references>
+        <references refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" compoundref="_extract_8cpp" startline="145" endline="172">getLigatures</references>
+        <references refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" compoundref="_extract_8cpp" startline="174" endline="177">getNormalisation</references>
+        <references refid="structjam_1_1OpenTypeDocument_1a80e0c061c526b2e8d57232801448a7db">jam::OpenTypeDocument::getPlainAdvance</references>
+        <references refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</references>
+        <references refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" compoundref="_extract_8cpp" startline="179" endline="185">getUnitsToSheet</references>
+        <references refid="_sheet_8cpp_1a1d14d44cc516edfa90c99676fde31825" compoundref="_sheet_8cpp" startline="20" endline="20">svgNamespace</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <references refid="namespaceId_1ab25d4d4ee86f71411cbafb5ca8689ad3" compoundref="_generated_8cpp" startline="32" endline="32">Id::xmlns</references>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFontEntry</definition>
+        <argsstring>(jam::Typeface &amp;typeface, const juce::MemoryBlock &amp;fontBytes, const juce::File &amp;fontFile)</argsstring>
+        <name>getFontEntry</name>
+        <param>
+          <type><ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref> &amp;</type>
+          <declname>typeface</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1MemoryBlock" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::MemoryBlock</ref> &amp;</type>
+          <declname>fontBytes</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
+          <declname>fontFile</declname>
+        </param>
+        <briefdescription>
+<para>Registers font bytes with a typeface and returns the entry index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The build command shares this function to load the font that it just wrote, so both commands read a font through one path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>typeface</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The typeface that takes the registration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fontBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font file&apos;s bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fontFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font file; named in the failure message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of the registered entry in <computeroutput>typeface</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="237" column="5" bodyfile="Extract.cpp" bodystart="237" bodyend="250"/>
+        <references refid="classjuce_1_1Typeface_1a24b3cafbfaca34528b6c366dce5e7ba7">juce::Typeface::createSystemTypefaceFor</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" compoundref="_text_8h" startline="52" endline="52">text::Diagnostics::failFontFace</references>
+        <references refid="classjuce_1_1MemoryBlock_1a692f4e81b72cc79aaa98b6629d4a4dcd">juce::MemoryBlock::getData</references>
+        <references refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</references>
+        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
+        <references refid="classjuce_1_1MemoryBlock_1a8c25cd08391185f1237944fad5d607d8">juce::MemoryBlock::getSize</references>
+        <referencedby refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</referencedby>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void runExtractCommand</definition>
+        <argsstring>(const juce::ArgumentList &amp;args)</argsstring>
+        <name>runExtractCommand</name>
+        <param>
+          <type>const <ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Handles the --extract command line option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the font named by --extract and the manifest named by --manifest. Every outline and advance is scaled from the font&apos;s units per em to the sheet&apos;s units per em, and drawn into a raw sheet: one cell per character above the space, plus one cell per ligature that shaping finds. A manifest without a glyphs table gains one built from the raw sheet, and is written back. The sheet is then laid out from the manifest&apos;s glyphs table, so only the cells that the table lists are written, to the path that the weight table named by --weight gives. The manifest metrics are read and never changed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parsed command line arguments; must carry --extract, --manifest and --weight. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.cpp" line="252" column="6" bodyfile="Extract.cpp" bodystart="252" bodyend="281"/>
+        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="92" endline="96">addGlyphs</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" compoundref="_text_8h" startline="52" endline="52">text::Diagnostics::failFontFace</references>
+        <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
+        <references refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934">juce::ArgumentList::getExistingFileForOption</references>
+        <references refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</references>
+        <references refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</references>
+        <references refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</references>
+        <references refid="structjam_1_1Document_1afa15c06a56937a7195814a2aa2c7521d">jam::Document::getRoot</references>
+        <references refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</references>
+        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</references>
+        <references refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" compoundref="_manifest_8cpp" startline="164" endline="172">getValidatedManifest</references>
+        <references refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" compoundref="_manifest_8cpp" startline="183" endline="201">getValidatedWeight</references>
+        <references refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" compoundref="_manifest_8cpp" startline="203" endline="208">getWeightSheetFile</references>
+        <references refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5">Id::glyphs</references>
+        <references refid="namespaceId_1a14ad76a66641361dbfbfc9424e6a2f3f">Id::manifest</references>
+        <references refid="namespaceId_1ab9801ae0c1b9367d7d33c2c93253868a">Id::metrics</references>
+        <references refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <references refid="namespaceId_1a35a1e4684527426add342c518cf9af54">Id::toType</references>
+        <references refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" compoundref="_manifest_8cpp" startline="174" endline="181">writeManifestFile</references>
+        <references refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</references>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_extract_8h" kindref="compound">Extract.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_generated_8h" kindref="compound">generated/Generated.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_artwork_8h" kindref="compound">Artwork.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_manifest_8h" kindref="compound">Manifest.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sheet_8h" kindref="compound">Sheet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/><ref refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" kindref="member">getExtractOption</ref>()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>extractOption<sp/>{<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(<ref refid="structChars_1a375464038832537822fff69be3285e32" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Chars::doubleDash</ref>)<sp/>+<sp/><ref refid="namespaceId_1aac3b032846b9e459a1c27575bc9152ea" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::extract</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>extractOption;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Point" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Point&lt;float&gt;</ref><sp/><ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>vector)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(vector-&gt;x),<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(vector-&gt;y)<sp/>};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Outline_Funcs&amp;<sp/><ref refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" kindref="member">getOutlineFunctions</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>outlineShift<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>outlineDelta<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Outline_Funcs<sp/>outlineFunctions</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>to,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>path<sp/>{<sp/>*</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(user)<sp/>};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path.closeSubPath();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path.startNewSubPath<sp/>(<ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(to));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>to,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user)<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(user)-&gt;lineTo<sp/>(<ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(to));<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/>},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/><ref refid="juce__UnityPluginInterface_8h_1a485dc2a0e5ed7da3d9f826367b36ee55a5d8add8effb2a9964dbebfd27c9ddd31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">control</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>to,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(user)-&gt;quadraticTo<sp/>(<ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(<ref refid="juce__UnityPluginInterface_8h_1a485dc2a0e5ed7da3d9f826367b36ee55a5d8add8effb2a9964dbebfd27c9ddd31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">control</ref>),<sp/><ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(to));<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/>},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>firstControl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>secondControl,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FT_Vector*<sp/>to,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>user)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(user)-&gt;cubicTo<sp/>(<ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(firstControl),<sp/><ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(secondControl),<sp/><ref refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kindref="member">getOutlinePoint</ref><sp/>(to));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineShift,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outlineDelta</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>outlineFunctions;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref><sp/><ref refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" kindref="member">getGlyphPath</ref><sp/>(FT_Face<sp/>face,<sp/>FT_UInt<sp/>glyphIndex,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref>&amp;<sp/>unitsToSheet)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(FT_Load_Glyph<sp/>(face,<sp/>glyphIndex,<sp/>FT_LOAD_NO_SCALE)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" kindref="member">text::Diagnostics::failLoadGlyph</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref><sp/>path;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(FT_Outline_Decompose<sp/>(&amp;face-&gt;glyph-&gt;outline,<sp/>&amp;<ref refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" kindref="member">getOutlineFunctions</ref>(),<sp/>&amp;path)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" kindref="member">text::Diagnostics::failLoadGlyph</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>path.closeSubPath();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>path.applyTransform<sp/>(unitsToSheet);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>path;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" kindref="member">getGlyphGroupText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref>&amp;<sp/>codepoints,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cellWidth,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Path" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Path</ref>&amp;<sp/>path)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1XmlElement" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::XmlElement</ref><sp/>group<sp/>{<sp/><ref refid="namespaceId_1a4e09b956d81c3ef5934eb03fc6255507" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::g</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>group.setAttribute<sp/>(<ref refid="namespaceId_1a3f6204ca8d39b2591e10dc6cf112e0fc" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::id</ref>,<sp/><ref refid="structjam_1_1OpenTypeDocument_1a6523fdb4b690e8ba951beae2184afb38" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::getGlyphId</ref><sp/>(codepoints));</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><ref refid="jam__Cell_8h_1adb968df47f8b9dd5aa6a35499c35c9f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">cell</ref><sp/>{<sp/>group.createNewChildElement<sp/>(<ref refid="namespaceId_1a60a56f29597f7589e7f0fe3532248866" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::rect</ref>.toString())<sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="jam__Cell_8h_1adb968df47f8b9dd5aa6a35499c35c9f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">cell</ref>-&gt;setAttribute<sp/>(<ref refid="namespaceId_1a603c1a5995adddc8321e419c73fa49b9" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::x</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="jam__Cell_8h_1adb968df47f8b9dd5aa6a35499c35c9f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">cell</ref>-&gt;setAttribute<sp/>(<ref refid="namespaceId_1ab9619644df21af1b0cc68f0999abc687" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::y</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="jam__Cell_8h_1adb968df47f8b9dd5aa6a35499c35c9f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">cell</ref>-&gt;setAttribute<sp/>(<ref refid="namespaceId_1ad07ca1e95e00fb5b519009d424bf0077" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::width</ref>,<sp/><ref refid="_artwork_8cpp_1ad9847018189eb26f922a26ebe846e786" kindref="member">getCoordinateText</ref><sp/>(cellWidth));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>group.createNewChildElement<sp/>(<ref refid="namespaceId_1ac0d6bb21fb6eb483624e52f9002294ab" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::path</ref>.toString())-&gt;setAttribute<sp/>(<ref refid="namespaceId_1a53deab2f0d4c5c7389fb74c993027c54" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::d</ref>,<sp/><ref refid="structjam_1_1Svg_1_1Format_1a23446a5f9165f8da22f47fe2ea4591eb" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Svg::Format::pathToString</ref><sp/>(path));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1XmlDocument_1a67e65a29647faa906d56a87d691e8bcb" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Xml::getText</ref><sp/>(*<ref refid="structjam_1_1XmlDocument_1a84dc5d07041fbb846cb2d29ecaf11c92" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Xml::toDocument</ref><sp/>(group).getRoot());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjam_1_1HashMap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::HashMap&lt;hb_codepoint_t, juce::String&gt;</ref><sp/><ref refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" kindref="member">getLigatureCodepoints</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjam_1_1Array" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Array&lt;hb_codepoint_t&gt;</ref>&amp;<sp/>inputCodepoints)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;hb_buffer_t,<sp/></highlight><highlight class="keyword">decltype</highlight><highlight class="normal"><sp/>(&amp;hb_buffer_destroy)&gt;<sp/>buffer<sp/>{<sp/>hb_buffer_create(),<sp/>hb_buffer_destroy<sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjam_1_1HashMap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::HashMap&lt;hb_codepoint_t, juce::String&gt;</ref><sp/>ligatures;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>addLigature<sp/>=<sp/>[&amp;entry,<sp/>&amp;buffer,<sp/>&amp;ligatures]<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>codepointText)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_buffer_clear_contents<sp/>(buffer.get());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_buffer_add_utf8<sp/>(buffer.get(),<sp/>codepointText.toRawUTF8(),<sp/>-1,<sp/>0,<sp/>-1);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_buffer_guess_segment_properties<sp/>(buffer.get());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_shape<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">hbFont</ref>.get(),<sp/>buffer.get(),<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>0);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hb_buffer_get_length<sp/>(buffer.get())<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ligatures.<ref refid="classjam_1_1HashMap_1a652692e674a0b76b04df95b4a64394d8" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">insert</ref><sp/>({<sp/>hb_buffer_get_glyph_infos<sp/>(buffer.get(),<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)-&gt;codepoint,<sp/>codepointText<sp/>});</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>first<sp/>:<sp/>inputCodepoints)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>second<sp/>:<sp/>inputCodepoints)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pairText<sp/>{<sp/><ref refid="classjuce_1_1String_1a128e862810bc5e3f16cb70c3c9751867" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String::charToString</ref><sp/>(first)<sp/>+<sp/><ref refid="classjuce_1_1String_1a128e862810bc5e3f16cb70c3c9751867" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String::charToString</ref><sp/>(second)<sp/>};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addLigature<sp/>(pairText);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>third<sp/>:<sp/>inputCodepoints)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addLigature<sp/>(pairText<sp/>+<sp/><ref refid="classjuce_1_1String_1a128e862810bc5e3f16cb70c3c9751867" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String::charToString</ref><sp/>(third));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ligatures;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>hb_codepoint_t<sp/><ref refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" kindref="member">getUnmappedSubstitution</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjam_1_1HashMap" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::HashMap&lt;hb_codepoint_t, juce::String&gt;</ref>&amp;<sp/>ligatures)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>hbFace<sp/>{<sp/>hb_font_get_face<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">hbFont</ref>.get())<sp/>};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;hb_set_t,<sp/></highlight><highlight class="keyword">decltype</highlight><highlight class="normal"><sp/>(&amp;hb_set_destroy)&gt;<sp/>outputGlyphs<sp/>{<sp/>hb_set_create(),<sp/>hb_set_destroy<sp/>};</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>lookupCount<sp/>{<sp/>hb_ot_layout_table_get_lookup_count<sp/>(hbFace,<sp/>HB_OT_TAG_GSUB)<sp/>};</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>FT_UInt<sp/>glyphIndex<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lookupIndex<sp/>{<sp/>0<sp/>};<sp/>lookupIndex<sp/>&lt;<sp/>lookupCount;<sp/>++lookupIndex)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_ot_layout_lookup_collect_glyphs<sp/>(hbFace,<sp/>HB_OT_TAG_GSUB,<sp/>lookupIndex,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>outputGlyphs.get());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>codepoint<sp/>{<sp/>FT_Get_First_Char<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>&amp;glyphIndex)<sp/>};<sp/>glyphIndex<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codepoint<sp/>=<sp/>FT_Get_Next_Char<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>codepoint,<sp/>&amp;glyphIndex))</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_set_del<sp/>(outputGlyphs.get(),<sp/>glyphIndex);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>[ligatureGlyph,<sp/>codepointText]<sp/>:<sp/>ligatures)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_set_del<sp/>(outputGlyphs.get(),<sp/>ligatureGlyph);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hb_set_get_min<sp/>(outputGlyphs.get());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" kindref="member">getLigatureGroupText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,<sp/>hb_codepoint_t<sp/>ligatureGlyph,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>codepointText,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref>&amp;<sp/>unitsToSheet,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref><sp/>codepoints;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>codepoint<sp/>:<sp/>codepointText)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codepoints.add<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoint));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" kindref="member">getGlyphGroupText</ref><sp/>(codepoints,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(<ref refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" kindref="member">getLigatureCellWidth</ref><sp/>(codepointText.<ref refid="classjuce_1_1String_1a163b79b6dce5dc959a80faa9851c7de2" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">length</ref>(),<sp/>cellWidth)),</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" kindref="member">getGlyphPath</ref><sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>ligatureGlyph,<sp/>unitsToSheet));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" kindref="member">getLigatures</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref>&amp;<sp/>unitsToSheet,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>hbFace<sp/>{<sp/>hb_font_get_face<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a9b6b707a9ced07b9cfd0a756dbf60545" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">hbFont</ref>.get())<sp/>};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;hb_set_t,<sp/></highlight><highlight class="keyword">decltype</highlight><highlight class="normal"><sp/>(&amp;hb_set_destroy)&gt;<sp/>inputGlyphs<sp/>{<sp/>hb_set_create(),<sp/>hb_set_destroy<sp/>};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>lookupCount<sp/>{<sp/>hb_ot_layout_table_get_lookup_count<sp/>(hbFace,<sp/>HB_OT_TAG_GSUB)<sp/>};</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjam_1_1Array" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Array&lt;hb_codepoint_t&gt;</ref><sp/>inputCodepoints;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>FT_UInt<sp/>glyphIndex<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lookupIndex<sp/>{<sp/>0<sp/>};<sp/>lookupIndex<sp/>&lt;<sp/>lookupCount;<sp/>++lookupIndex)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hb_ot_layout_lookup_collect_glyphs<sp/>(hbFace,<sp/>HB_OT_TAG_GSUB,<sp/>lookupIndex,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>inputGlyphs.get(),<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>codepoint<sp/>{<sp/>FT_Get_First_Char<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>&amp;glyphIndex)<sp/>};<sp/>glyphIndex<sp/>!=<sp/>0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codepoint<sp/>=<sp/>FT_Get_Next_Char<sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>codepoint,<sp/>&amp;glyphIndex))</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hb_set_has<sp/>(inputGlyphs.get(),<sp/>glyphIndex))</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inputCodepoints.<ref refid="classjam_1_1Array_1a11f82d383b72419d9e9624cbe63f7767" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">add</ref><sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">hb_codepoint_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoint));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ligatures<sp/>(<ref refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" kindref="member">getLigatureCodepoints</ref><sp/>(entry,<sp/>inputCodepoints));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>unmappedGlyph<sp/>{<sp/><ref refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" kindref="member">getUnmappedSubstitution</ref><sp/>(entry,<sp/>ligatures)<sp/>};</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>ligaturesText;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(unmappedGlyph<sp/>!=<sp/>HB_SET_VALUE_INVALID)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(text::Diagnostics::failUnmappedSubstitution<sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(unmappedGlyph));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>[ligatureGlyph,<sp/>codepointText]<sp/>:<sp/>ligatures)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ligaturesText<sp/>&lt;&lt;<sp/><ref refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" kindref="member">getLigatureGroupText</ref><sp/>(entry,<sp/>ligatureGlyph,<sp/>codepointText,<sp/>unitsToSheet,<sp/>cellWidth);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ligaturesText;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" kindref="member">getNormalisation</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1OpenTypeDocument_1ae97b167ae80f9dc6f5e1139bbf256413" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::unitsPerEm</ref><sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a8ae207157b2179887f5deb7589cf33dc" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">upem</ref>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref><sp/><ref refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" kindref="member">getUnitsToSheet</ref><sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>normalisation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref>&amp;<sp/>metrics)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>baseline<sp/>{<sp/>metrics.getProperty<sp/>(<ref refid="namespaceId_1a6f000170fabbf731e725a54a1682b99e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::baseline</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>glyphToSheet<sp/>{<sp/><ref refid="structjam_1_1OpenTypeDocument_1a457ee0239be6573912c9bc7abefcc182" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::getGlyphTransform</ref><sp/>(<ref refid="structjam_1_1OpenTypeDocument_1ac2a23b4bc5e623878944f26198f05b82" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::getSheetScale</ref><sp/>(metrics),<sp/>baseline,<sp/>0.0,<sp/>0.0).<ref refid="classjuce_1_1AffineTransform_1ae192ba106d656d5a48a7de7ee510d67d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">inverted</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform_1aca62d1ccb33af792b2b1defbcf171704" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform::scale</ref><sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(normalisation)).<ref refid="classjuce_1_1AffineTransform_1a79bf52285e4135483cd6373c8ebd76b5" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">followedBy</ref><sp/>(glyphToSheet);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" kindref="member">getGlyphCellWidth</ref><sp/>(FT_Pos<sp/>horizontalAdvance,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>normalisation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>plainAdvance,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(horizontalAdvance<sp/>*<sp/>normalisation<sp/>/<sp/>plainAdvance<sp/>*<sp/>cellWidth);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" kindref="member">getCharacterGroupsText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1AffineTransform" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::AffineTransform</ref>&amp;<sp/>unitsToSheet,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>normalisation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>plainAdvance,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>face<sp/>{<sp/>entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get()<sp/>};</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>groupsText;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>FT_UInt<sp/>glyphIndex<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>codepoint<sp/>{<sp/>FT_Get_First_Char<sp/>(face,<sp/>&amp;glyphIndex)<sp/>};<sp/>glyphIndex<sp/>!=<sp/>0;<sp/>codepoint<sp/>=<sp/>FT_Get_Next_Char<sp/>(face,<sp/>codepoint,<sp/>&amp;glyphIndex))</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>isReservedCodepoint<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoint)<sp/>&lt;=<sp/><ref refid="structjam_1_1OpenTypeDocument_1a2a476e69f712c454c69cd920351c94a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::spaceCodepoint</ref><sp/>};</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>isReservedCodepoint)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>path<sp/>{<sp/><ref refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" kindref="member">getGlyphPath</ref><sp/>(face,<sp/>glyphIndex,<sp/>unitsToSheet)<sp/>};</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>horizontalAdvance<sp/>{<sp/>face-&gt;glyph-&gt;metrics.horiAdvance<sp/>};</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>isBlankGlyph<sp/>{<sp/>path.isEmpty()<sp/>and<sp/>horizontalAdvance<sp/>!=<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref><sp/>codepoints;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isBlankGlyph)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(text::Diagnostics::failBlankGlyph<sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="classjuce_1_1String_1a949625c3152cfe177035772a5ff08559" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String::toHexString</ref><sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoint)));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>codepoints.add<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoint));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>groupsText<sp/>&lt;&lt;<sp/><ref refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" kindref="member">getGlyphGroupText</ref><sp/>(codepoints,<sp/><ref refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" kindref="member">getGlyphCellWidth</ref><sp/>(horizontalAdvance,<sp/>normalisation,<sp/>plainAdvance,<sp/>cellWidth),<sp/>path);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>groupsText;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" kindref="member">getRawSheetText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref>&amp;<sp/>metrics)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth<sp/>{<sp/>metrics.getProperty<sp/>(<ref refid="namespaceId_1ac4552e665ad833a65ee7310f03b70615" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::cellWidth</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>plainAdvance<sp/>{<sp/><ref refid="structjam_1_1OpenTypeDocument_1a80e0c061c526b2e8d57232801448a7db" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument::getPlainAdvance</ref><sp/>(metrics)<sp/>};</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>normalisation<sp/>{<sp/><ref refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" kindref="member">getNormalisation</ref><sp/>(entry)<sp/>};</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>unitsToSheet<sp/>{<sp/><ref refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" kindref="member">getUnitsToSheet</ref><sp/>(normalisation,<sp/>metrics)<sp/>};</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>rawSheetText;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>rawSheetText<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;&lt;svg<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="namespaceId_1ab25d4d4ee86f71411cbafb5ca8689ad3" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::xmlns</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;=\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="_sheet_8cpp_1a1d14d44cc516edfa90c99676fde31825" kindref="member">svgNamespace</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&gt;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" kindref="member">getCharacterGroupsText</ref><sp/>(entry,<sp/>unitsToSheet,<sp/>normalisation,<sp/>plainAdvance,<sp/>cellWidth)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" kindref="member">getLigatures</ref><sp/>(entry,<sp/>unitsToSheet,<sp/>cellWidth)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;&lt;/svg&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawSheetText;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237" refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" kindref="member">getFontEntry</ref><sp/>(<ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref>&amp;<sp/>typeface,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1MemoryBlock" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::MemoryBlock</ref>&amp;<sp/>fontBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>fontFile)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>juceTypeface<sp/>{<sp/><ref refid="classjuce_1_1Typeface_1a24b3cafbfaca34528b6c366dce5e7ba7" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Typeface::createSystemTypefaceFor</ref><sp/>(fontBytes.<ref refid="classjuce_1_1MemoryBlock_1a692f4e81b72cc79aaa98b6629d4a4dcd" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getData</ref>(),<sp/>fontBytes.<ref refid="classjuce_1_1MemoryBlock_1a8c25cd08391185f1237944fad5d607d8" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getSize</ref>())<sp/>};</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(juceTypeface<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" kindref="member">text::Diagnostics::failFontFace</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/>fontFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>entryIndex<sp/>{<sp/>typeface.registerTypeface<sp/>(juceTypeface,<sp/>fontBytes.<ref refid="classjuce_1_1MemoryBlock_1a692f4e81b72cc79aaa98b6629d4a4dcd" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getData</ref>(),<sp/>fontBytes.<ref refid="classjuce_1_1MemoryBlock_1a8c25cd08391185f1237944fad5d607d8" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getSize</ref>())<sp/>};</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeface.get<sp/>(entryIndex).face<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" kindref="member">text::Diagnostics::failFontFace</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/>fontFile.<ref refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getFullPathName</ref>());</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>entryIndex;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252" refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" kindref="member">runExtractCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args)</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>manifestOption<sp/>{<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(<ref refid="structChars_1a375464038832537822fff69be3285e32" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Chars::doubleDash</ref>)<sp/>+<sp/><ref refid="namespaceId_1a14ad76a66641361dbfbfc9424e6a2f3f" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::manifest</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1ScopedJuceInitialiser__GUI" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ScopedJuceInitialiser_GUI</ref><sp/>juceInitialiser;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fontFile<sp/>{<sp/>args.<ref refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getExistingFileForOption</ref><sp/>(<ref refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" kindref="member">getExtractOption</ref>())<sp/>};</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifestFile<sp/>{<sp/>args.<ref refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getExistingFileForOption</ref><sp/>(manifestOption)<sp/>};</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifest<sp/>{<sp/><ref refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" kindref="member">getValidatedManifest</ref><sp/>(manifestFile)<sp/>};</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>values<sp/>{<sp/>manifest.getValueTree<sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weightId<sp/>{<sp/><ref refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" kindref="member">getValidatedWeight</ref><sp/>(args,<sp/>values,<sp/>manifestFile)<sp/>};</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1MemoryBlock" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::MemoryBlock</ref><sp/>fontBytes;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>fontFile.loadFileAsData<sp/>(fontBytes))</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" kindref="member">text::Diagnostics::failFontFace</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/>fontFile.getFullPathName());</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref><sp/>typeface;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rawSheetText<sp/>{<sp/><ref refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" kindref="member">getRawSheetText</ref><sp/>(typeface.get<sp/>(<ref refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" kindref="member">getFontEntry</ref><sp/>(typeface,<sp/>fontBytes,<sp/>fontFile)),<sp/>values.getChildWithName<sp/>(<ref refid="namespaceId_1a35a1e4684527426add342c518cf9af54" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::toType</ref><sp/>(<ref refid="namespaceId_1ab9801ae0c1b9367d7d33c2c93253868a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::metrics</ref>)))<sp/>};</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.getTables<sp/>(<ref refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::glyphs</ref>).isEmpty())</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kindref="member">addGlyphs</ref><sp/>(manifest,<sp/><ref refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" kindref="member">getSheetDocument</ref><sp/>(rawSheetText,<sp/>fontFile.getFullPathName()).<ref refid="structjam_1_1Document_1afa15c06a56937a7195814a2aa2c7521d" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getRoot</ref>());</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" kindref="member">writeManifestFile</ref><sp/>(manifestFile,<sp/>manifest);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetFile<sp/>{<sp/><ref refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" kindref="member">getWeightSheetFile</ref><sp/>(manifestFile,<sp/>values.getChildWithName<sp/>(<ref refid="namespaceId_1a35a1e4684527426add342c518cf9af54" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::toType</ref><sp/>(weightId)))<sp/>};</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" kindref="member">writeSheetFile</ref><sp/>(sheetFile,<sp/><ref refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kindref="member">getSheetSvg</ref><sp/>(manifest,<sp/>rawSheetText));</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>text::Commands::wroteFile<sp/>&lt;&lt;<sp/>sheetFile.getFullPathName()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Extract.cpp"/>
+  </compounddef>
+</doxygen>

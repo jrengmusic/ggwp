@@ -1,15 +1,3 @@
-  [38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m       [38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m     [38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m          [38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m   [38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m[38;2;102;187;255m█[0m  
-[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m   [38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m   [38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m          [38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m   [38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m[38;2;92;187;240m█[0m
-[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m   [38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m   [38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m          [38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m   [38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;92;187;240m░[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m[38;2;82;187;225m█[0m
-[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m      [38;2;82;187;225m░[0m[38;2;82;187;225m░[0m[38;2;82;187;225m░[0m[38;2;82;187;225m░[0m   [38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m      [38;2;82;187;225m░[0m[38;2;82;187;225m░[0m[38;2;82;187;225m░[0m[38;2;82;187;225m░[0m   [38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m          [38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m   [38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m      [38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m[38;2;72;187;210m█[0m
-[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m             [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m             [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m    [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m    [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m   [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m      [38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m[38;2;62;187;195m█[0m
-[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m    [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m   [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m    [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m   [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m  [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m  [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m   [38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m[38;2;52;187;180m█[0m
-[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m    [38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m   [38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m    [38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m   [38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m   [38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;42;187;165m█[0m[38;2;52;187;180m░[0m[38;2;52;187;180m░[0m
-[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m    [38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m   [38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m    [38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m   [38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m   [38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;32;187;150m█[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m[38;2;42;187;165m░[0m  
-[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m   [38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m   [38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;32;187;150m░[0m[38;2;32;187;150m░[0m  [38;2;32;187;150m░[0m[38;2;32;187;150m░[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m   [38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m[38;2;22;187;135m█[0m          
-[38;2;22;187;135m░[0m[38;2;22;187;135m░[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;22;187;135m░[0m[38;2;22;187;135m░[0m   [38;2;22;187;135m░[0m[38;2;22;187;135m░[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;22;187;135m░[0m[38;2;22;187;135m░[0m   [38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;22;187;135m░[0m[38;2;22;187;135m░[0m      [38;2;22;187;135m░[0m[38;2;22;187;135m░[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m   [38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m[38;2;13;188;121m█[0m          
-  [38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m       [38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m     [38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m          [38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m   [38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m[38;2;13;188;121m░[0m          
-
 # GGWP: GlyphSheet Generation Workflow Protocol
 
 **Version 1.0**
@@ -26,12 +14,13 @@ Arguments select what runs. They never carry font rules.
 
 - `ggwp --build=<manifest.md> --weight=<table> --out=<font.ttf>` — read the manifest, read the weight's glyph sheet, write the font, then validate it
 - `ggwp --init=<font-name>` — create whatever is missing, then reconcile the glyph sheets against the manifest's glyph table
+- `ggwp --extract=<font.ttf> --manifest=<manifest.md> --weight=<table>` — read an existing font, then write that weight's glyph sheet
 - `ggwp --version` — the version number
 - `ggwp --help` — this guide
 
 Each long option takes its value after an equals sign. A space does not work.
 
-`--weight` names a table in the manifest, not a number. `--out` is relative to the current directory. The glyph sheet is relative to the manifest's own directory.
+`--weight` names a table in the manifest, not a number. `--weight` matches a table when the value and the table name give the same tag form. The tag form splits a name at each space and at each change from a lower-case letter to an upper-case letter, makes each word upper case, and joins the words with underscores. `regular`, `Regular` and `REGULAR` all give `REGULAR`. `semiBold` and `SemiBold` give `SEMI_BOLD`, and `semibold` gives `SEMIBOLD`, so it does not match them. `--out` is relative to the current directory. The glyph sheet is relative to the manifest's own directory.
 
 ---
 
@@ -43,12 +32,31 @@ The `## glyphs` table is the single source of truth for which glyphs exist. `--i
 - When the manifest exists without a `## glyphs` table, and a glyph sheet exists, `--init` builds the table from that sheet.
 - When the manifest exists without a `## glyphs` table, and no sheet exists, `--init` writes the default table. The sheet stays empty.
 - When the manifest exists without a `## guides` table, `--init` adds the table with the four default rows.
+- When the manifest exists without a `## colour` table, `--init` adds the table with the default rows.
 - When both the manifest and a glyph sheet exist, the `## glyphs` table drives the sheet: a row with no matching cell gains one, a cell with no matching row is removed along with its artwork, and the remaining cells repack and the canvas resizes.
 - `--init` rewrites the sheet's markup on every run. Artwork in a cell that does not move keeps its geometry relative to that cell. GGWP's writer always sets the surrounding markup — indentation, attribute order, and self-closing form. `--init` shifts `path`, `rect`, `ellipse`, `circle`, and `line` tags to follow a moved cell. `--init` fails when a moved cell holds any other tag.
 - `--init` runs the reconciliation over every weight the manifest declares, in one pass.
 - Running `--init` twice over the same inputs produces the same files.
 
 `--init` derives the manifest's file name from the family name. It lowercases the name and replaces every space with a hyphen, then appends `.md`. The file `--init` writes lands in the current working directory. `Display Serif` becomes `display-serif.md`.
+
+---
+
+## The `--extract` Contract
+
+`--extract` reads an existing font and writes one weight's glyph sheet.
+
+- `--extract`, `--manifest`, and `--weight` are all required. The font file and the manifest file must exist. `--weight` names a table of the manifest, and that table's `svg` path decides where the glyph sheet lands.
+- `--extract` scales each outline and each advance by 1024 divided by the source font's units per em.
+- `--extract` walks the font's character map. It skips every character at or below the space: the notdef, the control characters, and the space. It writes each other character as a single-codepoint cell.
+- A single glyph's cell width is its scaled advance, divided by the plain advance, times `cellWidth`. A build of that sheet gives the same advance back.
+- `--extract` finds ligatures by shaping. It collects every character that is the input of a `GSUB` lookup. It shapes every sequence of two of these characters, and every sequence of three. A sequence that shapes to exactly one glyph is a ligature. `--extract` writes it as a multi-codepoint cell.
+- A ligature's cell width is the width of its codepoint count in plain cells, plus one gutter between the cells. A build ignores a ligature's own cell width.
+- `--extract` fails on a glyph above the space that has an advance and no outline. The failure is `glyph has no outline`, and it names the codepoint in hexadecimal.
+- `--extract` fails when a `GSUB` lookup outputs a glyph that has no character and that no ligature uses. The failure is `substitution output unmapped`, and it names the glyph index.
+- The manifest must exist. `--extract` reads its metrics and never writes them.
+- When the manifest has no `## glyphs` table, `--extract` writes one from the extracted cells. A manifest that has the table is never rewritten.
+- `--extract` lays out the sheet from the manifest's `## glyphs` table, as `--init` does. Only a cell that the table lists is written.
 
 ---
 
@@ -65,11 +73,11 @@ One manifest declares every weight. One glyph sheet holds one weight.
 
 ## The Manifest
 
-The manifest is a markdown file of grid tables. Table names are headings. The `metrics`, `font`, and weight tables each have a `key`, a `type`, and a `value` column. The `glyphs` and `guides` tables have their own column sets.
+The manifest is a markdown file of grid tables. Table names are headings. The `metrics`, `font`, and weight tables each have a `key`, a `type`, and a `value` column. The `glyphs`, `guides` and `colour` tables have their own column sets.
 
 ### metrics
 
-One table named `## metrics`, shared by every weight. Every value is in font units.
+One table named `## metrics`, shared by every weight. Every metric is in font units at 1024 units per em.
 
 | Key | What it sets |
 | --- | --- |
@@ -83,7 +91,9 @@ One table named `## metrics`, shared by every weight. Every value is in font uni
 | `cellWidth` | the width of one sheet cell, in the sheet's own units |
 | `advanceWidthFactor` | the advance width, as a multiple of `cellWidth` |
 
-Two values are derived and never authored. The units per em is `ascender` minus `descender`. The sheet scale is `capHeight` divided by `baseline` minus `capline`.
+The units per em is 1024 for every font GGWP writes. It is a contract constant, not a manifest value.
+
+One value is derived and never authored. The sheet scale is `capHeight` divided by `baseline` minus `capline`.
 
 `capHeight` and `baseline` also appear in the `## guides` table, as `key` values. The two copies serve different purposes. The `## metrics` pair sets the font's scale. The `## guides` pair places the drawn reference line on the sheet.
 
@@ -120,9 +130,33 @@ One table named `## guides`, shared by every weight.
 | --- | --- |
 | `key` | the metric the reference line marks |
 | `offset` | the line's position, measured down from the top of a cell |
-| `colour` | the line's colour, as a hex value |
 
-One row is one reference line. The default table has four rows: `capHeight`, `xHeight`, `baseline`, and `descender`.
+One row is one reference line. The default table has four rows: `capHeight`, `xHeight`, `baseline`, and `descender`. The line's colour comes from the `## colour` row with the same key.
+
+### colour
+
+One table named `## colour`, shared by every weight. It holds every colour of the glyph sheet.
+
+| Column | What it holds |
+| --- | --- |
+| `key` | the part of the sheet the colour paints |
+| `colour` | the colour, as a hex value |
+
+One row is one colour. The default table has nine rows.
+
+| Key | What it paints |
+| --- | --- |
+| `background` | the sheet's background rectangle |
+| `cell` | the outline of each cell |
+| `label` | the codepoint label of each cell |
+| `glyph` | the fill of each glyph's artwork |
+| `advance` | the cell guides: the unit-cell edges and the advance |
+| `capHeight` | the cap height reference line |
+| `xHeight` | the x-height reference line |
+| `baseline` | the baseline reference line |
+| `descender` | the descender reference line |
+
+A `## guides` row reads its line colour from the `## colour` row with the same key. A missing row is fatal.
 
 ### weight tables
 
@@ -135,6 +169,11 @@ One table per weight. The table's own name is what `--weight` selects.
 | `fullName` | the full name |
 | `postScriptName` | the PostScript name |
 | `weightClass` | the weight class, 100 to 900 |
+| `ascender` | the ascender for this weight only, in font units |
+| `descender` | the descender for this weight only, negative, in font units |
+| `lineGap` | the line gap for this weight only, in font units |
+
+A weight table may carry its own `ascender`, `descender` and `lineGap` rows. They replace the `## metrics` values for that weight only.
 
 A style of `Bold` sets the bold bit in `head` and in `OS/2`. Every other style is regular.
 
@@ -144,7 +183,11 @@ GGWP writes two platforms into the `name` table, and they diverge for a style ou
 
 ## The Glyph Sheet
 
-The glyph sheet is an SVG file. A generated sheet has three layers: a background rectangle, a `<g id="guides">` layer, and the cell groups. The guides layer holds each cell's label and reference lines. GGWP ignores it when it reads a sheet back.
+The glyph sheet is an SVG file. A generated sheet has three layers: a background rectangle, a `<g id="guides">` layer, and the cell groups. The guides layer holds each cell's label, its reference lines, and its cell guides. GGWP ignores it when it reads a sheet back.
+
+The cell guides are vertical lines. One line marks each unit-cell edge inside the glyph. One line marks the glyph's advance. GGWP draws each line where the build places it. A single glyph has one line, at its advance. A ligature of two or three characters also has a line at each unit-cell edge between its characters.
+
+Each glyph group carries the glyph fill. Every artwork element in the group inherits it.
 
 Your own top-level elements survive `--init`. GGWP carries through every top-level element that is neither a glyph group nor the guides layer. `<defs>` and `<title>` are the usual cases. A top-level `<rect>` is the background, and GGWP resizes it to the new canvas instead of replacing it. GGWP writes a background rectangle only when the sheet has none.
 
@@ -168,7 +211,15 @@ _0066_0069    the f-i ligature
 
 Two ids are reserved. `_0000` is the notdef glyph and `_0020` is the space. GGWP writes both into the font. `--init` rejects a `## glyphs` row that holds either character.
 
-The cell rectangle does two things. Its position places the artwork. Its width sets a single glyph's advance width, in proportion to `cellWidth`. A cell wider than `cellWidth` gives a proportionally wider glyph. A ligature ignores its own cell width. Its advance is the plain advance width, multiplied by its codepoint count.
+The cell rectangle does two things. Its position places the artwork. Its width sets a single glyph's advance width. Cell rectangles carry fractional coordinates, written to three decimal places.
+
+A single glyph's advance is its cell width divided by `cellWidth`, times the plain advance. The plain advance is `cellWidth` × `advanceWidthFactor`. GGWP rounds the result to the nearest unit. A cell wider than `cellWidth` gives a proportionally wider glyph.
+
+A ligature ignores its own cell width. Its advance is the plain advance width, multiplied by its codepoint count.
+
+A cell with no artwork produces no glyph.
+
+When ligatures share a first character, GGWP matches the longest ligature first.
 
 GGWP orders the glyphs by id — the shorter ids first, then alphabetically. Single glyphs therefore come before ligatures, and the character map stays in one run.
 
@@ -193,6 +244,8 @@ GGWP writes an sfnt file with TrueType outlines. It writes these tables:
 | `GSUB` | the ligature substitutions |
 
 `GSUB` appears only when the sheet holds a ligature.
+
+GGWP derives the `post` fixed pitch flag and the PANOSE proportion from the glyphs. A font is fixed pitch when every single glyph's advance is a whole multiple of the plain advance. A glyph that fills two cells keeps the font fixed pitch.
 
 Cubic curves become quadratic curves, to a maximum error of one font unit. Each contour is reversed, so the outer contours wind clockwise. A contour never repeats its first point.
 

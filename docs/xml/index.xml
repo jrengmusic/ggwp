@@ -1,5 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.18.0" xml:lang="en-US">
+  <compound refid="structtext_1_1_diagnostics" kind="struct"><name>text::Diagnostics</name>
+    <member refid="structtext_1_1_diagnostics_1a348b78937a8882f64beb8e73b30e33fd" kind="variable"><name>failSheetNotFound</name></member>
+    <member refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kind="variable"><name>failRoundTrip</name></member>
+    <member refid="structtext_1_1_diagnostics_1a0ac4bb50d79924aaabb0a4f5f61bcd9f" kind="variable"><name>failFreeTypeInit</name></member>
+    <member refid="structtext_1_1_diagnostics_1a6d6db9c70abdec4d7c3b1d725c21e0ac" kind="variable"><name>failFreeTypeFace</name></member>
+    <member refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" kind="variable"><name>failLoadGlyph</name></member>
+    <member refid="structtext_1_1_diagnostics_1a861e983aa0e5bd40fd8bfa81c2db8f7b" kind="variable"><name>failGlyphAdvance</name></member>
+    <member refid="structtext_1_1_diagnostics_1a4fa95c581415bdd4b57344971a2dd939" kind="variable"><name>failCharIndex</name></member>
+    <member refid="structtext_1_1_diagnostics_1a76b529378f57344b468f1f63a5319540" kind="variable"><name>failGlyphOutline</name></member>
+    <member refid="structtext_1_1_diagnostics_1a0163809f6cbe7a8fcd676f290340e1aa" kind="variable"><name>failGlyphCount</name></member>
+    <member refid="structtext_1_1_diagnostics_1ad90e62fd6493adf1d90b05331ebd6a48" kind="variable"><name>failWeightUnknown</name></member>
+    <member refid="structtext_1_1_diagnostics_1a2d21a94d01d254bc361fd8d9d1f9b8d7" kind="variable"><name>failFontWrite</name></member>
+    <member refid="structtext_1_1_diagnostics_1a9fceb77ee6c9442a89429754114abe39" kind="variable"><name>failManifestWrite</name></member>
+    <member refid="structtext_1_1_diagnostics_1a128d701b3db32061fe1b43d538eb609d" kind="variable"><name>failSheetsDirectory</name></member>
+    <member refid="structtext_1_1_diagnostics_1a86ec55c3b4275b0f4726e648a99c6f17" kind="variable"><name>failSheetWrite</name></member>
+    <member refid="structtext_1_1_diagnostics_1a818e8daba3b0ab915ef4c074d4d99ef9" kind="variable"><name>failManifestCell</name></member>
+    <member refid="structtext_1_1_diagnostics_1afec6252d5e3a7dad823dd4da440856ad" kind="variable"><name>failMetricsRow</name></member>
+    <member refid="structtext_1_1_diagnostics_1ae09ef73a6992e23f51c57a7ef41399f3" kind="variable"><name>failGlyphRowReserved</name></member>
+    <member refid="structtext_1_1_diagnostics_1a1df9b44e152ef06f57e3a8bcacd17be3" kind="variable"><name>failGlyphRowUnsupported</name></member>
+    <member refid="structtext_1_1_diagnostics_1ad20f2ff398673948a2701d71068c0360" kind="variable"><name>failGlyphGroupRect</name></member>
+    <member refid="structtext_1_1_diagnostics_1a8f8ccf2d82e8710dd086f6c16f83cb6e" kind="variable"><name>failArtworkShift</name></member>
+    <member refid="structtext_1_1_diagnostics_1ac1bdc8751df44e39ecf8f861cb1563c7" kind="variable"><name>failSheetXml</name></member>
+    <member refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" kind="variable"><name>failFontFace</name></member>
+  </compound>
   <compound refid="namespace_project_info" kind="namespace"><name>ProjectInfo</name>
     <member refid="namespace_project_info_1a50f49d766351ea9313f67b3f30aa014d" kind="variable"><name>projectName</name></member>
     <member refid="namespace_project_info_1a9b435df60395ecec1378ecbaba7ccb75" kind="variable"><name>companyName</name></member>
@@ -11,115 +35,185 @@
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
+  <compound refid="_artwork_8cpp" kind="file"><name>Artwork.cpp</name>
+    <member refid="_artwork_8cpp_1a092db571134501c2b1f06e2d822eaed0" kind="typedef"><name>Element</name></member>
+    <member refid="_artwork_8cpp_1ad9847018189eb26f922a26ebe846e786" kind="function"><name>getCoordinateText</name></member>
+    <member refid="_artwork_8cpp_1a3cc39eec062fa2845df5af8275c4ecd2" kind="function"><name>getShiftedAttributes</name></member>
+    <member refid="_artwork_8cpp_1a759bdec551b43254e335540e941c759a" kind="function"><name>getArtworkSvg</name></member>
+  </compound>
+  <compound refid="_artwork_8h" kind="file"><name>Artwork.h</name>
+    <member refid="_artwork_8h_1afe8f25b753e743dc3bf411912ed72334" kind="function"><name>getArtworkSvg</name></member>
+    <member refid="_artwork_8h_1ad9847018189eb26f922a26ebe846e786" kind="function"><name>getCoordinateText</name></member>
+  </compound>
+  <compound refid="_build_8cpp" kind="file"><name>Build.cpp</name>
+    <member refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" kind="function"><name>getBuildOption</name></member>
+    <member refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" kind="function"><name>getSheetText</name></member>
+    <member refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" kind="function"><name>validateGlyphAdvance</name></member>
+    <member refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" kind="function"><name>validateGlyphCodepoint</name></member>
+    <member refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" kind="function"><name>validateGlyphOutline</name></member>
+    <member refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" kind="function"><name>validateGlyph</name></member>
+    <member refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" kind="function"><name>validateFont</name></member>
+    <member refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" kind="function"><name>runBuildCommand</name></member>
+  </compound>
+  <compound refid="_build_8h" kind="file"><name>Build.h</name>
+    <member refid="_build_8h_1a3b4f7b941c97dc9ad94731510188d0de" kind="function"><name>getBuildOption</name></member>
+    <member refid="_build_8h_1a589c5799ed7a2127c64ff56aad830c0f" kind="function"><name>runBuildCommand</name></member>
+  </compound>
+  <compound refid="_extract_8cpp" kind="file"><name>Extract.cpp</name>
+    <member refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" kind="function"><name>getExtractOption</name></member>
+    <member refid="_extract_8cpp_1a487016524c50f3ffccf610b53653bb0c" kind="function"><name>getOutlinePoint</name></member>
+    <member refid="_extract_8cpp_1acedfe9e8d69267763fb7148db93d6bf3" kind="function"><name>getOutlineFunctions</name></member>
+    <member refid="_extract_8cpp_1a9b2e7c650bafe1e8e37a338e3499a0ce" kind="function"><name>getGlyphPath</name></member>
+    <member refid="_extract_8cpp_1a6441aef9e78939b2b2fd76af612fbd71" kind="function"><name>getGlyphGroupText</name></member>
+    <member refid="_extract_8cpp_1a87925519f24ac43722cc643f0f2cdf83" kind="function"><name>getLigatureCodepoints</name></member>
+    <member refid="_extract_8cpp_1aadcefbcf3937472944471ec045a83c3b" kind="function"><name>getUnmappedSubstitution</name></member>
+    <member refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" kind="function"><name>getLigatureGroupText</name></member>
+    <member refid="_extract_8cpp_1a8dde56b5538ae83ce5dc9787b5229cd6" kind="function"><name>getLigatures</name></member>
+    <member refid="_extract_8cpp_1a94ea5be8eba13da1695113405e4b1b0b" kind="function"><name>getNormalisation</name></member>
+    <member refid="_extract_8cpp_1a2c19bb76141f886470b4d08ad9d19ab5" kind="function"><name>getUnitsToSheet</name></member>
+    <member refid="_extract_8cpp_1aad5a1a2c9d53bf37f7588c66b85d1d15" kind="function"><name>getGlyphCellWidth</name></member>
+    <member refid="_extract_8cpp_1a477dd1237c9c16b06d2efc01a8c091a2" kind="function"><name>getCharacterGroupsText</name></member>
+    <member refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" kind="function"><name>getRawSheetText</name></member>
+    <member refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" kind="function"><name>getFontEntry</name></member>
+    <member refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" kind="function"><name>runExtractCommand</name></member>
+  </compound>
+  <compound refid="_extract_8h" kind="file"><name>Extract.h</name>
+    <member refid="_extract_8h_1a72f558d7877d72418b230b354b1c0008" kind="function"><name>getExtractOption</name></member>
+    <member refid="_extract_8h_1a57ba081ed23e1c8de93c4b3f65308876" kind="function"><name>runExtractCommand</name></member>
+    <member refid="_extract_8h_1acde6673cdf5b0766068ec1340f4f3c2a" kind="function"><name>getFontEntry</name></member>
+  </compound>
+  <compound refid="_files_8h" kind="file"><name>Files.h</name>
+  </compound>
+  <compound refid="_generated_8cpp" kind="file"><name>Generated.cpp</name>
+  </compound>
+  <compound refid="_generated_8h" kind="file"><name>Generated.h</name>
+  </compound>
+  <compound refid="_hash_maps_8h" kind="file"><name>HashMaps.h</name>
+  </compound>
+  <compound refid="_identifiers_8h" kind="file"><name>Identifiers.h</name>
+  </compound>
   <compound refid="_project_info_8h" kind="file"><name>ProjectInfo.h</name>
   </compound>
+  <compound refid="_text_8h" kind="file"><name>Text.h</name>
+  </compound>
+  <compound refid="_guides_8cpp" kind="file"><name>Guides.cpp</name>
+    <member refid="_guides_8cpp_1aa732f7e8943f46278e8a2b416305faba" kind="function"><name>getLineSvg</name></member>
+    <member refid="_guides_8cpp_1a93867b823ba84aa70f23ab85e9ce8a94" kind="function"><name>getLabelSvg</name></member>
+    <member refid="_guides_8cpp_1ab3efddb19966584e44ab326a28173831" kind="function"><name>getGuideLinesSvg</name></member>
+    <member refid="_guides_8cpp_1ac22167e5657b9660bd1a73cabce61df9" kind="function"><name>getAdvanceLinesSvg</name></member>
+    <member refid="_guides_8cpp_1ac599a041352e1bfa10bf1671b9012f49" kind="function"><name>getCellGuidesSvg</name></member>
+    <member refid="_guides_8cpp_1a4beefe56c415eb167aa8080cab740f7f" kind="function"><name>getBackgroundRect</name></member>
+    <member refid="_guides_8cpp_1a1b3ccfc1fad454d0e0115a06407c9ea2" kind="function"><name>getBackgroundRectSvg</name></member>
+  </compound>
+  <compound refid="_guides_8h" kind="file"><name>Guides.h</name>
+    <member refid="_guides_8h_1a20d74ae3ee19ebf38246eba86a54e7f4" kind="variable"><name>hairlineStrokeWidth</name></member>
+    <member refid="_guides_8h_1ac599a041352e1bfa10bf1671b9012f49" kind="function"><name>getCellGuidesSvg</name></member>
+    <member refid="_guides_8h_1aa27a70445992e94501d4982e8f5d3a2e" kind="function"><name>getBackgroundRect</name></member>
+    <member refid="_guides_8h_1a939a8f393c64e2ed69ca6b96c276e24a" kind="function"><name>getBackgroundRectSvg</name></member>
+  </compound>
+  <compound refid="_help_8cpp" kind="file"><name>Help.cpp</name>
+    <member refid="_help_8cpp_1a3f361f138d00c42487776fb13cc5ebe6" kind="function"><name>printHelp</name></member>
+  </compound>
   <compound refid="_help_8h" kind="file"><name>Help.h</name>
-    <member refid="_help_8h_1aa64fced00ebfc0c2b6c4f0eb3ec0690a" kind="function"><name>printHelp</name></member>
+    <member refid="_help_8h_1a3f361f138d00c42487776fb13cc5ebe6" kind="function"><name>printHelp</name></member>
   </compound>
   <compound refid="_init_8cpp" kind="file"><name>Init.cpp</name>
-    <member refid="_init_8cpp_1a14f936eb60e768b98f59c090ae580ea5" kind="function"><name>writeManifestFile</name></member>
-    <member refid="_init_8cpp_1a898383812485ab04889f1a2f1ca6107c" kind="function"><name>writeSheetFile</name></member>
-    <member refid="_init_8cpp_1a605831bc49c7ab712c363121c67eba6a" kind="function"><name>getSheetDocument</name></member>
-    <member refid="_init_8cpp_1ab7e65b78ead04f7009192f9ed7a50426" kind="function"><name>runManifestTypeCheck</name></member>
+    <member refid="_init_8cpp_1a114945d1877cc78e075060664c6c8ded" kind="function"><name>getInitOption</name></member>
     <member refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" kind="function"><name>addMissingGlyphsTable</name></member>
-    <member refid="_init_8cpp_1aef11a5e52a46fb0bf58e81df60918c4d" kind="function"><name>addMissingGuidesTable</name></member>
     <member refid="_init_8cpp_1af0987a53cf91e55c3becb5bc0edd74fd" kind="function"><name>addMissingTables</name></member>
     <member refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" kind="function"><name>writeWeightSheets</name></member>
     <member refid="_init_8cpp_1a0a1d5482f23087d80058fe184475c707" kind="function"><name>runInitCommand</name></member>
   </compound>
   <compound refid="_init_8h" kind="file"><name>Init.h</name>
-    <member refid="_init_8h_1a953d36e7a8730fcc73e05921ffafeee5" kind="variable"><name>initOption</name></member>
+    <member refid="_init_8h_1a114945d1877cc78e075060664c6c8ded" kind="function"><name>getInitOption</name></member>
     <member refid="_init_8h_1a0a1d5482f23087d80058fe184475c707" kind="function"><name>runInitCommand</name></member>
   </compound>
   <compound refid="_main_8cpp" kind="file"><name>Main.cpp</name>
-    <member refid="_main_8cpp_1a283cbb1ba98117f5ba997afd8e9df3d4" kind="variable"><name>roundTripFailure</name></member>
-    <member refid="_main_8cpp_1ac95de14c2f5e0f4d84dc40db5b4528c0" kind="variable"><name>buildOption</name></member>
-    <member refid="_main_8cpp_1acae09ad678b08326ea70061f86b3ed0c" kind="function"><name>getSheetFileName</name></member>
-    <member refid="_main_8cpp_1a1925c3901f40a83ede144babdd77d353" kind="function"><name>getSheetText</name></member>
-    <member refid="_main_8cpp_1af7df1c9d60aeec14653923611f14a0d0" kind="function"><name>getFreeTypeLibrary</name></member>
-    <member refid="_main_8cpp_1a77f04d706bf42e713bffc26f3bc7b0f6" kind="function"><name>getValidatedFace</name></member>
-    <member refid="_main_8cpp_1aa4179572f00cd5248cb160bef36c70de" kind="function"><name>validateGlyphAdvance</name></member>
-    <member refid="_main_8cpp_1a8df53085917e251b3ebd0faed96c7137" kind="function"><name>validateGlyphCodepoint</name></member>
-    <member refid="_main_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" kind="function"><name>validateGlyphOutline</name></member>
-    <member refid="_main_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" kind="function"><name>validateGlyph</name></member>
-    <member refid="_main_8cpp_1af781781d93ea8cf9272fc905581be1a6" kind="function"><name>validateFont</name></member>
-    <member refid="_main_8cpp_1af11f7f241d12aa4623372cd83072906f" kind="function"><name>runBuildCommand</name></member>
+    <member refid="_main_8cpp_1a2c040b6a8eba42513dfa5b2a261f442d" kind="function"><name>printBanner</name></member>
+    <member refid="_main_8cpp_1a7f683cefdf7f675f09e36661ce8df7cc" kind="function"><name>printBannerAndHelp</name></member>
     <member refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
   </compound>
   <compound refid="_manifest_8cpp" kind="file"><name>Manifest.cpp</name>
-    <member refid="_manifest_8cpp_1a092db571134501c2b1f06e2d822eaed0" kind="typedef"><name>Element</name></member>
-    <member refid="_manifest_8cpp_1aca27536dab17d983bd111a2eaa628297" kind="variable"><name>sectionHeadingLevel</name></member>
-    <member refid="_manifest_8cpp_1a533d2147a1a8f651b8fcecca8108541a" kind="variable"><name>capHeightOffset</name></member>
-    <member refid="_manifest_8cpp_1a0a8017ec2a62c3a22ef875a03d9449f5" kind="variable"><name>baselineOffset</name></member>
     <member refid="_manifest_8cpp_1a23468ca633dfde4f4a474b5e28342d2e" kind="function"><name>isBacktickCell</name></member>
     <member refid="_manifest_8cpp_1a76d1ede32463551ada15df143f283daa" kind="function"><name>getManifestFileName</name></member>
     <member refid="_manifest_8cpp_1aadf003f9b6711a6148f571de386b4e52" kind="function"><name>getPostScriptBase</name></member>
     <member refid="_manifest_8cpp_1a966220d30329998bd6f8ae1297403bf6" kind="function"><name>addHeading</name></member>
-    <member refid="_manifest_8cpp_1a9abe6b1a2de2c97497068409ff649fe5" kind="function"><name>addCell</name></member>
-    <member refid="_manifest_8cpp_1aed6918eb7b10a3d4b69827f150ca2a54" kind="function"><name>addTableRow</name></member>
     <member refid="_manifest_8cpp_1aa7130b2d1498ab7a72f2e06d99d7161b" kind="function"><name>addTableBorder</name></member>
     <member refid="_manifest_8cpp_1ac43a40722dc758f40e4c9542e6303a22" kind="function"><name>addTable</name></member>
-    <member refid="_manifest_8cpp_1a8909b7a4ffee3f3d25b1f3552fc9a9c8" kind="function"><name>addKeyTypeValueTable</name></member>
-    <member refid="_manifest_8cpp_1a00daa78c24ad587b76474ff2ad10d3c7" kind="function"><name>addKeyTypeValueRow</name></member>
+    <member refid="_manifest_8cpp_1a50aa812cb110bcb2c7b110e7ce033d34" kind="function"><name>getGlyphColumns</name></member>
     <member refid="_manifest_8cpp_1ab4012642fc2386fb1accd29e994f3b77" kind="function"><name>addGlyphRow</name></member>
-    <member refid="_manifest_8cpp_1a8f683173ea55595927649a2b24310763" kind="function"><name>addMetricsTable</name></member>
-    <member refid="_manifest_8cpp_1a9cde8387533c2ee3be2790f161403f4a" kind="function"><name>addFontTable</name></member>
-    <member refid="_manifest_8cpp_1acde2cb14e5ab4dfb543e97b65413975f" kind="function"><name>addRegularTable</name></member>
     <member refid="_manifest_8cpp_1a1c8685d1dc645f4430c3f3099ba31f5e" kind="function"><name>addGlyphsTable</name></member>
-    <member refid="_manifest_8cpp_1a1c53c8cbaa8c2ee74a989ba3024c447e" kind="function"><name>addGuideRow</name></member>
-    <member refid="_manifest_8cpp_1a5d203628aef1523fb19740428e26d92d" kind="function"><name>addGuidesTable</name></member>
-    <member refid="_manifest_8cpp_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" kind="function"><name>addGuides</name></member>
     <member refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" kind="function"><name>addGlyphs</name></member>
-    <member refid="_manifest_8cpp_1a0eef0d43202a195516fa146e72476c04" kind="function"><name>getManifestDocument</name></member>
-    <member refid="_manifest_8cpp_1aa749ba22ebc5b9aa73d601b5de87b9e8" kind="function"><name>getCellText</name></member>
-    <member refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" kind="function"><name>getGlyphText</name></member>
+    <member refid="_manifest_8cpp_1a00336e6c9f80478df7c6a93cc4352b44" kind="function"><name>getDefaultManifest</name></member>
+    <member refid="_manifest_8cpp_1a391242974c86e4a86bbfd3f58f513071" kind="function"><name>addDefaultTable</name></member>
+    <member refid="_manifest_8cpp_1afd397c2a2946cb76e65ded5ca178aa23" kind="function"><name>getCellText</name></member>
+    <member refid="_manifest_8cpp_1a631abdef65336973054c081527edc649" kind="function"><name>getColourText</name></member>
+    <member refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" kind="function"><name>getValidatedManifest</name></member>
+    <member refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" kind="function"><name>writeManifestFile</name></member>
+    <member refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" kind="function"><name>getValidatedWeight</name></member>
+    <member refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" kind="function"><name>getWeightSheetFile</name></member>
+    <member refid="_manifest_8cpp_1aeec32c9081090afa4dec792d1ad41fca" kind="function"><name>getGlyphText</name></member>
   </compound>
   <compound refid="_manifest_8h" kind="file"><name>Manifest.h</name>
-    <member refid="_manifest_8h_1a0639b8991bb6348ae2a0905cc0248d5f" kind="variable"><name>regularSheetPath</name></member>
+    <member refid="_manifest_8h_1aa546a3f17d973f42fff00d18056c1763" kind="function"><name>getWeightSheetFile</name></member>
     <member refid="_manifest_8h_1a76d1ede32463551ada15df143f283daa" kind="function"><name>getManifestFileName</name></member>
     <member refid="_manifest_8h_1aadf003f9b6711a6148f571de386b4e52" kind="function"><name>getPostScriptBase</name></member>
-    <member refid="_manifest_8h_1a7af7e37fd1f2e9db1f5dd3430a0ab0ab" kind="function"><name>addGuides</name></member>
+    <member refid="_manifest_8h_1a00336e6c9f80478df7c6a93cc4352b44" kind="function"><name>getDefaultManifest</name></member>
+    <member refid="_manifest_8h_1a391242974c86e4a86bbfd3f58f513071" kind="function"><name>addDefaultTable</name></member>
     <member refid="_manifest_8h_1ae7d65828d073eb697231b6b198744183" kind="function"><name>addGlyphs</name></member>
-    <member refid="_manifest_8h_1a3263a7a4a317a78dd25589ab27a56416" kind="function"><name>getManifestDocument</name></member>
-    <member refid="_manifest_8h_1a5f8654eacc989ab678148692e6136def" kind="function"><name>getCellText</name></member>
-    <member refid="_manifest_8h_1a89c3700dd469f7f2f0cbc6f2a47074e9" kind="function"><name>getGlyphText</name></member>
+    <member refid="_manifest_8h_1a667814bb34947b515c18180224a80fb3" kind="function"><name>getCellText</name></member>
+    <member refid="_manifest_8h_1a0274f785cd1be7b49bbbc77d4e55878d" kind="function"><name>getGlyphText</name></member>
+    <member refid="_manifest_8h_1a631abdef65336973054c081527edc649" kind="function"><name>getColourText</name></member>
+    <member refid="_manifest_8h_1a312cf251fe1fc91cb59061b4f80c3477" kind="function"><name>getValidatedManifest</name></member>
+    <member refid="_manifest_8h_1a49ccf86dec60d0b29b377b5c8f95954f" kind="function"><name>writeManifestFile</name></member>
+    <member refid="_manifest_8h_1a5da0b1d6be333382107d572803571374" kind="function"><name>getValidatedWeight</name></member>
   </compound>
   <compound refid="_sheet_8cpp" kind="file"><name>Sheet.cpp</name>
     <member refid="_sheet_8cpp_1a43e933a958448f3e5e17ed58f764387f" kind="variable"><name>sheetColumns</name></member>
     <member refid="_sheet_8cpp_1a97c89fa90a5914b82931a3d3dfe0219e" kind="variable"><name>sheetMarginTop</name></member>
     <member refid="_sheet_8cpp_1a803087b2bceb5d9c341aff92e57e4884" kind="variable"><name>sheetMarginLeft</name></member>
+    <member refid="_sheet_8cpp_1a378bc9f193c750dd78158269248234fc" kind="variable"><name>sheetMarginRight</name></member>
     <member refid="_sheet_8cpp_1afe20910f444d3c629b8b69e723aee220" kind="variable"><name>sheetCellHeight</name></member>
     <member refid="_sheet_8cpp_1a993c6e234be9905efc6fee99101c6b52" kind="variable"><name>sheetGutter</name></member>
     <member refid="_sheet_8cpp_1aeab50829c094f48dc266bc637b66940d" kind="variable"><name>rowStep</name></member>
-    <member refid="_sheet_8cpp_1a4bb1d598ad506ff2e0272b06a65dd046" kind="variable"><name>singleCodepointCount</name></member>
-    <member refid="_sheet_8cpp_1a135bf237c4956fd999dcca0de4ccc568" kind="variable"><name>doubleCodepointCount</name></member>
-    <member refid="_sheet_8cpp_1a154c8687310b8db484fefe3a0fd840b6" kind="variable"><name>tripleCodepointCount</name></member>
+    <member refid="_sheet_8cpp_1a914ae5197d475e155f4b92df9632ba6d" kind="variable"><name>singleGlyphSlot</name></member>
+    <member refid="_sheet_8cpp_1ab310ccbf9b5494ae02b209b74c31a765" kind="variable"><name>doubleGlyphSlot</name></member>
+    <member refid="_sheet_8cpp_1a857ca329ba5f57de7e872ac98e4f13c6" kind="variable"><name>tripleGlyphSlot</name></member>
+    <member refid="_sheet_8cpp_1a1d14d44cc516edfa90c99676fde31825" kind="variable"><name>svgNamespace</name></member>
     <member refid="_sheet_8cpp_1a10c351d0036e77e40ab71d7a7f13f8ab" kind="variable"><name>groupIndent</name></member>
     <member refid="_sheet_8cpp_1a74cdd7985793dc48c3b85ea51569c213" kind="variable"><name>childIndent</name></member>
-    <member refid="_sheet_8cpp_1a71b638580235429ac41f751b995c046d" kind="variable"><name>hairlineStrokeWidth</name></member>
-    <member refid="_sheet_8cpp_1a6fd0bab3f082ddbd48579f88d119aadd" kind="function"><name>getIndent</name></member>
     <member refid="_sheet_8cpp_1ae96bfe4d6b4e97a961dbd9ebe3ba0299" kind="function"><name>getGroupId</name></member>
     <member refid="_sheet_8cpp_1ae440c0c009b03304cc2416b6a29406c5" kind="function"><name>getRowCount</name></member>
     <member refid="_sheet_8cpp_1adbd4728c99601432444f3f81c05b938d" kind="function"><name>getLigatureColumns</name></member>
-    <member refid="_sheet_8cpp_1ad67c3c4549d1aed513718c12c4723f1b" kind="function"><name>getManifestCellWidth</name></member>
-    <member refid="_sheet_8cpp_1aac8c4afab2acb74c89ef63af852be013" kind="function"><name>getLigatureCellWidth</name></member>
+    <member refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" kind="function"><name>getLigatureCellWidth</name></member>
+    <member refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" kind="function"><name>writeSheetFile</name></member>
     <member refid="_sheet_8cpp_1ae90e7748b3cfce91ccc84f7a0dc840cd" kind="function"><name>getCanvasHeight</name></member>
     <member refid="_sheet_8cpp_1a8d131cf8f6b993aeec79dfdc4d516d5d" kind="function"><name>getCellGroup</name></member>
     <member refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" kind="function"><name>getGlyphRowCounts</name></member>
+    <member refid="_sheet_8cpp_1ad86650c7e7c1bdccb5f5f2a3d9039bca" kind="function"><name>getRowOffsets</name></member>
+    <member refid="_sheet_8cpp_1adf1a65fd1ef6cd0f70f87ae02b02a595" kind="function"><name>getTotalRowCount</name></member>
     <member refid="_sheet_8cpp_1aed372493ac1a17511db4fe064290aa76" kind="function"><name>getCellRect</name></member>
-    <member refid="_sheet_8cpp_1aa55fadb4c9548423a426ce32a02bb58d" kind="function"><name>getCellWidth</name></member>
-    <member refid="_sheet_8cpp_1a3cc39eec062fa2845df5af8275c4ecd2" kind="function"><name>getShiftedAttributes</name></member>
-    <member refid="_sheet_8cpp_1a1dacad7d3bfa955d15784e8de64c9464" kind="function"><name>getArtworkSvg</name></member>
-    <member refid="_sheet_8cpp_1ae3b227b7abea561c9a11944b27c461bb" kind="function"><name>getCellSvg</name></member>
-    <member refid="_sheet_8cpp_1a510298432b840c3b8a5ff0fad08d9771" kind="function"><name>getCellGuidesSvg</name></member>
-    <member refid="_sheet_8cpp_1aa88cbeeb08c9c99eea590047bbe7f1b1" kind="function"><name>getBackgroundRect</name></member>
-    <member refid="_sheet_8cpp_1a271724a1894650a3418624f33e3a954c" kind="function"><name>getBackgroundRectSvg</name></member>
-    <member refid="_sheet_8cpp_1a0b02ac1e1dd8d1193197bc3cb84cd90d" kind="function"><name>getDocumentSvg</name></member>
+    <member refid="_sheet_8cpp_1afdfad0f28282c29df01069e7a6e7bc9e" kind="function"><name>getCellWidth</name></member>
+    <member refid="_sheet_8cpp_1ac467d7b504b57a566f2840de445d3564" kind="function"><name>getCellBounds</name></member>
+    <member refid="_sheet_8cpp_1a5e42c89cdb6459f5ff30040dc7803c86" kind="function"><name>getCellSvg</name></member>
+    <member refid="_sheet_8cpp_1a5468fc5c6b5c683b124ddd97692a4e49" kind="function"><name>getDocumentSvg</name></member>
     <member refid="_sheet_8cpp_1a48e1df05cf05249690e5ce45a8b5d83c" kind="function"><name>getPassthroughSvg</name></member>
+    <member refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" kind="function"><name>getSheetDocument</name></member>
+    <member refid="_sheet_8cpp_1af054f903e6bb0dd67f32e352264aecd1" kind="function"><name>getCellLayout</name></member>
+    <member refid="_sheet_8cpp_1a5bc1f751dcd9aa754c9f92c48b5a6d0b" kind="function"><name>getCellsSvg</name></member>
+    <member refid="_sheet_8cpp_1a9f21c8e348f6090366366211be794db7" kind="function"><name>getGuidesSvg</name></member>
     <member refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kind="function"><name>getSheetSvg</name></member>
   </compound>
   <compound refid="_sheet_8h" kind="file"><name>Sheet.h</name>
+    <member refid="_sheet_8h_1a4bb1d598ad506ff2e0272b06a65dd046" kind="variable"><name>singleCodepointCount</name></member>
+    <member refid="_sheet_8h_1a135bf237c4956fd999dcca0de4ccc568" kind="variable"><name>doubleCodepointCount</name></member>
+    <member refid="_sheet_8h_1a154c8687310b8db484fefe3a0fd840b6" kind="variable"><name>tripleCodepointCount</name></member>
+    <member refid="_sheet_8h_1a1d14d44cc516edfa90c99676fde31825" kind="variable"><name>svgNamespace</name></member>
+    <member refid="_sheet_8h_1a74cdd7985793dc48c3b85ea51569c213" kind="variable"><name>childIndent</name></member>
     <member refid="_sheet_8h_1a7436c0a0ad7fe5df8e351577743aad99" kind="function"><name>getSheetSvg</name></member>
+    <member refid="_sheet_8h_1adc6955a16aaa03fd11a818fd24d0ce21" kind="function"><name>getSheetDocument</name></member>
+    <member refid="_sheet_8h_1a424d7d794ea06d41a51d1f2a1915da09" kind="function"><name>getLigatureCellWidth</name></member>
+    <member refid="_sheet_8h_1a619385f458cbc0807a01688041946cdf" kind="function"><name>writeSheetFile</name></member>
   </compound>
   <compound refid="dir_84fc5dba3506812825191c0c043e3c97" kind="dir"><name>generated</name>
   </compound>

@@ -3,6 +3,8 @@
   <compounddef id="_sheet_8h" kind="file" language="C++">
     <compoundname>Sheet.h</compoundname>
     <includes local="no">JuceHeader.h</includes>
+    <includedby refid="_extract_8cpp" local="yes">Extract.cpp</includedby>
+    <includedby refid="_guides_8cpp" local="yes">Guides.cpp</includedby>
     <includedby refid="_init_8cpp" local="yes">Init.cpp</includedby>
     <includedby refid="_sheet_8cpp" local="yes">Sheet.cpp</includedby>
     <incdepgraph>
@@ -18,10 +20,18 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
+        <label>Extract.cpp</label>
+        <link refid="_extract_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Guides.cpp</label>
+        <link refid="_guides_8cpp"/>
+      </node>
+      <node id="4">
         <label>Init.cpp</label>
         <link refid="_init_8cpp"/>
       </node>
-      <node id="3">
+      <node id="5">
         <label>Sheet.cpp</label>
         <link refid="_sheet_8cpp"/>
       </node>
@@ -32,8 +42,91 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_sheet_8h_1a4bb1d598ad506ff2e0272b06a65dd046" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int</type>
+        <definition>int singleCodepointCount</definition>
+        <argsstring></argsstring>
+        <name>singleCodepointCount</name>
+        <initializer>{ 1 }</initializer>
+        <briefdescription>
+<para>The codepoint count of a single glyph&apos;s cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="47" column="22" bodyfile="Sheet.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="variable" id="_sheet_8h_1a135bf237c4956fd999dcca0de4ccc568" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int</type>
+        <definition>int doubleCodepointCount</definition>
+        <argsstring></argsstring>
+        <name>doubleCodepointCount</name>
+        <initializer>{ 2 }</initializer>
+        <briefdescription>
+<para>The codepoint count of a two-character ligature&apos;s cell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="50" column="22" bodyfile="Sheet.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="_sheet_8h_1a154c8687310b8db484fefe3a0fd840b6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int</type>
+        <definition>int tripleCodepointCount</definition>
+        <argsstring></argsstring>
+        <name>tripleCodepointCount</name>
+        <initializer>{ 3 }</initializer>
+        <briefdescription>
+<para>The codepoint count of a three-character ligature&apos;s cell, the largest the sheet lays out. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="53" column="22" bodyfile="Sheet.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="variable" id="_sheet_8h_1a1d14d44cc516edfa90c99676fde31825" prot="public" static="no" extern="yes" mutable="no">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>const juce::String svgNamespace</definition>
+        <argsstring></argsstring>
+        <name>svgNamespace</name>
+        <briefdescription>
+<para>The Svg namespace written onto every generated sheet root. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="78" column="27" bodyfile="Sheet.cpp" bodystart="20" bodyend="20" declfile="Sheet.h" declline="78" declcolumn="27"/>
+        <referencedby refid="_sheet_8cpp_1a5468fc5c6b5c683b124ddd97692a4e49" compoundref="_sheet_8cpp" startline="188" endline="213">getDocumentSvg</referencedby>
+        <referencedby refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_sheet_8h_1a74cdd7985793dc48c3b85ea51569c213" prot="public" static="no" extern="yes" mutable="no">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>const juce::String childIndent</definition>
+        <argsstring></argsstring>
+        <name>childIndent</name>
+        <briefdescription>
+<para>The indent of an element nested two levels deep in a generated sheet, shared by cell and guide markup. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="81" column="27" bodyfile="Sheet.cpp" bodystart="23" bodyend="23" declfile="Sheet.h" declline="81" declcolumn="27"/>
+        <referencedby refid="_sheet_8cpp_1a5e42c89cdb6459f5ff30040dc7803c86" compoundref="_sheet_8cpp" startline="157" endline="186">getCellSvg</referencedby>
+        <referencedby refid="_guides_8cpp_1a93867b823ba84aa70f23ab85e9ce8a94" compoundref="_guides_8cpp" startline="18" endline="32">getLabelSvg</referencedby>
+      </memberdef>
+    </sectiondef>
     <sectiondef kind="func">
       <memberdef kind="function" id="_sheet_8h_1a7436c0a0ad7fe5df8e351577743aad99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
@@ -52,13 +145,13 @@
 <para>Returns the complete text of a glyph sheet, reconciled against a manifest&apos;s glyphs table. </para>
         </briefdescription>
         <detaileddescription>
-<para><computeroutput>sheetText</computeroutput> is the existing sheet&apos;s text, or empty when no sheet exists yet. The manifest&apos;s <computeroutput>##</computeroutput> glyphs table decides which cells exist in the returned sheet: a cell present in both the table and the existing sheet keeps its own width and its artwork; a cell absent from the table is not emitted. The cells repack in table order and the canvas resizes to fit them. The parsed existing sheet is read and never modified.</para>
+<para><computeroutput>sheetText</computeroutput> is the existing sheet&apos;s text, or empty when no sheet exists yet. The manifest&apos;s <computeroutput>##</computeroutput> glyphs table decides which cells exist in the returned sheet: a cell present in both the table and the existing sheet keeps its own width and its artwork, shifted to follow the cell; a cell absent from the table is not emitted, and its artwork goes with it. A cell new to the sheet takes the width of its codepoint count in plain cells. The cells repack in table order, in rows grouped by codepoint count, and the canvas resizes to fit them. Top-level elements that are neither a glyph group nor the guides layer pass through, and the existing background rect is resized to the canvas. The command fails on a table row that holds a reserved codepoint or more than three codepoints. The parsed existing sheet is read and never modified.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>manifest</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The font family manifest, read for its glyphs and guides tables. </para>
+<para>The font family manifest, read for its glyphs, guides, colour and metrics tables. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -76,45 +169,189 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Sheet.h" line="25" column="14" bodyfile="Sheet.cpp" bodystart="346" bodyend="407" declfile="Sheet.h" declline="25" declcolumn="14"/>
-        <references refid="_sheet_8cpp_1a135bf237c4956fd999dcca0de4ccc568" compoundref="_sheet_8cpp" startline="13" endline="13">doubleCodepointCount</references>
-        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
-        <references refid="_sheet_8cpp_1aa88cbeeb08c9c99eea590047bbe7f1b1" compoundref="_sheet_8cpp" startline="288" endline="295">getBackgroundRect</references>
-        <references refid="_sheet_8cpp_1ae90e7748b3cfce91ccc84f7a0dc840cd" compoundref="_sheet_8cpp" startline="61" endline="66">getCanvasHeight</references>
-        <references refid="_sheet_8cpp_1a8d131cf8f6b993aeec79dfdc4d516d5d" compoundref="_sheet_8cpp" startline="68" endline="83">getCellGroup</references>
-        <references refid="_sheet_8cpp_1a510298432b840c3b8a5ff0fad08d9771" compoundref="_sheet_8cpp" startline="247" endline="286">getCellGuidesSvg</references>
-        <references refid="_sheet_8cpp_1aed372493ac1a17511db4fe064290aa76" compoundref="_sheet_8cpp" startline="122" endline="131">getCellRect</references>
-        <references refid="_sheet_8cpp_1ae3b227b7abea561c9a11944b27c461bb" compoundref="_sheet_8cpp" startline="220" endline="245">getCellSvg</references>
-        <references refid="_sheet_8cpp_1aa55fadb4c9548423a426ce32a02bb58d" compoundref="_sheet_8cpp" startline="133" endline="139">getCellWidth</references>
-        <references refid="_sheet_8cpp_1a0b02ac1e1dd8d1193197bc3cb84cd90d" compoundref="_sheet_8cpp" startline="306" endline="329">getDocumentSvg</references>
-        <references refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" compoundref="_sheet_8cpp" startline="85" endline="120">getGlyphRowCounts</references>
-        <references refid="_manifest_8cpp_1af9f11a3db384c76e425dfcc769c62300" compoundref="_manifest_8cpp" startline="272" endline="285">getGlyphText</references>
-        <references refid="_sheet_8cpp_1ae96bfe4d6b4e97a961dbd9ebe3ba0299" compoundref="_sheet_8cpp" startline="27" endline="35">getGroupId</references>
-        <references refid="_sheet_8cpp_1adbd4728c99601432444f3f81c05b938d" compoundref="_sheet_8cpp" startline="42" endline="45">getLigatureColumns</references>
-        <references refid="_sheet_8cpp_1ad67c3c4549d1aed513718c12c4723f1b" compoundref="_sheet_8cpp" startline="47" endline="54">getManifestCellWidth</references>
-        <references refid="_sheet_8cpp_1a48e1df05cf05249690e5ce45a8b5d83c" compoundref="_sheet_8cpp" startline="331" endline="344">getPassthroughSvg</references>
-        <references refid="classjuce_1_1Rectangle_1a00b78470b5071ac8817c5b709eabdfe6">juce::Rectangle&lt; typename ValueType &gt;::getRight</references>
-        <references refid="_sheet_8cpp_1ae440c0c009b03304cc2416b6a29406c5" compoundref="_sheet_8cpp" startline="37" endline="40">getRowCount</references>
-        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="346" endline="407">getSheetSvg</references>
-        <references refid="structjam_1_1MarkdownDocument_1ac90706c21043931bf12e7bf4072e72d0">jam::MarkdownDocument::getTableRows</references>
-        <references refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5">Id::glyphs</references>
-        <references refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a">juce::String::isNotEmpty</references>
+        <location file="Sheet.h" line="31" column="14" bodyfile="Sheet.cpp" bodystart="301" bodyend="319" declfile="Sheet.h" declline="31" declcolumn="14"/>
+        <references refid="namespaceId_1a09541395e0d6585ad1a2cb56ef6158c8" compoundref="_generated_8cpp" startline="33" endline="33">Id::background</references>
+        <references refid="namespaceId_1ac4552e665ad833a65ee7310f03b70615">Id::cellWidth</references>
+        <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
+        <references refid="_guides_8cpp_1a4beefe56c415eb167aa8080cab740f7f" compoundref="_guides_8cpp" startline="82" endline="89">getBackgroundRect</references>
+        <references refid="_sheet_8cpp_1ae90e7748b3cfce91ccc84f7a0dc840cd" compoundref="_sheet_8cpp" startline="60" endline="65">getCanvasHeight</references>
+        <references refid="_sheet_8cpp_1af054f903e6bb0dd67f32e352264aecd1" compoundref="_sheet_8cpp" startline="240" endline="263">getCellLayout</references>
+        <references refid="_sheet_8cpp_1a5bc1f751dcd9aa754c9f92c48b5a6d0b" compoundref="_sheet_8cpp" startline="265" endline="282">getCellsSvg</references>
+        <references refid="_manifest_8cpp_1a631abdef65336973054c081527edc649" compoundref="_manifest_8cpp" startline="153" endline="162">getColourText</references>
+        <references refid="_sheet_8cpp_1a5468fc5c6b5c683b124ddd97692a4e49" compoundref="_sheet_8cpp" startline="188" endline="213">getDocumentSvg</references>
+        <references refid="_sheet_8cpp_1a2221cdea404b1fc1269e25c1ec671e0f" compoundref="_sheet_8cpp" startline="84" endline="112">getGlyphRowCounts</references>
+        <references refid="_sheet_8cpp_1a9f21c8e348f6090366366211be794db7" compoundref="_sheet_8cpp" startline="284" endline="299">getGuidesSvg</references>
+        <references refid="_sheet_8cpp_1a48e1df05cf05249690e5ce45a8b5d83c" compoundref="_sheet_8cpp" startline="215" endline="228">getPassthroughSvg</references>
+        <references refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</references>
+        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</references>
+        <references refid="_sheet_8cpp_1adf1a65fd1ef6cd0f70f87ae02b02a595" compoundref="_sheet_8cpp" startline="122" endline="126">getTotalRowCount</references>
         <references refid="namespacejuce_1a50060cafc2432519b7611476410dbe22">juce::jmax</references>
-        <references refid="structjam_1_1XmlDocument_1af16167af9b7fc9142ec9324174df74bc">jam::XmlDocument::parse</references>
-        <references refid="_sheet_8cpp_1aeab50829c094f48dc266bc637b66940d" compoundref="_sheet_8cpp" startline="11" endline="11">rowStep</references>
-        <references refid="_sheet_8cpp_1afe20910f444d3c629b8b69e723aee220" compoundref="_sheet_8cpp" startline="9" endline="9">sheetCellHeight</references>
-        <references refid="_sheet_8cpp_1a43e933a958448f3e5e17ed58f764387f" compoundref="_sheet_8cpp" startline="6" endline="6">sheetColumns</references>
-        <references refid="_sheet_8cpp_1a993c6e234be9905efc6fee99101c6b52" compoundref="_sheet_8cpp" startline="10" endline="10">sheetGutter</references>
-        <references refid="_sheet_8cpp_1a803087b2bceb5d9c341aff92e57e4884" compoundref="_sheet_8cpp" startline="8" endline="8">sheetMarginLeft</references>
-        <references refid="_sheet_8cpp_1a97c89fa90a5914b82931a3d3dfe0219e" compoundref="_sheet_8cpp" startline="7" endline="7">sheetMarginTop</references>
-        <references refid="_sheet_8cpp_1a4bb1d598ad506ff2e0272b06a65dd046" compoundref="_sheet_8cpp" startline="12" endline="12">singleCodepointCount</references>
-        <references refid="_sheet_8cpp_1a154c8687310b8db484fefe3a0fd840b6" compoundref="_sheet_8cpp" startline="14" endline="14">tripleCodepointCount</references>
-        <referencedby refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="346" endline="407">getSheetSvg</referencedby>
-        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="101" endline="116">writeWeightSheets</referencedby>
+        <references refid="namespaceId_1ab9801ae0c1b9367d7d33c2c93253868a">Id::metrics</references>
+        <references refid="_sheet_8cpp_1a803087b2bceb5d9c341aff92e57e4884" compoundref="_sheet_8cpp" startline="11" endline="11">sheetMarginLeft</references>
+        <references refid="_sheet_8cpp_1a378bc9f193c750dd78158269248234fc" compoundref="_sheet_8cpp" startline="12" endline="12">sheetMarginRight</references>
+        <references refid="namespaceId_1a35a1e4684527426add342c518cf9af54">Id::toType</references>
+        <referencedby refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="61" endline="76">writeWeightSheets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_sheet_8h_1adc6955a16aaa03fd11a818fd24d0ce21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structjam_1_1XmlDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::XmlDocument</ref></type>
+        <definition>jam::XmlDocument getSheetDocument</definition>
+        <argsstring>(const juce::String &amp;sheetText, const juce::String &amp;origin)</argsstring>
+        <name>getSheetDocument</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>sheetText</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+<para>Parses a glyph sheet&apos;s Svg text, failing fast on invalid XML. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Empty <computeroutput>sheetText</computeroutput> parses to an empty Document (no sheet exists yet) and is not treated as invalid. A non-empty <computeroutput>sheetText</computeroutput> that fails to parse fails the console application, naming <computeroutput>origin</computeroutput> in the message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sheetText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The glyph sheet&apos;s Svg source text, or empty when none exists. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>origin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifies the sheet&apos;s source (e.g. file path) in the failure message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The parsed Document. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="44" column="18" bodyfile="Sheet.cpp" bodystart="230" bodyend="238" declfile="Sheet.h" declline="44" declcolumn="18"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1ac1bdc8751df44e39ecf8f861cb1563c7" compoundref="_text_8h" startline="51" endline="51">text::Diagnostics::failSheetXml</references>
+        <references refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</references>
+        <references refid="classjuce_1_1String_1af5084463343819f82187154ccb62ea3a">juce::String::isNotEmpty</references>
+        <references refid="structjam_1_1Document_1a367d65133f164cf9421ff0c3ddf2bbf6">jam::Document::parse</references>
+        <referencedby refid="_init_8cpp_1a47120cd41dbe79dc687df4d82c17247e" compoundref="_init_8cpp" startline="12" endline="41">addMissingGlyphsTable</referencedby>
+        <referencedby refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</referencedby>
+        <referencedby refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_sheet_8h_1a424d7d794ea06d41a51d1f2a1915da09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double getLigatureCellWidth</definition>
+        <argsstring>(int codepointCount, double cellWidth)</argsstring>
+        <name>getLigatureCellWidth</name>
+        <param>
+          <type>int</type>
+          <declname>codepointCount</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cellWidth</declname>
+        </param>
+        <briefdescription>
+<para>Returns the width of a ligature&apos;s cell, in glyph-sheet units. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The cell spans one plain cell for each codepoint, plus one gutter between each pair of neighbouring plain cells.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codepointCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of codepoints in the ligature. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cellWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width of one plain cell, from the manifest metrics. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The ligature cell&apos;s width. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="65" column="8" bodyfile="Sheet.cpp" bodystart="45" bodyend="48" declfile="Sheet.h" declline="65" declcolumn="8"/>
+        <references refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" compoundref="_sheet_8cpp" startline="45" endline="48">getLigatureCellWidth</references>
+        <references refid="_sheet_8cpp_1a993c6e234be9905efc6fee99101c6b52" compoundref="_sheet_8cpp" startline="14" endline="14">sheetGutter</references>
+        <referencedby refid="_sheet_8cpp_1afdfad0f28282c29df01069e7a6e7bc9e" compoundref="_sheet_8cpp" startline="139" endline="145">getCellWidth</referencedby>
+        <referencedby refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" compoundref="_sheet_8cpp" startline="45" endline="48">getLigatureCellWidth</referencedby>
+        <referencedby refid="_extract_8cpp_1a1e865a37d4f876155944a49233dad886" compoundref="_extract_8cpp" startline="132" endline="143">getLigatureGroupText</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_sheet_8h_1a619385f458cbc0807a01688041946cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeSheetFile</definition>
+        <argsstring>(const juce::File &amp;sheetFile, const juce::String &amp;sheetText)</argsstring>
+        <name>writeSheetFile</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
+          <declname>sheetFile</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>sheetText</declname>
+        </param>
+        <briefdescription>
+<para>Writes a glyph sheet&apos;s text to its file, creating missing parent directories. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The command fails when the directory cannot be created or the file cannot be replaced.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sheetFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file that receives the sheet text. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sheetText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The complete sheet text. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sheet.h" line="75" column="6" bodyfile="Sheet.cpp" bodystart="50" bodyend="58" declfile="Sheet.h" declline="75" declcolumn="6"/>
+        <references refid="classjuce_1_1File_1af540d2875c87e47836e7deef02537ea4">juce::File::createDirectory</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a128d701b3db32061fe1b43d538eb609d" compoundref="_text_8h" startline="43" endline="43">text::Diagnostics::failSheetsDirectory</references>
+        <references refid="structtext_1_1_diagnostics_1a86ec55c3b4275b0f4726e648a99c6f17" compoundref="_text_8h" startline="44" endline="44">text::Diagnostics::failSheetWrite</references>
+        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
+        <references refid="classjuce_1_1File_1ab6bec65fbcf19ce10e38cf9d1015770d">juce::File::getParentDirectory</references>
+        <references refid="classjuce_1_1File_1a01aa22f7ebb9b06840c2118a5e99964a">juce::File::replaceWithText</references>
+        <references refid="classjuce_1_1Result_1a204ba5a9124544a89a5b0565672ef5f3">juce::Result::wasOk</references>
+        <references refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</references>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+        <referencedby refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</referencedby>
+        <referencedby refid="_init_8cpp_1a5624b08c3efb331b77bd70645f80fcdb" compoundref="_init_8cpp" startline="61" endline="76">writeWeightSheets</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Builds a weight&apos;s glyph sheet text, reconciled against a font family manifest&apos;s glyphs table. </para>
+<para>Builds a weight&apos;s glyph sheet text, reconciled against a font family manifest&apos;s glyphs table, and writes it to disk. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -123,7 +360,23 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;JuceHeader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kindref="member">getSheetSvg</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>sheetText);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" kindref="member">getSheetSvg</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>sheetText);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="structjam_1_1XmlDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::XmlDocument</ref><sp/><ref refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" kindref="member">getSheetDocument</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>sheetText,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>origin);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="_sheet_8h_1a4bb1d598ad506ff2e0272b06a65dd046" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_sheet_8h_1a4bb1d598ad506ff2e0272b06a65dd046" kindref="member">singleCodepointCount</ref><sp/>{<sp/>1<sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="_sheet_8h_1a135bf237c4956fd999dcca0de4ccc568" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_sheet_8h_1a135bf237c4956fd999dcca0de4ccc568" kindref="member">doubleCodepointCount</ref><sp/>{<sp/>2<sp/>};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="_sheet_8h_1a154c8687310b8db484fefe3a0fd840b6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_sheet_8h_1a154c8687310b8db484fefe3a0fd840b6" kindref="member">tripleCodepointCount</ref><sp/>{<sp/>3<sp/>};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="_sheet_8cpp_1a424d7d794ea06d41a51d1f2a1915da09" kindref="member">getLigatureCellWidth</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>codepointCount,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cellWidth);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" kindref="member">writeSheetFile</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>sheetFile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>sheetText);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_sheet_8cpp_1a1d14d44cc516edfa90c99676fde31825" kindref="member">svgNamespace</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_sheet_8cpp_1a74cdd7985793dc48c3b85ea51569c213" kindref="member">childIndent</ref>;</highlight></codeline>
     </programlisting>
     <location file="Sheet.h"/>
   </compounddef>

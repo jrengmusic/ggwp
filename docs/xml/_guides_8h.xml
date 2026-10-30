@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_guides_8h" kind="file" language="C++">
+    <compoundname>Guides.h</compoundname>
+    <includes local="no">JuceHeader.h</includes>
+    <includedby refid="_guides_8cpp" local="yes">Guides.cpp</includedby>
+    <includedby refid="_sheet_8cpp" local="yes">Sheet.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Guides.h</label>
+        <link refid="_guides_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Guides.cpp</label>
+        <link refid="_guides_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Guides.h</label>
+        <link refid="_guides_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Sheet.cpp</label>
+        <link refid="_sheet_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_guides_8h_1a20d74ae3ee19ebf38246eba86a54e7f4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>float</type>
+        <definition>float hairlineStrokeWidth</definition>
+        <argsstring></argsstring>
+        <name>hairlineStrokeWidth</name>
+        <initializer>{ 0.5f }</initializer>
+        <briefdescription>
+<para>Stroke width, in Svg user units, shared by every guide line this file draws. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Guides.h" line="11" column="24" bodyfile="Guides.h" bodystart="11" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_guides_8h_1ac599a041352e1bfa10bf1671b9012f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getCellGuidesSvg</definition>
+        <argsstring>(const jam::ConfigDocument &amp;manifest, const juce::ValueTree &amp;metrics, const juce::String &amp;glyphText, juce::Rectangle&lt; float &gt; cellBounds, const juce::String &amp;labelColour, const juce::Colour &amp;advanceColour)</argsstring>
+        <name>getCellGuidesSvg</name>
+        <param>
+          <type>const <ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref> &amp;</type>
+          <declname>manifest</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref> &amp;</type>
+          <declname>metrics</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>glyphText</declname>
+        </param>
+        <param>
+          <type><ref refid="classjuce_1_1Rectangle" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Rectangle</ref>&lt; float &gt;</type>
+          <declname>cellBounds</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>labelColour</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1Colour" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Colour</ref> &amp;</type>
+          <declname>advanceColour</declname>
+        </param>
+        <briefdescription>
+<para>Builds one cell&apos;s codepoint label plus its guide-line overlay. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes <computeroutput>glyphText</computeroutput> as an escaped Svg &lt;text&gt; label at the cell&apos;s top-left, one horizontal hairline &lt;path&gt; per manifest guides-table row (at that row&apos;s offset from the cell top, in the colour-table colour of the row&apos;s key), and one vertical hairline &lt;path&gt; at each unit-cell edge inside the glyph and at the glyph&apos;s advance. The edge and advance positions follow the build&apos;s own advance rule, applied to <computeroutput>cellBounds</computeroutput> and <computeroutput>metrics</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>manifest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font family manifest, read for its guides and colour tables. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>metrics</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The manifest&apos;s metrics value tree, read for the cell width, plain advance and sheet scale. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>glyphText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cell&apos;s codepoint label text. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cellBounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cell&apos;s rectangle within the glyph sheet. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>labelColour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The label&apos;s fill colour, as colour-table text. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>advanceColour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The colour of the vertical unit-cell edge and advance lines. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The cell&apos;s label and guide-line Svg markup. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Guides.h" line="31" column="14" bodyfile="Guides.cpp" bodystart="74" bodyend="80" declfile="Guides.h" declline="31" declcolumn="14"/>
+        <references refid="_guides_8cpp_1ac22167e5657b9660bd1a73cabce61df9" compoundref="_guides_8cpp" startline="49" endline="72">getAdvanceLinesSvg</references>
+        <references refid="_guides_8cpp_1ac599a041352e1bfa10bf1671b9012f49" compoundref="_guides_8cpp" startline="74" endline="80">getCellGuidesSvg</references>
+        <references refid="_guides_8cpp_1ab3efddb19966584e44ab326a28173831" compoundref="_guides_8cpp" startline="34" endline="47">getGuideLinesSvg</references>
+        <references refid="_guides_8cpp_1a93867b823ba84aa70f23ab85e9ce8a94" compoundref="_guides_8cpp" startline="18" endline="32">getLabelSvg</references>
+        <referencedby refid="_guides_8cpp_1ac599a041352e1bfa10bf1671b9012f49" compoundref="_guides_8cpp" startline="74" endline="80">getCellGuidesSvg</referencedby>
+        <referencedby refid="_sheet_8cpp_1a9f21c8e348f6090366366211be794db7" compoundref="_sheet_8cpp" startline="284" endline="299">getGuidesSvg</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_guides_8h_1aa27a70445992e94501d4982e8f5d3a2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> *</type>
+        <definition>const jam::Document::Element * getBackgroundRect</definition>
+        <argsstring>(const jam::Document::Element &amp;root)</argsstring>
+        <name>getBackgroundRect</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Finds the sheet&apos;s background rect among <computeroutput>root&apos;s</computeroutput> direct children. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The background rect is the first &lt;rect&gt; child carrying a <computeroutput>fill</computeroutput> attribute.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The glyph sheet&apos;s root element. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The background rect element, or nullptr when none is present. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Guides.h" line="42" column="30" bodyfile="Guides.cpp" bodystart="82" bodyend="89" declfile="Guides.h" declline="42" declcolumn="30"/>
+        <references refid="namespaceId_1a06085c2125499a70843a80d42f75bf90">Id::fill</references>
+        <references refid="_guides_8cpp_1a4beefe56c415eb167aa8080cab740f7f" compoundref="_guides_8cpp" startline="82" endline="89">getBackgroundRect</references>
+        <references refid="namespaceId_1a60a56f29597f7589e7f0fe3532248866">Id::rect</references>
+        <referencedby refid="_guides_8cpp_1a4beefe56c415eb167aa8080cab740f7f" compoundref="_guides_8cpp" startline="82" endline="89">getBackgroundRect</referencedby>
+        <referencedby refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_guides_8h_1a939a8f393c64e2ed69ca6b96c276e24a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>juce::String getBackgroundRectSvg</definition>
+        <argsstring>(const jam::Document::Element &amp;backgroundRect, float canvasWidth, float canvasHeight, const juce::String &amp;backgroundColour)</argsstring>
+        <name>getBackgroundRectSvg</name>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>backgroundRect</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>canvasWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>canvasHeight</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+          <declname>backgroundColour</declname>
+        </param>
+        <briefdescription>
+<para>Serialises the sheet&apos;s background rect, resized to the sheet canvas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>backgroundRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The background rect element, as found by <ref refid="_guides_8h_1aa27a70445992e94501d4982e8f5d3a2e" kindref="member">getBackgroundRect()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>canvasWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The glyph sheet canvas width to write onto the rect. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>canvasHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The glyph sheet canvas height to write onto the rect. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>backgroundColour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The fill colour to write onto the rect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The background rect&apos;s Svg markup, width, height and fill overridden. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Guides.h" line="53" column="14" bodyfile="Guides.cpp" bodystart="91" bodyend="100" declfile="Guides.h" declline="53" declcolumn="14"/>
+        <references refid="namespaceId_1a06085c2125499a70843a80d42f75bf90">Id::fill</references>
+        <references refid="_guides_8cpp_1a1b3ccfc1fad454d0e0115a06407c9ea2" compoundref="_guides_8cpp" startline="91" endline="100">getBackgroundRectSvg</references>
+        <references refid="_artwork_8cpp_1ad9847018189eb26f922a26ebe846e786" compoundref="_artwork_8cpp" startline="6" endline="11">getCoordinateText</references>
+        <references refid="structjam_1_1XmlDocument_1a67e65a29647faa906d56a87d691e8bcb">jam::XmlDocument::getText</references>
+        <references refid="namespaceId_1a2aebeeaf666a2d792da9b3a8f9e33e4e">Id::height</references>
+        <references refid="classjam_1_1HashMap_1a652692e674a0b76b04df95b4a64394d8">jam::HashMap&lt; typename Key, typename Mapped, typename HashFn, typename KeyEqual, typename AllocatorOrContainer, typename Bucket, typename BucketContainer, bool IsSegmented &gt;::insert</references>
+        <references refid="namespaceId_1ad07ca1e95e00fb5b519009d424bf0077">Id::width</references>
+        <referencedby refid="_guides_8cpp_1a1b3ccfc1fad454d0e0115a06407c9ea2" compoundref="_guides_8cpp" startline="91" endline="100">getBackgroundRectSvg</referencedby>
+        <referencedby refid="_sheet_8cpp_1a5468fc5c6b5c683b124ddd97692a4e49" compoundref="_sheet_8cpp" startline="188" endline="213">getDocumentSvg</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Writes a glyph sheet cell&apos;s label and guide-line overlay, and reads and writes the sheet&apos;s own background rect. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;JuceHeader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_guides_8h_1a20d74ae3ee19ebf38246eba86a54e7f4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_guides_8h_1a20d74ae3ee19ebf38246eba86a54e7f4" kindref="member">hairlineStrokeWidth</ref><sp/>{<sp/>0.5f<sp/>};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_guides_8cpp_1ac599a041352e1bfa10bf1671b9012f49" kindref="member">getCellGuidesSvg</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1ConfigDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::ConfigDocument</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref>&amp;<sp/>metrics,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>glyphText,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1Rectangle" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Rectangle&lt;float&gt;</ref><sp/>cellBounds,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>labelColour,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1Colour" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::Colour</ref>&amp;<sp/>advanceColour);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>*<sp/><ref refid="_guides_8cpp_1a4beefe56c415eb167aa8080cab740f7f" kindref="member">getBackgroundRect</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>root);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_guides_8cpp_1a1b3ccfc1fad454d0e0115a06407c9ea2" kindref="member">getBackgroundRectSvg</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>backgroundRect,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>canvasWidth,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>canvasHeight,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/>backgroundColour);</highlight></codeline>
+    </programlisting>
+    <location file="Guides.h"/>
+  </compounddef>
+</doxygen>

@@ -1,10 +1,7 @@
 #include "Manifest.h"
+#include "generated/Generated.h"
 
 using Element = jam::Document::Element;
-
-const juce::String regularSheetPath { "sheets/GlyphSheet-Regular.svg" };
-
-static constexpr int sectionHeadingLevel { 2 };
 
 static bool isBacktickCell (const juce::String& text)
 {
@@ -23,28 +20,14 @@ juce::String getPostScriptBase (const juce::String& familyName)
 
 static void addHeading (jam::ConfigDocument& document, int level, const juce::String& text)
 {
-    auto* heading { document.addChild (*document.getRoot(), Id::heading) };
+    auto* heading { document.addChild (*document.getRoot(), map::HeadingTag::getInstance()->get (level)) };
     heading->add<int> (Id::type, map::BlockType::heading);
-    heading->add<juce::String> (Id::level, juce::String (level));
+    heading->add<int> (Id::level, level);
+    heading->add<juce::String> (Id::id, text);
+    heading->add<jam::Document::Identifiers> (Id::classes);
 
     auto* headingText { document.addChild (*heading, Id::text) };
     headingText->add<juce::String> (Id::text, text);
-}
-
-static void addCell (jam::ConfigDocument& document, Element& row,
-                     const juce::Identifier& columnId, const juce::String& text)
-{
-    auto* cell { document.addChild (row, columnId) };
-    cell->add<int> (Id::type, map::BlockType::tableCell);
-    cell->add<juce::String> (Id::rawText, text);
-}
-
-static Element& addTableRow (jam::ConfigDocument& document, Element& table, const juce::Identifier& rowId)
-{
-    auto* row { document.addChild (table, rowId) };
-    row->add<int> (Id::type, map::BlockType::tableRow);
-
-    return *row;
 }
 
 static void addTableBorder (jam::ConfigDocument& document, Element& table)
@@ -61,104 +44,19 @@ static Element& addTable (jam::ConfigDocument& document, const juce::Identifier&
     return *table;
 }
 
-static Element& addKeyTypeValueTable (jam::ConfigDocument& document, const juce::Identifier& tableId)
+static const jam::Strings& getGlyphColumns()
 {
-    auto& table { addTable (document, tableId) };
-    auto& headerRow { addTableRow (document, table, Id::headerRow) };
-
-    addCell (document, headerRow, Id::key, Id::key.toString());
-    addCell (document, headerRow, Id::type, Id::type.toString());
-    addCell (document, headerRow, Id::value, Id::value.toString());
-
-    return table;
-}
-
-static void addKeyTypeValueRow (jam::ConfigDocument& document, Element& table,
-                                const juce::Identifier& key, const juce::Identifier& type,
-                                const juce::String& value)
-{
-    auto& dataRow { addTableRow (document, table, key) };
-    addCell (document, dataRow, Id::key, key.toString());
-    addCell (document, dataRow, Id::type, type.toString());
-    addCell (document, dataRow, Id::value, value);
+    static const jam::Strings columns { Id::codepoints.toString() };
+    return columns;
 }
 
 static void addGlyphRow (jam::ConfigDocument& document, Element& table, const juce::String& glyphText)
 {
     const auto cellText { isBacktickCell (glyphText) ? glyphText
                                                       : jam::Format::withEnclosure (glyphText, Chars::backtick) };
-    const auto rowId { juce::Identifier::isValidIdentifier (cellText) ? juce::Identifier (cellText)
-                                                                       : Id::tableRow };
+    const jam::Strings texts { cellText };
 
-    auto& dataRow { addTableRow (document, table, rowId) };
-
-    addCell (document, dataRow, Id::codepoints, cellText);
-}
-
-static constexpr int capHeightOffset { 31 };
-static constexpr int baselineOffset { 176 };
-
-static void addMetricsTable (jam::ConfigDocument& document)
-{
-    static constexpr int sheetCellWidth { 120 };
-    static const juce::String defaultAscender { "881" };
-    static const juce::String defaultDescender { "-122" };
-    static const juce::String defaultLineGap { "0" };
-    static const juce::String defaultCapHeight { "739" };
-    static const juce::String defaultXHeight { "552" };
-    static const juce::String defaultAdvanceWidthFactor { "5.125" };
-
-    auto& table { addKeyTypeValueTable (document, Id::metrics) };
-
-    addKeyTypeValueRow (document, table, Id::ascender, Id::integer, defaultAscender);
-    addKeyTypeValueRow (document, table, Id::descender, Id::integer, defaultDescender);
-    addKeyTypeValueRow (document, table, Id::lineGap, Id::integer, defaultLineGap);
-    addKeyTypeValueRow (document, table, Id::capHeight, Id::integer, defaultCapHeight);
-    addKeyTypeValueRow (document, table, Id::xHeight, Id::integer, defaultXHeight);
-    addKeyTypeValueRow (document, table, Id::baseline, Id::integer, juce::String (baselineOffset));
-    addKeyTypeValueRow (document, table, Id::capline, Id::integer, juce::String (capHeightOffset));
-    addKeyTypeValueRow (document, table, Id::cellWidth, Id::integer, juce::String (sheetCellWidth));
-    addKeyTypeValueRow (document, table, Id::advanceWidthFactor, Id::floatingPoint, defaultAdvanceWidthFactor);
-
-    addTableBorder (document, table);
-}
-
-static void addFontTable (jam::ConfigDocument& document, const juce::String& familyName)
-{
-    static const juce::String defaultManufacturer { "NONE" };
-    static const juce::String defaultVersion { "1.0" };
-    static const juce::String copyrightPrefix { "Copyright 2026 " };
-
-    auto& table { addKeyTypeValueTable (document, Id::font) };
-
-    addKeyTypeValueRow (document, table, Id::copyright, Id::string, copyrightPrefix + familyName);
-    addKeyTypeValueRow (document, table, Id::family, Id::string, familyName);
-    addKeyTypeValueRow (document, table, Id::trademark, Id::string, {});
-    addKeyTypeValueRow (document, table, Id::manufacturer, Id::string, defaultManufacturer);
-    addKeyTypeValueRow (document, table, Id::designer, Id::string, {});
-    addKeyTypeValueRow (document, table, Id::description, Id::string, {});
-    addKeyTypeValueRow (document, table, Id::url, Id::string, {});
-    addKeyTypeValueRow (document, table, Id::version, Id::string, defaultVersion);
-
-    addTableBorder (document, table);
-}
-
-static void addRegularTable (jam::ConfigDocument& document, const juce::String& familyName,
-                             const juce::String& postScriptBase)
-{
-    static const juce::Identifier svg { Extensions::svg };
-    static const juce::String defaultWeightClass { "400" };
-
-    auto& table { addKeyTypeValueTable (document, Id::regular) };
-    const auto regularStyle { map::RibbiStyle::getInstance()->get (map::RibbiStyle::regular) };
-
-    addKeyTypeValueRow (document, table, svg, Id::string, regularSheetPath);
-    addKeyTypeValueRow (document, table, Id::style, Id::string, regularStyle);
-    addKeyTypeValueRow (document, table, Id::fullName, Id::string, familyName + " " + regularStyle);
-    addKeyTypeValueRow (document, table, Id::postScriptName, Id::string, postScriptBase + "-" + regularStyle);
-    addKeyTypeValueRow (document, table, Id::weightClass, Id::integer, defaultWeightClass);
-
-    addTableBorder (document, table);
+    document.addRow (table, cellText, getGlyphColumns(), texts);
 }
 
 static void addGlyphsTable (jam::ConfigDocument& document, const Element* sheetRoot)
@@ -167,9 +65,8 @@ static void addGlyphsTable (jam::ConfigDocument& document, const Element* sheetR
     static constexpr int lastGlyphCodepoint { 0x7E };
 
     auto& table { addTable (document, Id::glyphs) };
-    auto& headerRow { addTableRow (document, table, Id::headerRow) };
 
-    addCell (document, headerRow, Id::codepoints, Id::codepoints.toString());
+    document.addRow (table, Id::headerRow.toString(), getGlyphColumns(), getGlyphColumns());
 
     if (sheetRoot != nullptr)
     {
@@ -192,71 +89,50 @@ static void addGlyphsTable (jam::ConfigDocument& document, const Element* sheetR
     addTableBorder (document, table);
 }
 
-static void addGuideRow (jam::ConfigDocument& document, Element& table,
-                         const juce::Identifier& key, int offset, const juce::String& colour)
-{
-    auto& dataRow { addTableRow (document, table, key) };
-    addCell (document, dataRow, Id::key, key.toString());
-    addCell (document, dataRow, Id::offset, juce::String (offset));
-    addCell (document, dataRow, Id::colour, colour);
-}
-
-static void addGuidesTable (jam::ConfigDocument& document)
-{
-    static constexpr int xHeightGuideOffset { 71 };
-    static constexpr int descenderGuideOffset { 217 };
-    static const juce::String capHeightGuideColour { "#A78BFA" };
-    static const juce::String xHeightGuideColour { "#34D399" };
-    static const juce::String baselineGuideColour { "#FACC15" };
-    static const juce::String descenderGuideColour { "#F87171" };
-
-    auto& table { addTable (document, Id::guides) };
-    auto& headerRow { addTableRow (document, table, Id::headerRow) };
-
-    addCell (document, headerRow, Id::key, Id::key.toString());
-    addCell (document, headerRow, Id::offset, Id::offset.toString());
-    addCell (document, headerRow, Id::colour, Id::colour.toString());
-
-    addGuideRow (document, table, Id::capHeight, capHeightOffset, capHeightGuideColour);
-    addGuideRow (document, table, Id::xHeight, xHeightGuideOffset, xHeightGuideColour);
-    addGuideRow (document, table, Id::baseline, baselineOffset, baselineGuideColour);
-    addGuideRow (document, table, Id::descender, descenderGuideOffset, descenderGuideColour);
-
-    addTableBorder (document, table);
-}
-
-void addGuides (jam::ConfigDocument& document)
-{
-    addHeading (document, sectionHeadingLevel, Id::guides.toString());
-    addGuidesTable (document);
-}
-
 void addGlyphs (jam::ConfigDocument& document, const Element* sheetRoot)
 {
-    addHeading (document, sectionHeadingLevel, Id::glyphs.toString());
+    addHeading (document, map::HeadingLevel::level2, Id::glyphs.toString());
     addGlyphsTable (document, sheetRoot);
 }
 
-jam::ConfigDocument getManifestDocument (const juce::String& familyName, const juce::String& postScriptBase,
-                                         const Element* sheetRoot)
+jam::ConfigDocument getDefaultManifest (const juce::String& familyName, const juce::String& postScriptBase)
 {
-    static constexpr int titleHeadingLevel { 1 };
+    const auto manifestText { jam::Format::replaceholder (
+        jam::Format::replaceholder (BinaryData::getString (files::ggwpManifest), "family", familyName, "@"),
+        "postScriptBase", postScriptBase, "@") };
 
-    jam::ConfigDocument document;
+    return jam::ConfigDocument::parse (manifestText, files::ggwpManifest);
+}
 
-    addHeading (document, titleHeadingLevel, familyName);
-    addHeading (document, sectionHeadingLevel, Id::metrics.toString());
-    addMetricsTable (document);
-    addHeading (document, sectionHeadingLevel, Id::font.toString());
-    addFontTable (document, familyName);
+void addDefaultTable (jam::ConfigDocument& manifest, const juce::Identifier& tableId)
+{
+    const auto defaults { getDefaultManifest ({}, {}) };
 
-    addGlyphs (document, sheetRoot);
+    addHeading (manifest, map::HeadingLevel::level2, tableId.toString());
 
-    addGuides (document);
-    addHeading (document, sectionHeadingLevel, Id::regular.toString());
-    addRegularTable (document, familyName, postScriptBase);
+    for (const auto* defaultTable : defaults.getTables (tableId))
+    {
+        auto& table { addTable (manifest, tableId) };
+        const auto headers (defaults.getTableHeaders (*defaultTable));
+        jam::Strings columns;
 
-    return document;
+        for (const auto& header : headers)
+            columns.add (header.toString());
+
+        manifest.addRow (table, Id::headerRow.toString(), columns, columns);
+
+        for (const auto* defaultRow : defaults.getTableRows (*defaultTable))
+        {
+            jam::Strings texts;
+
+            for (const auto& header : headers)
+                texts.add (getCellText (defaults, *defaultRow, header));
+
+            manifest.addRow (table, defaultRow->id.toString(), columns, texts);
+        }
+
+        addTableBorder (manifest, table);
+    }
 }
 
 juce::String getCellText (const jam::ConfigDocument& document, const Element& row, const juce::Identifier& columnId)
@@ -267,10 +143,61 @@ juce::String getCellText (const jam::ConfigDocument& document, const Element& ro
     {
         const auto tableId { (row.parent != nullptr ? row.parent->id : row.id).toString() };
 
-        juce::ConsoleApplication::fail ("manifest table " + tableId + " has no " + columnId.toString() + " cell");
+        juce::ConsoleApplication::fail (text::Diagnostics::failManifestCell + Id::diagnosticSeparator + tableId
+                                        + Id::diagnosticSeparator + columnId.toString());
     }
 
-    return *cell->get<juce::String> (Id::rawText);
+    return jam::MarkdownDocument::getRawText (*cell, document.getSource());
+}
+
+juce::String getColourText (const jam::ConfigDocument& manifest, const juce::Identifier& key)
+{
+    const auto* row { manifest.getTableRow (Id::colour, key) };
+
+    if (row != nullptr)
+        return getCellText (manifest, *row, Id::colour);
+
+    juce::ConsoleApplication::fail (text::Diagnostics::failManifestCell + Id::diagnosticSeparator + Id::colour.toString()
+                                    + Id::diagnosticSeparator + key.toString());
+}
+
+jam::ConfigDocument getValidatedManifest (const juce::File& manifestFile)
+{
+    auto manifest { jam::ConfigDocument::parse (manifestFile.loadFileAsString(), manifestFile.getFullPathName()) };
+
+    if (const auto result { jam::ConfigValidator {}.isValid (manifest) }; result.failed())
+        juce::ConsoleApplication::fail (result.getErrorMessage() + Id::diagnosticSeparator + manifestFile.getFullPathName());
+
+    return manifest;
+}
+
+void writeManifestFile (const juce::File& manifestFile, const jam::ConfigDocument& document)
+{
+    const jam::MarkdownWriter writer;
+    const auto manifestText { writer.getText (document) };
+
+    if (not manifestFile.replaceWithText (manifestText))
+        juce::ConsoleApplication::fail (text::Diagnostics::failManifestWrite + Id::diagnosticSeparator + manifestFile.getFullPathName());
+}
+
+juce::Identifier getValidatedWeight (const juce::ArgumentList& args, const juce::ValueTree& values, const juce::File& manifestFile)
+{
+    static const juce::String weightOption { juce::String (Chars::doubleDash) + Id::weight.toString() };
+
+    args.failIfOptionIsMissing (weightOption);
+
+    const auto weightValue { args.getValueForOption (weightOption) };
+
+    if (weightValue.isNotEmpty())
+    {
+        const juce::Identifier weightId { weightValue };
+
+        if (values.getChildWithName (Id::toType (weightId)).isValid())
+            return weightId;
+    }
+
+    juce::ConsoleApplication::fail (text::Diagnostics::failWeightUnknown + Id::diagnosticSeparator + weightValue
+        + Id::diagnosticSeparator + manifestFile.getFullPathName());
 }
 
 juce::File getWeightSheetFile (const juce::File& manifestFile, const juce::ValueTree& weight)
