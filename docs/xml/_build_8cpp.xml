@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_build_8cpp" kind="file" language="C++">
+    <compoundname>Build.cpp</compoundname>
+    <includes refid="_build_8h" local="yes">Build.h</includes>
+    <includes refid="_generated_8h" local="yes">generated/Generated.h</includes>
+    <includes refid="_extract_8h" local="yes">Extract.h</includes>
+    <includes refid="_manifest_8h" local="yes">Manifest.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Build.cpp</label>
+        <link refid="_build_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Build.h</label>
+        <link refid="_build_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Extract.h</label>
+        <link refid="_extract_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Manifest.h</label>
+        <link refid="_manifest_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Files.h</label>
+        <link refid="_files_8h"/>
+      </node>
+      <node id="4">
+        <label>generated/Generated.h</label>
+        <link refid="_generated_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>HashMaps.h</label>
+        <link refid="_hash_maps_8h"/>
+      </node>
+      <node id="6">
+        <label>Identifiers.h</label>
+        <link refid="_identifiers_8h"/>
+      </node>
+      <node id="5">
+        <label>ProjectInfo.h</label>
+        <link refid="_project_info_8h"/>
+      </node>
+      <node id="7">
+        <label>Text.h</label>
+        <link refid="_text_8h"/>
+      </node>
+      <node id="3">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+        <definition>const juce::String &amp; getBuildOption</definition>
+        <argsstring>()</argsstring>
+        <name>getBuildOption</name>
+        <briefdescription>
+<para>Returns the command line option that selects the build command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="6" column="20" bodyfile="Build.cpp" bodystart="6" bodyend="10"/>
+        <references refid="namespaceId_1af62e8d5798e8270f94104dd8ad7168f7" compoundref="_generated_8cpp" startline="26" endline="26">Id::build</references>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" compoundref="_build_8cpp" startline="6" endline="10">getBuildOption</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <referencedby refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" compoundref="_build_8cpp" startline="6" endline="10">getBuildOption</referencedby>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref></type>
+        <definition>static juce::String getSheetText</definition>
+        <argsstring>(const juce::File &amp;manifestFile, const juce::ValueTree &amp;weight)</argsstring>
+        <name>getSheetText</name>
+        <param>
+          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
+          <declname>manifestFile</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref> &amp;</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="12" column="21" bodyfile="Build.cpp" bodystart="12" bodyend="20"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a348b78937a8882f64beb8e73b30e33fd" compoundref="_text_8h" startline="31" endline="31">text::Diagnostics::failSheetNotFound</references>
+        <references refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" compoundref="_build_8cpp" startline="12" endline="20">getSheetText</references>
+        <references refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" compoundref="_manifest_8cpp" startline="203" endline="208">getWeightSheetFile</references>
+        <referencedby refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" compoundref="_build_8cpp" startline="12" endline="20">getSheetText</referencedby>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void validateGlyphAdvance</definition>
+        <argsstring>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</argsstring>
+        <name>validateGlyphAdvance</name>
+        <param>
+          <type>FT_Face</type>
+          <declname>face</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>glyph</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>glyphIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="22" column="13" bodyfile="Build.cpp" bodystart="22" bodyend="31"/>
+        <references refid="namespaceId_1a89bf2c048302d93090d801ce56eb5c18">Id::advance</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a861e983aa0e5bd40fd8bfa81c2db8f7b" compoundref="_text_8h" startline="36" endline="36">text::Diagnostics::failGlyphAdvance</references>
+        <references refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" compoundref="_text_8h" startline="32" endline="32">text::Diagnostics::failRoundTrip</references>
+        <references refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" compoundref="_build_8cpp" startline="22" endline="31">validateGlyphAdvance</references>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+        <referencedby refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" compoundref="_build_8cpp" startline="22" endline="31">validateGlyphAdvance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void validateGlyphCodepoint</definition>
+        <argsstring>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</argsstring>
+        <name>validateGlyphCodepoint</name>
+        <param>
+          <type>FT_Face</type>
+          <declname>face</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>glyph</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>glyphIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="33" column="13" bodyfile="Build.cpp" bodystart="33" bodyend="47"/>
+        <references refid="namespaceId_1a2122219423ed0cbdee95653349e176ca">Id::codepoints</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a4fa95c581415bdd4b57344971a2dd939" compoundref="_text_8h" startline="37" endline="37">text::Diagnostics::failCharIndex</references>
+        <references refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" compoundref="_text_8h" startline="32" endline="32">text::Diagnostics::failRoundTrip</references>
+        <references refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" compoundref="_build_8cpp" startline="33" endline="47">validateGlyphCodepoint</references>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+        <referencedby refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" compoundref="_build_8cpp" startline="33" endline="47">validateGlyphCodepoint</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void validateGlyphOutline</definition>
+        <argsstring>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</argsstring>
+        <name>validateGlyphOutline</name>
+        <param>
+          <type>FT_Face</type>
+          <declname>face</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>glyph</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>glyphIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="49" column="13" bodyfile="Build.cpp" bodystart="49" bodyend="57"/>
+        <references refid="namespaceId_1a4ce4852267298b475acd37dea56573a2">Id::contourEnds</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a76b529378f57344b468f1f63a5319540" compoundref="_text_8h" startline="38" endline="38">text::Diagnostics::failGlyphOutline</references>
+        <references refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" compoundref="_text_8h" startline="32" endline="32">text::Diagnostics::failRoundTrip</references>
+        <references refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1">jam::Array&lt; typename ElementType, typename TypeOfCriticalSectionToUse &gt;::isEmpty</references>
+        <references refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" compoundref="_build_8cpp" startline="49" endline="57">validateGlyphOutline</references>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+        <referencedby refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" compoundref="_build_8cpp" startline="49" endline="57">validateGlyphOutline</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void validateGlyph</definition>
+        <argsstring>(FT_Face face, const jam::Document::Element &amp;glyph, int glyphIndex)</argsstring>
+        <name>validateGlyph</name>
+        <param>
+          <type>FT_Face</type>
+          <declname>face</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref> &amp;</type>
+          <declname>glyph</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>glyphIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="59" column="13" bodyfile="Build.cpp" bodystart="59" bodyend="68"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" compoundref="_text_8h" startline="35" endline="35">text::Diagnostics::failLoadGlyph</references>
+        <references refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" compoundref="_text_8h" startline="32" endline="32">text::Diagnostics::failRoundTrip</references>
+        <references refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</references>
+        <references refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" compoundref="_build_8cpp" startline="22" endline="31">validateGlyphAdvance</references>
+        <references refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" compoundref="_build_8cpp" startline="33" endline="47">validateGlyphCodepoint</references>
+        <references refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" compoundref="_build_8cpp" startline="49" endline="57">validateGlyphOutline</references>
+        <referencedby refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</referencedby>
+        <referencedby refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void validateFont</definition>
+        <argsstring>(const jam::OpenTypeDocument &amp;document, const jam::Typeface::Entry &amp;entry)</argsstring>
+        <name>validateFont</name>
+        <param>
+          <type>const <ref refid="structjam_1_1OpenTypeDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref> &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="70" column="13" bodyfile="Build.cpp" bodystart="70" bodyend="81"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de">jam::Typeface::Entry::face</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a0163809f6cbe7a8fcd676f290340e1aa" compoundref="_text_8h" startline="39" endline="39">text::Diagnostics::failGlyphCount</references>
+        <references refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" compoundref="_text_8h" startline="32" endline="32">text::Diagnostics::failRoundTrip</references>
+        <references refid="structjam_1_1OpenTypeDocument_1ac8ace2c3f2a6308c2693c5be2c0ca2a0">jam::OpenTypeDocument::getGlyphCount</references>
+        <references refid="structjam_1_1OpenTypeDocument_1a6f6d561f2ef002064daad801f965ae27">jam::OpenTypeDocument::getTable</references>
+        <references refid="namespaceId_1add052189c916640f88c292fa17bfdebd">Id::glyf</references>
+        <references refid="namespaceId_1ac8743bd67ed6907f9729a660fd931339">Id::index</references>
+        <references refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</references>
+        <references refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" compoundref="_build_8cpp" startline="59" endline="68">validateGlyph</references>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+        <referencedby refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void runBuildCommand</definition>
+        <argsstring>(const juce::ArgumentList &amp;args)</argsstring>
+        <name>runBuildCommand</name>
+        <param>
+          <type>const <ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Handles the --build command line option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the manifest named by --build, the weight table named by --weight and that weight&apos;s glyph sheet, and writes the font file named by --out, relative to the current directory. The written bytes are then loaded back through FreeType and checked against the document that produced them, so a font that does not round-trip fails the command instead of reaching the caller.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parsed command line arguments; must carry --build, --weight and --out. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Build.cpp" line="83" column="6" bodyfile="Build.cpp" bodystart="83" bodyend="110"/>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a2d21a94d01d254bc361fd8d9d1f9b8d7" compoundref="_text_8h" startline="41" endline="41">text::Diagnostics::failFontWrite</references>
+        <references refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d">juce::ArgumentList::failIfOptionIsMissing</references>
+        <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
+        <references refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" compoundref="_build_8cpp" startline="6" endline="10">getBuildOption</references>
+        <references refid="structjam_1_1OpenTypeWriter_1a76497f7501ea3736f35c01613d45e0f6">jam::OpenTypeWriter::getBytes</references>
+        <references refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31">juce::File::getChildFile</references>
+        <references refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279">juce::File::getCurrentWorkingDirectory</references>
+        <references refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934">juce::ArgumentList::getExistingFileForOption</references>
+        <references refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</references>
+        <references refid="structjam_1_1OpenTypeDocument_1ac8ace2c3f2a6308c2693c5be2c0ca2a0">jam::OpenTypeDocument::getGlyphCount</references>
+        <references refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" compoundref="_build_8cpp" startline="12" endline="20">getSheetText</references>
+        <references refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" compoundref="_manifest_8cpp" startline="164" endline="172">getValidatedManifest</references>
+        <references refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" compoundref="_manifest_8cpp" startline="183" endline="201">getValidatedWeight</references>
+        <references refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453">juce::ArgumentList::getValueForOption</references>
+        <references refid="namespaceId_1ac239ed13322d9263cc39b958ec8d0d7c">Id::out</references>
+        <references refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <references refid="namespaceId_1a35a1e4684527426add342c518cf9af54">Id::toType</references>
+        <references refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" compoundref="_build_8cpp" startline="70" endline="81">validateFont</references>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_build_8h" kindref="compound">Build.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_generated_8h" kindref="compound">generated/Generated.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_extract_8h" kindref="compound">Extract.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_manifest_8h" kindref="compound">Manifest.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/><ref refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" kindref="member">getBuildOption</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>buildOption<sp/>{<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(<ref refid="structChars_1a375464038832537822fff69be3285e32" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Chars::doubleDash</ref>)<sp/>+<sp/><ref refid="namespaceId_1af62e8d5798e8270f94104dd8ad7168f7" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::build</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buildOption;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/><ref refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" kindref="member">getSheetText</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>manifestFile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1ValueTree" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ValueTree</ref>&amp;<sp/>weight)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetFile<sp/>{<sp/><ref refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" kindref="member">getWeightSheetFile</ref><sp/>(manifestFile,<sp/>weight)<sp/>};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>sheetFile.existsAsFile())</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a348b78937a8882f64beb8e73b30e33fd" kindref="member">text::Diagnostics::failSheetNotFound</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/>sheetFile.getFullPathName());</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sheetFile.loadFileAsString();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" kindref="member">validateGlyphAdvance</ref><sp/>(FT_Face<sp/>face,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>glyph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>glyphIndex)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>actualAdvance<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(face-&gt;glyph-&gt;metrics.horiAdvance)<sp/>};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>expectedAdvance<sp/>{<sp/>*glyph.get&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;<sp/>(<ref refid="namespaceId_1a89bf2c048302d93090d801ce56eb5c18" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::advance</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(actualAdvance<sp/>!=<sp/>expectedAdvance)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kindref="member">text::Diagnostics::failRoundTrip</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="structtext_1_1_diagnostics_1a861e983aa0e5bd40fd8bfa81c2db8f7b" kindref="member">text::Diagnostics::failGlyphAdvance</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex)<sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(actualAdvance)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(expectedAdvance));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" kindref="member">validateGlyphCodepoint</ref><sp/>(FT_Face<sp/>face,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>glyph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>glyphIndex)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>codepoints<sp/>{<sp/>glyph.get&lt;<ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref>&gt;<sp/>(<ref refid="namespaceId_1a2122219423ed0cbdee95653349e176ca" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::codepoints</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(codepoints-&gt;size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>codepoint<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">FT_ULong</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(codepoints-&gt;at<sp/>(0))<sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>actualGlyphIndex<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(FT_Get_Char_Index<sp/>(face,<sp/>codepoint))<sp/>};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(actualGlyphIndex<sp/>!=<sp/>glyphIndex)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kindref="member">text::Diagnostics::failRoundTrip</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="structtext_1_1_diagnostics_1a4fa95c581415bdd4b57344971a2dd939" kindref="member">text::Diagnostics::failCharIndex</ref></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(codepoint)<sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(actualGlyphIndex)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" kindref="member">validateGlyphOutline</ref><sp/>(FT_Face<sp/>face,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>glyph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>glyphIndex)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>glyph.get&lt;<ref refid="structjam_1_1Document_1a506503de02b9252efc05b1efed63f9a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Numbers</ref>&gt;<sp/>(<ref refid="namespaceId_1a4ce4852267298b475acd37dea56573a2" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::contourEnds</ref>)-&gt;<ref refid="classjam_1_1Array_1a4bfdd699e0fa66a471c234797aac5fe1" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">isEmpty</ref>())</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(face-&gt;glyph-&gt;outline.n_contours<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kindref="member">text::Diagnostics::failRoundTrip</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="structtext_1_1_diagnostics_1a76b529378f57344b468f1f63a5319540" kindref="member">text::Diagnostics::failGlyphOutline</ref></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" kindref="member">validateGlyph</ref><sp/>(FT_Face<sp/>face,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Document_1_1Element" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Document::Element</ref>&amp;<sp/>glyph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>glyphIndex)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(FT_Load_Glyph<sp/>(face,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">FT_UInt</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(glyphIndex),<sp/>FT_LOAD_NO_SCALE)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kindref="member">text::Diagnostics::failRoundTrip</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="structtext_1_1_diagnostics_1a8581f1ed10f9fdaddbadf987fa0dd802" kindref="member">text::Diagnostics::failLoadGlyph</ref></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(glyphIndex));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_build_8cpp_1aa4179572f00cd5248cb160bef36c70de" kindref="member">validateGlyphAdvance</ref><sp/>(face,<sp/>glyph,<sp/>glyphIndex);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_build_8cpp_1a8df53085917e251b3ebd0faed96c7137" kindref="member">validateGlyphCodepoint</ref><sp/>(face,<sp/>glyph,<sp/>glyphIndex);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_build_8cpp_1aa9c266ca3cd99c1b8e250838f977a5fe" kindref="member">validateGlyphOutline</ref><sp/>(face,<sp/>glyph,<sp/>glyphIndex);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" kindref="member">validateFont</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1OpenTypeDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument</ref>&amp;<sp/>document,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1Typeface_1_1Entry" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface::Entry</ref>&amp;<sp/>entry)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>glyph<sp/>:<sp/>*document.<ref refid="structjam_1_1OpenTypeDocument_1a6f6d561f2ef002064daad801f965ae27" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getTable</ref><sp/>(<ref refid="namespaceId_1add052189c916640f88c292fa17bfdebd" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::glyf</ref>))</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_build_8cpp_1a5f79f6776f2a944dcc48fb058c91cd62" kindref="member">validateGlyph</ref><sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>.get(),<sp/>*glyph,<sp/>*glyph-&gt;get&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;<sp/>(<ref refid="namespaceId_1ac8743bd67ed6907f9729a660fd931339" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::index</ref>));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>actualGlyphCount<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal"><sp/>(entry.<ref refid="structjam_1_1Typeface_1_1Entry_1a05d6c626f941fc158542ebcfe5eb36de" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">face</ref>-&gt;num_glyphs)<sp/>};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>modelGlyphCount<sp/>{<sp/>document.<ref refid="structjam_1_1OpenTypeDocument_1ac8ace2c3f2a6308c2693c5be2c0ca2a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getGlyphCount</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(modelGlyphCount<sp/>!=<sp/>actualGlyphCount)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1aab1f67c5fa5ce48326606a02b1b22e4f" kindref="member">text::Diagnostics::failRoundTrip</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="structtext_1_1_diagnostics_1a0163809f6cbe7a8fcd676f290340e1aa" kindref="member">text::Diagnostics::failGlyphCount</ref></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(modelGlyphCount)<sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(actualGlyphCount));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" kindref="member">runBuildCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>outOption<sp/>{<sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref><sp/>(<ref refid="structChars_1a375464038832537822fff69be3285e32" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Chars::doubleDash</ref>)<sp/>+<sp/><ref refid="namespaceId_1ac239ed13322d9263cc39b958ec8d0d7c" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::out</ref>.<ref refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">toString</ref>()<sp/>};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjuce_1_1ScopedJuceInitialiser__GUI" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ScopedJuceInitialiser_GUI</ref><sp/>juceInitialiser;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifestFile<sp/>{<sp/>args.<ref refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getExistingFileForOption</ref><sp/>(<ref refid="_build_8cpp_1a3b4f7b941c97dc9ad94731510188d0de" kindref="member">getBuildOption</ref>())<sp/>};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>args.<ref refid="structjuce_1_1ArgumentList_1a610bfaf27eb8a70d7f581ac759d41d7d" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">failIfOptionIsMissing</ref><sp/>(outOption);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifest<sp/>{<sp/><ref refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" kindref="member">getValidatedManifest</ref><sp/>(manifestFile)<sp/>};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>values<sp/>{<sp/>manifest.getValueTree<sp/>(<ref refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::font</ref>)<sp/>};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>weightId<sp/>{<sp/><ref refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" kindref="member">getValidatedWeight</ref><sp/>(args,<sp/>values,<sp/>manifestFile)<sp/>};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>outputFile<sp/>{<sp/><ref refid="classjuce_1_1File_1af57a7a6e83fbd4a6b048e7d0010d7279" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File::getCurrentWorkingDirectory</ref>().<ref refid="classjuce_1_1File_1a57b992aacb19e09ee5905cd0f0e9bb31" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getChildFile</ref><sp/>(args.<ref refid="structjuce_1_1ArgumentList_1a7df72edf638fcdc58d8e85f19ab20453" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">getValueForOption</ref><sp/>(outOption))<sp/>};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sheetText<sp/>{<sp/><ref refid="_build_8cpp_1a601ba82e85ad8218cba9a32b7bc28068" kindref="member">getSheetText</ref><sp/>(manifestFile,<sp/>values.getChildWithName<sp/>(<ref refid="namespaceId_1a35a1e4684527426add342c518cf9af54" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::toType</ref><sp/>(weightId)))<sp/>};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1OpenTypeDocument" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeDocument</ref><sp/>document<sp/>{<sp/>manifest,<sp/>weightId,<sp/>sheetText<sp/>};</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjam_1_1OpenTypeWriter" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::OpenTypeWriter</ref><sp/>writer;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fontBytes<sp/>{<sp/>writer.<ref refid="structjam_1_1OpenTypeWriter_1a76497f7501ea3736f35c01613d45e0f6" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getBytes</ref><sp/>(document)<sp/>};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/>outputFile.replaceWithData<sp/>(fontBytes.getData(),<sp/>fontBytes.getSize()))</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a" kindref="member" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ConsoleApplication::fail</ref><sp/>(<ref refid="structtext_1_1_diagnostics_1a2d21a94d01d254bc361fd8d9d1f9b8d7" kindref="member">text::Diagnostics::failFontWrite</ref><sp/>+<sp/><ref refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">Id::diagnosticSeparator</ref><sp/>+<sp/>outputFile.getFullPathName());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref><sp/>typeface;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_build_8cpp_1a86dacfa321e7ab8488cf0e2893b330e5" kindref="member">validateFont</ref><sp/>(document,<sp/>typeface.get<sp/>(<ref refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" kindref="member">getFontEntry</ref><sp/>(typeface,<sp/>fontBytes,<sp/>outputFile)));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>text::Commands::wroteFile<sp/>&lt;&lt;<sp/>outputFile.getFullPathName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>document.<ref refid="structjam_1_1OpenTypeDocument_1ac8ace2c3f2a6308c2693c5be2c0ca2a0" kindref="member" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">getGlyphCount</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>glyphs)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Build.cpp"/>
+  </compounddef>
+</doxygen>

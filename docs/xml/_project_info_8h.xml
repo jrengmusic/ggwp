@@ -2,6 +2,85 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
   <compounddef id="_project_info_8h" kind="file" language="C++">
     <compoundname>ProjectInfo.h</compoundname>
+    <includedby refid="_generated_8h" local="yes">generated/Generated.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>Artwork.cpp</label>
+        <link refid="_artwork_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Build.cpp</label>
+        <link refid="_build_8cpp"/>
+      </node>
+      <node id="5">
+        <label>Extract.cpp</label>
+        <link refid="_extract_8cpp"/>
+      </node>
+      <node id="6">
+        <label>Guides.cpp</label>
+        <link refid="_guides_8cpp"/>
+      </node>
+      <node id="8">
+        <label>Help.cpp</label>
+        <link refid="_help_8cpp"/>
+      </node>
+      <node id="7">
+        <label>Help.h</label>
+        <link refid="_help_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Init.cpp</label>
+        <link refid="_init_8cpp"/>
+      </node>
+      <node id="9">
+        <label>Main.cpp</label>
+        <link refid="_main_8cpp"/>
+      </node>
+      <node id="11">
+        <label>Manifest.cpp</label>
+        <link refid="_manifest_8cpp"/>
+      </node>
+      <node id="12">
+        <label>Sheet.cpp</label>
+        <link refid="_sheet_8cpp"/>
+      </node>
+      <node id="13">
+        <label>generated/Generated.cpp</label>
+        <link refid="_generated_8cpp"/>
+      </node>
+      <node id="2">
+        <label>generated/Generated.h</label>
+        <link refid="_generated_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>generated/ProjectInfo.h</label>
+        <link refid="_project_info_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespace_project_info">ProjectInfo</innernamespace>
     <briefdescription>
 <para>Project metadata — the generated <ref refid="namespace_project_info" kindref="compound">ProjectInfo</ref> namespace. </para>

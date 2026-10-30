@@ -4,10 +4,14 @@ GlyphSheet Generation Workflow Protocol
 
 ## What's New
 
-- Release lane: a signed macOS pkg and Windows x64 and arm64 installers, uploaded to the GitHub release.
-- Signing data lives in cast/signing.md, and entitlements.plist is generated from it.
-- Readers are const end to end; the ggwp sources carry no const_cast.
-- --init is idempotent and table-driven.
+- --extract writes a glyph sheet from a TTF, with ligatures found by shaping.
+- The units per em is 1024 for every font. It is a contract constant, not a manifest value.
+- A weight table may carry its own ascender, descender and lineGap rows, which replace the metrics for that weight.
+- The post fixed pitch flag derives from the whole-cell advances of the glyphs.
+- Cell widths are fractional, written to three decimal places.
+- The colour table holds every colour of the sheet, and the guides table places the cell guides.
+- The help is rendered with MarkdownComponent.
+- The release conforms to cast and scout: a signed macOS pkg and Windows x64 and arm64 installers.
 
 ## Platforms
 

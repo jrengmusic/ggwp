@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="_extract_8h" kind="file" language="C++">
+    <compoundname>Extract.h</compoundname>
+    <includes local="no">JuceHeader.h</includes>
+    <includedby refid="_build_8cpp" local="yes">Build.cpp</includedby>
+    <includedby refid="_extract_8cpp" local="yes">Extract.cpp</includedby>
+    <includedby refid="_main_8cpp" local="yes">Main.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Extract.h</label>
+        <link refid="_extract_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JuceHeader.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Build.cpp</label>
+        <link refid="_build_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Extract.cpp</label>
+        <link refid="_extract_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Extract.h</label>
+        <link refid="_extract_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Main.cpp</label>
+        <link refid="_main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_extract_8h_1a72f558d7877d72418b230b354b1c0008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref> &amp;</type>
+        <definition>const juce::String &amp; getExtractOption</definition>
+        <argsstring>()</argsstring>
+        <name>getExtractOption</name>
+        <briefdescription>
+<para>Returns the command line option that selects the extract command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.h" line="11" column="20" bodyfile="Extract.cpp" bodystart="7" bodyend="11" declfile="Extract.h" declline="11" declcolumn="20"/>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="namespaceId_1aac3b032846b9e459a1c27575bc9152ea" compoundref="_generated_8cpp" startline="29" endline="29">Id::extract</references>
+        <references refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <referencedby refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</referencedby>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8h_1a57ba081ed23e1c8de93c4b3f65308876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void runExtractCommand</definition>
+        <argsstring>(const juce::ArgumentList &amp;args)</argsstring>
+        <name>runExtractCommand</name>
+        <param>
+          <type>const <ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref> &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Handles the --extract command line option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the font named by --extract and the manifest named by --manifest. Every outline and advance is scaled from the font&apos;s units per em to the sheet&apos;s units per em, and drawn into a raw sheet: one cell per character above the space, plus one cell per ligature that shaping finds. A manifest without a glyphs table gains one built from the raw sheet, and is written back. The sheet is then laid out from the manifest&apos;s glyphs table, so only the cells that the table lists are written, to the path that the weight table named by --weight gives. The manifest metrics are read and never changed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parsed command line arguments; must carry --extract, --manifest and --weight. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.h" line="27" column="6" bodyfile="Extract.cpp" bodystart="252" bodyend="281" declfile="Extract.h" declline="27" declcolumn="6"/>
+        <references refid="_manifest_8cpp_1a287ecdeefd789ae3574477289a568b92" compoundref="_manifest_8cpp" startline="92" endline="96">addGlyphs</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structChars_1a375464038832537822fff69be3285e32">Chars::doubleDash</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" compoundref="_text_8h" startline="52" endline="52">text::Diagnostics::failFontFace</references>
+        <references refid="namespaceId_1ae30c118a3a1d298f88a2795e798eea0e">Id::font</references>
+        <references refid="structjuce_1_1ArgumentList_1a38061e24a06a6f5aa0e85e64d8f0d934">juce::ArgumentList::getExistingFileForOption</references>
+        <references refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" compoundref="_extract_8cpp" startline="7" endline="11">getExtractOption</references>
+        <references refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</references>
+        <references refid="_extract_8cpp_1a5ddf6d1aaf4f20cc8b7d1cb7d30848f4" compoundref="_extract_8cpp" startline="222" endline="235">getRawSheetText</references>
+        <references refid="structjam_1_1Document_1afa15c06a56937a7195814a2aa2c7521d">jam::Document::getRoot</references>
+        <references refid="_sheet_8cpp_1adc6955a16aaa03fd11a818fd24d0ce21" compoundref="_sheet_8cpp" startline="230" endline="238">getSheetDocument</references>
+        <references refid="_sheet_8cpp_1a7436c0a0ad7fe5df8e351577743aad99" compoundref="_sheet_8cpp" startline="301" endline="319">getSheetSvg</references>
+        <references refid="_manifest_8cpp_1a312cf251fe1fc91cb59061b4f80c3477" compoundref="_manifest_8cpp" startline="164" endline="172">getValidatedManifest</references>
+        <references refid="_manifest_8cpp_1a5da0b1d6be333382107d572803571374" compoundref="_manifest_8cpp" startline="183" endline="201">getValidatedWeight</references>
+        <references refid="_manifest_8cpp_1aa546a3f17d973f42fff00d18056c1763" compoundref="_manifest_8cpp" startline="203" endline="208">getWeightSheetFile</references>
+        <references refid="namespaceId_1adb105f6cc8ed800559bf5d4eaf5279e5">Id::glyphs</references>
+        <references refid="namespaceId_1a14ad76a66641361dbfbfc9424e6a2f3f">Id::manifest</references>
+        <references refid="namespaceId_1ab9801ae0c1b9367d7d33c2c93253868a">Id::metrics</references>
+        <references refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</references>
+        <references refid="classjuce_1_1Identifier_1ab6f0db1de2c36cacd1a9d7280f73aeeb">juce::Identifier::toString</references>
+        <references refid="namespaceId_1a35a1e4684527426add342c518cf9af54">Id::toType</references>
+        <references refid="_manifest_8cpp_1a49ccf86dec60d0b29b377b5c8f95954f" compoundref="_manifest_8cpp" startline="174" endline="181">writeManifestFile</references>
+        <references refid="_sheet_8cpp_1a619385f458cbc0807a01688041946cdf" compoundref="_sheet_8cpp" startline="50" endline="58">writeSheetFile</references>
+        <referencedby refid="_main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="_main_8cpp" startline="25" endline="48">main</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="_extract_8h_1acde6673cdf5b0766068ec1340f4f3c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFontEntry</definition>
+        <argsstring>(jam::Typeface &amp;typeface, const juce::MemoryBlock &amp;fontBytes, const juce::File &amp;fontFile)</argsstring>
+        <name>getFontEntry</name>
+        <param>
+          <type><ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref> &amp;</type>
+          <declname>typeface</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1MemoryBlock" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::MemoryBlock</ref> &amp;</type>
+          <declname>fontBytes</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref> &amp;</type>
+          <declname>fontFile</declname>
+        </param>
+        <briefdescription>
+<para>Registers font bytes with a typeface and returns the entry index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The build command shares this function to load the font that it just wrote, so both commands read a font through one path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>typeface</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The typeface that takes the registration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fontBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font file&apos;s bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fontFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font file; named in the failure message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of the registered entry in <computeroutput>typeface</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Extract.h" line="40" column="5" bodyfile="Extract.cpp" bodystart="237" bodyend="250" declfile="Extract.h" declline="40" declcolumn="5"/>
+        <references refid="classjuce_1_1Typeface_1a24b3cafbfaca34528b6c366dce5e7ba7">juce::Typeface::createSystemTypefaceFor</references>
+        <references refid="namespaceId_1a5e729b9864fd096462b3f08ef1eb4b1a">Id::diagnosticSeparator</references>
+        <references refid="structjuce_1_1ConsoleApplication_1a089bfa9bc33dbff08ace46915d92136a">juce::ConsoleApplication::fail</references>
+        <references refid="structtext_1_1_diagnostics_1a4f468f11fa846f31839a1ebb6e4dda1f" compoundref="_text_8h" startline="52" endline="52">text::Diagnostics::failFontFace</references>
+        <references refid="classjuce_1_1MemoryBlock_1a692f4e81b72cc79aaa98b6629d4a4dcd">juce::MemoryBlock::getData</references>
+        <references refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</references>
+        <references refid="classjuce_1_1File_1a515fa016b189068f365cc875e241e2a1">juce::File::getFullPathName</references>
+        <references refid="classjuce_1_1MemoryBlock_1a8c25cd08391185f1237944fad5d607d8">juce::MemoryBlock::getSize</references>
+        <referencedby refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" compoundref="_extract_8cpp" startline="237" endline="250">getFontEntry</referencedby>
+        <referencedby refid="_build_8cpp_1a589c5799ed7a2127c64ff56aad830c0f" compoundref="_build_8cpp" startline="83" endline="110">runBuildCommand</referencedby>
+        <referencedby refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" compoundref="_extract_8cpp" startline="252" endline="281">runExtractCommand</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Entry point for the --extract command line option <ndash/> writes a weight&apos;s glyph sheet from an existing font. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;JuceHeader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1String" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::String</ref>&amp;<sp/><ref refid="_extract_8cpp_1a72f558d7877d72418b230b354b1c0008" kindref="member">getExtractOption</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1a57ba081ed23e1c8de93c4b3f65308876" kindref="member">runExtractCommand</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structjuce_1_1ArgumentList" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::ArgumentList</ref>&amp;<sp/>args);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_extract_8cpp_1acde6673cdf5b0766068ec1340f4f3c2a" kindref="member">getFontEntry</ref><sp/>(<ref refid="structjam_1_1Typeface" kindref="compound" external="/Users/jreng/Documents/Poems/dev/jam/docs/tagfile.xml">jam::Typeface</ref>&amp;<sp/>typeface,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1MemoryBlock" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::MemoryBlock</ref>&amp;<sp/>fontBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjuce_1_1File" kindref="compound" external="/Users/jreng/Documents/Poems/JUCE/docs/tagfile.xml">juce::File</ref>&amp;<sp/>fontFile);</highlight></codeline>
+    </programlisting>
+    <location file="Extract.h"/>
+  </compounddef>
+</doxygen>

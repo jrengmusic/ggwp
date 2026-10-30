@@ -1,4 +1,5 @@
 #include "Sheet.h"
+#include "generated/Generated.h"
 #include "Manifest.h"
 #include "Artwork.h"
 #include "Guides.h"
@@ -12,15 +13,14 @@ static constexpr int sheetMarginRight { 40 };
 static constexpr int sheetCellHeight { 243 };
 static constexpr int sheetGutter { 10 };
 static constexpr int rowStep { sheetCellHeight + sheetGutter };
-static constexpr int singleCodepointCount { 1 };
-static constexpr int doubleCodepointCount { 2 };
-static constexpr int tripleCodepointCount { 3 };
 static constexpr int singleGlyphSlot { 0 };
 static constexpr int doubleGlyphSlot { 1 };
 static constexpr int tripleGlyphSlot { 2 };
 
+const juce::String svgNamespace { "http://www.w3.org/2000/svg" };
+
 static const juce::String groupIndent { jam::Xml::getIndent (1) };
-static const juce::String childIndent { jam::Xml::getIndent (2) };
+const juce::String childIndent { jam::Xml::getIndent (2) };
 
 static juce::String getGroupId (const juce::String& text)
 {
@@ -42,19 +42,19 @@ static int getLigatureColumns (int codepointCount)
     return sheetColumns / codepointCount;
 }
 
-static int getManifestCellWidth (const jam::ConfigDocument& manifest)
-{
-    auto* row { manifest.getTableRow (Id::metrics, Id::cellWidth) };
-
-    if (row != nullptr)
-        return getCellText (manifest, *row, Id::value).getIntValue();
-
-    juce::ConsoleApplication::fail ("manifest metrics table has no " + Id::cellWidth.toString() + " row");
-}
-
-static int getLigatureCellWidth (int codepointCount, int cellWidth)
+double getLigatureCellWidth (int codepointCount, double cellWidth)
 {
     return cellWidth * codepointCount + sheetGutter * (codepointCount - 1);
+}
+
+void writeSheetFile (const juce::File& sheetFile, const juce::String& sheetText)
+{
+    if (not sheetFile.getParentDirectory().createDirectory().wasOk())
+        juce::ConsoleApplication::fail (text::Diagnostics::failSheetsDirectory + Id::diagnosticSeparator
+                                        + sheetFile.getParentDirectory().getFullPathName());
+
+    if (not sheetFile.replaceWithText (sheetText))
+        juce::ConsoleApplication::fail (text::Diagnostics::failSheetWrite + Id::diagnosticSeparator + sheetFile.getFullPathName());
 }
 
 static int getCanvasHeight (int totalRows)
@@ -83,7 +83,7 @@ static const Element* getCellGroup (const Element& root, const juce::String& gro
 
 static std::array<int, tripleCodepointCount> getGlyphRowCounts (const jam::ConfigDocument& manifest)
 {
-    std::array<int, tripleCodepointCount> rowsByFamily { 0, 0, 0 };
+    std::array<int, tripleCodepointCount> rowsByFamily {};
 
     for (auto* row : manifest.getTableRows (Id::glyphs))
     {
@@ -93,27 +93,36 @@ static std::array<int, tripleCodepointCount> getGlyphRowCounts (const jam::Confi
 
         if (isSupportedCodepointCount)
         {
-            const auto slot { codepointCount - singleCodepointCount };
             const auto isReservedCodepoint { codepointCount == singleCodepointCount
                                              and (static_cast<int> (text[0]) == jam::OpenTypeDocument::notdefCodepoint
                                                   or static_cast<int> (text[0]) == jam::OpenTypeDocument::spaceCodepoint) };
 
             if (isReservedCodepoint)
-            {
-                juce::ConsoleApplication::fail ("reserved glyph row: " + text);
-            }
-            else
-            {
-                ++rowsByFamily.at (slot);
-            }
+                juce::ConsoleApplication::fail (text::Diagnostics::failGlyphRowReserved + Id::diagnosticSeparator + text);
+
+            ++rowsByFamily.at (codepointCount - singleCodepointCount);
         }
         else
         {
-            juce::ConsoleApplication::fail ("unsupported glyph row: " + text);
+            juce::ConsoleApplication::fail (text::Diagnostics::failGlyphRowUnsupported + Id::diagnosticSeparator + text);
         }
     }
 
     return rowsByFamily;
+}
+
+static std::array<int, tripleCodepointCount> getRowOffsets (const std::array<int, tripleCodepointCount>& glyphRowCounts)
+{
+    const auto charRows { getRowCount (glyphRowCounts.at (singleGlyphSlot), sheetColumns) };
+    const auto doubleRows { getRowCount (glyphRowCounts.at (doubleGlyphSlot), getLigatureColumns (doubleCodepointCount)) };
+
+    return { 0, charRows, charRows + doubleRows };
+}
+
+static int getTotalRowCount (const std::array<int, tripleCodepointCount>& glyphRowCounts)
+{
+    return getRowOffsets (glyphRowCounts).at (tripleGlyphSlot)
+         + getRowCount (glyphRowCounts.at (tripleGlyphSlot), getLigatureColumns (tripleCodepointCount));
 }
 
 static const Element& getCellRect (const Element& group)
@@ -121,35 +130,49 @@ static const Element& getCellRect (const Element& group)
     auto* cell { group.getChildByID (Id::rect) };
 
     if (cell == nullptr)
-        juce::ConsoleApplication::fail ("glyph group " + group.get<juce::String> (Id::id, {})
-                                        + " has no rect cell");
+        juce::ConsoleApplication::fail (text::Diagnostics::failGlyphGroupRect + Id::diagnosticSeparator
+                                        + group.get<juce::String> (Id::id, {}));
 
     return *cell;
 }
 
-static int getCellWidth (const Element* oldRect, int codepointCount, int cellWidth)
+static float getCellWidth (const Element* oldRect, int codepointCount, double cellWidth)
 {
     if (oldRect != nullptr)
-        return oldRect->get<juce::String> (Id::width, {}).getIntValue();
+        return oldRect->get<juce::String> (Id::width, {}).getFloatValue();
 
-    return getLigatureCellWidth (codepointCount, cellWidth);
+    return static_cast<float> (getLigatureCellWidth (codepointCount, cellWidth));
 }
 
-static juce::String getCellSvg (const Element* oldGroup, const juce::String& groupId, juce::Rectangle<int> cellBounds)
+static juce::Rectangle<float> getCellBounds (int codepointCount, int placedCellCount, int firstRow, float previousRight, float width)
 {
-    static const juce::String cellStrokeColour { "#323232" };
+    const auto columns { getLigatureColumns (codepointCount) };
+    const auto row { firstRow + placedCellCount / columns };
+    const auto x { placedCellCount % columns == 0 ? static_cast<float> (sheetMarginLeft)
+                                                  : previousRight + static_cast<float> (sheetGutter) };
+
+    return { x, static_cast<float> (sheetMarginTop + row * rowStep), width, static_cast<float> (sheetCellHeight) };
+}
+
+static juce::String getCellSvg (const Element* oldGroup, const juce::String& groupId, juce::Rectangle<float> cellBounds,
+                                const juce::String& cellColour, const juce::String& glyphColour)
+{
+    juce::XmlElement cell { Id::rect.toString() };
+    cell.setAttribute (Id::x, getCoordinateText (cellBounds.getX()));
+    cell.setAttribute (Id::y, getCoordinateText (cellBounds.getY()));
+    cell.setAttribute (Id::width, getCoordinateText (cellBounds.getWidth()));
+    cell.setAttribute (Id::height, getCoordinateText (cellBounds.getHeight()));
+    cell.setAttribute (Id::style, "fill:none;stroke:" + cellColour + ";stroke-width:" + juce::String (hairlineStrokeWidth));
 
     juce::String cellSvg;
-    cellSvg << groupIndent << "<g id=\"" << groupId << "\">\n";
-    cellSvg << childIndent << "<rect x=\"" << cellBounds.getX() << "\" y=\"" << cellBounds.getY()
-            << "\" width=\"" << cellBounds.getWidth() << "\" height=\"" << cellBounds.getHeight()
-            << "\" style=\"fill:none;stroke:" << cellStrokeColour << ";stroke-width:" << hairlineStrokeWidth << "\"/>\n";
+    cellSvg << groupIndent << "<g id=\"" << groupId << "\" fill=\"" << glyphColour << "\">\n";
+    cellSvg << childIndent << jam::Xml::getText (*jam::Xml::toDocument (cell).getRoot());
 
     if (oldGroup != nullptr)
     {
         const auto& oldRect { getCellRect (*oldGroup) };
-        const auto deltaX { cellBounds.getX() - oldRect.get<juce::String> (Id::x, {}).getIntValue() };
-        const auto deltaY { cellBounds.getY() - oldRect.get<juce::String> (Id::y, {}).getIntValue() };
+        const auto deltaX { cellBounds.getX() - oldRect.get<juce::String> (Id::x, {}).getFloatValue() };
+        const auto deltaY { cellBounds.getY() - oldRect.get<juce::String> (Id::y, {}).getFloatValue() };
 
         const auto oldGroupId { oldGroup->get<juce::String> (Id::id, {}) };
 
@@ -162,22 +185,24 @@ static juce::String getCellSvg (const Element* oldGroup, const juce::String& gro
     return cellSvg;
 }
 
-static juce::String getDocumentSvg (const Element* backgroundRect, int canvasWidth, int canvasHeight,
+static juce::String getDocumentSvg (const Element* backgroundRect, float canvasWidth, float canvasHeight,
                                     const juce::String& guidesSvg, const juce::String& cellsSvg,
-                                    const juce::String& passthroughSvg)
+                                    const juce::String& passthroughSvg, const juce::String& backgroundColour)
 {
-    static const juce::String svgNamespace { "http://www.w3.org/2000/svg" };
-    static const juce::String backgroundColour { "#141414" };
-
     juce::String sheetSvg;
-    sheetSvg << "<svg " << Id::xmlns.toString() << "=\"" << svgNamespace << "\" width=\"" << canvasWidth
-             << "\" height=\"" << canvasHeight << "\">\n";
+    sheetSvg << "<svg " << Id::xmlns.toString() << "=\"" << svgNamespace << "\" width=\"" << getCoordinateText (canvasWidth)
+             << "\" height=\"" << getCoordinateText (canvasHeight) << "\">\n";
 
     if (backgroundRect != nullptr)
-        sheetSvg << getBackgroundRectSvg (*backgroundRect, canvasWidth, canvasHeight);
+    {
+        sheetSvg << getBackgroundRectSvg (*backgroundRect, canvasWidth, canvasHeight, backgroundColour);
+    }
     else
-        sheetSvg << groupIndent << "<rect width=\"" << canvasWidth << "\" height=\"" << canvasHeight
-                 << "\" fill=\"" << backgroundColour << "\"/>\n";
+    {
+        const juce::XmlElement background { Id::rect.toString() };
+
+        sheetSvg << getBackgroundRectSvg (*jam::Xml::toDocument (background).getRoot(), canvasWidth, canvasHeight, backgroundColour);
+    }
 
     sheetSvg << groupIndent << "<g id=\"" << Id::guides.toString() << "\">\n" << guidesSvg << groupIndent << "</g>\n";
     sheetSvg << cellsSvg;
@@ -207,67 +232,88 @@ jam::XmlDocument getSheetDocument (const juce::String& sheetText, const juce::St
     auto sheet { jam::Xml::parse (sheetText) };
 
     if (sheetText.isNotEmpty() and sheet.getRoot()->id.isNull())
-        juce::ConsoleApplication::fail ("glyph sheet is not valid XML: " + origin);
+        juce::ConsoleApplication::fail (text::Diagnostics::failSheetXml + Id::diagnosticSeparator + origin);
 
     return sheet;
 }
 
-juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::String& sheetText)
+static jam::Array<juce::Rectangle<float>> getCellLayout (const jam::ConfigDocument& manifest, const Element& sheetRoot, double cellWidth)
 {
-    const auto sheet { getSheetDocument (sheetText, {}) };
-
-    const auto glyphRowCounts { getGlyphRowCounts (manifest) };
-    const auto charRows { getRowCount (glyphRowCounts.at (singleGlyphSlot), sheetColumns) };
-    const auto doubleRowCount { getRowCount (glyphRowCounts.at (doubleGlyphSlot),
-                                             getLigatureColumns (doubleCodepointCount)) };
-    const auto totalRows { charRows + doubleRowCount
-                           + getRowCount (glyphRowCounts.at (tripleGlyphSlot),
-                                         getLigatureColumns (tripleCodepointCount)) };
-
-    const std::array<int, tripleCodepointCount> columnsPerRow {
-        getLigatureColumns (singleCodepointCount), getLigatureColumns (doubleCodepointCount), getLigatureColumns (tripleCodepointCount)
-    };
-    const std::array<int, tripleCodepointCount> rowOffset { 0, charRows, charRows + doubleRowCount };
-
-    std::array<int, tripleCodepointCount> placedCellCounts { 0, 0, 0 };
-    std::array<int, tripleCodepointCount> previousRight { 0, 0, 0 };
-
-    const auto manifestCellWidth { getManifestCellWidth (manifest) };
-
-    juce::String cellsSvg;
-    juce::String guidesSvg;
-    auto canvasWidth { sheetMarginLeft };
+    const auto rowOffsets { getRowOffsets (getGlyphRowCounts (manifest)) };
+    std::array<int, tripleCodepointCount> placedCellCounts {};
+    std::array<float, tripleCodepointCount> previousRight {};
+    jam::Array<juce::Rectangle<float>> layout;
 
     for (auto* row : manifest.getTableRows (Id::glyphs))
     {
         const auto glyphText { getGlyphText (manifest, *row) };
         const auto codepointCount { glyphText.length() };
         const auto slot { codepointCount - singleCodepointCount };
-
-        const auto column { placedCellCounts.at (slot) % columnsPerRow.at (slot) };
-        const auto rowIndex { placedCellCounts.at (slot) / columnsPerRow.at (slot) };
-        const auto y { sheetMarginTop + (rowOffset.at (slot) + rowIndex) * rowStep };
-        const auto x { column == 0 ? sheetMarginLeft : previousRight.at (slot) + sheetGutter };
-
-        const auto groupId { getGroupId (glyphText) };
-        const auto* oldGroup { getCellGroup (*sheet.getRoot(), groupId) };
+        const auto* oldGroup { getCellGroup (sheetRoot, getGroupId (glyphText)) };
         const auto* oldRect { oldGroup != nullptr ? &getCellRect (*oldGroup) : nullptr };
-        const auto width { getCellWidth (oldRect, codepointCount, manifestCellWidth) };
-        const juce::Rectangle<int> cellBounds { x, y, width, sheetCellHeight };
+        const auto cellBounds { getCellBounds (codepointCount, placedCellCounts.at (slot), rowOffsets.at (slot),
+                                               previousRight.at (slot), getCellWidth (oldRect, codepointCount, cellWidth)) };
 
-        cellsSvg << getCellSvg (oldGroup, groupId, cellBounds);
-        guidesSvg << getCellGuidesSvg (manifest, glyphText, cellBounds);
-
-        canvasWidth = juce::jmax (canvasWidth, cellBounds.getRight());
-
+        layout.add (cellBounds);
         previousRight.at (slot) = cellBounds.getRight();
         ++placedCellCounts.at (slot);
     }
 
-    canvasWidth += sheetMarginRight;
-    const auto canvasHeight { getCanvasHeight (totalRows) };
-    const auto* backgroundRect { getBackgroundRect (*sheet.getRoot()) };
-    const auto passthroughSvg { getPassthroughSvg (*sheet.getRoot(), backgroundRect) };
+    return layout;
+}
 
-    return getDocumentSvg (backgroundRect, canvasWidth, canvasHeight, guidesSvg, cellsSvg, passthroughSvg);
+static juce::String getCellsSvg (const jam::ConfigDocument& manifest, const Element& sheetRoot,
+                                 const jam::Array<juce::Rectangle<float>>& layout)
+{
+    const auto cellColour { getColourText (manifest, Id::cell) };
+    const auto glyphColour { getColourText (manifest, Id::glyph) };
+    juce::String cellsSvg;
+    int index { 0 };
+
+    for (auto* row : manifest.getTableRows (Id::glyphs))
+    {
+        const auto groupId { getGroupId (getGlyphText (manifest, *row)) };
+
+        cellsSvg << getCellSvg (getCellGroup (sheetRoot, groupId), groupId, layout.at (index), cellColour, glyphColour);
+        ++index;
+    }
+
+    return cellsSvg;
+}
+
+static juce::String getGuidesSvg (const jam::ConfigDocument& manifest, const juce::ValueTree& metrics,
+                                  const jam::Array<juce::Rectangle<float>>& layout)
+{
+    const auto labelColour { getColourText (manifest, Id::label) };
+    const auto advanceColour { jam::Svg::parseColour (getColourText (manifest, Id::advance)) };
+    juce::String guidesSvg;
+    int index { 0 };
+
+    for (auto* row : manifest.getTableRows (Id::glyphs))
+    {
+        guidesSvg << getCellGuidesSvg (manifest, metrics, getGlyphText (manifest, *row), layout.at (index), labelColour, advanceColour);
+        ++index;
+    }
+
+    return guidesSvg;
+}
+
+juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::String& sheetText)
+{
+    const auto sheet { getSheetDocument (sheetText, {}) };
+    const auto metrics { manifest.getValueTree (Id::font).getChildWithName (Id::toType (Id::metrics)) };
+    const double cellWidth { metrics.getProperty (Id::cellWidth) };
+    const auto layout { getCellLayout (manifest, *sheet.getRoot(), cellWidth) };
+    auto canvasWidth { static_cast<float> (sheetMarginLeft) };
+
+    for (const auto& cellBounds : layout)
+        canvasWidth = juce::jmax (canvasWidth, cellBounds.getRight());
+
+    canvasWidth += static_cast<float> (sheetMarginRight);
+    const auto canvasHeight { static_cast<float> (getCanvasHeight (getTotalRowCount (getGlyphRowCounts (manifest)))) };
+    const auto* backgroundRect { getBackgroundRect (*sheet.getRoot()) };
+
+    return getDocumentSvg (backgroundRect, canvasWidth, canvasHeight, getGuidesSvg (manifest, metrics, layout),
+                           getCellsSvg (manifest, *sheet.getRoot(), layout), getPassthroughSvg (*sheet.getRoot(), backgroundRect),
+                           getColourText (manifest, Id::background));
 }

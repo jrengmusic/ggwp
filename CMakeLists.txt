@@ -14,6 +14,14 @@
                          FOR YOUR EYES ONLY, DO NOT EDIT
 ******************************************************************************]]
 
+#[[
+@file CMakeLists.txt
+@brief ggwp build manifest — a self-sufficient JUCE console project.
+
+Generated from project-info.md and cast/signing.md; every value traces to one table row.
+Edit the table, run cast, then configure.
+]]
+
 cmake_minimum_required(VERSION 3.25)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -35,13 +43,7 @@ project(ggwp
     DESCRIPTION "GlyphSheet Generation Workflow Protocol"
 )
 
-message(STATUS "\n████████████░░████████████░░████████████░░████████████░░
-████░░  ████░░████░░  ████░░████░░  ████░░    ████░░
-████░░        ████░░  ████░░████░░            ████░░
-████░░        ████████████░░████████████░░    ████░░
-████░░        ████░░  ████░░        ████░░    ████░░
-████░░  ████░░████░░  ████░░████░░  ████░░    ████░░
-████████████░░████░░  ████░░████████████░░    ████░░")
+message(STATUS "\nggwp")
 
 execute_process(
     COMMAND git rev-parse --short HEAD
@@ -54,33 +56,119 @@ message(STATUS "CAST: configuring ${PROJECT_NAME} ${PROJECT_VERSION}")
 
 if(APPLE)
     set(CAST_RELEASE_COMPILE_FLAGS
--Wno-shadow;-Wno-unused-parameter;-Wno-float-equal;-Wno-sign-conversion;-Wno-switch-enum;-Wno-implicit-float-conversion;-O3;-flto=thin
+-Wno-shadow;-Wno-unused-parameter;-Wno-float-equal;-Wno-sign-conversion;-Wno-switch-enum;-Wno-implicit-float-conversion;-Wno-macro-redefined;-O3;-flto=thin
     )
     set(CAST_RELEASE_LINK_FLAGS
 -dead_strip
     )
     set(CAST_DEBUG_COMPILE_FLAGS
--Wno-shadow;-Wno-unused-parameter;-Wno-float-equal;-Wno-sign-conversion;-Wno-switch-enum;-Wno-implicit-float-conversion;-O0;-g
+-Wno-shadow;-Wno-unused-parameter;-Wno-float-equal;-Wno-sign-conversion;-Wno-switch-enum;-Wno-implicit-float-conversion;-Wno-macro-redefined;-O0;-g
     )
 elseif(WIN32)
     set(CAST_RELEASE_COMPILE_FLAGS
-/wd4456;/wd4100;/wd4244;/permissive-;/Zc:rvalueCast;/W4;/FC;/O2;/GL
+/wd4456;/wd4100;/wd4244;/wd4005;/permissive-;/Zc:rvalueCast;/W4;/FC;/O2;/GL
     )
     set(CAST_RELEASE_LINK_FLAGS
 /LTCG;/OPT:REF;/OPT:ICF
     )
     set(CAST_DEBUG_COMPILE_FLAGS
-/wd4456;/wd4100;/wd4244;/permissive-;/Zc:rvalueCast;/W4;/FC;/Od;/Zi
+/wd4456;/wd4100;/wd4244;/wd4005;/permissive-;/Zc:rvalueCast;/W4;/FC;/Od;/Zi
     )
 endif()
 
 set(CAST_JUCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../JUCE")
+set(CAST_USER_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../jam")
 
 set(CAST_JUCE_VERSION 8.0.14)
 
 find_package(Git REQUIRED)
 
-message(STATUS "CAST: using JUCE at ${CAST_JUCE_PATH}")
+set(CAST_JUCE_PATCHES
+"${CAST_USER_MODULE_PATH}/patch/juce-cached-image-factory-hook.patch"       # External CachedComponentImage factory
+"${CAST_USER_MODULE_PATH}/patch/juce-direct2d-helpers-visibility-hook.patch"# Direct2D helpers visibility gate
+"${CAST_USER_MODULE_PATH}/patch/juce-image-subsection-hook.patch"           # Root image and subsection bounds hooks
+"${CAST_USER_MODULE_PATH}/patch/juce-vulkan-engine-hook.patch"              # External graphics context factory for Vulkan
+"${CAST_USER_MODULE_PATH}/patch/juce-paint-update-rect-hook.patch"          # OS dirty rectangle before native paint; applies after juce-vulkan-engine-hook.patch
+"${CAST_USER_MODULE_PATH}/patch/juce-attributed-text-hook.patch"            # Attributed text virtual on LowLevelGraphicsContext; applies after juce-vulkan-engine-hook.patch
+"${CAST_USER_MODULE_PATH}/patch/juce-adhoc-sign-hook.patch"                 # No ad-hoc signature on the VST3 bundle
+"${CAST_USER_MODULE_PATH}/patch/juce-display-changed-hook.patch"            # Callback after refresh() finds a display change
+)
+
+if(WIN32)
+    set(CAST_JUCE_CACHE_DIR "$ENV{LOCALAPPDATA}/cast/juce")
+else()
+    set(CAST_JUCE_CACHE_DIR "$ENV{HOME}/.cache/cast/juce")
+endif()
+
+set(CAST_JUCE_PATCH_SET_CONCAT "${CAST_JUCE_VERSION}")
+foreach(CAST_JUCE_PATCH ${CAST_JUCE_PATCHES})
+    file(READ "${CAST_JUCE_PATCH}" CAST_JUCE_PATCH_CONTENT)
+    string(APPEND CAST_JUCE_PATCH_SET_CONCAT "${CAST_JUCE_PATCH_CONTENT}")
+endforeach()
+
+set(CAST_JUCE_PATCH_SET_CONCAT_FILE "${CMAKE_BINARY_DIR}/cast_juce_patch_set_concat.tmp")
+file(WRITE "${CAST_JUCE_PATCH_SET_CONCAT_FILE}" "${CAST_JUCE_PATCH_SET_CONCAT}")
+file(SHA256 "${CAST_JUCE_PATCH_SET_CONCAT_FILE}" CAST_JUCE_PATCH_SET_HASH)
+file(REMOVE "${CAST_JUCE_PATCH_SET_CONCAT_FILE}")
+
+set(CAST_PATCHED_JUCE_PATH "${CAST_JUCE_CACHE_DIR}/${CAST_JUCE_PATCH_SET_HASH}")
+set(CAST_JUCE_PATCH_STAMP_FILE "${CAST_PATCHED_JUCE_PATH}/.patch-stamp")
+
+if(NOT EXISTS "${CAST_JUCE_PATCH_STAMP_FILE}")
+    message(STATUS "CAST: patching JUCE into ${CAST_PATCHED_JUCE_PATH}")
+
+    if(EXISTS "${CAST_PATCHED_JUCE_PATH}")
+        file(REMOVE_RECURSE "${CAST_PATCHED_JUCE_PATH}")
+    endif()
+
+    file(REAL_PATH "${CAST_JUCE_PATH}" CAST_JUCE_PATH)
+
+    file(COPY "${CAST_JUCE_PATH}/"
+        DESTINATION "${CAST_PATCHED_JUCE_PATH}"
+        PATTERN ".git" EXCLUDE
+        PATTERN "docs" EXCLUDE
+        PATTERN "DOCS.html" EXCLUDE
+    )
+
+    foreach(CAST_JUCE_PATCH ${CAST_JUCE_PATCHES})
+        get_filename_component(CAST_JUCE_PATCH_NAME "${CAST_JUCE_PATCH}" NAME)
+
+        execute_process(
+            COMMAND "${GIT_EXECUTABLE}" apply --check --ignore-whitespace "${CAST_JUCE_PATCH}"
+            WORKING_DIRECTORY "${CAST_PATCHED_JUCE_PATH}"
+            RESULT_VARIABLE CAST_JUCE_PATCH_CHECK_RESULT
+            ERROR_VARIABLE CAST_JUCE_PATCH_CHECK_ERROR
+        )
+        if(NOT CAST_JUCE_PATCH_CHECK_RESULT EQUAL 0)
+            message(FATAL_ERROR "CAST: JUCE patch failed --check: ${CAST_JUCE_PATCH_NAME}\n${CAST_JUCE_PATCH_CHECK_ERROR}")
+        endif()
+
+        execute_process(
+            COMMAND "${GIT_EXECUTABLE}" apply --ignore-whitespace "${CAST_JUCE_PATCH}"
+            WORKING_DIRECTORY "${CAST_PATCHED_JUCE_PATH}"
+            RESULT_VARIABLE CAST_JUCE_PATCH_RESULT
+            ERROR_VARIABLE CAST_JUCE_PATCH_ERROR
+        )
+        if(NOT CAST_JUCE_PATCH_RESULT EQUAL 0)
+            message(FATAL_ERROR "CAST: JUCE patch failed to apply: ${CAST_JUCE_PATCH_NAME}\n${CAST_JUCE_PATCH_ERROR}")
+        endif()
+    endforeach()
+
+    file(WRITE "${CAST_JUCE_PATCH_STAMP_FILE}" "${CAST_JUCE_PATCH_SET_HASH}")
+endif()
+
+set(CAST_JUCE_PATH "${CAST_PATCHED_JUCE_PATH}")
+
+set(CAST_JUCE_PATCH_SET_STAMP_FILE "${CMAKE_BINARY_DIR}/cast_juce_patch_set")
+
+if(EXISTS "${CAST_JUCE_PATCH_SET_STAMP_FILE}")
+    file(READ "${CAST_JUCE_PATCH_SET_STAMP_FILE}" CAST_BUILT_JUCE_PATCH_SET_HASH)
+endif()
+
+if(NOT "${CAST_BUILT_JUCE_PATCH_SET_HASH}" STREQUAL "${CAST_JUCE_PATCH_SET_HASH}")
+    file(REMOVE_RECURSE "${CMAKE_BINARY_DIR}/JUCE" "${CMAKE_BINARY_DIR}/vst3_helpers")
+    file(WRITE "${CAST_JUCE_PATCH_SET_STAMP_FILE}" "${CAST_JUCE_PATCH_SET_HASH}")
+endif()
 
 add_subdirectory("${CAST_JUCE_PATH}" "${CMAKE_BINARY_DIR}/JUCE")
 
@@ -90,13 +178,24 @@ if(NOT CAST_FOUND_JUCE_VERSION VERSION_EQUAL CAST_JUCE_VERSION)
     message(FATAL_ERROR "CAST: JUCE ${CAST_FOUND_JUCE_VERSION} found, ${CAST_JUCE_VERSION} required — exact match")
 endif()
 
-message(STATUS "CAST: JUCE ${CAST_FOUND_JUCE_VERSION} found at ${CAST_JUCE_PATH}")
+message(STATUS "CAST: JUCE ${CAST_FOUND_JUCE_VERSION} patched at ${CAST_JUCE_PATH}")
 
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_core")    # JAM Core
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_freetype")# Vendored FreeType font rasterization library
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_graphics")# SVG read/write — jam::Svg
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_markdown")# Config/manifest table read/write
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_opentype")# Clean-room OpenType binary table serialization and cubic-to-quadratic curve reduction
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_core")             # JAM Core
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_document")         # Universal line break and reflow (UAX #14)
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_markdown")         # Clean-room native CommonMark + GFM markdown parsing and rendering
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_freetype")         # Vendored FreeType font rasterization library
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_graphics")         # Graphics utilities, blur, shadows, colours, fonts, mesh
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_data_structures")  # ValueTree management and data model utilities — model, parameters, JSON conversion
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_animation")        # Foundation animation classes (Animator, AnimationBase, AnimationScrollingText)
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_web")              # HTML authored-subset and CSS Syntax Level 3 subset tokenizers and parsers
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_style")            # JAM Style — LookAndFeel base + ColourScheme-backed colour registry
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_gui")              # GUI foundation — Window, Modal, Glass
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_mermaid_diagram")  # Clean-room native mermaid diagram parsing over jam::Document producing the semantic Element tree
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_markdown_graphics")# Markdown and mermaid materialisation, layout and view component
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_terminal")         # VT read-side engine, TTY, protocol vocabulary, keyboard encoding
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_profiler")         # Profiler zones — per-thread rings drained to durations per zone
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_subprocess")       # JUCE-based subprocess launcher with streaming output and byte-cap truncation
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_opentype")         # Clean-room OpenType binary table serialization and cubic-to-quadratic curve reduction
 
 message(STATUS "CAST: user modules added from ${CMAKE_CURRENT_SOURCE_DIR}/../jam")
 
@@ -129,22 +228,49 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
     CAST_COMMIT="${CAST_COMMIT_HASH}"
 DONT_SET_USING_JUCE_NAMESPACE=1
 JUCE_DONT_DECLARE_PROJECTINFO=1
+JUCE_STRICT_REFCOUNTEDPOINTER=1
+JUCE_WEB_BROWSER=0
+JUCE_USE_CURL=0
+"$<$<PLATFORM_ID:Windows>:WIN32_LEAN_AND_MEAN=1>"
+"$<$<PLATFORM_ID:Windows>:NOMINMAX=1>"
+"$<$<PLATFORM_ID:Windows>:_WIN32_IE=0x0A00>"
+"$<$<PLATFORM_ID:Windows>:JUCE_CORE_INCLUDE_NATIVE_HEADERS=1>"
+"$<$<PLATFORM_ID:Windows>:JUCE_GRAPHICS_INCLUDE_DIRECT2D_HELPERS=1>"
+"$<$<PLATFORM_ID:Windows>:JUCE_CORE_INCLUDE_COM_SMART_PTR=1>"
+HAVE_FREETYPE
+"$<$<NOT:$<PLATFORM_ID:Windows>>:HAVE_UNISTD_H>"
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
 ${CMAKE_CURRENT_SOURCE_DIR}/../jam
 ${CMAKE_CURRENT_SOURCE_DIR}/Source/generated
-${CAST_JUCE_PATH}/modules/juce_graphics/fonts/harfbuzz
+"${CAST_USER_MODULE_PATH}/jam_freetype/freetype/include"
+"${CAST_JUCE_PATH}/modules/juce_graphics/fonts/harfbuzz"
 )
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
 juce_core
+juce_data_structures
+juce_events
+juce_graphics
 juce_gui_basics
+juce_audio_processors
 jam_core
+jam_document
+jam_markdown
 jam_freetype
 jam_graphics
-jam_markdown
+jam_data_structures
+jam_animation
+jam_web
+jam_style
+jam_gui
+jam_mermaid_diagram
+jam_markdown_graphics
+jam_terminal
+jam_profiler
+jam_subprocess
 jam_opentype
     PUBLIC
         juce::juce_recommended_config_flags
@@ -161,6 +287,9 @@ target_link_options(${PROJECT_NAME} PRIVATE
 
 file(GLOB CAST_BINARY_FILES CONFIGURE_DEPENDS
 Source/HELP.md
+Source/manifest.md
+Source/markdown.css
+${CMAKE_CURRENT_SOURCE_DIR}/../jam/resources/mermaid.css
 )
 
 juce_add_binary_data(${PROJECT_NAME}_BinaryData

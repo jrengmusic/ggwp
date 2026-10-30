@@ -4,133 +4,111 @@
 
 GUI font editors are drawing tools. But if you already have a better drawing environment — Affinity Designer, Figma, Inkscape — the only thing missing is the SVG-to-TTF conversion. GGWP fills that gap.
 
-The glyph sheet is the single source of truth. The designer controls everything visually — outlines, metrics, spacing — and the build script reads it all from the SVG.
+`ggwp` is a single native command-line tool. It reads your metrics and names (a manifest), and your drawings (a glyph sheet), and writes an OpenType font with TrueType outlines. It knows nothing about type design. It reads tables, transforms artwork into font units, and writes tables — nothing else.
 
 ---
 
 ## The Chain
 
 ```
-Config (.py)  -->  generate_sheet.py  -->  Blank SVG
-                                              |
-                                         Designer draws
-                                              |
-Filled SVG    -->  build_fonts.py     -->  .ttf
+ggwp --init    -->  manifest (.md) + blank glyph sheet (.svg)
+                                        |
+                                   Designer draws
+                                        |
+ggwp --build   -->  .ttf  -->  validated through FreeType
 ```
 
-1. **Define** font metadata, grid layout, and character set in a Python config
-2. **Generate** blank SVG glyph sheets with reference lines and cell grid
-3. **Draw** glyphs in any SVG editor
-4. **Build** TTF fonts directly from the filled glyph sheets
+1. **Init** — create the manifest and a blank glyph sheet with reference lines and a cell grid
+2. **Draw** — draw the glyphs in any SVG editor
+3. **Build** — write the font from the manifest and the filled glyph sheet, then validate it
+
+`ggwp --extract` runs the chain in reverse: it reads an existing font and writes a glyph sheet.
 
 ---
 
 ## Quick Start
 
 ```bash
-# 1. Copy and edit the default config
-cp sheet_config.py my_font_config.py
+# 1. Create the manifest and the regular weight's glyph sheet
+ggwp --init="My Font"
+#    -> my-font.md
+#    -> sheets/GlyphSheet-Regular.svg
 
-# 2. Generate blank glyph sheets
-python3 generate_sheet.py my_font_config.py
+# 2. Open the sheet in your SVG editor and draw the glyphs
 
-# 3. Open sheets in your SVG editor and draw glyphs
-
-# 4. Build fonts
-python3 build_fonts.py my_font_config.py
+# 3. Build the font
+ggwp --build=my-font.md --weight=regular --out=MyFont-Regular.ttf
 ```
 
 ---
 
-## Monospace vs Proportional
+## Command Line
 
-**Monospace** — all glyphs share the same advance width (= cell width). No sidebearing markers needed.
+Arguments select what runs. They never carry font rules.
 
-**Proportional** — each cell has cyan (LSB) and magenta (RSB) vertical markers. The designer positions them to control per-glyph spacing. Advance width = distance between markers.
+| Command | What it does |
+| --- | --- |
+| `ggwp --build=<manifest.md> --weight=<table> --out=<font.ttf>` | read the manifest, read the weight's glyph sheet, write the font, then validate it |
+| `ggwp --init=<font-name>` | create whatever is missing, then reconcile the glyph sheets against the manifest's glyph table |
+| `ggwp --extract=<font.ttf> --manifest=<manifest.md> --weight=<table>` | read an existing font, then write that weight's glyph sheet |
+| `ggwp --version` | the version number |
+| `ggwp --help` | the full guide |
 
----
+Each long option takes its value after an equals sign. A space does not work.
 
-## Reference Lines
-
-Horizontal colored lines in each cell define vertical metrics:
-
-| Color | Line | Purpose |
-|---|---|---|
-| Purple `#800080` | Capline | Top of capital letters |
-| Green `#008000` | x-Height | Top of lowercase letters |
-| Yellow `#808000` | Baseline | Where letters sit |
-| Red `#FF0000` | Descender | Bottom of descenders (g, p, y) |
-| Cyan `#00FFFF` | LSB | Left sidebearing (proportional only) |
-| Magenta `#FF00FF` | RSB | Right sidebearing (proportional only) |
-
-The build script reads these positions from the SVG. Adjust them in your editor to fine-tune metrics.
+`--weight` names a table in the manifest, not a number. `--out` is relative to the current directory. The glyph sheet path is relative to the manifest's own directory.
 
 ---
 
-## Config
+## The Two Inputs
 
-The config is a Python dict in a `.py` file. See [`sheet_config.py`](sheet_config.py) for the fully documented default.
+| Artifact | What it is |
+| --- | --- |
+| `<name>.md` | the manifest — metrics, names, and one table per weight |
+| `<sheet>.svg` | the glyph sheet — one drawing per glyph |
 
-```python
-CONFIG = {
-    "family_name": "My Font",
-    "font_type": "monospace",       # or "proportional"
-    "weights": [
-        {"name": "Regular", "style": "Regular", "ps_suffix": "Regular",
-         "weight_class": 400, "filename": "MyFont-Regular.svg"},
-    ],
-    "grid": {
-        "columns": 10,
-        "cell_width": 120,
-        "cell_height": 223,
-        "col_gap": 20,
-        "row_gap": 20,
-        ...
-    },
-    "reference_lines": {
-        "capline":   {"y": 0,   "color": "#800080", "label": "Cap Height"},
-        "xheight":   {"y": 40,  "color": "#008000", "label": "x-Height"},
-        "baseline":  {"y": 145, "color": "#808000", "label": "Baseline"},
-        "descender": {"y": 223, "color": "#FF0000", "label": "Descender"},
-    },
-    "codepoints": [chr(c) for c in range(0x21, 0x7F)],
-}
+One manifest declares every weight. One glyph sheet holds one weight.
+
+The manifest is a markdown file of grid tables: `## metrics`, `## font`, `## glyphs`, `## guides`, `## colour`, and one table per weight. The `## glyphs` table is the single source of truth for which glyphs exist. `--init` reconciles every glyph sheet against it.
+
+---
+
+## The Glyph Sheet
+
+Each glyph is a `<g>` element. Its `id` is an underscore and then one four-digit hexadecimal codepoint. More than one codepoint in one id makes a ligature.
+
+```
+_0041         the letter A
+_2122         the trade mark sign
+_0066_0069    the f-i ligature
 ```
 
+The group holds one `<rect>`, which is the glyph's cell, and the artwork that follows it. The cell's position places the artwork. The cell's width sets the glyph's advance width.
+
+A `<g id="guides">` layer holds each cell's label, its reference lines, and its cell guides. GGWP ignores this layer when it reads a sheet back.
+
+| Reference line | Marks |
+| --- | --- |
+| `capHeight` | top of capital letters |
+| `xHeight` | top of lowercase letters |
+| `baseline` | where letters sit |
+| `descender` | bottom of descenders (g, p, y) |
+
+The `## guides` table places each line. The `## colour` table paints it.
+
 ---
 
-## SVG Structure
+## Determinism
 
-The build script expects this element order per cell:
+Your manifest, your glyph sheet, and the binary determine the output bytes. No timestamps, no paths, no host state. A second run over the same inputs produces the same file.
 
-```xml
-<text ...>A</text>              <!-- codepoint label -->
-<line ... stroke="#800080"/>    <!-- capline -->
-<line ... stroke="#008000"/>    <!-- x-height -->
-<line ... stroke="#808000"/>    <!-- baseline -->
-<line ... stroke="#FF0000"/>    <!-- descender -->
-<line ... stroke="#00FFFF"/>    <!-- LSB marker (proportional only) -->
-<line ... stroke="#FF00FF"/>    <!-- RSB marker (proportional only) -->
-<g id="glyph-U+0041">          <!-- glyph paths (draw here) -->
-  <path d="..." fill="white"/>
-</g>
-<rect ... fill="none"/>        <!-- cell border -->
-```
-
-The `<g>` must come before the cell border `<rect>`. The build script finds glyphs by scanning forward from the text label to the first `<g>`.
+Every failure is fatal and exits non-zero.
 
 ---
 
 ## Documentation
 
-See [`GLYPHSHEET.md`](GLYPHSHEET.md) for comprehensive documentation including:
-
-- Step-by-step wizard for creating new fonts
-- Grid planning guide
-- Metrics derivation formulas
-- Monospace vs proportional details
-- Troubleshooting guide
-- Agent validation checklists
+`ggwp --help` is the complete reference: the `--init` and `--extract` contracts, every manifest table and key, the glyph sheet rules, the tables GGWP writes, and the validation checks.
 
 ---
 
@@ -152,16 +130,38 @@ The creative half of font making is now zero cost. GGWP is the other half. Also 
 
 A font is just a collection of lookup tables — outlines, metrics, naming, encoding. Once you have vector paths in an SVG, building those tables is a deterministic, automatable process. No proprietary format. No magic. Just math and spec compliance.
 
-You don't need to understand typography jargon to make a font. You don't need to know what "UPM" or "fsSelection bit 7" means. You need to draw letters that look right, place reference lines where they feel right, and run a script. The eyes work. The vocabulary is just labels.
+You don't need to understand typography jargon to make a font. You don't need to know what "UPM" or "fsSelection bit 7" means. You need to draw letters that look right, place reference lines where they feel right, and run one command. The eyes work. The vocabulary is just labels.
 
-Total cost of a professional font pipeline: `pip install fonttools`.
+Total cost of a professional font pipeline: one binary.
 
 ---
 
-## Dependencies
+## Installation
 
-- Python 3.8+
-- [`fonttools`](https://github.com/fonttools/fonttools) (`pip install fonttools`)
+Download the installer from [Releases](https://github.com/jrengmusic/ggwp/releases).
+
+| Platform | Architecture | Format |
+| --- | --- | --- |
+| macOS | universal | `.pkg` (signed, notarized) |
+| Windows | x64 | `.exe` installer |
+| Windows | arm64 | `.exe` installer |
+
+- **macOS** — open the `.pkg`. It installs `ggwp` on your PATH.
+- **Windows** — run the installer. It installs `ggwp.exe` and adds its folder to your user PATH.
+
+---
+
+## Build from Source
+
+- C++17
+- CMake 3.25 or later
+- [JUCE](https://github.com/juce-framework/JUCE) 8.0.14, exact match, at `../../JUCE`
+- JAM (JRENG Architectural Modules) at `../jam`
+
+```bash
+cmake -S . -B Builds
+cmake --build Builds --config Release
+```
 
 ---
 

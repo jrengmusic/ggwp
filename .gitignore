@@ -1,44 +1,33 @@
-# macOS
+# Build directories
+build/
+build_ninja/
+Builds/
+
+# IDE / Tool directories
+.end/
+.opencode/
+.cache/
+.clangd
+.nvim-dap-config
+compile_commands.json
+
+# macOS system files
 .DS_Store
-.AppleDouble
-.LSOverride
-._*
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Windows build environment
+_msvc_env.txt
+_dumpenv.bat
+_build_env.sh
+_build_log.bat
+_build_output.txt
+_preprocess.bat
 
-# Linux
-*~
-.directory
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Python
-__pycache__/
-*.pyc
-
-# Test artifacts
-test-output/
-test_*.py
-
-# Generated
-sheets/
-fonts/
-
-# Build artifacts (common)
-*.o
-*.a
-*.so
-*.dylib
-*.exe
-*.dll
-
-# Logs
+# Diagnostic logs
 *.log
+
+# Doxygen generated output
+docs/
+
+# Neovim project state (core/project.lua materialisation)
+.project
