@@ -93,7 +93,7 @@ void runBuildCommand (const juce::ArgumentList& args)
     const auto values { manifest.getValueTree (Id::font) };
     const auto weightId { getValidatedWeight (args, values, manifestFile) };
     const auto outputFile { juce::File::getCurrentWorkingDirectory().getChildFile (args.getValueForOption (outOption)) };
-    const auto sheetText { getSheetText (manifestFile, values.getChildWithName (Id::toType (weightId))) };
+    const auto sheetText { getSheetText (manifestFile, values.getChildWithName (jam::Format::toType (weightId))) };
 
     const jam::OpenTypeDocument document { manifest, weightId, sheetText };
     const jam::OpenTypeWriter writer;

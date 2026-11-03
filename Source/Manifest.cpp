@@ -192,7 +192,7 @@ juce::Identifier getValidatedWeight (const juce::ArgumentList& args, const juce:
     {
         const juce::Identifier weightId { weightValue };
 
-        if (values.getChildWithName (Id::toType (weightId)).isValid())
+        if (values.getChildWithName (jam::Format::toType (weightId)).isValid())
             return weightId;
     }
 

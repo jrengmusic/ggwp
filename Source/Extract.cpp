@@ -266,7 +266,7 @@ void runExtractCommand (const juce::ArgumentList& args)
         juce::ConsoleApplication::fail (text::Diagnostics::failFontFace + Id::diagnosticSeparator + fontFile.getFullPathName());
 
     jam::Typeface typeface;
-    const auto rawSheetText { getRawSheetText (typeface.get (getFontEntry (typeface, fontBytes, fontFile)), values.getChildWithName (Id::toType (Id::metrics))) };
+    const auto rawSheetText { getRawSheetText (typeface.get (getFontEntry (typeface, fontBytes, fontFile)), values.getChildWithName (jam::Format::toType (Id::metrics))) };
 
     if (manifest.getTables (Id::glyphs).isEmpty())
     {
@@ -274,7 +274,7 @@ void runExtractCommand (const juce::ArgumentList& args)
         writeManifestFile (manifestFile, manifest);
     }
 
-    const auto sheetFile { getWeightSheetFile (manifestFile, values.getChildWithName (Id::toType (weightId))) };
+    const auto sheetFile { getWeightSheetFile (manifestFile, values.getChildWithName (jam::Format::toType (weightId))) };
 
     writeSheetFile (sheetFile, getSheetSvg (manifest, rawSheetText));
     std::cout << text::Commands::wroteFile << sheetFile.getFullPathName() << std::endl;
