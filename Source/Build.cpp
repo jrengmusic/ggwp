@@ -73,7 +73,7 @@ static void validateFont (const jam::OpenTypeDocument& document, const jam::Type
         validateGlyph (entry.face.get(), *glyph, *glyph->get<int> (Id::index));
 
     const auto actualGlyphCount { static_cast<int> (entry.face->num_glyphs) };
-    const auto modelGlyphCount { document.getGlyphCount() };
+    const auto modelGlyphCount { document.getNumGlyphs() };
 
     if (modelGlyphCount != actualGlyphCount)
         juce::ConsoleApplication::fail (text::Diagnostics::failRoundTrip + Id::diagnosticSeparator + text::Diagnostics::failGlyphCount
@@ -106,5 +106,5 @@ void runBuildCommand (const juce::ArgumentList& args)
     validateFont (document, typeface.get (getFontEntry (typeface, fontBytes, outputFile)));
 
     std::cout << text::Commands::wroteFile << outputFile.getFullPathName() << " ("
-              << document.getGlyphCount() << " glyphs)" << std::endl;
+              << document.getNumGlyphs() << " glyphs)" << std::endl;
 }
