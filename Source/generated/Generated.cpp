@@ -23,16 +23,15 @@ namespace Id
 
 /** @brief GGWP command line vocabulary — the option words of ggwp. */
 
-    const juce::Identifier build      { juce::String::fromUTF8 ("build") };
-    const juce::Identifier weight     { juce::String::fromUTF8 ("weight") };
-    const juce::Identifier init       { juce::String::fromUTF8 ("init") };
-    const juce::Identifier extract    { juce::String::fromUTF8 ("extract") };
-    const juce::Identifier regular    { juce::String::fromUTF8 ("regular") };
-    const juce::Identifier guides     { juce::String::fromUTF8 ("guides") };
-    const juce::Identifier xmlns      { juce::String::fromUTF8 ("xmlns") };
-    const juce::Identifier background { juce::String::fromUTF8 ("background") };
-    const juce::Identifier cell       { juce::String::fromUTF8 ("cell") };
-    const juce::Identifier glyph      { juce::String::fromUTF8 ("glyph") };
+    const juce::Identifier build   { juce::String::fromUTF8 ("build") };
+    const juce::Identifier weight  { juce::String::fromUTF8 ("weight") };
+    const juce::Identifier init    { juce::String::fromUTF8 ("init") };
+    const juce::Identifier extract { juce::String::fromUTF8 ("extract") };
+    const juce::Identifier regular { juce::String::fromUTF8 ("regular") };
+    const juce::Identifier guides  { juce::String::fromUTF8 ("guides") };
+    const juce::Identifier xmlns   { juce::String::fromUTF8 ("xmlns") };
+    const juce::Identifier cell    { juce::String::fromUTF8 ("cell") };
+    const juce::Identifier glyph   { juce::String::fromUTF8 ("glyph") };
 
 /**______________________________END OF NAMESPACE______________________________*/
 }// namespace Id

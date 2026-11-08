@@ -16,8 +16,6 @@
  * into a terminal buffer sized to that width and to the component's height. The
  * buffer then writes the frame as VT bytes to stdout.
  *
- * @pre The JUCE GUI initialiser scope is open.
- *
  * @param helpText The HELP.md text, parsed as markdown.
  */
 void printHelp (const juce::String& helpText);

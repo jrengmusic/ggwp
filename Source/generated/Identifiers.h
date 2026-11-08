@@ -34,7 +34,6 @@ extern const juce::Identifier extract;
 extern const juce::Identifier regular;
 extern const juce::Identifier guides;
 extern const juce::Identifier xmlns;
-extern const juce::Identifier background;
 extern const juce::Identifier cell;
 extern const juce::Identifier glyph;
 

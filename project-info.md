@@ -2,16 +2,15 @@
 
 ## index
 
-+----------------+----------------------------------------------------------+
-| alias          | symbol                                                   |
-+================+==========================================================+
-| @char          | const char* const                                        |
-| @juce-path     | ${CMAKE_CURRENT_SOURCE_DIR}/../../JUCE                   |
-| @user-module   | ${CMAKE_CURRENT_SOURCE_DIR}/../jam                       |
-| @source        | ${CMAKE_CURRENT_SOURCE_DIR}/Source                       |
-| @generated     | ${CMAKE_CURRENT_SOURCE_DIR}/Source/generated             |
-| @mermaid-style | ${CMAKE_CURRENT_SOURCE_DIR}/../jam/resources/mermaid.css |
-+----------------+----------------------------------------------------------+
++--------------+----------------------------------------------+
+| alias        | symbol                                       |
++==============+==============================================+
+| @char        | const char* const                            |
+| @juce-path   | ${CMAKE_CURRENT_SOURCE_DIR}/../../JUCE       |
+| @user-module | ${CMAKE_CURRENT_SOURCE_DIR}/../jam           |
+| @source      | ${CMAKE_CURRENT_SOURCE_DIR}/Source           |
+| @generated   | ${CMAKE_CURRENT_SOURCE_DIR}/Source/generated |
++--------------+----------------------------------------------+
 
 ## project info
 
@@ -184,14 +183,13 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 
 ## binary
 
-+--------------------+---------------------+------------------------------------------------------+
-| name               | value               | description                                          |
-+====================+=====================+======================================================+
-| help               | Source/HELP.md      | Help document source                                 |
-| manifest           | Source/manifest.md  | Default manifest template, embedded as BinaryData    |
-| markdownStyleSheet | Source/markdown.css | Markdown terminal stylesheet, embedded as BinaryData |
-| mermaidStyleSheet  | @mermaid-style      | Mermaid stylesheet, embedded as BinaryData           |
-+--------------------+---------------------+------------------------------------------------------+
++------------+--------------------+---------------------------------------------------+
+| name       | value              | description                                       |
++============+====================+===================================================+
+| help       | Source/HELP.md     | Help document source                              |
+| manifest   | Source/manifest.md | Default manifest template, embedded as BinaryData |
+| styleSheet | Source/style.css   | Stylesheet, embedded as BinaryData                |
++------------+--------------------+---------------------------------------------------+
 
 ## toolchain
 
