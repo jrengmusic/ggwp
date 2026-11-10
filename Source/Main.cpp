@@ -3,7 +3,10 @@
 #include "Extract.h"
 #include "Init.h"
 #ifdef _WIN32
+#include <io.h>
 #include <windows.h>
+#else
+#include <unistd.h>
 #endif
 
 static void printBanner()
@@ -22,11 +25,28 @@ static void printBannerAndHelp()
     printHelp (BinaryData::getString (files::ggwpHelp));
 }
 
+static bool isTerminalOutput() noexcept
+{
+#ifdef _WIN32
+    return _isatty (_fileno (stdout)) != 0;
+#else
+    return isatty (fileno (stdout)) != 0;
+#endif
+}
+
 int main (int argc, char* argv[])
 {
 #ifdef _WIN32
     SetConsoleOutputCP (CP_UTF8);
 #endif
+
+    if (isTerminalOutput())
+    {
+        juce::MemoryOutputStream erase;
+        jam::TerminalEncoder::writeEraseScreen (erase);
+        fwrite (erase.getData(), sizeof (char), erase.getDataSize(), stdout);
+        fflush (stdout);
+    }
 
     juce::ConsoleApplication app;
 
