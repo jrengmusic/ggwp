@@ -20,10 +20,10 @@ static const auto& getShiftedAttributes()
         coordinateKeys.insert ({ Id::circle, { { Id::cx, Id::cy } } });
         coordinateKeys.insert ({ Id::line, { { Id::x1, Id::y1 }, { Id::x2, Id::y2 } } });
 
-        jam::Function::Map<juce::Identifier, jam::HashMap<juce::Identifier, juce::String>> shiftedAttributes;
+        jam::Function::Map<juce::Identifier, sizeof (decltype (coordinateKeys)::mapped_type), jam::HashMap<juce::Identifier, juce::String> (const Element&, float, float)> shiftedAttributes;
 
-        shiftedAttributes.add<const Element&, float, float> (Id::path,
-            [] (const Element& element, float moveX, float moveY)
+        shiftedAttributes.add (Id::path,
+            [] (const juce::Identifier&, const Element& element, float moveX, float moveY)
             {
                 auto path { jam::Svg::getElementPath (element) };
                 path.applyTransform (juce::AffineTransform::translation (moveX, moveY));
@@ -34,8 +34,8 @@ static const auto& getShiftedAttributes()
             });
 
         for (const auto& [tag, keyPairs] : coordinateKeys)
-            shiftedAttributes.add<const Element&, float, float> (tag,
-                [coordinatePairs = keyPairs] (const Element& element, float moveX, float moveY)
+            shiftedAttributes.add (tag,
+                [coordinatePairs = keyPairs] (const juce::Identifier&, const Element& element, float moveX, float moveY)
                 {
                     jam::HashMap<juce::Identifier, juce::String> shifted;
 
