@@ -112,6 +112,34 @@
 
 ## SPRINT HISTORY
 
+## Sprint 9: Build Against the jam Document Contract; JUCE 8.0.17 ✅
+
+**Date:** 2026-11-14
+**Duration:** part of one session. `jam/carol/SPRINT-LOG.md` Sprint 187 is the primary record.
+
+### Files Modified
+- `Source/Sheet.h`, `.cpp` — callers of the pointer-returning parse; `Sheet.cpp:238` (audit G10).
+- `Source/Manifest.h`, `.cpp`, `Source/Extract.cpp`, `Source/Init.cpp` — callers of the pointer-returning parse.
+- `Source/Help.cpp:19` — `setDocument (std::move (*jam::MarkdownDocument::parse (helpText, files::ggwpHelp)))`.
+- `project-info.md`, `CMakeLists.txt` — `juceVersion` 8.0.17, the `juce-plugin-window-size-hook.patch` row, the `jam_data_structures` description.
+
+### Alignment Check
+- [x] BLESSED principles followed
+- [x] NAMES.md adhered
+- [x] MANIFESTO.md principles applied
+
+### Problems Solved
+- ggwp did not compile against the pointer-returning document API.
+
+### State for Continuation
+- None — sprint fully closed, nothing open.
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
 ## Sprint 8: Display Font Family on the ggwp Contract — `--extract`, UPM 1024, Colour Table, Audit Sweep ✅
 
 **Date:** 2026-10-31

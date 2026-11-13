@@ -101,7 +101,10 @@ jam::ConfigDocument getDefaultManifest (const juce::String& familyName, const ju
         jam::Format::replaceholder (BinaryData::getString (files::ggwpManifest), "family", familyName, "@"),
         "postScriptBase", postScriptBase, "@") };
 
-    return jam::ConfigDocument::parse (manifestText, files::ggwpManifest);
+    if (const auto manifest { jam::ConfigDocument::parse (manifestText, files::ggwpManifest) }; manifest != nullptr)
+        return std::move (*manifest);
+
+    juce::ConsoleApplication::fail (jam::ConfigDocument::isValid (manifestText, files::ggwpManifest).getErrorMessage() + Id::diagnosticSeparator + files::ggwpManifest);
 }
 
 void addDefaultTable (jam::ConfigDocument& manifest, const juce::Identifier& tableId)
@@ -163,12 +166,13 @@ juce::String getColourText (const jam::ConfigDocument& manifest, const juce::Ide
 
 jam::ConfigDocument getValidatedManifest (const juce::File& manifestFile)
 {
-    auto manifest { jam::ConfigDocument::parse (manifestFile.loadFileAsString(), manifestFile.getFullPathName()) };
+    const auto manifestText { manifestFile.loadFileAsString() };
+    const auto origin { manifestFile.getFullPathName() };
 
-    if (const auto result { jam::ConfigValidator {}.isValid (manifest) }; result.failed())
-        juce::ConsoleApplication::fail (result.getErrorMessage() + Id::diagnosticSeparator + manifestFile.getFullPathName());
+    if (const auto manifest { jam::ConfigDocument::parse (manifestText, origin) }; manifest != nullptr)
+        return std::move (*manifest);
 
-    return manifest;
+    juce::ConsoleApplication::fail (jam::ConfigDocument::isValid (manifestText, origin).getErrorMessage() + Id::diagnosticSeparator + origin);
 }
 
 void writeManifestFile (const juce::File& manifestFile, const jam::ConfigDocument& document)

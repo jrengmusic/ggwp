@@ -33,7 +33,7 @@ static void addMissingGlyphsTable (jam::ConfigDocument& manifest, const juce::Fi
         {
             const auto sheet { getSheetDocument (weightSheetFile.loadFileAsString(), weightSheetFile.getFullPathName()) };
 
-            addGlyphs (manifest, sheet.getRoot());
+            addGlyphs (manifest, sheet->getRoot());
         }
         else
             addGlyphs (manifest, nullptr);

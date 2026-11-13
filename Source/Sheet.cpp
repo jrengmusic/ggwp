@@ -227,14 +227,15 @@ static juce::String getPassthroughSvg (const Element& root, const Element* backg
     return passthroughSvg;
 }
 
-jam::XmlDocument getSheetDocument (const juce::String& sheetText, const juce::String& origin)
+std::unique_ptr<jam::XmlDocument> getSheetDocument (const juce::String& sheetText, const juce::String& origin)
 {
-    auto sheet { jam::Xml::parse (sheetText) };
+    if (sheetText.isEmpty())
+        return std::make_unique<jam::XmlDocument>();
 
-    if (sheetText.isNotEmpty() and sheet.getRoot()->id.isNull())
-        juce::ConsoleApplication::fail (text::Diagnostics::failSheetXml + Id::diagnosticSeparator + origin);
+    if (auto sheet { jam::Xml::parse (sheetText) }; sheet != nullptr)
+        return sheet;
 
-    return sheet;
+    juce::ConsoleApplication::fail (text::Diagnostics::failSheetXml + Id::diagnosticSeparator + origin + Id::diagnosticSeparator + jam::XmlDocument::isValid (sheetText).getErrorMessage());
 }
 
 static jam::Array<juce::Rectangle<float>> getCellLayout (const jam::ConfigDocument& manifest, const Element& sheetRoot, double cellWidth)
@@ -303,7 +304,7 @@ juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::Strin
     const auto sheet { getSheetDocument (sheetText, {}) };
     const auto metrics { manifest.getValueTree (Id::font).getChildWithName (jam::Format::toType (Id::metrics)) };
     const double cellWidth { metrics.getProperty (Id::cellWidth) };
-    const auto layout { getCellLayout (manifest, *sheet.getRoot(), cellWidth) };
+    const auto layout { getCellLayout (manifest, *sheet->getRoot(), cellWidth) };
     auto canvasWidth { static_cast<float> (sheetMarginLeft) };
 
     for (const auto& cellBounds : layout)
@@ -311,9 +312,9 @@ juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::Strin
 
     canvasWidth += static_cast<float> (sheetMarginRight);
     const auto canvasHeight { static_cast<float> (getCanvasHeight (getTotalRowCount (getGlyphRowCounts (manifest)))) };
-    const auto* backgroundRect { getBackgroundRect (*sheet.getRoot()) };
+    const auto* backgroundRect { getBackgroundRect (*sheet->getRoot()) };
 
     return getDocumentSvg (backgroundRect, canvasWidth, canvasHeight, getGuidesSvg (manifest, metrics, layout),
-                           getCellsSvg (manifest, *sheet.getRoot(), layout), getPassthroughSvg (*sheet.getRoot(), backgroundRect),
+                           getCellsSvg (manifest, *sheet->getRoot(), layout), getPassthroughSvg (*sheet->getRoot(), backgroundRect),
                            getColourText (manifest, Id::background));
 }

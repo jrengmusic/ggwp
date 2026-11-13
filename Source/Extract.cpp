@@ -270,7 +270,7 @@ void runExtractCommand (const juce::ArgumentList& args)
 
     if (manifest.getTables (Id::glyphs).isEmpty())
     {
-        addGlyphs (manifest, getSheetDocument (rawSheetText, fontFile.getFullPathName()).getRoot());
+        addGlyphs (manifest, getSheetDocument (rawSheetText, fontFile.getFullPathName())->getRoot());
         writeManifestFile (manifestFile, manifest);
     }
 

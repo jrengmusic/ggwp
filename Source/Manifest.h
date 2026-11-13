@@ -37,8 +37,10 @@ juce::String getPostScriptBase (const juce::String& familyName);
 /**
  * @brief Builds the manifest of a new font family from the embedded default manifest.
  *
- * The default manifest is a bundled markdown file, so a family starts from one
- * authored source instead of a copy of its values in code.
+ * The text is the bundled markdown file files::ggwpManifest, with the family and
+ * PostScript name base written into its placeholders by jam::Format::replaceholder.
+ * The command fails when the text does not parse as a config document, naming the
+ * file name.
  *
  * @param familyName     The family name written into the default manifest.
  * @param postScriptBase The PostScript name base written into the default manifest.
@@ -111,8 +113,8 @@ juce::String getColourText (const jam::ConfigDocument& manifest, const juce::Ide
 /**
  * @brief Parses a manifest file and validates it against the manifest schema.
  *
- * Every later reader trusts the returned document, so the schema is checked once,
- * here. The command fails on a validation error, naming the file.
+ * The command fails when the file does not parse as a valid config document, naming
+ * the file's full path and the validation message.
  *
  * @param manifestFile The manifest file to read.
  * @return The parsed, valid manifest document.

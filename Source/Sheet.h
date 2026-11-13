@@ -33,15 +33,17 @@ juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::Strin
 /**
  * @brief Parses a glyph sheet's Svg text, failing fast on invalid XML.
  *
- * Empty @p sheetText parses to an empty Document (no sheet exists yet) and
- * is not treated as invalid. A non-empty @p sheetText that fails to parse
- * fails the console application, naming @p origin in the message.
+ * Empty @p sheetText returns a new empty jam::XmlDocument (no sheet exists yet)
+ * and is not treated as invalid. A non-empty @p sheetText returns the document
+ * that jam::Xml::parse gives. Invalid text fails the console application with
+ * text::Diagnostics::failSheetXml, @p origin, and the jam::XmlDocument::isValid
+ * message, joined by Id::diagnosticSeparator.
  *
  * @param sheetText The glyph sheet's Svg source text, or empty when none exists.
  * @param origin    Identifies the sheet's source (e.g. file path) in the failure message.
  * @return The parsed Document.
  */
-jam::XmlDocument getSheetDocument (const juce::String& sheetText, const juce::String& origin);
+std::unique_ptr<jam::XmlDocument> getSheetDocument (const juce::String& sheetText, const juce::String& origin);
 
 /** @brief The codepoint count of a single glyph's cell. */
 static constexpr int singleCodepointCount { 1 };

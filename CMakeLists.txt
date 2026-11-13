@@ -87,7 +87,7 @@ endif()
 set(CAST_JUCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../JUCE")
 set(CAST_USER_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../jam")
 
-set(CAST_JUCE_VERSION 8.0.14)
+set(CAST_JUCE_VERSION 8.0.17)
 
 find_package(Git REQUIRED)
 
@@ -106,6 +106,7 @@ set(CAST_JUCE_PATCHES
 "${CAST_USER_MODULE_PATH}/patch/juce-plugin-window-focus-hook.patch"        # VST2 and AU host plugin windows take keyboard focus and make the plugin view first responder; applies after juce-plugin-transparency-hook.patch
 "${CAST_USER_MODULE_PATH}/patch/juce-mouse-event-hook.patch"                # Host mouse event callback before a peer's components; applies after juce-key-pressed-hook.patch
 "${CAST_USER_MODULE_PATH}/patch/juce-plugin-editor-once-hook.patch"         # VST2 plugin client opens the editor that effEditGetRect created, so the editor is built once; applies after juce-plugin-transparency-hook.patch
+"${CAST_USER_MODULE_PATH}/patch/juce-plugin-window-size-hook.patch"         # VST2 host child window takes the plugin's effEditGetRect size in physical pixels on Windows; applies after juce-plugin-transparency-hook.patch
 )
 
 if(WIN32)
@@ -199,7 +200,7 @@ juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_document")         # Uni
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_markdown")         # Clean-room native CommonMark + GFM markdown parsing and rendering
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_freetype")         # Vendored FreeType font rasterization library
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_graphics")         # Graphics utilities, blur, shadows, colours, fonts, mesh
-juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_data_structures")  # ValueTree management and data model utilities — model, parameters, JSON conversion
+juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_data_structures")  # ValueTree management and data model utilities — model, parameters
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_animation")        # Foundation animation classes (Animator, AnimationBase, AnimationScrollingText)
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_web")              # HTML authored-subset and CSS Syntax Level 3 subset tokenizers and parsers
 juce_add_module("${CMAKE_CURRENT_SOURCE_DIR}/../jam/jam_style")            # JAM Style — LookAndFeel base + ColourScheme-backed colour registry
