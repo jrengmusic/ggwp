@@ -1,4 +1,5 @@
-#include "Help.h"
+#include <JuceHeader.h>
+#include "generated/Generated.h"
 #include "Build.h"
 #include "Extract.h"
 #include "Init.h"
@@ -22,7 +23,11 @@ static void printBannerAndHelp()
 
     printBanner();
     printf ("%s", newlineText.toRawUTF8());
-    printHelp (BinaryData::getString (files::ggwpHelp));
+    jam::TerminalPage page { { BinaryData::fetcher }, jam::Strings { files::styleSheet } };
+    page.setDocument (std::move (*jam::MarkdownDocument::parse (BinaryData::getString (files::ggwpHelp), files::ggwpHelp)));
+    juce::MemoryOutputStream frame;
+    page.writeToStream (frame);
+    fwrite (frame.getData(), sizeof (char), frame.getDataSize(), stdout);
 }
 
 static bool isTerminalOutput() noexcept

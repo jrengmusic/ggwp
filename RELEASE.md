@@ -10,7 +10,7 @@ GlyphSheet Generation Workflow Protocol
 - The post fixed pitch flag derives from the whole-cell advances of the glyphs.
 - Cell widths are fractional, written to three decimal places.
 - The colour table holds every colour of the sheet, and the guides table places the cell guides.
-- The help is rendered with MarkdownComponent.
+- The help is rendered with jam::TerminalPage.
 - The release conforms to cast and scout: a signed macOS pkg and Windows x64 and arm64 installers.
 
 ## Platforms

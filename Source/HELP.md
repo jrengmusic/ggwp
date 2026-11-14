@@ -1,6 +1,6 @@
 # GGWP: GlyphSheet Generation Workflow Protocol
 
-**Version 1.0**
+**Version 0.0.1**
 
 You see this guide because you ran `ggwp --help`.
 

@@ -26,8 +26,8 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | projectName      | @char | ggwp                                             | toLiteral | GlyphSheet Generation Workflow Protocol |
 | companyName      | @char | JRENG                                            | toLiteral | Company name.                           |
 | legalCompanyName | @char | Jubilant Research of Eclectic Novelty Generation | toLiteral | Full legal company name.                |
-| versionString    | @char | 1.0                                              | toLiteral | Product version string.                 |
-| versionNumber    | int   | 0x100                                            |           | Product version, JUCE hex encoding.     |
+| versionString    | @char | 0.0.1                                            | toLiteral | Product version string.                 |
+| versionNumber    | int   | 0x1                                              |           | Product version, JUCE hex encoding.     |
 | productWebsite   | @char | `https://jrengmusic.com`                         |           | Product website URL.                    |
 | companyEmail     | @char | info@jrengmusic.com                              | toLiteral | Company contact email.                  |
 +------------------+-------+--------------------------------------------------+-----------+-----------------------------------------+
@@ -136,6 +136,7 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | @user-module | jam_mermaid_diagram   | Clean-room native mermaid diagram parsing over jam::Document producing the semantic Element tree |
 | @user-module | jam_markdown_graphics | Markdown and mermaid materialisation, layout and view component                                  |
 | @user-module | jam_terminal          | VT read-side engine, TTY, protocol vocabulary, keyboard encoding                                 |
+| @user-module | jam_tui               | Terminal user interface components, painted through the terminal graphics context                |
 | @user-module | jam_profiler          | Profiler zones — per-thread rings drained to durations per zone                                  |
 | @user-module | jam_subprocess        | JUCE-based subprocess launcher with streaming output and byte-cap truncation                     |
 | @user-module | jam_opentype          | Clean-room OpenType binary table serialization and cubic-to-quadratic curve reduction            |
@@ -183,13 +184,13 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 
 ## binary
 
-+------------+--------------------+---------------------------------------------------+
-| name       | value              | description                                       |
-+============+====================+===================================================+
-| help       | Source/HELP.md     | Help document source                              |
-| manifest   | Source/manifest.md | Default manifest template, embedded as BinaryData |
-| styleSheet | Source/style.css   | Stylesheet, embedded as BinaryData                |
-+------------+--------------------+---------------------------------------------------+
++------------+-------------------------------+---------------------------------------------------+
+| name       | value                         | description                                       |
++============+===============================+===================================================+
+| help       | Source/HELP.md                | Help document source                              |
+| manifest   | Source/manifest.md            | Default manifest template, embedded as BinaryData |
+| styleSheet | ../jam/jam_tui/page/style.css | Stylesheet, embedded as BinaryData                |
++------------+-------------------------------+---------------------------------------------------+
 
 ## toolchain
 
@@ -238,7 +239,7 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | The post fixed pitch flag derives from the whole-cell advances of the glyphs.                                     |
 | Cell widths are fractional, written to three decimal places.                                                      |
 | The colour table holds every colour of the sheet, and the guides table places the cell guides.                    |
-| The help is rendered with MarkdownComponent.                                                                      |
+| The help is rendered with jam::TerminalPage.                                                                      |
 | The release conforms to cast and scout: a signed macOS pkg and Windows x64 and arm64 installers.                  |
 +-------------------------------------------------------------------------------------------------------------------+
 
