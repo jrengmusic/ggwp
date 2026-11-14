@@ -37,7 +37,7 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
 | key                         | value                                         | description                               |
 +=============================+===============================================+===========================================+
-| description                 | GlyphSheet Generation Workflow Protocol       | Project description, single line          |
+| projectDescription          | GlyphSheet Generation Workflow Protocol       | Project description, single line          |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
 | banner                      | ggwp                                          | Banner artwork, printed at configure time |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
@@ -50,6 +50,8 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | cxxStandard                 | 17                                            | C++ language standard                     |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
 | deploymentTarget            | `11.0`                                        | Minimum macOS deployment target           |
++-----------------------------+-----------------------------------------------+-------------------------------------------+
+| architecture                | x86_64;arm64                                  | macOS architectures                       |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
 | msvcRuntime                 | `MultiThreaded$<$<CONFIG:Debug>:Debug>`       | MSVC runtime library selection            |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
@@ -95,15 +97,6 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
 | installDirectoryWindows     | $PROFILE\\.local\\bin                         | Windows installer default directory       |
 +-----------------------------+-----------------------------------------------+-------------------------------------------+
-
-## architecture
-
-+--------+
-| value  |
-+========+
-| x86_64 |
-| arm64  |
-+--------+
 
 ## juce module
 
@@ -151,7 +144,7 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | @source | h         | Source headers, including generated |
 +---------+-----------+-------------------------------------+
 
-## define
+## macro
 
 +------------------------------------+----------------------------------------------------------------------+---------------------------------------------------------------+
 | name                               | value                                                                | description                                                   |
@@ -191,6 +184,13 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | manifest   | Source/manifest.md            | Default manifest template, embedded as BinaryData |
 | styleSheet | ../jam/jam_tui/page/style.css | Stylesheet, embedded as BinaryData                |
 +------------+-------------------------------+---------------------------------------------------+
+
+## library
+
++------+-------+-------------+
+| name | value | description |
++======+=======+=============+
++------+-------+-------------+
 
 ## toolchain
 
@@ -234,12 +234,19 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | note                                                                                                              |
 +===================================================================================================================+
 | --extract writes a glyph sheet from a TTF, with ligatures found by shaping.                                       |
++-------------------------------------------------------------------------------------------------------------------+
 | The units per em is 1024 for every font. It is a contract constant, not a manifest value.                         |
++-------------------------------------------------------------------------------------------------------------------+
 | A weight table may carry its own ascender, descender and lineGap rows, which replace the metrics for that weight. |
++-------------------------------------------------------------------------------------------------------------------+
 | The post fixed pitch flag derives from the whole-cell advances of the glyphs.                                     |
++-------------------------------------------------------------------------------------------------------------------+
 | Cell widths are fractional, written to three decimal places.                                                      |
++-------------------------------------------------------------------------------------------------------------------+
 | The colour table holds every colour of the sheet, and the guides table places the cell guides.                    |
++-------------------------------------------------------------------------------------------------------------------+
 | The help is rendered with jam::TerminalPage.                                                                      |
++-------------------------------------------------------------------------------------------------------------------+
 | The release conforms to cast and scout: a signed macOS pkg and Windows x64 and arm64 installers.                  |
 +-------------------------------------------------------------------------------------------------------------------+
 
