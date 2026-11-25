@@ -34,39 +34,39 @@
 
 ## headers
 
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| file           | brief                                                                                    | description                               |
-+================+==========================================================================================+===========================================+
-| ProjectInfo.h  | ```                                                                                      | Product name, version, and source commit. |
-|                | @file ProjectInfo.h                                                                      |                                           |
-|                | @brief Project metadata — the generated ProjectInfo namespace.                           |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| Identifiers.h  | ```                                                                                      | Every Id:: name.                          |
-|                | @file Identifiers.h                                                                      |                                           |
-|                | @brief GGWP manifest vocabulary.                                                         |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| Text.h         | ```                                                                                      | One string per failure, plus the success  |
-|                | @file Text.h                                                                             | line.                                     |
-|                | @brief ggwp message strings — one constant per failure.                                  |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| Files.h        | ```                                                                                      | File names ggwp reads: help.              |
-|                | @file Files.h                                                                            |                                           |
-|                | @brief ggwp's own file names, referenced by the program.                                 |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| HashMaps.h     | ```                                                                                      | Banner rows.                              |
-|                | @file HashMaps.h                                                                         |                                           |
-|                | @brief ggwp's banner rows.                                                               |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
-| Generated.h    | ```                                                                                      | Include umbrella for every generated      |
-|                | @file Generated.h                                                                        | header.                                   |
-|                | @brief ggwp's generated-header umbrella — includes every generated header.               |                                           |
-|                | ```                                                                                      |                                           |
-+----------------+------------------------------------------------------------------------------------------+-------------------------------------------+
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| file          | brief                                                                      | description                               |
++===============+============================================================================+===========================================+
+| ProjectInfo.h | ```                                                                        | Product name, version, and source commit. |
+|               | @file ProjectInfo.h                                                        |                                           |
+|               | @brief Project metadata — the generated ProjectInfo namespace.             |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| Identifiers.h | ```                                                                        | Every Id:: name.                          |
+|               | @file Identifiers.h                                                        |                                           |
+|               | @brief GGWP manifest vocabulary.                                           |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| Text.h        | ```                                                                        | One string per failure, plus the success  |
+|               | @file Text.h                                                               | line.                                     |
+|               | @brief ggwp message strings — one constant per failure.                    |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| Files.h       | ```                                                                        | File names ggwp reads: help.              |
+|               | @file Files.h                                                              |                                           |
+|               | @brief ggwp's own file names, referenced by the program.                   |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| HashMaps.h    | ```                                                                        | Banner rows.                              |
+|               | @file HashMaps.h                                                           |                                           |
+|               | @brief ggwp's banner rows.                                                 |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
+| Generated.h   | ```                                                                        | Include umbrella for every generated      |
+|               | @file Generated.h                                                          | header.                                   |
+|               | @brief ggwp's generated-header umbrella — includes every generated header. |                                           |
+|               | ```                                                                        |                                           |
++---------------+----------------------------------------------------------------------------+-------------------------------------------+
 
 ## output
 
@@ -86,12 +86,16 @@
 | - [list]: @project-info:release:stage=linker  | - [list]: @semicolon      | - [list]: @cmake:win                          |                  |
 | - [list]: @project-info:debug:stage=          | - [list]: @semicolon      | - [list]: @cmake:mac                          |                  |
 | - [list]: @project-info:user module           |                           | - [list]: @cmake:module                       |                  |
+| - [list]: @project-info:program user module   |                           | - [list]: @cmake:module                       |                  |
 | - [list]: @project-info:source glob           |                           | - [list]: @cmake:glob-pattern                 |                  |
 | - [list]: @project-info:macro                 |                           | - [list]: @cmake:value                        |                  |
 | - [list]: @project-info:include               |                           | - [list]: @cmake:value                        |                  |
 | - [list]: @project-info:juce module           |                           | - [list]: @cmake:value                        |                  |
 | - [list]: @project-info:user module           |                           | - [list]: @cmake:link                         |                  |
 | - [list]: @project-info:library               |                           | - [list]: @cmake:value                        |                  |
+| - [list]: @project-info:program module        |                           | - [list]: @cmake:value                        |                  |
+| - [list]: @project-info:library               |                           | - [list]: @cmake:value                        |                  |
+| - [list]: @project-info:help                  |                           | - [list]: @cmake:value                        |                  |
 | - [list]: @project-info:binary                |                           | - [list]: @cmake:value                        |                  |
 | - [list]: @project-info:pack                  |                           | - [list]: @cmake:pack-value                   |                  |
 |                                               |                           | - strip: @cmake:strip                         |                  |

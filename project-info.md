@@ -130,10 +130,35 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | @user-module | jam_markdown_graphics | Markdown and mermaid materialisation, layout and view component                                  |
 | @user-module | jam_terminal          | VT read-side engine, TTY, protocol vocabulary, keyboard encoding                                 |
 | @user-module | jam_tui               | Terminal user interface components, painted through the terminal graphics context                |
-| @user-module | jam_profiler          | Profiler zones — per-thread rings drained to durations per zone                                  |
-| @user-module | jam_subprocess        | JUCE-based subprocess launcher with streaming output and byte-cap truncation                     |
-| @user-module | jam_opentype          | Clean-room OpenType binary table serialization and cubic-to-quadratic curve reduction            |
 +--------------+-----------------------+--------------------------------------------------------------------------------------------------+
+
+## program module
+
++-------------------+----------------------+
+| name              | value                |
++===================+======================+
+| core              | juce_core            |
+| dataStructures    | juce_data_structures |
+| events            | juce_events          |
+| graphics          | juce_graphics        |
+| guiBasics         | juce_gui_basics      |
+| jamCore           | jam_core             |
+| jamDocument       | jam_document         |
+| jamFreetype       | jam_freetype         |
+| jamGraphics       | jam_graphics         |
+| jamDataStructures | jam_data_structures  |
+| jamStyle          | jam_style            |
+| jamMarkdown       | jam_markdown         |
+| jamOpentype       | jam_opentype         |
++-------------------+----------------------+
+
+## program user module
+
++--------------+--------------+---------------------------------------------------------------------------------------+
+| root         | name         | description                                                                           |
++==============+==============+=======================================================================================+
+| @user-module | jam_opentype | Clean-room OpenType binary table serialization and cubic-to-quadratic curve reduction |
++--------------+--------------+---------------------------------------------------------------------------------------+
 
 ## source glob
 
@@ -175,15 +200,22 @@ Every field is a complete literal; nothing downstream derives, concatenates, or 
 | harfbuzz   | `${CAST_JUCE_PATH}/modules/juce_graphics/fonts/harfbuzz` |                                           |
 +------------+----------------------------------------------------------+-------------------------------------------+
 
+## help
+
++------------+-------------------------------+------------------------------------+
+| name       | value                         | description                        |
++============+===============================+====================================+
+| help       | Source/HELP.md                | Help document source               |
+| styleSheet | ../jam/jam_tui/page/style.css | Stylesheet, embedded as BinaryData |
++------------+-------------------------------+------------------------------------+
+
 ## binary
 
-+------------+-------------------------------+---------------------------------------------------+
-| name       | value                         | description                                       |
-+============+===============================+===================================================+
-| help       | Source/HELP.md                | Help document source                              |
-| manifest   | Source/manifest.md            | Default manifest template, embedded as BinaryData |
-| styleSheet | ../jam/jam_tui/page/style.css | Stylesheet, embedded as BinaryData                |
-+------------+-------------------------------+---------------------------------------------------+
++----------+--------------------+---------------------------------------------------+
+| name     | value              | description                                       |
++==========+====================+===================================================+
+| manifest | Source/manifest.md | Default manifest template, embedded as BinaryData |
++----------+--------------------+---------------------------------------------------+
 
 ## library
 

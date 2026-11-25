@@ -15,6 +15,7 @@
 +---------+--------------+---------------+----------------------------+
 | type    | name         | value         | description                |
 +=========+==============+===============+============================+
-| @string | ggwpHelp     | `HELP.md`     | Rendered help text.        |
+| @string | ggwpHelp     | `HELP.frame`  | Rendered help text.        |
+| @string | screenErase  | `erase.frame` | Screen erase sequence.     |
 | @string | ggwpManifest | `manifest.md` | Default manifest template. |
 +---------+--------------+---------------+----------------------------+
