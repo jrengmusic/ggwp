@@ -13,7 +13,8 @@
  *
  * @param manifestFile The manifest file; its parent directory is the one
  *                     path rule this function applies.
- * @param weight       The weight's ValueTree, holding its property keyed by Extensions::svg.
+ * @param weight       The weight's ValueTree, holding its property keyed by
+ *                     jam::Format::toType (juce::Identifier { Extensions::svg }).
  * @return The manifest's parent directory joined with the weight's svg path.
  */
 juce::File getWeightSheetFile (const juce::File& manifestFile, const juce::ValueTree& weight);
@@ -37,14 +38,14 @@ juce::String getPostScriptBase (const juce::String& familyName);
 /**
  * @brief Builds the manifest of a new font family from the embedded default manifest.
  *
- * The text is the bundled markdown file files::ggwpManifest, with the family and
- * PostScript name base written into its placeholders by jam::Format::replaceholder.
- * The command fails when the text does not parse as a config document, naming the
- * file name.
+ * jam::Format::replaceholder writes @p familyName and @p postScriptBase into
+ * files::ggwpManifest. Validation runs jam::ConfigValidator rules without the
+ * metrics rule. The command fails on a validation error. Failure reports the
+ * validation message and the file name.
  *
  * @param familyName     The family name written into the default manifest.
  * @param postScriptBase The PostScript name base written into the default manifest.
- * @return The parsed manifest document.
+ * @return The parsed, valid manifest document.
  */
 jam::ConfigDocument getDefaultManifest (const juce::String& familyName, const juce::String& postScriptBase);
 
@@ -111,10 +112,11 @@ juce::String getGlyphText (const jam::ConfigDocument& document, const jam::Docum
 juce::String getColourText (const jam::ConfigDocument& manifest, const juce::Identifier& key);
 
 /**
- * @brief Parses a manifest file and validates it against the manifest schema.
+ * @brief Parses a manifest file and validates it.
  *
- * The command fails when the file does not parse as a valid config document, naming
- * the file's full path and the validation message.
+ * Validation runs jam::ConfigValidator rules without the metrics rule.
+ * The command fails on a validation error. Failure reports the validation
+ * message and the file's full path.
  *
  * @param manifestFile The manifest file to read.
  * @return The parsed, valid manifest document.

@@ -3,6 +3,8 @@
 #include "Manifest.h"
 #include "Sheet.h"
 
+static const auto svg { jam::Format::toType (juce::Identifier { Extensions::svg }) };
+
 const juce::String& getInitOption()
 {
     static const juce::String initOption { juce::String (Chars::doubleDash) + Id::init.toString() };
@@ -11,8 +13,6 @@ const juce::String& getInitOption()
 
 static void addMissingGlyphsTable (jam::ConfigDocument& manifest, const juce::File& manifestFile)
 {
-    static const juce::Identifier svg { Extensions::svg };
-
     if (manifest.getTables (Id::glyphs).isEmpty())
     {
         const auto weightSheetFile { [&manifest, &manifestFile] () -> juce::File
@@ -60,8 +60,6 @@ static void addMissingTables (jam::ConfigDocument& manifest, const juce::File& m
 
 static void writeWeightSheets (const jam::ConfigDocument& manifest, const juce::File& manifestFile)
 {
-    static const juce::Identifier svg { Extensions::svg };
-
     for (auto weight : manifest.getValueTree (Id::font))
     {
         if (weight.getProperty (svg).toString().isNotEmpty())

@@ -49,7 +49,7 @@ static juce::String getGuideLinesSvg (const jam::ConfigDocument& manifest, juce:
 static juce::String getAdvanceLinesSvg (const juce::ValueTree& metrics, const juce::String& glyphText,
                                         juce::Rectangle<float> cellBounds, const juce::Colour& colour)
 {
-    const double cellWidth { metrics.getProperty (Id::cellWidth) };
+    const double cellWidth { metrics.getProperty (jam::Format::toType (Id::cellWidth)) };
     const auto plainAdvance { jam::OpenTypeDocument::getPlainAdvance (metrics) };
     const auto sheetScale { jam::OpenTypeDocument::getSheetScale (metrics) };
     const auto codepointCount { glyphText.length() };

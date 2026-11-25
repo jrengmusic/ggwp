@@ -303,7 +303,7 @@ juce::String getSheetSvg (const jam::ConfigDocument& manifest, const juce::Strin
 {
     const auto sheet { getSheetDocument (sheetText, {}) };
     const auto metrics { manifest.getValueTree (Id::font).getChildWithName (jam::Format::toType (Id::metrics)) };
-    const double cellWidth { metrics.getProperty (Id::cellWidth) };
+    const double cellWidth { metrics.getProperty (jam::Format::toType (Id::cellWidth)) };
     const auto layout { getCellLayout (manifest, *sheet->getRoot(), cellWidth) };
     auto canvasWidth { static_cast<float> (sheetMarginLeft) };
 

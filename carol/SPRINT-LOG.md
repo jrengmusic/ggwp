@@ -112,6 +112,46 @@
 
 ## SPRINT HISTORY
 
+## Sprint 10: Manifest Validation and Upper-Snake ValueTree Keys ✅
+
+**Date:** 2026-11-25
+**Duration:** 01:30
+
+### Agents Participated
+- COUNSELOR — root-cause tracing, plan update, step validation, audit filter, sprint log
+- Pathfinder — history checks, ConfigDocument property-key discovery, `Manifest.h` doxygen pass
+- Engineer — `ManifestValidator` / `ManifestDocument`, `Format::toType` property-key updates in `ggwp` and `jam_opentype`, `Init.cpp` audit fix, baseline verification
+- Auditor — two sweeps on `ggwp` and `jam_opentype` changes (one Low finding resolved)
+
+### Files Modified (6 total in ggwp; 1 in jam)
+- `Source/Manifest.cpp:6-36, 130-137, 196-199, 232` — added file-scope `ManifestValidator` (removes theme-only `Id::metrics` rule) and `ManifestDocument::getValidated` (single parse-and-validate path via `protected` `jam::ConfigDocument::getDocument`); updated `getWeightSheetFile` to key `weight` with `jam::Format::toType (juce::Identifier { Extensions::svg })`.
+- `Source/Manifest.h:16-17, 38-49, 114-123` — updated docstrings for `getWeightSheetFile`, `getDefaultManifest`, and `getValidatedManifest`.
+- `Source/Init.cpp:6, 21, 65` — hoisted `svg` (`jam::Format::toType`) to file scope (resolving audit finding on duplicate local declarations).
+- `Source/Extract.cpp:181, 224` — updated `metrics.getProperty` calls (`Id::baseline`, `Id::cellWidth`) to use `jam::Format::toType`.
+- `Source/Guides.cpp:52` — updated `metrics.getProperty (Id::cellWidth)` to use `jam::Format::toType`.
+- `Source/Sheet.cpp:306` — updated `metrics.getProperty (Id::cellWidth)` to use `jam::Format::toType`.
+- `../jam/jam_opentype/document/jam_OpenTypeDocument.cpp:468-710` — updated all `ConfigDocument` ValueTree `getProperty`, `hasProperty`, and `setProperty` keys to use `Format::toType`.
+
+### Alignment Check
+- [x] BLESSED principles followed
+- [x] NAMES.md adhered
+- [x] MANIFESTO.md principles applied
+
+### Problems Solved
+- `jam::ConfigValidator::getMetricsFailures` rejected `int` rows in `## metrics` of font manifests; `ManifestValidator` removes only that theme-specific rule while keeping every other `ConfigValidator` rule active.
+- `jam::ConfigDocument::addProperty` stores ValueTree property keys in `UPPER_SNAKE_CASE` via `Format::toTag`, causing `ggwp` and `jam_opentype` to miss `svg` and metric/name properties; all lookups now pass `Format::toType`.
+- Rebuilt `ggwp` produces byte-identical baseline fonts for all six `Display` and `Display Mono` weights.
+
+### State for Continuation
+- `Source/Init.cpp:6` (file-scope `svg` audit fix) and `Source/Manifest.h` (doxygen pass) were edited after the last `ggwp` build; rebuild `ggwp` if needed.
+- Doxygen regeneration did not run (`Builds/Release` has no `doxygen` target).
+
+### Debts Paid
+- None
+
+### Debts Deferred
+- None
+
 ## Sprint 9: Build Against the jam Document Contract; JUCE 8.0.17 ✅
 
 **Date:** 2026-11-14

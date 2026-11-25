@@ -178,7 +178,7 @@ static double getNormalisation (const jam::Typeface::Entry& entry)
 
 static juce::AffineTransform getUnitsToSheet (double normalisation, const juce::ValueTree& metrics)
 {
-    const double baseline { metrics.getProperty (Id::baseline) };
+    const double baseline { metrics.getProperty (jam::Format::toType (Id::baseline)) };
     const auto glyphToSheet { jam::OpenTypeDocument::getGlyphTransform (jam::OpenTypeDocument::getSheetScale (metrics), baseline, 0.0, 0.0).inverted() };
 
     return juce::AffineTransform::scale (static_cast<float> (normalisation)).followedBy (glyphToSheet);
@@ -221,7 +221,7 @@ static juce::String getCharacterGroupsText (const jam::Typeface::Entry& entry, c
 
 static juce::String getRawSheetText (const jam::Typeface::Entry& entry, const juce::ValueTree& metrics)
 {
-    const double cellWidth { metrics.getProperty (Id::cellWidth) };
+    const double cellWidth { metrics.getProperty (jam::Format::toType (Id::cellWidth)) };
     const auto plainAdvance { jam::OpenTypeDocument::getPlainAdvance (metrics) };
     const auto normalisation { getNormalisation (entry) };
     const auto unitsToSheet { getUnitsToSheet (normalisation, metrics) };

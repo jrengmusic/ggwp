@@ -3,6 +3,38 @@
 
 using Element = jam::Document::Element;
 
+struct ManifestValidator : jam::ConfigValidator
+{
+    const Rules& getRules() const override
+    {
+        static const auto rules (
+            []
+            {
+                Rules rules;
+                jam::ConfigValidator::addRules (rules);
+                rules.erase (Id::metrics.toString());
+                return rules;
+            }()
+        );
+
+        return rules;
+    }
+};
+
+struct ManifestDocument : jam::ConfigDocument
+{
+    static jam::ConfigDocument getValidated (const juce::String& manifestText, const juce::String& origin)
+    {
+        auto document { getDocument (manifestText, origin) };
+        const auto result { ManifestValidator {}.isValid (*document) };
+
+        if (result.wasOk())
+            return std::move (*document);
+
+        juce::ConsoleApplication::fail (result.getErrorMessage() + Id::diagnosticSeparator + origin);
+    }
+};
+
 static bool isBacktickCell (const juce::String& text)
 {
     return text.compare (juce::String::charToString (Chars::backtick)) == 0;
@@ -101,10 +133,7 @@ jam::ConfigDocument getDefaultManifest (const juce::String& familyName, const ju
         jam::Format::replaceholder (BinaryData::getString (files::ggwpManifest), "family", familyName, "@"),
         "postScriptBase", postScriptBase, "@") };
 
-    if (const auto manifest { jam::ConfigDocument::parse (manifestText, files::ggwpManifest) }; manifest != nullptr)
-        return std::move (*manifest);
-
-    juce::ConsoleApplication::fail (jam::ConfigDocument::isValid (manifestText, files::ggwpManifest).getErrorMessage() + Id::diagnosticSeparator + files::ggwpManifest);
+    return ManifestDocument::getValidated (manifestText, files::ggwpManifest);
 }
 
 void addDefaultTable (jam::ConfigDocument& manifest, const juce::Identifier& tableId)
@@ -166,13 +195,7 @@ juce::String getColourText (const jam::ConfigDocument& manifest, const juce::Ide
 
 jam::ConfigDocument getValidatedManifest (const juce::File& manifestFile)
 {
-    const auto manifestText { manifestFile.loadFileAsString() };
-    const auto origin { manifestFile.getFullPathName() };
-
-    if (const auto manifest { jam::ConfigDocument::parse (manifestText, origin) }; manifest != nullptr)
-        return std::move (*manifest);
-
-    juce::ConsoleApplication::fail (jam::ConfigDocument::isValid (manifestText, origin).getErrorMessage() + Id::diagnosticSeparator + origin);
+    return ManifestDocument::getValidated (manifestFile.loadFileAsString(), manifestFile.getFullPathName());
 }
 
 void writeManifestFile (const juce::File& manifestFile, const jam::ConfigDocument& document)
@@ -206,7 +229,7 @@ juce::Identifier getValidatedWeight (const juce::ArgumentList& args, const juce:
 
 juce::File getWeightSheetFile (const juce::File& manifestFile, const juce::ValueTree& weight)
 {
-    static const juce::Identifier svg { Extensions::svg };
+    static const auto svg { jam::Format::toType (juce::Identifier { Extensions::svg }) };
 
     return manifestFile.getParentDirectory().getChildFile (weight.getProperty (svg).toString());
 }
