@@ -31,3 +31,5 @@ docs/
 
 # Neovim project state (core/project.lua materialisation)
 .project
+.claude/agents/
+.claude/commands/

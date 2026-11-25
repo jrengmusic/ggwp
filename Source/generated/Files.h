@@ -28,6 +28,7 @@ namespace files
 /** @brief File names ggwp reads: help and the default manifest. */
 
 extern const juce::String ggwpHelp;    ///< Rendered help text.
+extern const juce::String screenErase; ///< Screen erase sequence.
 extern const juce::String ggwpManifest;///< Default manifest template.
 
 /**______________________________END OF NAMESPACE______________________________*/

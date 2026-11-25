@@ -41,7 +41,8 @@ namespace files
 
 /** @brief File names ggwp reads: help and the default manifest. */
 
-const juce::String ggwpHelp     { juce::String::fromUTF8 ("HELP.md") };
+const juce::String ggwpHelp     { juce::String::fromUTF8 ("HELP.frame") };
+const juce::String screenErase  { juce::String::fromUTF8 ("erase.frame") };
 const juce::String ggwpManifest { juce::String::fromUTF8 ("manifest.md") };
 
 /**______________________________END OF NAMESPACE______________________________*/
